@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 
 /// <summary>
-/// 主界面状态
+/// 篝火状态
 /// </summary>
-public class MainMenuStatus : GameStatus
+public class BonfireState : GameState
 {
     protected internal override void OnEnter()
     {
@@ -24,17 +24,18 @@ public class MainMenuStatus : GameStatus
     }
 
     /// <summary>
-    /// 开始新游戏
+    /// 恢复队伍状态
     /// </summary>
-    public void NewGame()
+    public void RecoverTeam()
     {
         throw new System.NotImplementedException();
     }
 
     /// <summary>
-    /// 退出游戏
+    /// 提升成员等级
     /// </summary>
-    public void Quit()
+    /// <param name="id">成员id</param>
+    public void LevelUp(int id)
     {
         throw new System.NotImplementedException();
     }

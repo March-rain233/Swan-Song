@@ -6,7 +6,7 @@ using System.Text;
 /// <summary>
 /// 战斗状态
 /// </summary>
-public class BattleStatus : GameStatus
+public class BattleState : GameState
 {
     /// <summary>
     /// 回合开始时
@@ -24,10 +24,8 @@ public class BattleStatus : GameStatus
     /// </summary>
     public Map Map
     {
-        get => default;
-        private set
-        {
-        }
+        get;
+        private set;
     }
 
     /// <summary>
@@ -35,18 +33,17 @@ public class BattleStatus : GameStatus
     /// </summary>
     public List<Unit> UnitList
     {
-        get => default;
-        set
-        {
-        }
-    }
+        get;
+        private set;
+    } = new();
 
     /// <summary>
     /// 当前进行操作的单位
     /// </summary>
     public Unit CurrentUnit
     {
-        get => default;
+        get;
+        private set;
     }
 
     /// <summary>
@@ -55,15 +52,16 @@ public class BattleStatus : GameStatus
     /// <remarks>从1开始</remarks>
     public int RoundNumber
     {
-        get => default;
-        set
-        {
-        }
-    }
+        get;
+        private set;
+    } = 1;
 
     protected internal override void OnEnter()
     {
-        throw new NotImplementedException();
+        Map = MapFactory.CreateMap("");
+        UnitList = EnemyFactory.CreateEnemy(Map, "");
+        GameToolKit.ServiceFactory.Instance.GetService<MapRenderer>()
+            .RenderMap(Map);
     }
 
     protected internal override void OnExit()
@@ -73,7 +71,7 @@ public class BattleStatus : GameStatus
 
     protected internal override void OnUpdata()
     {
-        throw new NotImplementedException();
+
     }
 
     /// <summary>
@@ -81,15 +79,18 @@ public class BattleStatus : GameStatus
     /// </summary>
     public Unit GetNextUnit(Unit unit)
     {
-        throw new System.NotImplementedException();
+        return UnitList.Where(u=>u.ActionStatus == ActionStatus.Waitting)
+            .OrderBy(u=>u.UnitData.Speed)
+            .First(u=>u != unit && u.UnitData.Speed >= unit.UnitData.Speed);
     }
 
     /// <summary>
     /// 获取当前的单位次序列表
     /// </summary>
-    public List<Unit> GetUnitOrderList()
+    public IEnumerable<Unit> GetUnitOrderList()
     {
-        throw new System.NotImplementedException();
+        return UnitList.Where(u => u.ActionStatus == ActionStatus.Waitting || u.ActionStatus == ActionStatus.Running)
+            .OrderBy(u => u.UnitData.Speed);
     }
 
     /// <summary>

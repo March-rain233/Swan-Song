@@ -11,18 +11,16 @@ public abstract class Card
     /// <param name="model">模板</param>
     public Card(CardModel model)
     {
-        throw new System.NotImplementedException();
+        PrototypeData = model;
     }
 
     /// <summary>
     /// 卡牌数据原型
     /// </summary>
-    public CardModel PeototypeData
+    public CardModel PrototypeData
     {
-        get => default;
-        set
-        {
-        }
+        get;
+        internal set;
     }
 
     /// <summary>
@@ -30,10 +28,8 @@ public abstract class Card
     /// </summary>
     public int Cost
     {
-        get => default;
-        set
-        {
-        }
+        get;
+        set;
     }
 
     /// <summary>
@@ -41,10 +37,8 @@ public abstract class Card
     /// </summary>
     public bool HasEnchanted
     {
-        get => default;
-        set
-        {
-        }
+        get;
+        set;
     }
 
     /// <summary>
@@ -52,34 +46,28 @@ public abstract class Card
     /// </summary>
     public HashSet<Entry> Entries
     {
-        get => default;
-        set
-        {
-        }
+        get;
+        internal set;
     }
 
     /// <summary>
     /// 释放卡牌
     /// </summary>
-    protected internal void Release()
-    {
-        throw new System.NotImplementedException();
-    }
+    protected internal abstract void Release();
 
     /// <summary>
     /// 检查卡牌是否可以释放
     /// </summary>
     /// <param name="unit">持有卡牌的单位</param>
-    protected internal bool CheckAvaliable(Unit unit)
-    {
-        throw new System.NotImplementedException();
-    }
+    protected internal abstract bool CheckAvaliable(Unit unit);
 
     /// <summary>
     /// 复制卡牌对象
     /// </summary>
-    public Card Clone()
+    public virtual Card Clone()
     {
-        throw new System.NotImplementedException();
+        var card = MemberwiseClone() as Card;
+        card.Entries = new HashSet<Entry>(card.Entries);
+        return card;
     }
 }

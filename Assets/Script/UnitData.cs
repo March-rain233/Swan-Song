@@ -11,97 +11,47 @@ public class UnitData
     /// <summary>
     /// 行动点上限
     /// </summary>
-    public int ActionPointMax
-    {
-        get => default;
-        set
-        {
-        }
-    }
+    public int ActionPointMax;
 
     /// <summary>
     /// 攻击力
     /// </summary>
-    public int Attack
-    {
-        get => default;
-        set
-        {
-        }
-    }
+    public int Attack;
 
     /// <summary>
     /// 当前单位的血量
     /// </summary>
-    public int Blood
-    {
-        get => default;
-        set
-        {
-        }
-    }
+    public int Blood;
 
     /// <summary>
     /// 防御力
     /// </summary>
-    public int Defence
-    {
-        get => default;
-        set
-        {
-        }
-    }
+    public int Defence;
 
     /// <summary>
     /// 治愈力
     /// </summary>
-    public int Heal
-    {
-        get => default;
-        set
-        {
-        }
-    }
+    public int Heal;
 
     /// <summary>
     /// 单位等级
     /// </summary>
-    public int Level
-    {
-        get => default;
-        set
-        {
-        }
-    }
+    public int Level;
 
     /// <summary>
     /// 先手
     /// </summary>
-    public int Speed
-    {
-        get => default;
-        set
-        {
-        }
-    }
+    public int Speed;
 
     /// <summary>
     /// 血量上限
     /// </summary>
-    public int BloodMax
-    {
-        get => default;
-        set
-        {
-        }
-    }
+    public int BloodMax;
 
     public UnitModel UnitModel
     {
-        get => default;
-        set
-        {
-        }
+        get;
+        internal set;
     }
 
     /// <summary>
@@ -109,10 +59,8 @@ public class UnitData
     /// </summary>
     public List<Card> Deck
     {
-        get => default;
-        set
-        {
-        }
+        get;
+        internal set;
     }
 
     /// <summary>
@@ -120,10 +68,8 @@ public class UnitData
     /// </summary>
     public int ID
     {
-        get => default;
-        set
-        {
-        }
+        get;
+        private set;
     }
 
     /// <summary>
@@ -131,7 +77,7 @@ public class UnitData
     /// </summary>
     public UnitData Clone()
     {
-        throw new System.NotImplementedException();
+        return MemberwiseClone() as UnitData;
     }
 
     /// <summary>
@@ -139,6 +85,7 @@ public class UnitData
     /// </summary>
     public void LevelUp()
     {
+        //todo：升级公式
         throw new System.NotImplementedException();
     }
 }

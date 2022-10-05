@@ -11,7 +11,7 @@ public abstract class Unit : IHurtable, ICurable
     /// 结束回合回调缓存
     /// </summary>
     private Action _callback;
-    private List<Buff> _buffList;
+    private List<Buff> _buffList = new List<Buff>();
 
     /// <summary>
     /// 当单位开始当前回合的行动
@@ -31,21 +31,17 @@ public abstract class Unit : IHurtable, ICurable
     /// </summary>
     public ActionStatus ActionStatus
     {
-        get => default;
-        set
-        {
-        }
-    }
+        get;
+        private set;
+    } = ActionStatus.Waitting;
 
     /// <summary>
     /// 卡牌调度器
     /// </summary>
     public CardScheduler Scheduler
     {
-        get => default;
-        set
-        {
-        }
+        get;
+        private set;
     }
 
     /// <summary>
@@ -53,32 +49,33 @@ public abstract class Unit : IHurtable, ICurable
     /// </summary>
     public IReadOnlyList<Buff> BuffList
     {
-        get => default;
-        set
-        {
-        }
+        get => _buffList;
     }
 
     /// <summary>
     /// 单位的位置
     /// </summary>
-    public UnityEngine.Vector2Int Position
+    public Vector2Int Position
     {
-        get => default;
+        get => _position;
         set
         {
+            var manager = GameToolKit.ServiceFactory.Instance.GetService<GameManager>()
+                .GetStatus() as BattleState;
+            manager.Map[_position.x, _position.y].Exit(this);
+            _position = value;
+            manager.Map[_position.x, _position.y].Enter(this);
         }
     }
+    Vector2Int _position = Vector2Int.zero;
 
     /// <summary>
     /// 单位数据
     /// </summary>
     public UnitData UnitData
     {
-        get => default;
-        set
-        {
-        }
+        get;
+        private set;
     }
 
     /// <summary>
@@ -86,10 +83,14 @@ public abstract class Unit : IHurtable, ICurable
     /// </summary>
     public int ActionPoint
     {
-        get => default;
-        set
-        {
-        }
+        get;
+        set;
+    }
+
+    protected Unit(UnitData data, List<Card> cards)
+    {
+        UnitData = data;
+        Scheduler = new CardScheduler(this, cards);
     }
 
     /// <summary>
@@ -97,7 +98,9 @@ public abstract class Unit : IHurtable, ICurable
     /// </summary>
     internal void Prepare()
     {
-        throw new System.NotImplementedException();
+        ActionStatus = ActionStatus.Waitting;
+        Scheduler.Prepare();
+        Preparing?.Invoke();
     }
 
     /// <summary>
@@ -105,7 +108,9 @@ public abstract class Unit : IHurtable, ICurable
     /// </summary>
     protected void EndTurn()
     {
-        throw new System.NotImplementedException();
+        ActionStatus = ActionStatus.Rest;
+        TurnEnding?.Invoke();
+        _callback();
     }
 
     /// <summary>
@@ -113,15 +118,37 @@ public abstract class Unit : IHurtable, ICurable
     /// </summary>
     internal void BeginTurn(Action callback)
     {
-        throw new System.NotImplementedException();
+        _callback = callback;
+        ActionStatus = ActionStatus.Running;
+        TurnBeginning?.Invoke();
+        Decide();
     }
+
+    /// <summary>
+    /// 决策
+    /// </summary>
+    /// <remarks>
+    /// 执行出牌逻辑
+    /// </remarks>
+    protected abstract void Decide();
 
     /// <summary>
     /// 添加Buff
     /// </summary>
-    public TBuff AddBuff<TBuff>() where TBuff : Buff
+    /// <remarks>
+    /// 相同类型的buff将被替代
+    /// </remarks>
+    public void AddBuff(Buff buff)
     {
-        throw new System.NotImplementedException();
+        var ori = _buffList.Find(e => e.GetType() == buff.GetType());
+        if(ori != null)
+        {
+            ori.Disable();
+            _buffList.Remove(ori);
+        }
+        _buffList.Add(buff);
+        buff.Unit = this;
+        buff.Enable();
     }
 
     /// <summary>
@@ -129,7 +156,12 @@ public abstract class Unit : IHurtable, ICurable
     /// </summary>
     public void RemoveBuff<TBuff>() where TBuff : Buff
     {
-        throw new System.NotImplementedException();
+        var ori = _buffList.Find(e => e.GetType() == typeof(TBuff));
+        if (ori != null)
+        {
+            ori.Disable();
+            _buffList.Remove(ori);
+        }
     }
 
     /// <summary>
@@ -138,26 +170,36 @@ public abstract class Unit : IHurtable, ICurable
     /// <param name="target">移动目标位置</param>
     public void Move(Vector2Int target)
     {
-        throw new System.NotImplementedException();
+        var manager = GameToolKit.ServiceFactory.Instance.GetService<GameManager>()
+            .GetStatus() as BattleState;
+        var adapter = new WalkerMapAdapter();
+        var path = UnitUtility.FindShortestPath(adapter, adapter.Point2ID(Position), adapter.Point2ID(target));
+        foreach(var p in path)
+        {
+            Position = adapter.ID2Point(p);
+        }
     }
 
     float IHurtable.HurtCalculate(float damage, HurtType type, object source)
     {
-        throw new NotImplementedException();
+        //todo:重新设计计算公式
+        damage = Math.Max(0, damage - UnitData.Defence);
+        damage = Math.Min(UnitData.Blood, damage);
+        return damage;
     }
 
     void IHurtable.OnHurt(float damage)
     {
-        throw new NotImplementedException();
+        UnitData.Blood -= (int)damage;
     }
 
     float ICurable.CureCalculate(float power, object source)
     {
-        throw new NotImplementedException();
+        return power;
     }
 
     void ICurable.OnCure(float power)
     {
-        throw new NotImplementedException();
+        UnitData.Blood += (int)power;
     }
 }

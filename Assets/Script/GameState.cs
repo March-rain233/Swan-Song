@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public abstract class GameStatus
+public abstract class GameState
 {
     protected internal abstract void OnUpdata();
 

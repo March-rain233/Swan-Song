@@ -1,5 +1,11 @@
 {
   "dependencies": {
+    "com.march_rain.gametoolkit": {
+      "version": "file:D:/Program/unity/GameToolKit/Packages/GameToolKit",
+      "depth": 0,
+      "source": "local",
+      "dependencies": {}
+    },
     "com.unity.2d.animation": {
       "version": "8.0.3",
       "depth": 1,
@@ -159,7 +165,7 @@
       "url": "https://packages.unity.cn"
     },
     "com.unity.inputsystem": {
-      "version": "1.4.2",
+      "version": "1.4.3",
       "depth": 0,
       "source": "registry",
       "dependencies": {

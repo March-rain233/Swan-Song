@@ -10,9 +10,9 @@ using System.Text;
 public class GameData
 {
     /// <summary>
-    /// 该局游戏所使用的随机数种子
+    /// 该局游戏的随机数状态
     /// </summary>
-    public int Seed;
+    public UnityEngine.Random.State RandomState;
     /// <summary>
     /// 玩家持有的金币数量
     /// </summary>
@@ -25,11 +25,5 @@ public class GameData
     /// <summary>
     /// 分支选择树
     /// </summary>
-    public TreeMap TreeMap
-    {
-        get => default;
-        set
-        {
-        }
-    }
+    public TreeMap TreeMap;
 }

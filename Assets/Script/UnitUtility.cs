@@ -10,7 +10,8 @@ public static class UnitUtility
     /// </summary>
     /// <param name="start">起点的id</param>
     /// <param name="end">终点的id</param>
-    public static void FindShortestPath(MapAdapter map, int start, int end)
+    /// <returns>路径节点的id</returns>
+    public static List<int> FindShortestPath(MapAdapter map, int start, int end)
     {
         throw new System.NotImplementedException();
     }

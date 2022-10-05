@@ -13,6 +13,8 @@ public static class EnemyFactory
     /// </summary>
     public static List<Unit> CreateEnemy(Map map, string description)
     {
-        throw new System.NotImplementedException();
+        var enemies = new List<Unit>();
+        enemies.Add(new Idiot());
+        return enemies;
     }
 }

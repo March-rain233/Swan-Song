@@ -11,6 +11,11 @@ public static class TreeMapFactory
     /// <param name="description">描述</param>
     public static TreeMap CreateTreeMap(string description)
     {
-        throw new System.NotImplementedException();
+        //todo
+        TreeMap map = new TreeMap();
+        int start = map.AddNode(new TreeMapNodeData() { PlaceType = PlaceType.Start });
+        map.Connect(start, map.AddNode(new TreeMapNodeData() { PlaceType = PlaceType.NormalBattle }));
+        map.Connect(start, map.AddNode(new TreeMapNodeData() { PlaceType = PlaceType.BonFire }));
+        return map;
     }
 }

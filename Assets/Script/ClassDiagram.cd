@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
   <Class Name="Map">
-    <Position X="17.5" Y="2.75" Width="1.5" />
+    <Position X="1" Y="6.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAABAAgAAAACAAAAEAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAABACgEAAACAAAAEAAABAAAAAAAAAAAAEAAAA=</HashCode>
       <FileName>Assets\Script\Map.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
@@ -11,88 +11,50 @@
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="MapRenderer" Collapsed="true">
-    <Position X="30" Y="1.75" Width="1.5" />
+    <Position X="27.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Assets\Script\MapRender.cs</FileName>
+      <HashCode>AAAAAgACAAAAAAAAAECAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Script\MapRenderer.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="MapFactory" Collapsed="true">
-    <Position X="28.25" Y="1.75" Width="1.5" />
+    <Position X="25.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAA=</HashCode>
       <FileName>Assets\Script\MapFactory.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="GameManager">
-    <Position X="8" Y="2.5" Width="3.25" />
+    <Position X="21.5" Y="4.5" Width="3.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAgAAAAAEQAEAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAACAAAAAAAAAgAAAAAEQAEAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Assets\Script\GameManager.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Field Name="_gameStatus" />
       <Property Name="GameData" />
     </ShowAsAssociation>
-  </Class>
-  <Class Name="GameStatus">
-    <Position X="21.25" Y="2.5" Width="1.75" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAQABAAAIAAAAAAAAA=</HashCode>
-      <FileName>Assets\Script\GameStatus.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="BattleStatus">
-    <Position X="17" Y="4.75" Width="2.5" />
-    <TypeIdentifier>
-      <HashCode>ACAAAAAAABAEAAAAAAgAAAEAQAgUABABAIAAAAAAAAA=</HashCode>
-      <FileName>Assets\Script\BattleStatus.cs</FileName>
-    </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="Map" />
-    </ShowAsAssociation>
-    <ShowAsCollectionAssociation>
-      <Property Name="UnitList" />
-    </ShowAsCollectionAssociation>
-  </Class>
-  <Class Name="Unit">
-    <Position X="13" Y="4.25" Width="2.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAJAAAIAA4AAgAAwhAgQAAMAAAAAVEAAEABAAAAA=</HashCode>
-      <FileName>Assets\Script\Unit.cs</FileName>
-    </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="ActionStatus" />
-      <Property Name="Scheduler" />
-      <Property Name="UnitData" />
-    </ShowAsAssociation>
-    <ShowAsCollectionAssociation>
-      <Field Name="_buffList" />
-    </ShowAsCollectionAssociation>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="UnitModel">
-    <Position X="9" Y="12.5" Width="2.75" />
+    <Position X="19.25" Y="8" Width="2.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAABAAIACAQAAAAAABCIAAAIAAAAAEAggAAAQ=</HashCode>
       <FileName>Assets\Script\UnitModel.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Card">
-    <Position X="6.25" Y="7" Width="2" />
+    <Position X="13.75" Y="12.5" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAACAgAAAAACAEAAAAABAAAAAAAAAAAAAAABAAABA=</HashCode>
+      <HashCode>AAAAACAEAAAAACAEAAAAABAAAAAAAAAAAAAAABAAABA=</HashCode>
       <FileName>Assets\Script\Card.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="PeototypeData" />
-    </ShowAsAssociation>
     <ShowAsCollectionAssociation>
       <Property Name="Entries" />
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="CardModel">
-    <Position X="4.75" Y="4.5" Width="1.75" />
+    <Position X="17.25" Y="14.5" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAgAAAAAAAAABQAAAAAAAAQAAAAAAAAAgA=</HashCode>
       <FileName>Assets\Script\CardModel.cs</FileName>
@@ -102,64 +64,61 @@
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="CardScheduler">
-    <Position X="9.75" Y="5" Width="2" />
+    <Position X="10.75" Y="12.5" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAQAAAMAAAAAgAEAAEAAAAAABAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAQAAAMAAAAAgAEAAEAAAAAABAAAAAEAA=</HashCode>
       <FileName>Assets\Script\CardScheduler.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="Unit" />
-    </ShowAsAssociation>
     <ShowAsCollectionAssociation>
       <Property Name="Deck" />
     </ShowAsCollectionAssociation>
   </Class>
-  <Class Name="Buff">
-    <Position X="13" Y="9.75" Width="1.75" />
+  <Class Name="Buff" Collapsed="true">
+    <Position X="25.75" Y="0.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAIAEACAAAAAAAAAAIAAAgAAIACAA=</HashCode>
       <FileName>Assets\Script\Buff.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="UnitUtility" Collapsed="true">
-    <Position X="28.25" Y="2.75" Width="1.5" />
+    <Position X="25.75" Y="2.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQA=</HashCode>
       <FileName>Assets\Script\UnitUtility.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="MapAdapter" Collapsed="true">
-    <Position X="31.75" Y="0.75" Width="1.5" />
+    <Position X="11.5" Y="8.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAQBAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Assets\Script\MapAdapter.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="EdgeData" Collapsed="true">
-    <Position X="28.25" Y="0.75" Width="1.5" />
+    <Position X="27.5" Y="0.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAABAAAAAgAAAAAAAAAAAAAAAAAAAAAIAAAAAAAA=</HashCode>
       <FileName>Assets\Script\EdgeData.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="GameData">
-    <Position X="6.5" Y="10.5" Width="1.5" />
+    <Position X="18.25" Y="6" Width="1.5" />
     <Compartments>
       <Compartment Name="Nested Types" Collapsed="false" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>AAAAAEAAAAAAAAAAAEAAAAAAAAAAAAAAAAAEAAAAAAE=</HashCode>
+      <HashCode>AAAAAEAAAAAAAAAAAAAAAAAAQAAAAAAAAAAEAAAAAAE=</HashCode>
       <FileName>Assets\Script\GameData.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Property Name="TreeMap" />
+      <Field Name="TreeMap" />
     </ShowAsAssociation>
     <ShowAsCollectionAssociation>
       <Field Name="Members" />
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="UnitData">
-    <Position X="9.75" Y="8.5" Width="2" />
+    <Position X="15.5" Y="7.75" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAgASAAAAAEAABAIAAAIABAIBAAgAAABA=</HashCode>
       <FileName>Assets\Script\UnitData.cs</FileName>
@@ -172,14 +131,14 @@
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="EnemyFactory" Collapsed="true">
-    <Position X="30" Y="0.75" Width="1.5" />
+    <Position X="29.25" Y="0.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAA=</HashCode>
       <FileName>Assets\Script\EnemyFactory.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CardPool">
-    <Position X="4.75" Y="2.75" Width="1.5" />
+    <Position X="17.5" Y="16.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAA=</HashCode>
       <FileName>Assets\Script\CardPool.cs</FileName>
@@ -189,7 +148,7 @@
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="CardPoolManager">
-    <Position X="4.5" Y="0.75" Width="2" />
+    <Position X="17.25" Y="18.5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAQAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Assets\Script\CardPoolManager.cs</FileName>
@@ -198,116 +157,166 @@
       <Field Name="_poolDic" />
     </ShowAsCollectionAssociation>
   </Class>
-  <Class Name="BonfireStatus">
-    <Position X="20.25" Y="4.75" Width="2" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAEAAAAAAAAABAAAQABAAAIAAAAAAAAA=</HashCode>
-      <FileName>Assets\Script\BonfireStatus.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="TreeMap">
-    <Position X="3" Y="10.75" Width="2.75" />
+    <Position X="17.75" Y="2" Width="2.75" />
     <TypeIdentifier>
-      <HashCode>AAAAABAAAAAAACAAAABAQAEAAAAAQAAAQAAAAEAAAAA=</HashCode>
+      <HashCode>AAAkABAQAAAAACAAAABAAIAAAAAAQAAAQAAAAEAIAAA=</HashCode>
       <FileName>Assets\Script\TreeMap.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
       <Field Name="_nodes" />
     </ShowAsCollectionAssociation>
   </Class>
-  <Class Name="TreeMapNode">
-    <Position X="0.5" Y="11.5" Width="1.5" />
+  <Class Name="TreeMapNodeData">
+    <Position X="15.25" Y="3" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
-      <FileName>Assets\Script\TreeMapNode.cs</FileName>
+      <FileName>Assets\Script\TreeMapNodeData.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Property Name="PlaceType" />
+      <Field Name="PlaceType" />
     </ShowAsAssociation>
   </Class>
   <Class Name="TreeMapFactory" Collapsed="true">
-    <Position X="31.75" Y="1.75" Width="1.5" />
+    <Position X="29.25" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Assets\Script\TreeMapFactory.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="SelectLevelStatus">
-    <Position X="23" Y="4.75" Width="1.75" />
-    <TypeIdentifier>
-      <HashCode>AAAQAAAAAAAAAAAAAAAAAAAAAAAQABAAAIAAAAAAAAA=</HashCode>
-      <FileName>Assets\Script\SelectLevelStatus.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="MainMenuStatus">
-    <Position X="25.5" Y="4.75" Width="1.75" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAABAAQABAAAIAAAAAAAQA=</HashCode>
-      <FileName>Assets\Script\MainMenuStatus.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="Entry">
-    <Position X="4" Y="7" Width="1.5" />
+    <Position X="16.5" Y="12.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Assets\Script\Entry.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Struct Name="TileData">
-    <Position X="17.25" Y="9.5" Width="1.75" />
+  <Class Name="WalkerMapAdapter">
+    <Position X="11.5" Y="9.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAIAAIAAAAAAAAAAAAAAAAAAAEAAAAMAAAAAAAAAA=</HashCode>
-      <FileName>Assets\Script\TileData.cs</FileName>
+      <HashCode>AAAAAAAAEAAAABAAAQBAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Script\WalkerMapAdapter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Unit">
+    <Position X="7.5" Y="8.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAJAAAIAA4AAgAAwhAgQAAMAAAAAVEAAEgBAAAAA=</HashCode>
+      <FileName>Assets\Script\Unit.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Field Name="TileType" />
+      <Property Name="ActionStatus" />
+      <Property Name="Scheduler" />
+      <Property Name="UnitData" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="GameState">
+    <Position X="8" Y="3.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAQABAAAIAAAAAAAAA=</HashCode>
+      <FileName>Assets\Script\GameState.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BattleState">
+    <Position X="3.75" Y="5.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAABAEAAAAAAgAAAEAQAgUABABAIAAAAAAAAA=</HashCode>
+      <FileName>Assets\Script\BattleState.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Map" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="BonfireState">
+    <Position X="7" Y="5.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAAAAAAABAAAQABAAAIAAAAAAAAA=</HashCode>
+      <FileName>Assets\Script\BonfireState.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SelectLevelState">
+    <Position X="9.75" Y="5.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAAAAAAAAAAAAAQABAAAIAAAAAAAAA=</HashCode>
+      <FileName>Assets\Script\SelectLevelState.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MainMenuState">
+    <Position X="12.25" Y="5.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAAAAAAAAAABAAQABAAAIAAAAAAAQA=</HashCode>
+      <FileName>Assets\Script\MainMenuState.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Tile">
+    <Position X="3.5" Y="10.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAAAAAAAAAAAAAgAUAAAAMIAAAAAAAAI=</HashCode>
+      <FileName>Assets\Script\Tile.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
       <Field Name="TileStatus" />
     </ShowAsAssociation>
-  </Struct>
+  </Class>
+  <Class Name="GrassTile">
+    <Position X="3.5" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAgAQAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>Assets\Script\GrassTile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Idiot">
+    <Position X="8" Y="14.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>Assets\Script\Idiot.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BattleAnimator">
+    <Position X="29.25" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAACAAAABAA=</HashCode>
+      <FileName>Assets\Script\BattleAnimator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Interface Name="IHurtable" Collapsed="true">
-    <Position X="30" Y="4" Width="1.5" />
+    <Position X="27.5" Y="4" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
       <FileName>Assets\Script\IHurtable.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="ICurable" Collapsed="true">
-    <Position X="28.25" Y="4" Width="1.5" />
+    <Position X="25.75" Y="4" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAgAAAAAAAAAAAAEAAAAAAAAAAAAAAACAAAAAA=</HashCode>
       <FileName>Assets\Script\ICurable.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Enum Name="TileType">
-    <Position X="17.25" Y="12.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAIIAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Assets\Script\TileType.cs</FileName>
-    </TypeIdentifier>
-  </Enum>
   <Enum Name="TileStatus">
-    <Position X="20.25" Y="9.5" Width="1.5" />
+    <Position X="0.5" Y="10.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAACCAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Assets\Script\TileStatus.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Enum Name="ActionStatus">
-    <Position X="13" Y="1.25" Width="1.5" />
+    <Position X="8" Y="16" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAgAAAAAAAAAAAAACAAAAAIAAAACAAAAAA=</HashCode>
       <FileName>Assets\Script\ActionStatus.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Enum Name="HurtType" Collapsed="true">
-    <Position X="28.25" Y="5" Width="1.5" />
+    <Position X="25.75" Y="5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAgAAAAAAIAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Assets\Script\HurtType.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Enum Name="PlaceType">
-    <Position X="0.5" Y="9.25" Width="1.5" />
+    <Position X="15.25" Y="0.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAACgACAAAAAAAIAAAAAAAAAAAAAAAAAEAAAAAAA=</HashCode>
       <FileName>Assets\Script\PlaceType.cs</FileName>

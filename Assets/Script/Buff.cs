@@ -8,34 +8,20 @@ public abstract class Buff
     /// <summary>
     /// 生效的对象
     /// </summary>
-    public Unit Unit
-    {
-        get => default;
-        set
-        {
-        }
-    }
+    public Unit Unit;
 
     /// <summary>
     /// 剩余回合数
     /// </summary>
-    public int Rounds
-    {
-        get => default;
-        set
-        {
-        }
-    }
+    public int Rounds;
 
     /// <summary>
     /// 该效果是否生效
     /// </summary>
     public bool IsEnable
     {
-        get => default;
-        set
-        {
-        }
+        get;
+        private set;
     }
 
     /// <summary>
@@ -43,7 +29,8 @@ public abstract class Buff
     /// </summary>
     public void Enable()
     {
-        throw new System.NotImplementedException();
+        IsEnable = true;
+        OnEnable();
     }
 
     /// <summary>
@@ -51,7 +38,8 @@ public abstract class Buff
     /// </summary>
     public void Disable()
     {
-        throw new System.NotImplementedException();
+        IsEnable = false;
+        OnDisable();
     }
 
     protected abstract void OnEnable();

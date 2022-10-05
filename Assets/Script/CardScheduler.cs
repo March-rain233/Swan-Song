@@ -12,14 +12,12 @@ public class CardScheduler
     /// <summary>
     /// 弃牌区
     /// </summary>
-    /// <remarks>释放或被遗弃的牌</remarks>
+    /// <remarks>释放或被遗弃的牌，回合开始时将被洗入牌库</remarks>
     public List<Card> DiscardPile
     {
-        get => default;
-        set
-        {
-        }
-    }
+        get;
+        private set;
+    } = new List<Card>();
 
     /// <summary>
     /// 手牌区
@@ -27,11 +25,9 @@ public class CardScheduler
     /// <remarks>已被抽取的牌</remarks>
     public List<Card> Hands
     {
-        get => default;
-        set
-        {
-        }
-    }
+        get;
+        private set;
+    } = new List<Card>();
 
     /// <summary>
     /// 牌堆
@@ -39,21 +35,23 @@ public class CardScheduler
     /// <remarks>还未抽取的牌</remarks>
     public List<Card> Deck
     {
-        get => default;
-        set
-        {
-        }
-    }
+        get;
+        private set;
+    } = new List<Card>();
 
     /// <summary>
     /// 持有该调度器的单位
     /// </summary>
     public Unit Unit
     {
-        get => default;
-        set
-        {
-        }
+        get;
+        internal set;
+    }
+
+    internal CardScheduler(Unit unit, List<Card> cards)
+    {
+        Unit = unit;
+        Deck = new List<Card>(cards);
     }
 
     /// <summary>
@@ -61,7 +59,9 @@ public class CardScheduler
     /// </summary>
     public void ReleaseCard(int index)
     {
-        throw new System.NotImplementedException();
+        Hands[index].Release();
+        DiscardPile.Add(Hands[index]);
+        Hands.RemoveAt(index);
     }
 
     /// <summary>
@@ -70,7 +70,15 @@ public class CardScheduler
     /// <returns>抽取到的卡牌</returns>
     public Card DrawCard()
     {
-        throw new System.NotImplementedException();
+        if(Deck.Count == 0)
+        {
+            return null;
+        }
+        var i = UnityEngine.Random.Range(0, Deck.Count);
+        var card = Deck[i];
+        Deck.RemoveAt(i);
+        Hands.Add(card);
+        return card;
     }
 
     /// <summary>
@@ -78,6 +86,25 @@ public class CardScheduler
     /// </summary>
     internal void Prepare()
     {
-        throw new System.NotImplementedException();
+        Shuffle(DiscardPile);
+        Deck.AddRange(DiscardPile);
+        DiscardPile.Clear();
+        DrawCard();
+        DrawCard();
+    }
+
+    /// <summary>
+    /// 洗牌
+    /// </summary>
+    /// <param name="cards"></param>
+    void Shuffle(List<Card> cards)
+    {
+        for(int i = 0; i < cards.Count; ++i)
+        {
+            int select = UnityEngine.Random.Range(0, cards.Count - i);
+            var temp = cards[select];
+            cards[select] = cards[cards.Count - i - 1];
+            cards[cards.Count - i - 1] = temp;
+        }
     }
 }

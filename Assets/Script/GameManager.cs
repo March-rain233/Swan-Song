@@ -2,28 +2,34 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
-public class GameManager
+using GameToolKit;
+public class GameManager : IService
 {
-    private GameStatus _gameStatus;
+    private GameState _gameStatus;
 
     /// <summary>
     /// 当前运行的游戏数据
     /// </summary>
     public GameData GameData
     {
-        get => default;
-        set
-        {
-        }
+        get;
+        internal set;
     }
 
-    public GameStatus GetStatus()
+    void IService.Init() 
     {
-        throw new System.NotImplementedException();
+        SetStatus<MainMenuState>();
     }
-    public TGameStatus SetStatus<TGameStatus>()where TGameStatus : GameStatus
+
+    public GameState GetStatus()
     {
-        throw new System.NotImplementedException();
+        return _gameStatus;
+    }
+    public TGameStatus SetStatus<TGameStatus>()where TGameStatus : GameState, new()
+    {
+        _gameStatus?.OnExit();
+        _gameStatus = new TGameStatus();
+        _gameStatus.OnEnter();
+        return _gameStatus as TGameStatus;
     }
 }

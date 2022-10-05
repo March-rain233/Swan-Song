@@ -24,5 +24,8 @@ public enum PlaceType
     /// 起点
     /// </summary>
     Start,
+    /// <summary>
+    /// 营火
+    /// </summary>
     BonFire
 }
