@@ -1,0 +1,795 @@
+fileFormatVersion: 2
+guid: 1e89b048166d5db42bf473066b9d7e71
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1168514777106513673
+    second: Reddy_stand&move_0
+  - first:
+      213: 9130124281324618662
+    second: Reddy_stand&move_1
+  - first:
+      213: -4449237763916648219
+    second: Reddy_stand&move_2
+  - first:
+      213: -1407968973123125768
+    second: Reddy_stand&move_3
+  - first:
+      213: 2312626865296534803
+    second: Reddy_stand&move_4
+  - first:
+      213: 2126066867188230209
+    second: Reddy_stand&move_5
+  - first:
+      213: -3844999350410813819
+    second: Reddy_stand&move_6
+  - first:
+      213: -7940259236586979051
+    second: Reddy_stand&move_7
+  - first:
+      213: 5786454832559653171
+    second: Reddy_stand&move_8
+  - first:
+      213: 1829597812489988
+    second: Reddy_stand&move_9
+  - first:
+      213: 4042696508908211180
+    second: Reddy_stand&move_10
+  - first:
+      213: -6541342037367345332
+    second: Reddy_stand&move_11
+  - first:
+      213: -7254532390523770199
+    second: Reddy_stand&move_12
+  - first:
+      213: 2359860615411570865
+    second: Reddy_stand&move_13
+  - first:
+      213: -4495128809156885522
+    second: Reddy_stand&move_14
+  - first:
+      213: 4100825862706191452
+    second: Reddy_stand&move_15
+  - first:
+      213: -4846308431444333175
+    second: Reddy_stand&move_16
+  - first:
+      213: 941359228256894869
+    second: Reddy_stand&move_17
+  - first:
+      213: 6453321035602626471
+    second: Reddy_stand&move_18
+  - first:
+      213: -6737674989706986879
+    second: Reddy_stand&move_19
+  - first:
+      213: -4597707395817037849
+    second: Reddy_stand&move_20
+  - first:
+      213: -5350658259523589695
+    second: Reddy_stand&move_21
+  - first:
+      213: -2021183929011771563
+    second: Reddy_stand&move_22
+  - first:
+      213: 5074491868477531055
+    second: Reddy_stand&move_23
+  - first:
+      213: 4345471557879433121
+    second: Reddy_stand&move_0
+  - first:
+      213: -1429047645616474077
+    second: Reddy_stand&move_1
+  - first:
+      213: -9732169476665525
+    second: Reddy_stand&move_2
+  - first:
+      213: -1719969141228936627
+    second: Reddy_stand&move_3
+  - first:
+      213: 9062006690495304624
+    second: Reddy_stand&move_4
+  - first:
+      213: 141957646268983172
+    second: Reddy_stand&move_5
+  - first:
+      213: -8791923010379689272
+    second: Reddy_stand&move_6
+  - first:
+      213: -6260686309780364521
+    second: Reddy_stand&move_7
+  - first:
+      213: 794823370069938238
+    second: Reddy_stand&move_8
+  - first:
+      213: -4662879316584668148
+    second: Reddy_stand&move_9
+  - first:
+      213: 5939553188318731234
+    second: Reddy_stand&move_10
+  - first:
+      213: 863684964687424937
+    second: Reddy_stand&move_11
+  - first:
+      213: -5643334674117314652
+    second: Reddy_stand&move_12
+  - first:
+      213: 3933061758424403687
+    second: Reddy_stand&move_13
+  - first:
+      213: -3269566906087791269
+    second: Reddy_stand&move_14
+  - first:
+      213: 4004077869624193942
+    second: Reddy_stand&move_15
+  - first:
+      213: -8160716556700986786
+    second: Reddy_stand&move_16
+  - first:
+      213: 1665861897549165442
+    second: Reddy_stand&move_17
+  - first:
+      213: -5323911289244709601
+    second: Reddy_stand&move_18
+  - first:
+      213: 3521765854203700417
+    second: Reddy_stand&move_19
+  - first:
+      213: 8426454144931339390
+    second: Reddy_stand&move_20
+  - first:
+      213: 1307762094446645576
+    second: Reddy_stand&move_21
+  - first:
+      213: 7724925203826809945
+    second: Reddy_stand&move_22
+  - first:
+      213: 4475362997609311270
+    second: Reddy_stand&move_23
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 0
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Reddy_stand&move_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a787fccb573e4c30800000000000000
+      internalID: -1168514777106513673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reddy_stand&move_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 96
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 328fbebdcb00b2ce0800000000000000
+      internalID: 9130124281324618662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reddy_stand&move_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 96
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4f0377b4ac6ddff0800000000000000
+      internalID: -4449237763916648219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reddy_stand&move_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 96
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d426a68cd217128e0800000000000000
+      internalID: -1407968973123125768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reddy_stand&move_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 96
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b39f2b8217b2cd70800000000000000
+      internalID: 2312626865296534803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reddy_stand&move_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 96
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48763072ab558f100800000000000000
+      internalID: 2126066867188230209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reddy_stand&move_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c25cb98a90dcf580800000000000000
+      internalID: -3844999350410813819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reddy_stand&move_7
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 713e367c8f29d19a0800000000000000
+      internalID: -7940259236586979051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reddy_stand&move_8
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e309238d4a7c70b00800000000000000
+      internalID: 5786454832559653171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reddy_stand&move_9
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 64
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c04647077ff1a4fb0800000000000000
+      internalID: 1829597812489988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reddy_stand&move_10
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ebd64ad7288d6250800000000000000
+      internalID: 4042696508908211180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reddy_stand&move_11
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 64
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ad2a0e36ec6cfb00800000000000000
+      internalID: -6541342037367345332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reddy_stand&move_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a7b7987309dea1b0800000000000000
+      internalID: -7254532390523770199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reddy_stand&move_13
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ee4f8eb4da059630800000000000000
+      internalID: 2359860615411570865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reddy_stand&move_14
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b55a349c83a20a2d0800000000000000
+      internalID: -4495128809156885522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reddy_stand&move_15
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 32
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 693f3ff9b97519730800000000000000
+      internalID: 4100825862706191452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reddy_stand&move_16
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 32
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e52503d678f4fbe80800000000000000
+      internalID: -4846308431444333175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reddy_stand&move_17
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 32
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 283b648d1945e1710800000000000000
+      internalID: 941359228256894869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reddy_stand&move_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1d80e4c3eaad16b0800000000000000
+      internalID: 6453321035602626471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reddy_stand&move_19
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c469e1a263dfd030800000000000000
+      internalID: -6737674989706986879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reddy_stand&move_20
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7c10c84667c0f470800000000000000
+      internalID: -4597707395817037849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reddy_stand&move_21
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 841963232ba162210800000000000000
+      internalID: -5350658259523589695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reddy_stand&move_22
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95c1f826b82743b60800000000000000
+      internalID: -2021183929011771563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Reddy_stand&move_23
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62c2e615feeab1e30800000000000000
+      internalID: 5074491868477531055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Reddy_stand&move_22: -2021183929011771563
+      Reddy_stand&move_17: 941359228256894869
+      Reddy_stand&move_7: -7940259236586979051
+      Reddy_stand&move_5: 2126066867188230209
+      Reddy_stand&move_8: 5786454832559653171
+      Reddy_stand&move_0: -1168514777106513673
+      Reddy_stand&move_1: 9130124281324618662
+      Reddy_stand&move_2: -4449237763916648219
+      Reddy_stand&move_13: 2359860615411570865
+      Reddy_stand&move_4: 2312626865296534803
+      Reddy_stand&move_21: -5350658259523589695
+      Reddy_stand&move_3: -1407968973123125768
+      Reddy_stand&move_14: -4495128809156885522
+      Reddy_stand&move_18: 6453321035602626471
+      Reddy_stand&move_11: -6541342037367345332
+      Reddy_stand&move_16: -4846308431444333175
+      Reddy_stand&move_6: -3844999350410813819
+      Reddy_stand&move_10: 4042696508908211180
+      Reddy_stand&move_19: -6737674989706986879
+      Reddy_stand&move_15: 4100825862706191452
+      Reddy_stand&move_9: 1829597812489988
+      Reddy_stand&move_20: -4597707395817037849
+      Reddy_stand&move_23: 5074491868477531055
+      Reddy_stand&move_12: -7254532390523770199
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

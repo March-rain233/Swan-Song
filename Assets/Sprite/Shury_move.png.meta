@@ -1,0 +1,1131 @@
+fileFormatVersion: 2
+guid: 8309697402260ef48a3a2e893e6d6994
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6439861266110756173
+    second: Shury_move_0
+  - first:
+      213: 2977077756220064943
+    second: Shury_move_1
+  - first:
+      213: 6599088756229860488
+    second: Shury_move_2
+  - first:
+      213: -4328405714370788530
+    second: Shury_move_3
+  - first:
+      213: -959043250959841153
+    second: Shury_move_4
+  - first:
+      213: -2552763603549050378
+    second: Shury_move_5
+  - first:
+      213: 7009034902899104257
+    second: Shury_move_6
+  - first:
+      213: -4678646434136925808
+    second: Shury_move_7
+  - first:
+      213: -9117051163042430328
+    second: Shury_move_8
+  - first:
+      213: 8485078977313277276
+    second: Shury_move_9
+  - first:
+      213: -3090567812862088801
+    second: Shury_move_10
+  - first:
+      213: 7045757196629568811
+    second: Shury_move_11
+  - first:
+      213: -2752560782411110999
+    second: Shury_move_12
+  - first:
+      213: -113769026115107888
+    second: Shury_move_13
+  - first:
+      213: -8268103618190210813
+    second: Shury_move_14
+  - first:
+      213: 5079998166884487097
+    second: Shury_move_15
+  - first:
+      213: -6690929647415504889
+    second: Shury_move_16
+  - first:
+      213: -4215313595329804049
+    second: Shury_move_17
+  - first:
+      213: -1462967357756833885
+    second: Shury_move_18
+  - first:
+      213: 8822440799087727281
+    second: Shury_move_19
+  - first:
+      213: -1409861882161818597
+    second: Shury_move_20
+  - first:
+      213: -74070390114342293
+    second: Shury_move_21
+  - first:
+      213: -3223875480561377911
+    second: Shury_move_22
+  - first:
+      213: -862091565453342878
+    second: Shury_move_23
+  - first:
+      213: -6290664574569480894
+    second: Shury_move_24
+  - first:
+      213: 718936241162234203
+    second: Shury_move_25
+  - first:
+      213: -6193588770668507177
+    second: Shury_move_26
+  - first:
+      213: -6497064045433945825
+    second: Shury_move_27
+  - first:
+      213: 7248091615928782572
+    second: Shury_move_28
+  - first:
+      213: -3783956484070000142
+    second: Shury_move_29
+  - first:
+      213: 4259876420939058831
+    second: Shury_move_30
+  - first:
+      213: 2850051621557135729
+    second: Shury_move_31
+  - first:
+      213: -5259612167199870505
+    second: Shury_move_32
+  - first:
+      213: -3760410134859576865
+    second: Shury_move_33
+  - first:
+      213: -4991916873111378925
+    second: Shury_move_34
+  - first:
+      213: -2456755311461142280
+    second: Shury_move_35
+  - first:
+      213: 8185748154566921345
+    second: Shury_move_0
+  - first:
+      213: 1557472601705248157
+    second: Shury_move_1
+  - first:
+      213: 6377767037840843782
+    second: Shury_move_2
+  - first:
+      213: -7394518953663237672
+    second: Shury_move_3
+  - first:
+      213: -8429385260216004230
+    second: Shury_move_4
+  - first:
+      213: 2857030066173736278
+    second: Shury_move_5
+  - first:
+      213: 398832624493858075
+    second: Shury_move_6
+  - first:
+      213: 3758083481607970744
+    second: Shury_move_7
+  - first:
+      213: -8252535161451059918
+    second: Shury_move_8
+  - first:
+      213: -213745135962113499
+    second: Shury_move_9
+  - first:
+      213: 7709471634905426268
+    second: Shury_move_10
+  - first:
+      213: -4260484500573049345
+    second: Shury_move_11
+  - first:
+      213: -6244845592462735996
+    second: Shury_move_12
+  - first:
+      213: -1813105132795094258
+    second: Shury_move_13
+  - first:
+      213: 3121915695014022881
+    second: Shury_move_14
+  - first:
+      213: 4734159108168322427
+    second: Shury_move_15
+  - first:
+      213: 8024351718049578229
+    second: Shury_move_16
+  - first:
+      213: 4856185776142539564
+    second: Shury_move_17
+  - first:
+      213: -6243575952839325450
+    second: Shury_move_18
+  - first:
+      213: -5466358268451084452
+    second: Shury_move_19
+  - first:
+      213: -1453798390249693594
+    second: Shury_move_20
+  - first:
+      213: -8251456254795783190
+    second: Shury_move_21
+  - first:
+      213: -8281387758372386569
+    second: Shury_move_22
+  - first:
+      213: -2081597183410399084
+    second: Shury_move_23
+  - first:
+      213: -2230395730962163481
+    second: Shury_move_24
+  - first:
+      213: -7407621272438579901
+    second: Shury_move_25
+  - first:
+      213: -1558115683398705397
+    second: Shury_move_26
+  - first:
+      213: -8083267521688487100
+    second: Shury_move_27
+  - first:
+      213: 193113351985778158
+    second: Shury_move_28
+  - first:
+      213: 7358543661773328292
+    second: Shury_move_29
+  - first:
+      213: -3481372194766877296
+    second: Shury_move_30
+  - first:
+      213: 9131216711176536699
+    second: Shury_move_31
+  - first:
+      213: -5849072750463972980
+    second: Shury_move_32
+  - first:
+      213: 5572856341433393002
+    second: Shury_move_33
+  - first:
+      213: -4001046584053054196
+    second: Shury_move_34
+  - first:
+      213: -672735059126531540
+    second: Shury_move_35
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Shury_move_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 160
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18c45cd939e999170800000000000000
+      internalID: 6439861266110756173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shury_move_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 160
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d957b0454114d9510800000000000000
+      internalID: 2977077756220064943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shury_move_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 160
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 604e2be7451628850800000000000000
+      internalID: 6599088756229860488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shury_move_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 160
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d172028034616990800000000000000
+      internalID: -4328405714370788530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shury_move_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 160
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7159e144cec40b80800000000000000
+      internalID: -959043250959841153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shury_move_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 160
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65575ee35b536a720800000000000000
+      internalID: -2552763603549050378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shury_move_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1d0bcba820f88500800000000000000
+      internalID: 7009034902899104257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shury_move_7
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 128
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bf918de305672430800000000000000
+      internalID: -4678646434136925808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shury_move_8
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 128
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 235e9459efa197d80800000000000000
+      internalID: -9117051163042430328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shury_move_9
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 128
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52ab28a6eef980df0800000000000000
+      internalID: 8485078977313277276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shury_move_10
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c59ec7cfa9b8dfa60800000000000000
+      internalID: -3090567812862088801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shury_move_11
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 128
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffd29447be7bfd4c0800000000000000
+      internalID: 7045757196629568811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shury_move_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4854810350ad559a0800000000000000
+      internalID: -2752560782411110999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shury_move_13
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 96
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0b9f4bec7e86d6e0800000000000000
+      internalID: -113769026115107888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shury_move_14
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 96
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ee0704b8c5435b20800000000000000
+      internalID: -8268103618190210813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shury_move_15
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 96
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7d8d8050ac13b140800000000000000
+      internalID: 5079998166884487097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shury_move_16
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 96
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5fcf32b6f593c5f60800000000000000
+      internalID: -6690929647415504889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shury_move_17
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 96
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2bd746fb33a46340800000000000000
+      internalID: -4215313595329804049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shury_move_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f847d230cc5a59a0800000000000000
+      internalID: -1462967357756833885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shury_move_19
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5724f9ed189324b0800000000000000
+      internalID: 8822440799087727281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shury_move_20
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66ed12e011213dbe0800000000000000
+      internalID: -1409861882161818597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shury_move_21
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 64
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae3e83d1140fc7d80800000000000000
+      internalID: -74070390114342293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shury_move_22
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f802fed5b9921d80800000000000000
+      internalID: -3223875480561377911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shury_move_23
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 64
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4989e55f36eac13e0800000000000000
+      internalID: -862091565453342878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shury_move_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e8d37b56ea0c01e0800000000000000
+      internalID: -6290664574569480894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shury_move_25
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34ddba133b7d23990800000000000000
+      internalID: 718936241162234203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shury_move_26
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0f1e0c8a06706ae0800000000000000
+      internalID: -6193588770668507177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shury_move_27
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 32
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44b3e49140772df80800000000000000
+      internalID: -6497064045433945825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shury_move_28
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 32
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eed4f7a02931ea200800000000000000
+      internalID: 7248091615928782572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shury_move_29
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 32
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4af8330297cce1660800000000000000
+      internalID: -3783956484070000142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shury_move_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09d8ff71f6eafafc0800000000000000
+      internalID: 4259876420939058831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shury_move_31
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b72c9c4383998be70800000000000000
+      internalID: 2850051621557135729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shury_move_32
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c898d2bb25be3dea0800000000000000
+      internalID: -5259612167199870505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shury_move_33
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6f9b67f053c65d40800000000000000
+      internalID: -3760410134859576865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shury_move_34
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c054abb845d6978c0800000000000000
+      internalID: -4991916873111378925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shury_move_35
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2acfcc2707f9a6f0800000000000000
+      internalID: -2456755311461142280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Shury_move_1: 2977077756220064943
+      Shury_move_10: -3090567812862088801
+      Shury_move_4: -959043250959841153
+      Shury_move_23: -862091565453342878
+      Shury_move_29: -3783956484070000142
+      Shury_move_27: -6497064045433945825
+      Shury_move_30: 4259876420939058831
+      Shury_move_26: -6193588770668507177
+      Shury_move_12: -2752560782411110999
+      Shury_move_20: -1409861882161818597
+      Shury_move_33: -3760410134859576865
+      Shury_move_9: 8485078977313277276
+      Shury_move_16: -6690929647415504889
+      Shury_move_32: -5259612167199870505
+      Shury_move_8: -9117051163042430328
+      Shury_move_5: -2552763603549050378
+      Shury_move_17: -4215313595329804049
+      Shury_move_21: -74070390114342293
+      Shury_move_18: -1462967357756833885
+      Shury_move_24: -6290664574569480894
+      Shury_move_3: -4328405714370788530
+      Shury_move_0: 6439861266110756173
+      Shury_move_14: -8268103618190210813
+      Shury_move_31: 2850051621557135729
+      Shury_move_35: -2456755311461142280
+      Shury_move_7: -4678646434136925808
+      Shury_move_28: 7248091615928782572
+      Shury_move_34: -4991916873111378925
+      Shury_move_2: 6599088756229860488
+      Shury_move_19: 8822440799087727281
+      Shury_move_6: 7009034902899104257
+      Shury_move_11: 7045757196629568811
+      Shury_move_13: -113769026115107888
+      Shury_move_15: 5079998166884487097
+      Shury_move_25: 718936241162234203
+      Shury_move_22: -3223875480561377911
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

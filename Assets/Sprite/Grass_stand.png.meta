@@ -1,0 +1,795 @@
+fileFormatVersion: 2
+guid: ee98feef88927474cb38f2fa58a80367
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6456534723703432021
+    second: Grass_stand_0
+  - first:
+      213: 513672313188860626
+    second: Grass_stand_1
+  - first:
+      213: -7812248881216961175
+    second: Grass_stand_2
+  - first:
+      213: 7219237313873969221
+    second: Grass_stand_3
+  - first:
+      213: 6454005682643287037
+    second: Grass_stand_4
+  - first:
+      213: -5780248074541460156
+    second: Grass_stand_5
+  - first:
+      213: -5798851799624850162
+    second: Grass_stand_6
+  - first:
+      213: 2660321219100818935
+    second: Grass_stand_7
+  - first:
+      213: 4508664010606594384
+    second: Grass_stand_8
+  - first:
+      213: -7031326304711364961
+    second: Grass_stand_9
+  - first:
+      213: 8057608078577831524
+    second: Grass_stand_10
+  - first:
+      213: 8235752495675041896
+    second: Grass_stand_11
+  - first:
+      213: -378568104897775123
+    second: Grass_stand_12
+  - first:
+      213: -6025160797012574837
+    second: Grass_stand_13
+  - first:
+      213: 3017249128968197366
+    second: Grass_stand_14
+  - first:
+      213: -6359061995355280486
+    second: Grass_stand_15
+  - first:
+      213: 5717852329344737948
+    second: Grass_stand_16
+  - first:
+      213: 1236845925940681271
+    second: Grass_stand_17
+  - first:
+      213: -4704440442406805276
+    second: Grass_stand_18
+  - first:
+      213: -2280082475331368687
+    second: Grass_stand_19
+  - first:
+      213: 9156858517728439677
+    second: Grass_stand_20
+  - first:
+      213: 7276126628185304140
+    second: Grass_stand_21
+  - first:
+      213: 3711579683678597105
+    second: Grass_stand_22
+  - first:
+      213: -3101092731760739276
+    second: Grass_stand_23
+  - first:
+      213: -7617647043694632025
+    second: Grass_stand_0
+  - first:
+      213: -6203454283214230448
+    second: Grass_stand_1
+  - first:
+      213: 9113918931947345935
+    second: Grass_stand_2
+  - first:
+      213: 3999239605692246990
+    second: Grass_stand_3
+  - first:
+      213: 2052195015455975839
+    second: Grass_stand_4
+  - first:
+      213: 5361580778663929933
+    second: Grass_stand_5
+  - first:
+      213: 8085156702724799867
+    second: Grass_stand_6
+  - first:
+      213: 8729334096338423974
+    second: Grass_stand_7
+  - first:
+      213: 5004905641294529207
+    second: Grass_stand_8
+  - first:
+      213: -5709768652857729193
+    second: Grass_stand_9
+  - first:
+      213: 5883657226491484343
+    second: Grass_stand_10
+  - first:
+      213: -6658722147252967559
+    second: Grass_stand_11
+  - first:
+      213: 9061786759652173092
+    second: Grass_stand_12
+  - first:
+      213: 1121871901691063146
+    second: Grass_stand_13
+  - first:
+      213: 1399115293854543090
+    second: Grass_stand_14
+  - first:
+      213: 7254844136381795463
+    second: Grass_stand_15
+  - first:
+      213: 6466216428120587914
+    second: Grass_stand_16
+  - first:
+      213: 8539652955631004121
+    second: Grass_stand_17
+  - first:
+      213: 5655313211533035992
+    second: Grass_stand_18
+  - first:
+      213: -7925025104022314324
+    second: Grass_stand_19
+  - first:
+      213: -2593848193794053378
+    second: Grass_stand_20
+  - first:
+      213: -2200362983392533685
+    second: Grass_stand_21
+  - first:
+      213: -6637734767922503509
+    second: Grass_stand_22
+  - first:
+      213: -5867580699240947168
+    second: Grass_stand_23
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Grass_stand_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a3e640bf5ea84690800000000000000
+      internalID: 6456534723703432021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass_stand_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 96
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05ce3ac5237e8e9a0800000000000000
+      internalID: 513672313188860626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass_stand_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 96
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f08dd622bf42b7e70800000000000000
+      internalID: -7812248881216961175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass_stand_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 96
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecba5f48b37208730800000000000000
+      internalID: 7219237313873969221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass_stand_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 96
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f99a41a5e7cda7c10800000000000000
+      internalID: 6454005682643287037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass_stand_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 96
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4863d2bf49286a40800000000000000
+      internalID: -5780248074541460156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass_stand_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7db7432f2f343070800000000000000
+      internalID: -5798851799624850162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass_stand_7
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a015f15c13d42970800000000000000
+      internalID: 2660321219100818935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass_stand_8
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b285b3e92ff47540800000000000000
+      internalID: 4508664010606594384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass_stand_9
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 64
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75f11c079a3d2c0b0800000000000000
+      internalID: -7031326304711364961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass_stand_10
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b85f251313f6a150800000000000000
+      internalID: 8057608078577831524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass_stand_11
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 64
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 977e5fa8c777793a0800000000000000
+      internalID: 8235752495675041896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass_stand_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 425e767eb0fe1cd70800000000000000
+      internalID: -378568104897775123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass_stand_13
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6ba9c7fc80b19f00800000000000000
+      internalID: -6025160797012574837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass_stand_14
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fc240a62f7aa6310800000000000000
+      internalID: 3017249128968197366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass_stand_15
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 32
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78cccd1ed426ea460800000000000000
+      internalID: -6359061995355280486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass_stand_16
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 32
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8e3ce6f49d9cb950800000000000000
+      internalID: 5717852329344737948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass_stand_17
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 32
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d9208d3e11f28670800000000000000
+      internalID: 1236845925940681271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass_stand_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d9000b1765bb7e40800000000000000
+      internalID: -4704440442406805276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass_stand_19
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca262be08a7a40290800000000000000
+      internalID: -2280082475331368687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass_stand_20
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efaed9f7fccc00cd0800000000000000
+      internalID: 9156858517728439677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass_stand_21
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4328fd468db671e0800000000000000
+      internalID: 7276126628185304140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass_stand_22
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba028b4956702e3a0800000000000000
+      internalID: 3711579683678597105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass_stand_23
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0222eca117a229ea0800000000000000
+      internalID: -3101092731760739276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Grass_stand_20: 9156858517728439677
+      Grass_stand_21: 7276126628185304140
+      Grass_stand_15: -6359061995355280486
+      Grass_stand_14: 3017249128968197366
+      Grass_stand_23: -3101092731760739276
+      Grass_stand_5: -5780248074541460156
+      Grass_stand_17: 1236845925940681271
+      Grass_stand_13: -6025160797012574837
+      Grass_stand_4: 6454005682643287037
+      Grass_stand_10: 8057608078577831524
+      Grass_stand_8: 4508664010606594384
+      Grass_stand_22: 3711579683678597105
+      Grass_stand_9: -7031326304711364961
+      Grass_stand_0: 6456534723703432021
+      Grass_stand_11: 8235752495675041896
+      Grass_stand_12: -378568104897775123
+      Grass_stand_18: -4704440442406805276
+      Grass_stand_6: -5798851799624850162
+      Grass_stand_16: 5717852329344737948
+      Grass_stand_1: 513672313188860626
+      Grass_stand_19: -2280082475331368687
+      Grass_stand_2: -7812248881216961175
+      Grass_stand_7: 2660321219100818935
+      Grass_stand_3: 7219237313873969221
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

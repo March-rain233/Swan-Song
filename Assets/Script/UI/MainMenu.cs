@@ -19,7 +19,7 @@ public class MainMenu : PanelBase
     {
         base.OnInit();
         var state = ServiceFactory.Instance.GetService<GameManager>()
-            .GetStatus() as MainMenuState;
+            .GetState() as MainMenuState;
 
         //°ó¶¨ÊÂ¼þ
         _btnNewGame.onClick.AddListener(()=>state.NewGame());

@@ -62,7 +62,7 @@ public class TreeMapView : PanelBase
             var btn = nodeView.GetComponent<Button>();
             btn.interactable = false;
             btn.onClick.AddListener(()=>(ServiceFactory.Instance.GetService<GameManager>()
-                .GetStatus() as SelectLevelState).SelectNode(id));
+                .GetState() as SelectLevelState).SelectNode(id));
             _nodes.Add(id, nodeView.GetComponent<RectTransform>());
         }
         foreach(var id in _map.GetChildren(_map.CurrentId))

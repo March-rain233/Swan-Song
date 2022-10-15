@@ -1,0 +1,795 @@
+fileFormatVersion: 2
+guid: 4aa290e5566745d4f92f669fd17a45a5
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6028697098590804423
+    second: Bega_stand_0
+  - first:
+      213: -8417460649388266140
+    second: Bega_stand_1
+  - first:
+      213: -9091503497601317402
+    second: Bega_stand_2
+  - first:
+      213: -7863589926302413773
+    second: Bega_stand_3
+  - first:
+      213: -5116484455354593927
+    second: Bega_stand_4
+  - first:
+      213: 212820816787410444
+    second: Bega_stand_5
+  - first:
+      213: -5576927064525154401
+    second: Bega_stand_6
+  - first:
+      213: 3071694644638476245
+    second: Bega_stand_7
+  - first:
+      213: 3669076851152418380
+    second: Bega_stand_8
+  - first:
+      213: -9216927192869253299
+    second: Bega_stand_9
+  - first:
+      213: -77504818282456904
+    second: Bega_stand_10
+  - first:
+      213: 5411466257976271726
+    second: Bega_stand_11
+  - first:
+      213: -3972041637886856859
+    second: Bega_stand_12
+  - first:
+      213: 1995787052283166488
+    second: Bega_stand_13
+  - first:
+      213: 2658635702534258947
+    second: Bega_stand_14
+  - first:
+      213: 4682094123949629763
+    second: Bega_stand_15
+  - first:
+      213: 3851212973705063641
+    second: Bega_stand_16
+  - first:
+      213: -4485158431377232406
+    second: Bega_stand_17
+  - first:
+      213: 6812655380622132151
+    second: Bega_stand_18
+  - first:
+      213: 3992824964015706749
+    second: Bega_stand_19
+  - first:
+      213: -8115478707866177293
+    second: Bega_stand_20
+  - first:
+      213: 2126045276423479522
+    second: Bega_stand_21
+  - first:
+      213: 3928755742947520228
+    second: Bega_stand_22
+  - first:
+      213: 514481237984567291
+    second: Bega_stand_23
+  - first:
+      213: 2711489414406084907
+    second: Bega_stand_0
+  - first:
+      213: -2544653584661599890
+    second: Bega_stand_1
+  - first:
+      213: 3908033591316610230
+    second: Bega_stand_2
+  - first:
+      213: 3466650494372762092
+    second: Bega_stand_3
+  - first:
+      213: 3447545815766917912
+    second: Bega_stand_4
+  - first:
+      213: -5352507541413315130
+    second: Bega_stand_5
+  - first:
+      213: 8808217515588010510
+    second: Bega_stand_6
+  - first:
+      213: -5544776075755843120
+    second: Bega_stand_7
+  - first:
+      213: 2910940836985547284
+    second: Bega_stand_8
+  - first:
+      213: 9183256209607175061
+    second: Bega_stand_9
+  - first:
+      213: -1079611187115038153
+    second: Bega_stand_10
+  - first:
+      213: 5610663437602780465
+    second: Bega_stand_11
+  - first:
+      213: -4328854579632579524
+    second: Bega_stand_12
+  - first:
+      213: 8596114080101420048
+    second: Bega_stand_13
+  - first:
+      213: 7659480155997816404
+    second: Bega_stand_14
+  - first:
+      213: -1970710471376846293
+    second: Bega_stand_15
+  - first:
+      213: 4635267205532226695
+    second: Bega_stand_16
+  - first:
+      213: 4421728470949526090
+    second: Bega_stand_17
+  - first:
+      213: 9192780295009250810
+    second: Bega_stand_18
+  - first:
+      213: 4182260213437665906
+    second: Bega_stand_19
+  - first:
+      213: -5257614822137350433
+    second: Bega_stand_20
+  - first:
+      213: 2934191587550598774
+    second: Bega_stand_21
+  - first:
+      213: -4192582380849671887
+    second: Bega_stand_22
+  - first:
+      213: -6677888218204451021
+    second: Bega_stand_23
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Bega_stand_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2918ed914521a520800000000000000
+      internalID: -6028697098590804423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bega_stand_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 96
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6922d10c039facd0800000000000000
+      internalID: -8417460649388266140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bega_stand_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 96
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bc78bc78df1c3630800000000000000
+      internalID: -9091503497601317402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bega_stand_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 96
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce1558de1440c1030800000000000000
+      internalID: -7863589926302413773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bega_stand_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 96
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 813ebaf47a428df20800000000000000
+      internalID: -5116484455354593927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bega_stand_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 96
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6cdb578ffb218b5b0800000000000000
+      internalID: 212820816787410444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bega_stand_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e024ff899231d3a70800000000000000
+      internalID: -5576927064525154401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bega_stand_7
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d11d7d598ffc03b0800000000000000
+      internalID: 3071694644638476245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bega_stand_8
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41aa3b6b44db56820800000000000000
+      internalID: 3669076851152418380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bega_stand_9
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 64
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59b290f1eda717f70800000000000000
+      internalID: -9216927192869253299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bega_stand_10
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73a687868537401f0800000000000000
+      internalID: -77504818282456904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bega_stand_11
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 64
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 135f5908ba41ddd40800000000000000
+      internalID: 5411466257976271726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bega_stand_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3c5da0f1b1dce3c0800000000000000
+      internalID: -3972041637886856859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bega_stand_13
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01ccd2136388b4770800000000000000
+      internalID: 1995787052283166488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bega_stand_14
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4564766ce90fb4a60800000000000000
+      internalID: 2658635702534258947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bega_stand_15
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 32
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b22c07e7441a6a4e0800000000000000
+      internalID: 4682094123949629763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bega_stand_16
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 32
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78414c8f6f6c35040800000000000000
+      internalID: 3851212973705063641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bega_stand_17
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 32
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4a7d24fd922d5d30800000000000000
+      internalID: -4485158431377232406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bega_stand_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afdac3e09f0539f70800000000000000
+      internalID: 6812655380622132151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bega_stand_19
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 272933c618f5a0a30800000000000000
+      internalID: 3992824964015706749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bega_stand_20
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd6bca0ec233907b0800000000000000
+      internalID: -8115478707866177293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bega_stand_21
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67694eee3b758b820800000000000000
+      internalID: 2126045276423479522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bega_stand_22
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 131d4e1b984f0d5c0800000000000000
+      internalID: 3928755742947520228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bega_stand_23
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33f4828eb006353a0800000000000000
+      internalID: 514481237984567291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Bega_stand_17: -4485158431377232406
+      Bega_stand_10: -77504818282456904
+      Bega_stand_20: -8115478707866177293
+      Bega_stand_15: 4682094123949629763
+      Bega_stand_13: 1995787052283166488
+      Bega_stand_22: 3928755742947520228
+      Bega_stand_0: -6028697098590804423
+      Bega_stand_21: 2126045276423479522
+      Bega_stand_8: 3669076851152418380
+      Bega_stand_3: -7863589926302413773
+      Bega_stand_12: -3972041637886856859
+      Bega_stand_6: -5576927064525154401
+      Bega_stand_1: -8417460649388266140
+      Bega_stand_2: -9091503497601317402
+      Bega_stand_9: -9216927192869253299
+      Bega_stand_18: 6812655380622132151
+      Bega_stand_14: 2658635702534258947
+      Bega_stand_19: 3992824964015706749
+      Bega_stand_23: 514481237984567291
+      Bega_stand_11: 5411466257976271726
+      Bega_stand_4: -5116484455354593927
+      Bega_stand_16: 3851212973705063641
+      Bega_stand_5: 212820816787410444
+      Bega_stand_7: 3071694644638476245
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -19,6 +19,10 @@ MonoBehaviour:
     - {fileID: 9110087526927172562, guid: aa8cbcd55feec7e4da34602e3e8a8449, type: 3}
     - {fileID: 5102564109195398117, guid: 560a598fb091b0345b802cdf4cc1adfe, type: 3}
     - {fileID: 7734815269007810595, guid: ce2f387e18ce2a4429ed6ce8736be8c7, type: 3}
+    - {fileID: 6704313082987957545, guid: 00faf64804ef3624f93a840d05fdf6a7, type: 3}
+    - {fileID: 3000795565754185447, guid: 032397621ce7d5f4bac05a7d8e5053d3, type: 3}
+    - {fileID: 5280054945994920523, guid: 2e08b6fe6a8705d4a88dfe3bf1e8f9a7, type: 3}
+    - {fileID: 6685507116603928539, guid: 3afad940d7b714649a232292dcd075ab, type: 3}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -37,7 +41,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 12
-      Data: 3
+      Data: 7
     - Name: 
       Entry: 7
       Data: 
@@ -71,6 +75,54 @@ MonoBehaviour:
     - Name: $v
       Entry: 10
       Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: BattlePanel
+    - Name: $v
+      Entry: 10
+      Data: 3
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: DepolyPanel
+    - Name: $v
+      Entry: 10
+      Data: 4
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: UnitSelectView
+    - Name: $v
+      Entry: 10
+      Data: 5
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Card
+    - Name: $v
+      Entry: 10
+      Data: 6
     - Name: 
       Entry: 8
       Data: 

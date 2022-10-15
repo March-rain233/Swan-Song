@@ -1,0 +1,1144 @@
+fileFormatVersion: 2
+guid: 4a0f03adf9465a644a339d91b13e5f35
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8232267995617457604
+    second: Shury_stand_0
+  - first:
+      213: -8691091733271629941
+    second: Shury_stand_1
+  - first:
+      213: -4064859361104808498
+    second: Shury_stand_2
+  - first:
+      213: -6247851827168433592
+    second: Shury_stand_3
+  - first:
+      213: 2324354230766737919
+    second: Shury_stand_4
+  - first:
+      213: -4570822344169691059
+    second: Shury_stand_5
+  - first:
+      213: -1303279762861167016
+    second: Shury_stand_6
+  - first:
+      213: -1813253547888345441
+    second: Shury_stand_7
+  - first:
+      213: 5508096678589103388
+    second: Shury_stand_8
+  - first:
+      213: 8180311796576457219
+    second: Shury_stand_9
+  - first:
+      213: 5879310581443663260
+    second: Shury_stand_10
+  - first:
+      213: 7468884945996785810
+    second: Shury_stand_11
+  - first:
+      213: -7793352260605385534
+    second: Shury_stand_12
+  - first:
+      213: -1791537104619403396
+    second: Shury_stand_13
+  - first:
+      213: -3976426055470009221
+    second: Shury_stand_14
+  - first:
+      213: -581960858386464112
+    second: Shury_stand_15
+  - first:
+      213: 2924132573108147930
+    second: Shury_stand_16
+  - first:
+      213: 3151483990212534797
+    second: Shury_stand_17
+  - first:
+      213: 1212467463309772594
+    second: Shury_stand_18
+  - first:
+      213: -6249576903633563319
+    second: Shury_stand_19
+  - first:
+      213: -3444095857957990621
+    second: Shury_stand_20
+  - first:
+      213: 1641968482517749497
+    second: Shury_stand_21
+  - first:
+      213: -3431320382030996556
+    second: Shury_stand_22
+  - first:
+      213: 4012296395545605262
+    second: Shury_stand_23
+  - first:
+      213: 3647996432740009150
+    second: Shury_stand_24
+  - first:
+      213: -7402685939068660538
+    second: Shury_stand_25
+  - first:
+      213: 7391276159710542622
+    second: Shury_stand_26
+  - first:
+      213: 6916643684605025629
+    second: Shury_stand_27
+  - first:
+      213: 1138470274257264135
+    second: Shury_stand_28
+  - first:
+      213: -1807034118859980326
+    second: Shury_stand_29
+  - first:
+      213: 5318257511737468195
+    second: Shury_stand_30
+  - first:
+      213: 2590522071005525112
+    second: Shury_stand_31
+  - first:
+      213: -1747825323143051619
+    second: Shury_stand_32
+  - first:
+      213: 2956151645546900319
+    second: Shury_stand_33
+  - first:
+      213: 8890855311106406483
+    second: Shury_stand_34
+  - first:
+      213: 2767551188832939698
+    second: Shury_stand_35
+  - first:
+      213: -2224900955392666676
+    second: Shury_stand_0
+  - first:
+      213: -7667551308002385525
+    second: Shury_stand_1
+  - first:
+      213: -3699846988942049008
+    second: Shury_stand_2
+  - first:
+      213: 7441482435551416263
+    second: Shury_stand_3
+  - first:
+      213: 2758634039843138229
+    second: Shury_stand_4
+  - first:
+      213: -5304367746089144646
+    second: Shury_stand_5
+  - first:
+      213: -3900640909347714997
+    second: Shury_stand_6
+  - first:
+      213: 5597682228456133559
+    second: Shury_stand_7
+  - first:
+      213: 3988002535925445673
+    second: Shury_stand_8
+  - first:
+      213: 5028974503394936760
+    second: Shury_stand_9
+  - first:
+      213: -4639476467228421230
+    second: Shury_stand_10
+  - first:
+      213: 4392034464720884797
+    second: Shury_stand_11
+  - first:
+      213: -1930163341160670826
+    second: Shury_stand_12
+  - first:
+      213: -7051911732723812293
+    second: Shury_stand_13
+  - first:
+      213: 3003344468571683029
+    second: Shury_stand_14
+  - first:
+      213: -4858530929104097613
+    second: Shury_stand_15
+  - first:
+      213: -5337985535049575651
+    second: Shury_stand_16
+  - first:
+      213: 8963753958361484206
+    second: Shury_stand_17
+  - first:
+      213: -8431590634964068286
+    second: Shury_stand_18
+  - first:
+      213: 1605629868543908826
+    second: Shury_stand_19
+  - first:
+      213: 4562588995580369108
+    second: Shury_stand_20
+  - first:
+      213: 1894088663488493462
+    second: Shury_stand_21
+  - first:
+      213: -9210253017884359313
+    second: Shury_stand_22
+  - first:
+      213: 2572507515169255501
+    second: Shury_stand_23
+  - first:
+      213: -4734983832991638239
+    second: Shury_stand_24
+  - first:
+      213: -6617390087004967895
+    second: Shury_stand_25
+  - first:
+      213: -3939629958792286429
+    second: Shury_stand_26
+  - first:
+      213: 3261940459031513351
+    second: Shury_stand_27
+  - first:
+      213: 4702414862563920875
+    second: Shury_stand_28
+  - first:
+      213: 5044051227632543714
+    second: Shury_stand_29
+  - first:
+      213: -3979464196019311781
+    second: Shury_stand_30
+  - first:
+      213: -1503499373258833656
+    second: Shury_stand_31
+  - first:
+      213: 5903798424646317508
+    second: Shury_stand_32
+  - first:
+      213: 3572439815845768673
+    second: Shury_stand_33
+  - first:
+      213: 2549391437428981762
+    second: Shury_stand_34
+  - first:
+      213: 571388727491808765
+    second: Shury_stand_35
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Shury_stand_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 160
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc3946d7e509f11e0800000000000000
+      internalID: -8232267995617457604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shury_stand_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 160
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b81af65b5b2679590800000000000000
+      internalID: -8691091733271629941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shury_stand_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 160
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0118fc424c087acc0800000000000000
+      internalID: -4064859361104808498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shury_stand_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 160
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7cfc95539d4754760800000000000000
+      internalID: -6247851827168433592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shury_stand_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 160
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5baa62a1b03a84620800000000000000
+      internalID: 2324354230766737919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shury_stand_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 160
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abe215083a91366b0800000000000000
+      internalID: -4570822344169691059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shury_stand_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4809f962c32ed9c0800000000000000
+      internalID: -1303279762861167016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shury_stand_7
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 128
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b315a83456fead40800000000000000
+      internalID: -1813253547888345441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shury_stand_8
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 128
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92471355d2b385730800000000000000
+      internalID: 5508096678589103388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shury_stand_9
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 128
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b70a5b8aa18ac540800000000000000
+      internalID: 8180311796576457219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shury_stand_10
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 293d01bebb44d9fb0800000000000000
+      internalID: 5879310581443663260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shury_stand_11
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 128
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3416fe5314a3fc30800000000000000
+      internalID: 7468884945996785810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shury_stand_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69913abeaaea635e0800000000000000
+      internalID: -7793352260605385534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shury_stand_13
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 96
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b38769744a3922e90800000000000000
+      internalID: -1791537104619403396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shury_stand_14
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 96
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d8795bb1e50ea920800000000000000
+      internalID: -3976426055470009221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shury_stand_15
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 96
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3be60809cd7039cb0800000000000000
+      internalID: -581960858386464112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shury_stand_16
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 96
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d13523f007aabe5b0800000000000000
+      internalID: 2924132573108147930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shury_stand_17
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 96
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eab432eabb6a56c70800000000000000
+      internalID: 3151483990212534797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shury_stand_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 248d47f6df8fcfa80800000000000000
+      internalID: 1212467463309772594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shury_stand_19
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: adb1153cbd7584610800000000000000
+      internalID: -6249576903633563319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shury_stand_20
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d89ca19482915f30800000000000000
+      internalID: -3444095857957990621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shury_stand_21
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 64
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6977358aa97294a10800000000000000
+      internalID: 1641968482517749497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shury_stand_22
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f658881adab9e2080800000000000000
+      internalID: -3431320382030996556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shury_stand_23
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 64
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d40bfaf84f163b320800000000000000
+      internalID: 4012296395545605262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shury_stand_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12dd0597a45f94eb0800000000000000
+      internalID: 3647996432740009150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shury_stand_25
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92ca0ebb6ce4a24a0800000000000000
+      internalID: -7402685939068660538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shury_stand_26
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32fe2bfec6f9359c0800000000000000
+      internalID: 7391276159710542622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shury_stand_27
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 32
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7094c03a09db44d20800000000000000
+      internalID: 6916643684605025629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shury_stand_28
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 32
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bebc3ad2765524140800000000000000
+      internalID: 1138470274257264135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shury_stand_29
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 32
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e729e3fdd1100640800000000000000
+      internalID: -1807034118859980326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shury_stand_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5b22e7d56a16c8c0800000000000000
+      internalID: 5318257511737468195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shury_stand_31
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80182e0394f722be0800000000000000
+      internalID: 2590522071005525112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shury_stand_32
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c5fd8633618ee150800000000000000
+      internalID: -1747825323143051619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shury_stand_33
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ede2fcb51bd39130800000000000000
+      internalID: 2956151645546900319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shury_stand_34
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 200806d4102416320800000000000000
+      internalID: 8890855311106406483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shury_stand_35
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfdcfc2350bfde700800000000000000
+      internalID: 2767551188832939698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Shury_stand_16: 2924132573108147930
+      Shury_stand_34: 8890855311106406483
+      Shury_stand_29: -1807034118859980326
+      Shury_stand_5: -4570822344169691059
+      Shury_stand_7: -1813253547888345441
+      Shury_stand_35: 2767551188832939698
+      Shury_stand_15: -581960858386464112
+      Shury_stand_3: -6247851827168433592
+      Shury_stand_23: 4012296395545605262
+      Shury_stand_0: -8232267995617457604
+      Shury_stand_20: -3444095857957990621
+      Shury_stand_27: 6916643684605025629
+      Shury_stand_14: -3976426055470009221
+      Shury_stand_10: 5879310581443663260
+      Shury_stand_22: -3431320382030996556
+      Shury_stand_25: -7402685939068660538
+      Shury_stand_2: -4064859361104808498
+      Shury_stand_26: 7391276159710542622
+      Shury_stand_9: 8180311796576457219
+      Shury_stand_28: 1138470274257264135
+      Shury_stand_1: -8691091733271629941
+      Shury_stand_30: 5318257511737468195
+      Shury_stand_32: -1747825323143051619
+      Shury_stand_8: 5508096678589103388
+      Shury_stand_6: -1303279762861167016
+      Shury_stand_12: -7793352260605385534
+      Shury_stand_4: 2324354230766737919
+      Shury_stand_13: -1791537104619403396
+      Shury_stand_19: -6249576903633563319
+      Shury_stand_21: 1641968482517749497
+      Shury_stand_31: 2590522071005525112
+      Shury_stand_18: 1212467463309772594
+      Shury_stand_24: 3647996432740009150
+      Shury_stand_11: 7468884945996785810
+      Shury_stand_33: 2956151645546900319
+      Shury_stand_17: 3151483990212534797
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

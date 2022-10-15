@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: f0938458cdb78db4d99487ca1e34da13
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - JoinFlag: {instanceID: 0}
+  - Face: {instanceID: 0}
+  - Name: {instanceID: 0}
+  - BloodText: {instanceID: 0}
+  - Blood: {instanceID: 0}
+  - Background: {instanceID: 0}
+  - Toggle: {instanceID: 0}
+  - BorderShader: {fileID: -6465566751694194690, guid: c118c2d50323e6c4595da404f716e95e, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
