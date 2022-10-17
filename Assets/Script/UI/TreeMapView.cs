@@ -46,6 +46,8 @@ public class TreeMapView : PanelBase
     public override PanelShowType ShowType => PanelShowType.Normal;
     Dictionary<int, RectTransform> _nodes = new Dictionary<int, RectTransform>();
     TreeMap _map;
+    public Material LineMaterial;
+    public Gradient LineColor;
 
     protected override void OnInit()
     {
@@ -57,6 +59,7 @@ public class TreeMapView : PanelBase
         {
             var node = _map.FindNode(id);
             var nodeView = Instantiate(nodeModel, transform);
+            nodeView.name = $"{id}";
             nodeView.GetComponentInChildren<TMPro.TextMeshProUGUI>().text 
                 = System.Enum.GetName(node.PlaceType.GetType(), node.PlaceType);
             var btn = nodeView.GetComponent<Button>();
@@ -72,5 +75,25 @@ public class TreeMapView : PanelBase
         }
         //设定节点位置
         GraphLayoutUtility.HierarchicalLayout(new GraphLayoutAdapter(this), _map.RootId);
+        //设定节点间连线
+        foreach(var node in _nodes)
+        {
+            var children = _map.GetChildren(node.Key);
+            foreach (var child in children)
+            {
+                var obj = new GameObject("Line", typeof(RectTransform), typeof(LineRenderer));
+                obj.layer = LayerMask.NameToLayer("UI");
+                obj.transform.SetParent(node.Value, false);
+                var line = obj.GetComponent<LineRenderer>();
+                line.material = LineMaterial;
+                line.colorGradient = LineColor;
+                line.useWorldSpace = false;
+                line.widthMultiplier = 0.5f;
+                line.SetPositions(new Vector3[2] { 
+                    Vector3.zero, 
+                    node.Value.InverseTransformPoint(_nodes[child].position) 
+                });
+            }
+        }
     }
 }

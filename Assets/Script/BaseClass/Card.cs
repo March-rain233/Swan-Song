@@ -52,11 +52,7 @@ public abstract class Card
     /// <summary>
     /// 词条
     /// </summary>
-    public HashSet<Entry> Entries
-    {
-        get;
-        internal set;
-    } = new();
+    public HashSet<Entry> Entries = new();
 
     protected Map _map => (ServiceFactory.Instance.GetService<GameManager>().GetState() as BattleState).Map;
 

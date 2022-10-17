@@ -26,6 +26,12 @@ public class FireBall : Card
             {true,true,true,true,true }
         }
     };
+    public FireBall()
+    {
+        Name = "Fire Ball";
+        Description = "AOE";
+        Cost = 5;
+    }
     protected internal override IEnumerable<Vector2Int> GetActionRange(Unit user, Vector2Int target)
     {
         var map = _map;

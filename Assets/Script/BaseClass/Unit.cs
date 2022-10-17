@@ -97,6 +97,7 @@ public abstract class Unit : IHurtable, ICurable
         UnitData = data;
         Scheduler = new CardScheduler(this, data.Deck);
         _position = pos;
+        UnitData.ActionPoint = UnitData.ActionPointMax;
     }
 
     /// <summary>
@@ -105,7 +106,10 @@ public abstract class Unit : IHurtable, ICurable
     internal void Prepare()
     {
         ActionStatus = ActionStatus.Waitting;
-        UnitData.ActionPoint += 2;
+        if(UnitData.ActionPoint < UnitData.ActionPointMax)
+        {
+            UnitData.ActionPoint += 2;
+        }
         Scheduler.Prepare();
         Preparing?.Invoke();
     }
@@ -217,6 +221,7 @@ public abstract class Unit : IHurtable, ICurable
         if(UnitData.Blood <= 0)
         {
             ActionStatus = ActionStatus.Dead;
+            EndTurn();
         }
     }
 

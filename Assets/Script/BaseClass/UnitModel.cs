@@ -12,6 +12,14 @@ public class UnitModel
     /// </summary>
     public int DefaultViewType;
     /// <summary>
+    /// 默认名
+    /// </summary>
+    public string DefaultName;
+    /// <summary>
+    /// 默认立绘
+    /// </summary>
+    public Sprite DefaultFace;
+    /// <summary>
     /// 初始攻击力
     /// </summary>
     /// <remarks>决定角色伤害</remarks>
@@ -49,10 +57,6 @@ public class UnitModel
     /// </summary>
     public AnimationCurve DefenceCurve;
     /// <summary>
-    /// 血量成长曲线
-    /// </summary>
-    public AnimationCurve BloodCurve;
-    /// <summary>
     /// 治愈力成长曲线
     /// </summary>
     public AnimationCurve HealCurve;
@@ -60,6 +64,10 @@ public class UnitModel
     /// 先手成长曲线
     /// </summary>
     public AnimationCurve SpeedCurve;
+    /// <summary>
+    /// 血量成长曲线
+    /// </summary>
+    public AnimationCurve BloodCurve;
     /// <summary>
     /// 行动点等级成长曲线
     /// </summary>

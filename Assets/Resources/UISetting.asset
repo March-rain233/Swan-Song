@@ -23,6 +23,7 @@ MonoBehaviour:
     - {fileID: 3000795565754185447, guid: 032397621ce7d5f4bac05a7d8e5053d3, type: 3}
     - {fileID: 5280054945994920523, guid: 2e08b6fe6a8705d4a88dfe3bf1e8f9a7, type: 3}
     - {fileID: 6685507116603928539, guid: 3afad940d7b714649a232292dcd075ab, type: 3}
+    - {fileID: 6389769549627025198, guid: d5172a04d35f52648ac2087611f13fc6, type: 3}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -41,7 +42,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 12
-      Data: 7
+      Data: 8
     - Name: 
       Entry: 7
       Data: 
@@ -123,6 +124,18 @@ MonoBehaviour:
     - Name: $v
       Entry: 10
       Data: 6
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: PlayerSelectPanel
+    - Name: $v
+      Entry: 10
+      Data: 7
     - Name: 
       Entry: 8
       Data: 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using UnityEngine;
 
 /// <summary>
 /// 单位数据成员
@@ -74,7 +75,7 @@ public class UnitData
     /// <summary>
     /// 单位等级
     /// </summary>
-    public int Level;
+    public int Level = 1;
 
     /// <summary>
     /// 先手
@@ -107,6 +108,9 @@ public class UnitData
     public UnitData(UnitModel model)
     {
         UnitModel = model;
+        Name = model.DefaultName;
+        Face = model.DefaultFace;
+        ViewType = model.DefaultViewType;
         BloodMax = Blood = model.Blood;
         Attack = model.Attack;
         Defence = model.Defence;
@@ -114,6 +118,10 @@ public class UnitData
         ActionPointMax = ActionPoint = model.ActionPoint;
         Speed = model.Speed;
         Deck = new();
+        foreach(var card in model.DefaultDeck)
+        {
+            Deck.Add(card.Clone());
+        }
     }
 
     /// <summary>
@@ -129,7 +137,35 @@ public class UnitData
     /// </summary>
     public void LevelUp()
     {
+        SetLevel(Level + 1);
+    }
+
+    public void SetLevel(int level)
+    {
         //todo：升级公式
-        throw new System.NotImplementedException();
+        Func<AnimationCurve, float, int> getDiff = (curve, baseValue) =>
+         {
+             int ori = Mathf.FloorToInt(curve.Evaluate(Level - 1) * baseValue);
+             int next = Mathf.FloorToInt(curve.Evaluate(level - 1) * baseValue);
+             return next - ori;
+         };
+        BloodMax += getDiff(UnitModel.BloodCurve, UnitModel.Blood);
+        Attack += getDiff(UnitModel.AttackCurve, UnitModel.Attack);
+        Defence += getDiff(UnitModel.DefenceCurve, UnitModel.Defence);
+        Heal += getDiff(UnitModel.HealCurve, UnitModel.Heal);
+        Speed += getDiff(UnitModel.SpeedCurve, UnitModel.Speed);
+        ActionPointMax += getDiff(UnitModel.ActionPointCurve, UnitModel.ActionPoint);
+
+        if(level > Level)
+        {
+            Blood = BloodMax;
+            ActionPoint = ActionPointMax;
+        }
+        else
+        {
+            Blood = Mathf.Min(BloodMax, Blood);
+            ActionPoint = Mathf.Min(ActionPointMax, ActionPoint);
+        }
+        Level = level;
     }
 }

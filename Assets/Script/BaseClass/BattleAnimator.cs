@@ -16,6 +16,19 @@ public class BattleAnimator
     public BattleAnimator(BattleState battleState)
     {
         _battleState = battleState;
+        _battleState.CurrentUnitChanged += (unit) =>
+        {
+            List<Unit> orderList = _battleState.GetUnitOrderList().ToList();
+            var panel = ServiceFactory.Instance.GetService<PanelManager>()
+                .GetOrOpenPanel("BattlePanel") as BattlePanel;
+            EnqueueAnimation(panel.NextUnit(orderList));
+        };
+        _battleState.TurnBeginning += (round) =>
+        {
+            var panel = ServiceFactory.Instance.GetService<PanelManager>()
+                .GetOrOpenPanel("BattlePanel") as BattlePanel;
+            EnqueueAnimation(panel.NextRound(round));
+        };
     }
 
     /// <summary>
@@ -32,7 +45,7 @@ public class BattleAnimator
             var path = rawPath.Select(p => _battleState.MapRenderer.Grid.CellToWorld(p.ToVector3Int()))
                 .ToArray();
             Tween anim = unitView.transform.DOPath(path, 
-                path.Length * 0.8f, 
+                path.Length * 0.5f, 
                 gizmoColor: Color.green);
             anim.SetEase(Ease.Linear);
             anim.OnWaypointChange(i =>

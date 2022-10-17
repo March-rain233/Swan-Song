@@ -18,7 +18,7 @@ public class NormalAttack : Card
 
     public NormalAttack()
     {
-        Name = "NormalAttack";
+        Name = "Normal Attack";
         Cost = 1;
         Description = "Attack Enemy";
     }

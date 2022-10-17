@@ -27,6 +27,10 @@ public class BattleState : GameState
     /// <remarks>传入当前回合数</remarks>
     public event Action<int> TurnEnding;
     /// <summary>
+    /// 当当前决策单位变化
+    /// </summary>
+    public event Action<Unit> CurrentUnitChanged;
+    /// <summary>
     /// 开始摆放单位
     /// </summary>
     public event Action<List<Vector2Int>, List<UnitData>> DeployBeginning;
@@ -72,6 +76,11 @@ public class BattleState : GameState
         private set;
     } = 0;
 
+    /// <summary>
+    /// 灭歌开始回合
+    /// </summary>
+    public int SwanSongRoundNumber;
+
     public BattleAnimator Animator;
     public MapRenderer MapRenderer;
     public UnitRenderer UnitRenderer;
@@ -80,6 +89,8 @@ public class BattleState : GameState
         //初始化系统
         Map = MapFactory.CreateMap("");
         UnitList = EnemyFactory.CreateEnemy(Map, "");
+        //todo:设置灭歌开始回合
+        SwanSongRoundNumber = 5;
 
         MapRenderer = new MapRenderer(this);
         UnitRenderer = new UnitRenderer(this);
@@ -87,7 +98,7 @@ public class BattleState : GameState
 
         //绘制地图与敌人
         MapRenderer.RenderMap(Map);
-        foreach(var enemy in UnitList)
+        foreach (var enemy in UnitList)
         {
             UnitRenderer.CreateUnitView(enemy);
         }
@@ -128,7 +139,7 @@ public class BattleState : GameState
     /// <param name="depolyList"></param>
     public void DeployUnits(IEnumerable<(UnitData unit, Vector2Int point)> depolyList)
     {
-        foreach(var pair in depolyList)
+        foreach (var pair in depolyList)
         {
             var unit = new Player(pair.unit, pair.point);
             UnitList.Add(unit);
@@ -141,7 +152,7 @@ public class BattleState : GameState
     {
         var pm = ServiceFactory.Instance.GetService<PanelManager>();
         pm.ClosePanel("DepolyPanel");
-        foreach(var unit in UnitList)
+        foreach (var unit in UnitList)
         {
             unit.Position = unit.Position;
         }
@@ -154,9 +165,9 @@ public class BattleState : GameState
     /// </summary>
     public Unit GetNextUnit(Unit unit)
     {
-        return UnitList.Where(u=>u.ActionStatus == ActionStatus.Waitting)
-            .OrderBy(u=>u.UnitData.Speed)
-            .FirstOrDefault(u=>u != unit && u.UnitData.Speed >= unit.UnitData.Speed);
+        return UnitList.Where(u => u.ActionStatus == ActionStatus.Waitting)
+            .OrderBy(u => u.UnitData.Speed)
+            .FirstOrDefault(u => unit == null || (u != unit && u.UnitData.Speed >= unit.UnitData.Speed));
     }
 
     /// <summary>
@@ -175,7 +186,7 @@ public class BattleState : GameState
     {
         CurrentUnit = GetNextUnit(CurrentUnit);
         //当已无下一个单位执行时，当前回合结算
-        if(CurrentUnit == null)
+        if (CurrentUnit == null)
         {
             TurnEnding?.Invoke(RoundNumber);
             var status = CheckGame();
@@ -196,6 +207,7 @@ public class BattleState : GameState
         {
             CurrentUnit.BeginTurn(NextUnitTurn);
         }
+        CurrentUnitChanged?.Invoke(CurrentUnit);
     }
     /// <summary>
     /// 下一回合
@@ -203,13 +215,23 @@ public class BattleState : GameState
     void NextTurn()
     {
         RoundNumber += 1;
-        foreach (var unit in UnitList)
+
+        //发动灭亡之歌
+        if (RoundNumber >= SwanSongRoundNumber)
+        {
+            foreach (var unit in UnitList.Where(u => u.ActionStatus != ActionStatus.Dead))
+            {
+                (unit as IHurtable).Hurt(unit.UnitData.BloodMax * 0.35f, HurtType.FromBuff, this);
+            }
+        }
+
+        foreach (var unit in UnitList.Where(u => u.ActionStatus != ActionStatus.Dead))
         {
             unit.Prepare();
         }
-        CurrentUnit = UnitList.OrderBy(u => u.UnitData.Speed).First();
+        CurrentUnit = null;
         TurnBeginning?.Invoke(RoundNumber);
-        CurrentUnit.BeginTurn(NextUnitTurn);
+        NextUnitTurn();
     }
 
     /// <summary>
@@ -217,11 +239,11 @@ public class BattleState : GameState
     /// </summary>
     GameStatus CheckGame()
     {
-        if(UnitList.Where(u=>u.Camp == Camp.Player && u.ActionStatus != ActionStatus.Dead).Count() <= 0)
+        if (UnitList.Where(u => u.Camp == Camp.Player && u.ActionStatus != ActionStatus.Dead).Count() <= 0)
         {
             return GameStatus.Failure;
         }
-        else if(UnitList.Where(u=>u.Camp == Camp.Enemy && u.ActionStatus != ActionStatus.Dead).Count() <= 0)
+        else if (UnitList.Where(u => u.Camp == Camp.Enemy && u.ActionStatus != ActionStatus.Dead).Count() <= 0)
         {
             return GameStatus.Victory;
         }

@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using TMPro;
 using GameToolKit;
+using DG.Tweening;
 public class BattlePanel : PanelBase
 {
     public override PanelShowType ShowType => PanelShowType.Normal;
@@ -16,7 +17,14 @@ public class BattlePanel : PanelBase
     public Button BtnFinish;
     public Toggle TogMove;
 
+    public TextMeshProUGUI RoundNumber;
+    public TextMeshProUGUI SwanSongRoundNumber;
+
     IEnumerable<Vector2Int> _movePoint;
+
+    public HorizontalLayoutGroup OrderList;
+    public Image CurrentUnitView;
+    List<Image> _orderListView = new();
 
     protected override void OnInit()
     {
@@ -26,16 +34,21 @@ public class BattlePanel : PanelBase
         var players = sta.PlayerList;
         foreach (var player in players)
         {
+            System.Action updataAP = () =>
+            {
+                AP.text = $"{player.UnitData.ActionPoint}/{player.UnitData.ActionPointMax}";
+            };
             player.Scheduler.HandsAdded += (card)=>Hands.AddCard(card, player.Scheduler);
             player.Scheduler.HandsRemoved += Hands.RemoveCard;
             player.TurnBeginning += () =>
             {
-                AP.text = $"{player.UnitData.ActionPoint}/{player.UnitData.ActionPointMax}";
+                updataAP();
                 Hands.UnblockCards();
                 TogMove.interactable = true;
                 TogMove.SetIsOnWithoutNotify(false);
                 BtnFinish.interactable = true;
                 BtnFinish.onClick.AddListener(player.EndDecide);
+                player.UnitData.DataChanged += updataAP;
             };
             player.TurnEnding += () =>
             {
@@ -44,6 +57,7 @@ public class BattlePanel : PanelBase
                 TogMove.SetIsOnWithoutNotify(false);
                 BtnFinish.interactable = false;
                 BtnFinish.onClick.RemoveListener(player.EndDecide);
+                player.UnitData.DataChanged -= updataAP;
             };
         }
 
@@ -54,13 +68,16 @@ public class BattlePanel : PanelBase
                 Hands.BlockCards();
                 _movePoint = sta.CurrentUnit.GetMoveArea();
                 mr.RenderMoveRange(_movePoint);
+                BtnFinish.interactable = false;
             }
             else
             {
                 Hands.UnblockCards();
                 mr.RenderMoveRange();
+                BtnFinish.interactable = true;
             }
         });
+        SwanSongRoundNumber.text = sta.SwanSongRoundNumber.ToString();
     }
 
     private void Update()
@@ -85,6 +102,59 @@ public class BattlePanel : PanelBase
                 }
             }
         }
+    }
+
+    public Tween NextUnit(List<Unit> orderList)
+    {
+        float temp = 0;
+        var anim = DOTween.To(() => temp, (i) => temp = i, 1, 0.1f);
+        anim.OnKill(() =>
+        {
+            CurrentUnitView.sprite = orderList[0].UnitData.Face;
+            orderList.RemoveAt(0);
+            if (orderList.Count < _orderListView.Count)
+            {
+                for (int i = _orderListView.Count - 1; i >= orderList.Count; --i)
+                {
+                    Destroy(_orderListView[i].transform.parent.gameObject);
+                    _orderListView.RemoveAt(i);
+                }
+            }
+            else if(orderList.Count > _orderListView.Count)
+            {
+                for (int i = _orderListView.Count; i < orderList.Count; ++i)
+                {
+                    var obj = new GameObject("order", typeof(RectTransform), typeof(Image));
+                    var obj2 = new GameObject("order", typeof(RectTransform), typeof(Image));
+                    var rect = obj2.GetComponent<RectTransform>();
+                    obj2.transform.SetParent(obj.transform, false);
+                    obj.transform.SetParent(OrderList.transform, false);
+                    rect.anchorMin = Vector2.zero;
+                    rect.anchorMax = Vector2.one;
+                    rect.offsetMax = Vector2.zero;
+                    rect.offsetMin = Vector2.zero;
+                    var img = obj2.GetComponent<Image>();
+                    img.preserveAspect = true;
+                    _orderListView.Add(img);
+                }
+            }
+            for(int i = 0; i < orderList.Count; ++i)
+            {
+                _orderListView[i].sprite = orderList[i].UnitData.Face;
+            }
+        });
+        return anim;
+    }
+
+    public Tween NextRound(int round)
+    {
+        float temp = 0;
+        var anim = DOTween.To(() => temp, (i) => temp = i, 1, 0.1f);
+        anim.OnKill(() =>
+        {
+            RoundNumber.text = $"{round}Turn";
+        });
+        return anim;
     }
 
     public void Disable()
