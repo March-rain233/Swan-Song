@@ -12,7 +12,7 @@ public static class TileUtility
     /// <returns></returns>
     public static Vector3Int GetMouseInCell()
     {
-        return ServiceFactory.Instance.GetService<MapRenderer>().Grid.WorldToCell(Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue()));
+        return GameManager.Instance.GetState<BattleState>().MapRenderer.Grid.WorldToCell(Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue()));
     }
 
     /// <summary>

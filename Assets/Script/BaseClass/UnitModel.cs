@@ -8,6 +8,10 @@ using UnityEngine;
 public class UnitModel
 {
     /// <summary>
+    /// 默认显示类型
+    /// </summary>
+    public int DefaultViewType;
+    /// <summary>
     /// 初始攻击力
     /// </summary>
     /// <remarks>决定角色伤害</remarks>
@@ -33,6 +37,10 @@ public class UnitModel
     /// <remarks>角色最大血量</remarks>
     public int Blood;
     /// <summary>
+    /// 初始行动点等级
+    /// </summary>
+    public int ActionPoint;
+    /// <summary>
     /// 攻击成长曲线
     /// </summary>
     public AnimationCurve AttackCurve;
@@ -51,13 +59,13 @@ public class UnitModel
     /// <summary>
     /// 先手成长曲线
     /// </summary>
-    public int SpeedCurve;
-    /// <summary>
-    /// 初始行动点等级
-    /// </summary>
-    public int ActionPoint;
+    public AnimationCurve SpeedCurve;
     /// <summary>
     /// 行动点等级成长曲线
     /// </summary>
     public AnimationCurve ActionPointCurve;
+    /// <summary>
+    /// 初始卡组
+    /// </summary>
+    public List<Card> DefaultDeck;
 }

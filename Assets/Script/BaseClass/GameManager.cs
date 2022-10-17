@@ -5,6 +5,7 @@ using System.Text;
 using GameToolKit;
 public class GameManager : IService
 {
+    public static GameManager Instance => ServiceFactory.Instance.GetService<GameManager>();
     private GameState _gameStatus;
 
     /// <summary>
@@ -25,10 +26,14 @@ public class GameManager : IService
     {
         return _gameStatus;
     }
+    public TGameState GetState<TGameState>() where TGameState : GameState
+    {
+        return _gameStatus as TGameState;
+    }
     public TGameStatus SetStatus<TGameStatus>()where TGameStatus : GameState, new()
     {
         _gameStatus?.OnExit();
-        _gameStatus = new TGameStatus();
+        _gameStatus = new TGameStatus() { _gameManager = this };
         _gameStatus.OnEnter();
         return _gameStatus as TGameStatus;
     }

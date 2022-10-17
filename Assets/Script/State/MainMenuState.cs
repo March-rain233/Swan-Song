@@ -35,28 +35,22 @@ public class MainMenuState : GameState
         data.TreeMap = TreeMapFactory.CreateTreeMap("");
         data.Members = new()
         {
-            new UnitData()
+            new UnitData(UnitSetting.Instance.UnitDic["Test"])
             {
-                Blood = 100,
-                BloodMax = 100,
                 Name = "TestPlayer1",
-                Deck = new() { new NormalAttack(), new NormalAttack(), new NormalAttack(), new NormalAttack() },
-                ViewType = 0,
+                Deck = new() { new FireBall(), new FireBall(), new NormalAttack(), new NormalAttack() },
             },
-            new UnitData()
+            new UnitData(UnitSetting.Instance.UnitDic["Test"])
             {
-                Blood = 100,
-                BloodMax = 100,
                 Name = "TestPlayer2",
-                Deck = new() { new NormalAttack(), new NormalAttack(), new NormalAttack(), new NormalAttack() },
-                ViewType = 0,
+                Deck = new() { new FireBall(), new FireBall(), new NormalAttack(), new NormalAttack() },
             }
 
         };
         ServiceFactory.Instance.GetService<GameManager>()
             .GameData = data;
         ServiceFactory.Instance.GetService<GameManager>()
-            .SetStatus<SelectLevelState>();
+            .SetStatus<PlayerSelectState>();
     }
 
     /// <summary>

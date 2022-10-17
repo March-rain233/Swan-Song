@@ -3,10 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UnityEngine;
+using GameToolKit;
 
 public class NormalAttack : Card
 {
-    public AreaHelper AttackArea;
+    public AreaHelper AttackArea = new AreaHelper() { Flags = new bool[3, 3]
+        {
+            { false, true, false },
+            { true, false,true },
+            { false, true, false }
+        },
+        Center = new Vector2Int(1, 1)
+    };
 
     public NormalAttack()
     {
@@ -14,9 +22,11 @@ public class NormalAttack : Card
         Cost = 1;
         Description = "Attack Enemy";
     }
-    protected internal override TargetData GetActionRange(Unit user, TargetData targetData)
+    protected internal override IEnumerable<Vector2Int> GetActionRange(Unit user, Vector2Int target)
     {
-        return targetData;
+        List<Vector2Int> res = new List<Vector2Int>();
+        res.Add(target);
+        return res;
     }
 
     protected internal override TargetData GetAvaliableTarget(Unit user)
@@ -25,18 +35,17 @@ public class NormalAttack : Card
         var position = user.Position;
         var map = _map;
         var list = AttackArea.GetPointList(position);
-        targetData.Tiles = list.Where(p =>
+        targetData.ViewTiles = list.Where(p =>
             0 <= p.x && p.x < map.Width
             && 0 <= p.y && p.y < map.Height
             && map[p.x, p.y] != null);
-        targetData.Units = targetData.Tiles.Where(p => map[p.x, p.y].Units.Count > 0)
-            .Select(p => map[p.x, p.y].Units.First());
+        targetData.AvaliableTile = targetData.ViewTiles.Where(p => map[p.x, p.y].Units.Count > 0);
         return targetData;
     }
 
-    protected internal override void Release(Unit user, TargetData targetData)
+    protected internal override void Release(Unit user, Vector2Int target)
     {
-        (targetData.Units.First() as IHurtable)
+        (_map[target.x, target.y].Units.First() as IHurtable)
             .Hurt(user.UnitData.Attack, HurtType.FromUnit, user);
     }
 }

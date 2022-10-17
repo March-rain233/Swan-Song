@@ -13,4 +13,9 @@ public class Player : Unit
     {
         
     }
+
+    public void EndDecide()
+    {
+        EndTurn();
+    }
 }

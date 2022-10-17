@@ -15,16 +15,16 @@ public class AreaHelper
     /// <summary>
     /// 标识
     /// </summary>
-    bool[,] Flags;
+    public bool[,] Flags;
     /// <summary>
     /// 中心
     /// </summary>
-    Vector2Int _center;
+    public Vector2Int Center;
 
     public List<Vector2Int> GetPointList(Vector2Int pos)
     {
         var res = new List<Vector2Int>();
-        Vector2Int offset = pos - _center; 
+        Vector2Int offset = pos - Center; 
         for(int i = 0; i < Flags.GetLength(0); ++i)
         {
             for(int j = 0; j < Flags.GetLength(1); ++j)

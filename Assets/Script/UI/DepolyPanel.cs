@@ -39,23 +39,22 @@ public class DepolyPanel : PanelBase
     protected override void OnDispose()
     {
         base.OnDispose();
-        var gm = ServiceFactory.Instance.GetService<GameManager>();
-        var mr = ServiceFactory.Instance.GetService<MapRenderer>();
-        var state = gm.GetState() as BattleState;
+        var state = GameManager.Instance.GetState<BattleState>();
+        var mr = state.MapRenderer;
+        foreach(var unit in _views)
+        {
+            Destroy(unit.Value);
+        }
         state.DeployBeginning -= DepolyPanel_DeployBeginning;
-        mr.MaskTilemap.ClearAllTiles();
+        mr.RenderDepoly();
     }
 
     private void DepolyPanel_DeployBeginning(List<Vector2Int> arg1, List<UnitData> arg2)
     {
         _points = arg1;
         _units = arg2;
-        var mr = ServiceFactory.Instance.GetService<MapRenderer>();
-        foreach (var p in arg1)
-        {
-            mr.MaskTilemap.SetTile(new Vector3Int(p.x, p.y), mr.SquareTile);
-            mr.MaskTilemap.SetColor(new Vector3Int(p.x, p.y), Color.green);
-        }
+        var mr = GameManager.Instance.GetState<BattleState>().MapRenderer;
+        mr.RenderDepoly(arg1);
         foreach (var p in arg2)
         {
             CreateSelect(p);
@@ -74,7 +73,7 @@ public class DepolyPanel : PanelBase
 
     private void Update()
     {
-        var mr = ServiceFactory.Instance.GetService<MapRenderer>();
+        var mr = GameManager.Instance.GetState<BattleState>().MapRenderer;
         var mouse = TileUtility.GetMouseInCell();
         mouse.z = 0;
         var pos = new Vector2Int(mouse.x, mouse.y);
@@ -108,7 +107,7 @@ public class DepolyPanel : PanelBase
             unitView = Instantiate(UnitDataManager.Instance.UnitViews[view.UnitData.ViewType]);
             _views.Add(view.UnitData, unitView);
         }
-        unitView.transform.position = ServiceFactory.Instance.GetService<MapRenderer>()
+        unitView.transform.position = GameManager.Instance.GetState<BattleState>().MapRenderer
             .Grid.CellToWorld(new Vector3Int(pos.x, pos.y));
 
         BtnComplete.interactable = true;

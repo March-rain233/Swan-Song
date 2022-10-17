@@ -103,6 +103,19 @@ public class UnitData
 
     public event Action DataChanged;
 
+    public UnitData() { }
+    public UnitData(UnitModel model)
+    {
+        UnitModel = model;
+        BloodMax = Blood = model.Blood;
+        Attack = model.Attack;
+        Defence = model.Defence;
+        Heal = model.Heal;
+        ActionPointMax = ActionPoint = model.ActionPoint;
+        Speed = model.Speed;
+        Deck = new();
+    }
+
     /// <summary>
     /// 复制单位数据
     /// </summary>

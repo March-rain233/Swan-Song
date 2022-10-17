@@ -6,14 +6,34 @@ using UnityEngine;
 
 public class WalkerMapAdapter : MapAdapter
 {
-    public override List<EdgeData> GetAdjacency(int node, int cost = -1)
+    Dictionary<int, Vector2Int> _IDDic = new();
+    Map _map => GameManager.Instance.GetState<BattleState>().Map;
+
+    public override IEnumerable<EdgeData> GetAdjacency(int node)
     {
-        throw new NotImplementedException();
+        var center = _IDDic[node];
+        List<EdgeData> edges = new();
+        Action<Vector2Int> func = (Vector2Int offset) =>
+        {
+            var pos = center + offset;
+            if(TileUtility.TryGetTile(pos, out var tile))
+            {
+                //todo
+                edges.Add(new EdgeData() { ID = Point2ID(pos), PrimaryCost = 1 });
+            }
+        };
+        func(Vector2Int.up);
+        func(Vector2Int.down);
+        func(Vector2Int.left);
+        func(Vector2Int.right);
+        return edges;
     }
 
     public override int ManhattonDistance(int start, int end)
     {
-        throw new NotImplementedException();
+        var s = ID2Point(start);
+        var e = ID2Point(end);
+        return Mathf.Abs(s.x - e.x) + Mathf.Abs(s.y - e.y);
     }
 
     /// <summary>
@@ -24,7 +44,13 @@ public class WalkerMapAdapter : MapAdapter
     /// <exception cref="NotImplementedException"></exception>
     public int Point2ID(Vector2Int point)
     {
-        throw new NotImplementedException();
+        var id = point.y * _map.Width + point.x;
+        if (_IDDic.TryGetValue(id, out var p) && p != point)
+        {
+            Debug.LogError($"hash collide new:{point} ori:{p}");
+        }
+        _IDDic[id] = point;
+        return id;
     }
 
     /// <summary>
@@ -35,6 +61,6 @@ public class WalkerMapAdapter : MapAdapter
     /// <exception cref="NotImplementedException"></exception>
     public Vector2Int ID2Point(int id)
     {
-        throw new NotImplementedException();
+        return _IDDic[id];
     }
 }

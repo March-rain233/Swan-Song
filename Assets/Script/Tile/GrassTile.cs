@@ -8,7 +8,7 @@ using System.Text;
 /// </summary>
 public class GrassTile : Tile
 {
-    public override int TileTypeID => 1;
+    public override int TileTypeID => 11;
     protected override void OnEnter(Unit unit)
     {
 

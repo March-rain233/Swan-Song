@@ -72,19 +72,28 @@ public class BattleState : GameState
         private set;
     } = 0;
 
-    BattleAnimator _animator;
-
+    public BattleAnimator Animator;
+    public MapRenderer MapRenderer;
+    public UnitRenderer UnitRenderer;
     protected internal override void OnEnter()
     {
         //初始化系统
         Map = MapFactory.CreateMap("");
         UnitList = EnemyFactory.CreateEnemy(Map, "");
-        ServiceFactory.Instance.GetService<MapRenderer>()
-            .RenderMap(Map);
+
+        MapRenderer = new MapRenderer(this);
+        UnitRenderer = new UnitRenderer(this);
+        Animator = new BattleAnimator(this);
+
+        //绘制地图与敌人
+        MapRenderer.RenderMap(Map);
+        foreach(var enemy in UnitList)
+        {
+            UnitRenderer.CreateUnitView(enemy);
+        }
+
         ServiceFactory.Instance.GetService<PanelManager>()
             .OpenPanel("DepolyPanel");
-        _animator = new BattleAnimator(this);
-        _animator.Init();
 
         //数据设置
         var depolyList = GetDeployPoints();
@@ -123,6 +132,7 @@ public class BattleState : GameState
         {
             var unit = new Player(pair.unit, pair.point);
             UnitList.Add(unit);
+            UnitRenderer.CreateUnitView(unit);
         }
         BeginBattle();
     }

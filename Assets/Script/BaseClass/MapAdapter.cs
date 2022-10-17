@@ -15,7 +15,7 @@ public abstract class MapAdapter
     /// </summary>
     /// <param name="node">目标节点</param>
     /// <param name="cost">最大花费，当值为-1时无视花费</param>
-    public abstract List<EdgeData> GetAdjacency(int node, int cost = -1);
+    public abstract IEnumerable<EdgeData> GetAdjacency(int node);
 
     /// <summary>
     /// 获得两个节点间的曼哈顿距离

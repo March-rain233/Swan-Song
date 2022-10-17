@@ -15,8 +15,14 @@ public abstract class Card
     /// </summary>
     public struct TargetData
     {
-        public IEnumerable<Unit> Units;
-        public IEnumerable<Vector2Int> Tiles;
+        /// <summary>
+        /// 可作为目标的图块坐标
+        /// </summary>
+        public IEnumerable<Vector2Int> AvaliableTile;
+        /// <summary>
+        /// 技能释放范围的坐标
+        /// </summary>
+        public IEnumerable<Vector2Int> ViewTiles;
     }
     /// <summary>
     /// 卡牌名称
@@ -57,7 +63,7 @@ public abstract class Card
     /// <summary>
     /// 释放卡牌
     /// </summary>
-    protected internal abstract void Release(Unit user, TargetData targetData);
+    protected internal abstract void Release(Unit user, Vector2Int target);
 
     /// <summary>
     /// 获取可作用的目标
@@ -75,7 +81,7 @@ public abstract class Card
     /// 即Aoe范围或是连锁单位等目标
     /// </remarks>
     /// <returns></returns>
-    protected internal abstract TargetData GetActionRange(Unit user, TargetData targetData);
+    protected internal abstract IEnumerable<Vector2Int> GetActionRange(Unit user, Vector2Int target);
 
     /// <summary>
     /// 复制卡牌对象

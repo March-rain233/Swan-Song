@@ -15,7 +15,7 @@ public static class EnemyFactory
     public static List<Unit> CreateEnemy(Map map, string description)
     {
         var enemies = new List<Unit>();
-        enemies.Add(new Idiot(new Vector2Int(5, 5)));
+        enemies.Add(new Idiot(new Vector2Int(5, 5)) { Camp = Camp.Enemy});
         return enemies;
     }
 }

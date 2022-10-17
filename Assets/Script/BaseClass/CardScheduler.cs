@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using UnityEngine;
 
 /// <summary>
 /// 卡牌调度器
@@ -9,11 +10,6 @@ using System.Text;
 /// <remarks>用来管理一个单位在战斗过程中的卡牌</remarks>
 public class CardScheduler
 {
-    /// <summary>
-    /// 抽卡事件
-    /// </summary>
-    public event Action<Card> DrewCard;
-
     /// <summary>
     /// 弃牌区
     /// </summary>
@@ -53,6 +49,21 @@ public class CardScheduler
         internal set;
     }
 
+    /// <summary>
+    /// 抽卡事件
+    /// </summary>
+    public event Action<Card> DrewCard;
+
+    /// <summary>
+    /// 手牌增加事件
+    /// </summary>
+    public event Action<Card> HandsAdded;
+
+    /// <summary>
+    /// 手牌移除事件
+    /// </summary>
+    public event Action<Card> HandsRemoved;
+
     internal CardScheduler(Unit unit, List<Card> cards)
     {
         Unit = unit;
@@ -62,11 +73,23 @@ public class CardScheduler
     /// <summary>
     /// 释放手牌中对应索引的卡牌
     /// </summary>
-    public void ReleaseCard(int index, Card.TargetData targetData)
+    public void ReleaseCard(int index, Vector2Int target)
     {
-        Hands[index].Release(Unit, targetData);
-        DiscardPile.Add(Hands[index]);
+        var card = Hands[index];
+        Hands[index].Release(Unit, target);
+        DiscardPile.Add(card);
         Hands.RemoveAt(index);
+        HandsRemoved?.Invoke(card);
+    }
+
+    /// <summary>
+    /// 将卡移入手牌
+    /// </summary>
+    /// <param name="card"></param>
+    public void AddToHand(Card card)
+    {
+        Hands.Add(card);
+        HandsAdded?.Invoke(card);
     }
 
     /// <summary>
@@ -82,7 +105,7 @@ public class CardScheduler
         var i = UnityEngine.Random.Range(0, Deck.Count);
         var card = Deck[i];
         Deck.RemoveAt(i);
-        Hands.Add(card);
+        AddToHand(card);
         DrewCard?.Invoke(card);
         return card;
     }

@@ -14,19 +14,6 @@ public abstract class Unit : IHurtable, ICurable
     private List<Buff> _buffList = new List<Buff>();
 
     /// <summary>
-    /// 当单位开始当前回合的行动
-    /// </summary>
-    public event Action TurnBeginning;
-    /// <summary>
-    /// 当单位结束当前回合的行动
-    /// </summary>
-    public event Action TurnEnding;
-    /// <summary>
-    /// 当单位进行当前回合的初始化
-    /// </summary>
-    public event Action Preparing;
-
-    /// <summary>
     /// 该单位当前的行动状态
     /// </summary>
     public ActionStatus ActionStatus
@@ -82,6 +69,28 @@ public abstract class Unit : IHurtable, ICurable
     /// 该单位所属阵营
     /// </summary>
     public Camp Camp;
+
+    /// <summary>
+    /// 当单位开始当前回合的行动
+    /// </summary>
+    public event Action TurnBeginning;
+    /// <summary>
+    /// 当单位结束当前回合的行动
+    /// </summary>
+    public event Action TurnEnding;
+    /// <summary>
+    /// 当单位进行当前回合的初始化
+    /// </summary>
+    public event Action Preparing;
+
+    /// <summary>
+    /// 单位移动事件
+    /// </summary>
+    public event Action<IEnumerable<Vector2Int>> Moved;
+    /// <summary>
+    /// 单位受伤事件
+    /// </summary>
+    public event Action Hurt;
 
     protected Unit(UnitData data, Vector2Int pos)
     {
@@ -168,14 +177,29 @@ public abstract class Unit : IHurtable, ICurable
     /// <param name="target">移动目标位置</param>
     public void Move(Vector2Int target)
     {
-        var manager = GameToolKit.ServiceFactory.Instance.GetService<GameManager>()
-            .GetState() as BattleState;
         var adapter = new WalkerMapAdapter();
-        var path = UnitUtility.FindShortestPath(adapter, adapter.Point2ID(Position), adapter.Point2ID(target));
-        foreach(var p in path)
+        var rawPath = UnitUtility.FindShortestPath(adapter, adapter.Point2ID(Position), adapter.Point2ID(target), UnitData.ActionPoint);
+        var path = rawPath.Select(e => adapter.ID2Point(e));
+        foreach(var p in path.Skip(1))
         {
-            Position = adapter.ID2Point(p);
+            Position = p;
+            //todo 行动点计算
+            UnitData.ActionPoint -= 1;
         }
+        Moved(path);
+    }
+
+    /// <summary>
+    /// 获取可移动范围
+    /// </summary>
+    public IEnumerable<Vector2Int> GetMoveArea()
+    {
+        var adapter = new WalkerMapAdapter();
+        var list = UnitUtility.GetAllAvailableNode(adapter, adapter.Point2ID(Position), UnitData.ActionPoint);
+        return list.Select(e => adapter.ID2Point(e)).Where(e =>
+        {
+            return TileUtility.TryGetTile(e, out var tile) && tile.Units.Count == 0;
+        });
     }
 
     float IHurtable.HurtCalculate(float damage, HurtType type, object source)
@@ -189,6 +213,11 @@ public abstract class Unit : IHurtable, ICurable
     void IHurtable.OnHurt(float damage)
     {
         UnitData.Blood -= (int)damage;
+        Hurt?.Invoke();
+        if(UnitData.Blood <= 0)
+        {
+            ActionStatus = ActionStatus.Dead;
+        }
     }
 
     float ICurable.CureCalculate(float power, object source)
