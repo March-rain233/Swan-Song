@@ -1029,7 +1029,7 @@ MonoBehaviour:
       Data: 10
     - Name: Defence
       Entry: 3
-      Data: 10
+      Data: 0
     - Name: Heal
       Entry: 3
       Data: 10

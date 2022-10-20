@@ -119,7 +119,10 @@ public abstract class Unit : IHurtable, ICurable
     /// </summary>
     protected void EndTurn()
     {
-        ActionStatus = ActionStatus.Rest;
+        if (ActionStatus != ActionStatus.Dead)
+        {
+            ActionStatus = ActionStatus.Rest;
+        }
         TurnEnding?.Invoke();
         _callback();
     }

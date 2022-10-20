@@ -126,6 +126,7 @@ public class BattlePanel : PanelBase
                 {
                     var obj = new GameObject("order", typeof(RectTransform), typeof(Image));
                     var obj2 = new GameObject("order", typeof(RectTransform), typeof(Image));
+                    obj.GetComponent<RectTransform>().sizeDelta = new Vector2(50, 0);
                     var rect = obj2.GetComponent<RectTransform>();
                     obj2.transform.SetParent(obj.transform, false);
                     obj.transform.SetParent(OrderList.transform, false);
