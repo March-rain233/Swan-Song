@@ -71,13 +71,13 @@ public abstract class Card
     protected internal abstract TargetData GetAvaliableTarget(Unit user);
 
     /// <summary>
-    /// 获取作用范围
+    /// 获取影响范围
     /// </summary>
     /// <remarks>
     /// 即Aoe范围或是连锁单位等目标
     /// </remarks>
     /// <returns></returns>
-    protected internal abstract IEnumerable<Vector2Int> GetActionRange(Unit user, Vector2Int target);
+    protected internal abstract IEnumerable<Vector2Int> GetAffecrTarget(Unit user, Vector2Int target);
 
     /// <summary>
     /// 复制卡牌对象

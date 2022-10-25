@@ -127,7 +127,7 @@ public class HandsView : SerializedMonoBehaviour
                     .ScreenToWorldPoint(Mouse.current.position.ReadValue())));
             if (_avaliableTarget.AvaliableTile.Contains(mouse))
             {
-                var list = _select.Card.GetActionRange(_select.CardScheduler.Unit, mouse);
+                var list = _select.Card.GetAffecrTarget(_select.CardScheduler.Unit, mouse);
                 mr.RenderAttackRange(list);
                 ur.SelectUnit(list.Select(p => map[p.x, p.y])
                     .Where(t => t.Units.Count > 0)

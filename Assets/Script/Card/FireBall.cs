@@ -32,7 +32,7 @@ public class FireBall : Card
         Description = "AOE";
         Cost = 5;
     }
-    protected internal override IEnumerable<Vector2Int> GetActionRange(Unit user, Vector2Int target)
+    protected internal override IEnumerable<Vector2Int> GetAffecrTarget(Unit user, Vector2Int target)
     {
         var map = _map;
         var list = AttackArea.GetPointList(target);

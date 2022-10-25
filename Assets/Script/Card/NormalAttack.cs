@@ -22,7 +22,7 @@ public class NormalAttack : Card
         Cost = 1;
         Description = "Attack Enemy";
     }
-    protected internal override IEnumerable<Vector2Int> GetActionRange(Unit user, Vector2Int target)
+    protected internal override IEnumerable<Vector2Int> GetAffecrTarget(Unit user, Vector2Int target)
     {
         List<Vector2Int> res = new List<Vector2Int>();
         res.Add(target);

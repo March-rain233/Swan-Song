@@ -8,6 +8,11 @@ using System.Text;
 /// </summary>
 public abstract class Tile
 {
+    /// <summary>
+    /// 当前图块的高度
+    /// </summary>
+    public int Height;
+
     public TileStatus TileStatus;
     /// <summary>
     /// 图块种类ID

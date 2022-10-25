@@ -87,8 +87,9 @@ public class BattleState : GameState
     protected internal override void OnEnter()
     {
         //初始化系统
-        Map = MapFactory.CreateMap("");
-        UnitList = EnemyFactory.CreateEnemy(Map, "");
+        var mapData = MapFactory.CreateMap("");
+        Map = mapData.Map;
+        UnitList = mapData.Units;
         //todo:设置灭歌开始回合
         SwanSongRoundNumber = 5;
 
@@ -107,7 +108,7 @@ public class BattleState : GameState
             .OpenPanel("DepolyPanel");
 
         //数据设置
-        var depolyList = GetDeployPoints();
+        var depolyList = mapData.PlaceablePoints;
         var gm = ServiceFactory.Instance.GetService<GameManager>();
         var unitDatas = gm.GameData.Members;
         DeployBeginning?.Invoke(depolyList, unitDatas);

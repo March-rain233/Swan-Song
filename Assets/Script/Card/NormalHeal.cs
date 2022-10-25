@@ -11,7 +11,7 @@ public class NormalHeal : Card
         Description = "Heal all friendly unit";
         Cost = 1;
     }
-    protected internal override IEnumerable<Vector2Int> GetActionRange(Unit user, Vector2Int target)
+    protected internal override IEnumerable<Vector2Int> GetAffecrTarget(Unit user, Vector2Int target)
     {
         return GameManager.Instance.GetState<BattleState>().UnitList
             .Where(u => u.Camp == user.Camp)
