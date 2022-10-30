@@ -35,6 +35,14 @@ public class BattleState : GameState
     /// </summary>
     public event Action<List<Vector2Int>, List<UnitData>> DeployBeginning;
     /// <summary>
+    /// 胜利
+    /// </summary>
+    public event Action Successed;
+    /// <summary>
+    /// 失败
+    /// </summary>
+    public event Action Failed;
+    /// <summary>
     /// 当前地图
     /// </summary>
     public Map Map
@@ -195,12 +203,14 @@ public class BattleState : GameState
             {
                 case GameStatus.Victory:
                     //todo
+                    Successed?.Invoke();
                     break;
                 case GameStatus.Continue:
                     NextTurn();
                     break;
                 case GameStatus.Failure:
                     //todo
+                    Failed?.Invoke();
                     break;
             }
         }

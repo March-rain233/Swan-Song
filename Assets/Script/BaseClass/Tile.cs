@@ -8,16 +8,11 @@ using System.Text;
 /// </summary>
 public abstract class Tile
 {
-    /// <summary>
-    /// 当前图块的高度
-    /// </summary>
-    public int Height;
-
     public TileStatus TileStatus;
     /// <summary>
-    /// 图块种类ID
+    /// 图块种类I
     /// </summary>
-    public abstract int TileTypeID { get; }
+    public TileType TileType;
 
     /// <summary>
     /// 当前格上的单位
@@ -46,4 +41,14 @@ public abstract class Tile
     }
 
     protected abstract void OnExit(Unit unit);
+
+    /// <summary>
+    /// 检查指定单位是否可以被放置于该图格
+    /// </summary>
+    /// <param name="unit"></param>
+    /// <returns></returns>
+    public virtual bool CheckPlaceable(Unit unit)
+    {
+        return true;
+    }
 }

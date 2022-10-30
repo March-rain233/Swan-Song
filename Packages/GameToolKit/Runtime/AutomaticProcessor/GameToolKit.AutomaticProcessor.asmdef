@@ -1,0 +1,16 @@
+{
+    "name": "GameToolKit.AutomaticProcessor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:a60b80b77ae1e954e825769c9a0c6657"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

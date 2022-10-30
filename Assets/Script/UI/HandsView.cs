@@ -128,14 +128,14 @@ public class HandsView : SerializedMonoBehaviour
             if (_avaliableTarget.AvaliableTile.Contains(mouse))
             {
                 var list = _select.Card.GetAffecrTarget(_select.CardScheduler.Unit, mouse);
-                mr.RenderAttackRange(list);
+                mr.RenderAttackTile(list);
                 ur.SelectUnit(list.Select(p => map[p.x, p.y])
                     .Where(t => t.Units.Count > 0)
                     .Select(t => t.Units.First()));
             }
             else
             {
-                mr.RenderAttackRange();
+                mr.RenderAttackTile();
                 ur.SelectUnit();
             }
         }
@@ -161,7 +161,7 @@ public class HandsView : SerializedMonoBehaviour
         var mr = GameManager.Instance.GetState<BattleState>().MapRenderer;
         var ur = GameManager.Instance.GetState<BattleState>().UnitRenderer;
         var mouse = TileUtility.GetMouseInCell().ToVector2Int();
-        mr.RenderAttackRange();
+        mr.RenderAttackTile();
         mr.RenderTargetTile();
         ur.SelectUnit();
         _select.LineRenderer.enabled = false;

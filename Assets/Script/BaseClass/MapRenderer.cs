@@ -34,6 +34,8 @@ public class MapRenderer
         _attackRangeMask = CreateTileMap("Mask", 2);
         _depolyMask = CreateTileMap("Mask", 3);
 
+        _tilemap.animationFrameRate = 6;
+
         Grid.transform.localScale = new Vector3(2, 2, 1);
     }
 
@@ -64,9 +66,9 @@ public class MapRenderer
     /// 绘制移动范围
     /// </summary>
     /// <param name="points"></param>
-    public void RenderMoveRange(IEnumerable<Vector2Int> points = null)
+    public void RenderMoveTile(IEnumerable<Vector2Int> points = null)
     {
-        RenderTilemap(_moveMask, TileSetting.Instance.TileDic[0], points);
+        RenderTilemap(_moveMask, TileSetting.Instance.MoveMaskTile, points);
     }
 
     /// <summary>
@@ -75,25 +77,25 @@ public class MapRenderer
     /// <param name="points"></param>
     public void RenderTargetTile(IEnumerable<Vector2Int> points = null)
     {
-        RenderTilemap(_targetTileMask, TileSetting.Instance.TileDic[1], points);
+        RenderTilemap(_targetTileMask, TileSetting.Instance.TargetMaskTile, points);
     }
 
     /// <summary>
     /// 绘制AOE范围
     /// </summary>
     /// <param name="points"></param>
-    public void RenderAttackRange(IEnumerable<Vector2Int> points = null)
+    public void RenderAttackTile(IEnumerable<Vector2Int> points = null)
     {
-        RenderTilemap(_attackRangeMask, TileSetting.Instance.TileDic[2], points);
+        RenderTilemap(_attackRangeMask, TileSetting.Instance.AttackMaskTile, points);
     }
 
     /// <summary>
     /// 绘制单位可放置格
     /// </summary>
     /// <param name="points"></param>
-    public void RenderDepoly(IEnumerable<Vector2Int> points = null)
+    public void RenderDepolyTile(IEnumerable<Vector2Int> points = null)
     {
-        RenderTilemap(_depolyMask, TileSetting.Instance.TileDic[3], points);
+        RenderTilemap(_depolyMask, TileSetting.Instance.DepolyMaskTile, points);
     }
 
     /// <summary>
@@ -109,7 +111,7 @@ public class MapRenderer
             {
                 if(map[i,j] != null)
                 {
-                    _tilemap.SetTile(new Vector3Int(i, j, 0), TileSetting.Instance.TileDic[map[i, j].TileTypeID]);
+                    _tilemap.SetTile(new Vector3Int(i, j, 0), TileSetting.Instance.TileDic[map[i, j].TileType]);
                 }
             }
         }

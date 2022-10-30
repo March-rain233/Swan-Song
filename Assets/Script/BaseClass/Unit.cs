@@ -184,7 +184,7 @@ public abstract class Unit : IHurtable, ICurable
     /// <param name="target">移动目标位置</param>
     public void Move(Vector2Int target)
     {
-        var adapter = new WalkerMapAdapter();
+        var adapter = new GenericMapAdapter(this, GameManager.Instance.GetState<BattleState>().Map);
         var rawPath = UnitUtility.FindShortestPath(adapter, adapter.Point2ID(Position), adapter.Point2ID(target), UnitData.ActionPoint);
         var path = rawPath.Select(e => adapter.ID2Point(e));
         foreach(var p in path.Skip(1))
@@ -201,7 +201,7 @@ public abstract class Unit : IHurtable, ICurable
     /// </summary>
     public IEnumerable<Vector2Int> GetMoveArea()
     {
-        var adapter = new WalkerMapAdapter();
+        var adapter = new GenericMapAdapter(this, GameManager.Instance.GetState<BattleState>().Map);
         var list = UnitUtility.GetAllAvailableNode(adapter, adapter.Point2ID(Position), UnitData.ActionPoint);
         return list.Select(e => adapter.ID2Point(e)).Where(e =>
         {
@@ -223,8 +223,15 @@ public abstract class Unit : IHurtable, ICurable
         Hurt?.Invoke();
         if(UnitData.Blood <= 0)
         {
-            ActionStatus = ActionStatus.Dead;
-            EndTurn();
+            if (ActionStatus == ActionStatus.Running)
+            {
+                ActionStatus = ActionStatus.Dead;
+                EndTurn();
+            }
+            else
+            {
+                ActionStatus = ActionStatus.Dead;
+            }
         }
     }
 

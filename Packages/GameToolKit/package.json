@@ -1,0 +1,11 @@
+{
+  "name": "com.march_rain.gametoolkit",
+  "version": "1.0.0",
+  "displayName": "GameToolKit",
+  "description": "This is a GameToolKit",
+  "unity": "2022.1",
+  "author": {
+    "name": "March_rain",
+    "email": "1462149138@qq.com"
+  }
+}

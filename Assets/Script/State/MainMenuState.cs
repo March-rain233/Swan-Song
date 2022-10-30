@@ -33,20 +33,7 @@ public class MainMenuState : GameState
         GameData data = new GameData();
         data.RandomState = UnityEngine.Random.state;
         data.TreeMap = TreeMapFactory.CreateTreeMap("");
-        data.Members = new()
-        {
-            new UnitData(UnitSetting.Instance.UnitDic["Test"])
-            {
-                Name = "TestPlayer1",
-                Deck = new() { new FireBall(), new FireBall(), new NormalAttack(), new NormalAttack() },
-            },
-            new UnitData(UnitSetting.Instance.UnitDic["Test"])
-            {
-                Name = "TestPlayer2",
-                Deck = new() { new FireBall(), new FireBall(), new NormalAttack(), new NormalAttack() },
-            }
-
-        };
+        data.Members = new();
         ServiceFactory.Instance.GetService<GameManager>()
             .GameData = data;
         ServiceFactory.Instance.GetService<GameManager>()

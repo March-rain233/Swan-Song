@@ -1,0 +1,20 @@
+{
+    "name": "GameToolKit.Runtime",
+    "rootNamespace": "",
+    "references": [
+        "GUID:a60b80b77ae1e954e825769c9a0c6657",
+        "GUID:254dc75d4e13cd8458e7c65b6223d70a",
+        "GUID:f905bba8509478d4eb870285b3d271b0",
+        "GUID:b1970e5a46c1040449845540049c9415",
+        "GUID:6623caed43af7aa4caddb5e1234a283c"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

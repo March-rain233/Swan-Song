@@ -20,6 +20,9 @@ public class BattlePanel : PanelBase
     public TextMeshProUGUI RoundNumber;
     public TextMeshProUGUI SwanSongRoundNumber;
 
+    public CanvasGroup SuccessPanel;
+    public CanvasGroup FailPanel;
+
     IEnumerable<Vector2Int> _movePoint;
 
     public HorizontalLayoutGroup OrderList;
@@ -67,17 +70,32 @@ public class BattlePanel : PanelBase
             {
                 Hands.BlockCards();
                 _movePoint = sta.CurrentUnit.GetMoveArea();
-                mr.RenderMoveRange(_movePoint);
+                mr.RenderMoveTile(_movePoint);
                 BtnFinish.interactable = false;
             }
             else
             {
                 Hands.UnblockCards();
-                mr.RenderMoveRange();
+                mr.RenderMoveTile();
                 BtnFinish.interactable = true;
             }
         });
         SwanSongRoundNumber.text = sta.SwanSongRoundNumber.ToString();
+
+        sta.Successed += () =>
+        {
+            SuccessPanel.gameObject.SetActive(true);
+            SuccessPanel.alpha = 0;
+            SuccessPanel.DOFade(1, 0.3f);
+            //todo
+        };
+        sta.Failed += () =>
+        {
+            FailPanel.gameObject.SetActive(true);
+            FailPanel.alpha = 0;
+            FailPanel.DOFade(1, 0.3f);
+            //todo
+        };
     }
 
     private void Update()

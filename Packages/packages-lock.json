@@ -1,9 +1,9 @@
 {
   "dependencies": {
     "com.march_rain.gametoolkit": {
-      "version": "file:D:/Program/unity/GameToolKit/Packages/GameToolKit",
+      "version": "file:GameToolKit",
       "depth": 0,
-      "source": "local",
+      "source": "embedded",
       "dependencies": {}
     },
     "com.unity.2d.animation": {

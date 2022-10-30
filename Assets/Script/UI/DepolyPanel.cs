@@ -46,7 +46,7 @@ public class DepolyPanel : PanelBase
             Destroy(unit.Value);
         }
         state.DeployBeginning -= DepolyPanel_DeployBeginning;
-        mr.RenderDepoly();
+        mr.RenderDepolyTile();
     }
 
     private void DepolyPanel_DeployBeginning(List<Vector2Int> arg1, List<UnitData> arg2)
@@ -54,7 +54,7 @@ public class DepolyPanel : PanelBase
         _points = arg1;
         _units = arg2;
         var mr = GameManager.Instance.GetState<BattleState>().MapRenderer;
-        mr.RenderDepoly(arg1);
+        mr.RenderDepolyTile(arg1);
         foreach (var p in arg2)
         {
             CreateSelect(p);

@@ -1,0 +1,42 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <Style src="project://database/Assets/Scripts/Editor/DialogSystem/TextEditor.uss?fileID=7433441132597879392&amp;guid=434b83e936b402449a2d1d0df58f6fcb&amp;type=3#TextEditor" />
+    <ui:VisualElement style="flex-grow: 1; flex-direction: row-reverse;">
+        <ui:VisualElement name="right" style="flex-grow: 1; flex-direction: column;">
+            <ui:TextField picking-mode="Ignore" label="Plain Text" name="plain-text" multiline="true" is-delayed="false" class="cardtext" style="min-height: 100px; height: 100px; white-space: normal;" />
+            <ui:GroupBox name="body" style="flex-grow: 1; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0;">
+                <ui:Label text="Text Setting" display-tooltip-when-elided="true" name="title" class="title" />
+                <ui:VisualElement name="length" style="flex-direction: row; justify-content: space-around;">
+                    <uie:IntegerField label="Raw Text Length" readonly="true" name="raw-text-length" style="flex-grow: 1;" />
+                    <uie:IntegerField label="Plain Text Length" readonly="true" name="plain-text-length" style="flex-grow: 1;" />
+                </ui:VisualElement>
+                <uie:IntegerField label="Begin Index" name="begin-index" is-delayed="true" />
+                <uie:IntegerField label="End Index" name="end-index" is-delayed="true" />
+                <ui:VisualElement name="tag" style="flex-direction: row;">
+                    <ui:DropdownField label="Tag" name="tag-selector" />
+                    <ui:TextField picking-mode="Ignore" name="tag-field" is-delayed="true" style="flex-grow: 1;" />
+                    <ui:RadioButton name="empty-flag" style="margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0;" />
+                </ui:VisualElement>
+                <ui:VisualElement name="tag-setting" style="flex-grow: 1; margin-left: 5px; margin-right: 5px; margin-top: 5px; margin-bottom: 5px; border-left-width: 1px; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px;">
+                    <ui:Label text="Title" display-tooltip-when-elided="true" name="tag-title" class="title" style="border-bottom-color: rgb(13, 13, 13);" />
+                    <ui:VisualElement name="tag-body" style="flex-grow: 1;" />
+                    <ui:VisualElement name="tag-button-group" style="flex-direction: row; justify-content: flex-end; margin-bottom: 2px; margin-right: 2px; height: 25px; margin-left: 2px; margin-top: 2px; padding-bottom: 3px; padding-right: 2px;">
+                        <ui:Button text="Apply" display-tooltip-when-elided="true" name="tag-apply" focusable="false" style="border-top-left-radius: 5px; border-bottom-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; -unity-font-style: bold;" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:GroupBox>
+            <ui:VisualElement name="preview" style="flex-direction: row; align-items: center;">
+                <ui:VisualElement name="preview-text" class="cardtext" style="flex-grow: 1; background-color: rgb(225, 112, 85); margin-left: 3px; margin-right: 3px; margin-top: 3px; margin-bottom: 3px;">
+                    <ui:Label text="Preview" display-tooltip-when-elided="true" name="title" />
+                    <ui:Label display-tooltip-when-elided="true" name="body" style="-unity-text-align: middle-left; background-color: rgb(42, 42, 42); border-top-left-radius: 3px; border-bottom-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; min-height: 100px; padding-right: 3px; padding-left: 3px; white-space: normal;" />
+                </ui:VisualElement>
+                <ui:Button display-tooltip-when-elided="true" name="play" style="background-image: url(&apos;project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=-1087164816274819069&amp;guid=32e867172837c124191c7008eee0627d&amp;type=3#arrow-right@2x&apos;); width: 20px; height: 20px; border-top-left-radius: 3px; border-bottom-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="left" style="width: 250px; flex-direction: row; transition-property: width; transition-duration: 0.3s; transition-timing-function: ease-in-out;">
+            <ui:TextField multiline="true" name="raw-text" label="Raw Text" is-delayed="true" class="cardtext" style="flex-grow: 1; background-color: rgb(9, 132, 227); margin-right: 0; flex-shrink: 1; white-space: normal;" />
+            <ui:VisualElement name="float-button" style="position: absolute; right: -14px; top: 50%; height: 50px; width: 15px; translate: 0 -50%; max-width: none; max-height: none; min-width: auto; min-height: auto; border-top-right-radius: 5px; border-bottom-right-radius: 5px;">
+                <ui:Label text="←" name="button-view" enable-rich-text="false" style="flex-grow: 1; flex-shrink: 1; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; -unity-text-align: middle-center; background-color: rgba(13, 13, 13, 0.5); border-top-right-radius: 5px; border-bottom-right-radius: 5px;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

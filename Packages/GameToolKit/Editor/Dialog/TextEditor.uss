@@ -1,0 +1,46 @@
+.cardtext {
+    flex-direction: column;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-color: rgb(232, 67, 147);
+}
+
+.cardtext > Label {
+    color: rgb(255, 255, 255);
+    -unity-text-align: upper-center;
+    min-width: 0;
+}
+
+.cardtext #unity-text-input {
+}
+
+.title {
+    -unity-text-align: middle-center;
+    border-bottom-width: 1px;
+    border-bottom-color: rgb(32, 32, 32);
+    font-size: 16px;
+    -unity-font-style: bold;
+    margin-left: 2px;
+    margin-right: 2px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+.errorField #unity-text-input {
+    border-left-color: rgba(192, 57, 43, 255);
+    border-right-color: rgba(192, 57, 43, 255);
+    border-top-color: rgba(192, 57, 43, 255);
+    border-bottom-color: rgba(192, 57, 43, 255);
+    transition-timing-function: ease-in-out-bounce, ease;
+    transition-property: position, background-color;
+    transition-duration: 0.5s, 0s;
+}
+
+#float-button:hover {
+    background-color: rgba(0, 0, 0, 0.28);
+    transition-property: background-color;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-out;
+}

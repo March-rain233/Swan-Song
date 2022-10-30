@@ -1,0 +1,21 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <Style src="project://database/Assets/Scripts/EventManager/EventProcessor/Editor/EventProcessorEditor.uss?fileID=7433441132597879392&amp;guid=aaab590e27e946444af31802ea0082e8&amp;type=3#EventProcessorEditor" />
+    <ui:VisualElement style="flex-grow: 1; flex-direction: row;">
+        <ui:VisualElement name="left" style="flex-shrink: 0; min-width: 150px; width: 150px;">
+            <uie:Toolbar>
+                <uie:ToolbarSearchField focusable="true" name="sort-asset" style="flex-grow: 1; width: 0;" />
+            </uie:Toolbar>
+            <ui:Button text="New Processor" display-tooltip-when-elided="true" name="create" />
+            <ui:ListView focusable="true" name="processor-list" reorderable="true" />
+        </ui:VisualElement>
+        <ui:VisualElement name="right" style="flex-grow: 1;">
+            <uie:Toolbar style="border-left-width: 1px;">
+                <uie:ToolbarButton text="Sort Graph" name="sort" focusable="false" />
+                <uie:ToolbarSearchField focusable="true" name="search-node" style="flex-grow: 1;" />
+                <uie:ToolbarToggle focusable="false" label="Inspector" name="inspector" value="true" style="width: 70px; -unity-text-align: upper-center; justify-content: center;" />
+            </uie:Toolbar>
+            <GameToolKit.EventProcessor.Editor.ProcessorView focusable="true" style="flex-grow: 1;" />
+            <ui:Label text="Label" display-tooltip-when-elided="true" name="file-path" style="-unity-text-align: upper-right; background-color: rgb(47, 47, 47);" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

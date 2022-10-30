@@ -1,0 +1,6 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <Style src="project://database/Assets/Scripts/Editor/BaseClass/USS/FieldWithUnit.uss?fileID=7433441132597879392&amp;guid=ad40daffe15a0d7438191de70d54944b&amp;type=3#FieldWithUnit" />
+    <ui:FloatField label="Float Field" value="42.2" name="field">
+        <ui:DropdownField index="-1" choices="%" name="unit" />
+    </ui:FloatField>
+</ui:UXML>

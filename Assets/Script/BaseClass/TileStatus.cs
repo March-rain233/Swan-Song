@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
+/// <summary>
+/// 图块的叠加状态
+/// </summary>
+[System.Flags]
 public enum TileStatus
 {
     /// <summary>

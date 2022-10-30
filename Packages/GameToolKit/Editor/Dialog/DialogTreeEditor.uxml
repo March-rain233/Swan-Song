@@ -1,0 +1,10 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <Style src="project://database/Assets/Scripts/Editor/DialogSystem/DialogTreeEditor.uss?fileID=7433441132597879392&amp;guid=1d34cc06ae935934cb8a7ba63e989c17&amp;type=3#DialogTreeEditor" />
+    <uie:Toolbar>
+        <uie:ToolbarButton tabindex="-1" text="Save Asset" display-tooltip-when-elided="true" name="save" />
+        <uie:ToolbarSearchField focusable="true" style="flex-grow: 1;" />
+        <uie:ToolbarToggle focusable="false" name="inspector" value="true" text="Inspector" style="width: 64px; -unity-text-align: upper-center;" />
+    </uie:Toolbar>
+    <GameToolKit.Dialog.Editor.DialogTreeView focusable="true" style="flex-grow: 1;" />
+    <ui:Label display-tooltip-when-elided="true" name="filepath" style="-unity-text-align: middle-right;" />
+</ui:UXML>

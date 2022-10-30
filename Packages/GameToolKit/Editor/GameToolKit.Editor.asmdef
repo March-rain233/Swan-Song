@@ -1,0 +1,24 @@
+{
+    "name": "GameToolKit.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:b1970e5a46c1040449845540049c9415",
+        "GUID:a60b80b77ae1e954e825769c9a0c6657",
+        "GUID:254dc75d4e13cd8458e7c65b6223d70a",
+        "GUID:f905bba8509478d4eb870285b3d271b0",
+        "GUID:a2e27fe05bf58c74cacd3b1822ccc57d",
+        "GUID:6623caed43af7aa4caddb5e1234a283c",
+        "GUID:be0903cd8e1546f498710afdc59db5eb"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -75,8 +75,9 @@ public class BattleAnimator
         };
         unit.Hurt += () =>
         {
-            var anim = unitView.SpriteRenderer.DOColor(Color.red, 0.1f);
-            anim.SetLoops(2, LoopType.Yoyo);
+            var anim = DOTween.Sequence();
+            anim.Join(unitView.SpriteRenderer.DOColor(Color.red, 0.1f)
+                .SetLoops(2, LoopType.Yoyo));
             EnqueueAnimation(anim);
         };
     }

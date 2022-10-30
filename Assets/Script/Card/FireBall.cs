@@ -58,6 +58,12 @@ public class FireBall : Card
 
     protected internal override void Release(Unit user, Vector2Int target)
     {
-        throw new System.NotImplementedException();
+        foreach(var point in GetAffecrTarget(user, target))
+        {
+            if(TileUtility.TryGetTile(point, out var tile) && tile.Units.Count > 0)
+            {
+                (tile.Units.First() as IHurtable).Hurt(user.UnitData.Attack * 2, HurtType.FromUnit, user);
+            }
+        }
     }
 }

@@ -1,0 +1,17 @@
+{
+    "name": "GameToolKit.BehaviorTree",
+    "rootNamespace": "",
+    "references": [
+        "GUID:a60b80b77ae1e954e825769c9a0c6657",
+        "GUID:4307f53044263cf4b835bd812fc161a4"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

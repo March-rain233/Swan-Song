@@ -16,11 +16,8 @@ MonoBehaviour:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
-    - {fileID: 11400000, guid: c8c89779af646fc49b64e87995cae8a5, type: 2}
-    - {fileID: 11400000, guid: b83a9e18add518e4ea287fd22fd48dc2, type: 2}
-    - {fileID: 11400000, guid: 9bb4cfa182bec8140a67f087df6abf74, type: 2}
-    - {fileID: 11400000, guid: 189ae2921e306964bbe137cfcc5e8189, type: 2}
     - {fileID: 11400000, guid: 8f9284bdda89a9e408cfc79b52aee7aa, type: 2}
+    - {fileID: 11400000, guid: 34f610ef8f4e48149bc8bc777ef86b89, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -28,18 +25,24 @@ MonoBehaviour:
     SerializationNodes:
     - Name: TileDic
       Entry: 7
-      Data: 0|System.Collections.Generic.Dictionary`2[[System.Int32, mscorlib],[UnityEngine.Tilemaps.TileBase,
+      Data: 0|System.Collections.Generic.Dictionary`2[[TileType, Assembly-CSharp],[UnityEngine.Tilemaps.TileBase,
         UnityEngine.TilemapModule]], mscorlib
     - Name: comparer
       Entry: 7
-      Data: 1|System.Collections.Generic.GenericEqualityComparer`1[[System.Int32,
-        mscorlib]], mscorlib
+      Data: 1|System.Collections.Generic.EnumEqualityComparer`1[[TileType, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
     - Name: 
       Entry: 8
       Data: 
     - Name: 
       Entry: 12
-      Data: 5
+      Data: 2
     - Name: 
       Entry: 7
       Data: 
@@ -57,46 +60,10 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 3
-      Data: 0
+      Data: 2
     - Name: $v
       Entry: 10
       Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 3
-      Data: 2
-    - Name: $v
-      Entry: 10
-      Data: 2
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 3
-      Data: 3
-    - Name: $v
-      Entry: 10
-      Data: 3
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 3
-      Data: 11
-    - Name: $v
-      Entry: 10
-      Data: 4
     - Name: 
       Entry: 8
       Data: 
@@ -106,3 +73,7 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+  MoveMaskTile: {fileID: 11400000, guid: b83a9e18add518e4ea287fd22fd48dc2, type: 2}
+  DepolyMaskTile: {fileID: 11400000, guid: 189ae2921e306964bbe137cfcc5e8189, type: 2}
+  TargetMaskTile: {fileID: 11400000, guid: c8c89779af646fc49b64e87995cae8a5, type: 2}
+  AttackMaskTile: {fileID: 11400000, guid: 9bb4cfa182bec8140a67f087df6abf74, type: 2}
