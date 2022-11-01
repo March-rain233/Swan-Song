@@ -11,9 +11,9 @@ public abstract class Buff
     public Unit Unit;
 
     /// <summary>
-    /// 剩余回合数
+    /// 剩余计数
     /// </summary>
-    public int Rounds;
+    public int Times;
 
     /// <summary>
     /// 该效果是否生效

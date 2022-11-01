@@ -99,7 +99,7 @@ public class BattleState : GameState
         Map = mapData.Map;
         UnitList = mapData.Units;
         //todo:设置灭歌开始回合
-        SwanSongRoundNumber = 5;
+        SwanSongRoundNumber = 20;
 
         MapRenderer = new MapRenderer(this);
         UnitRenderer = new UnitRenderer(this);

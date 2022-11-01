@@ -86,4 +86,12 @@ public class Map
             }
         }
     }
+
+    public void Updata()
+    {
+        foreach(var tile in _gridDatas)
+        {
+            tile.Updata();
+        }
+    }
 }

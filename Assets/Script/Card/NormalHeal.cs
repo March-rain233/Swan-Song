@@ -5,6 +5,8 @@ using System.Linq;
 
 public class NormalHeal : Card
 {
+    public override CardType Type => CardType.Heal;
+
     public NormalHeal()
     {
         Name = "Normal Heal";

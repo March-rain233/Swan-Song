@@ -11,10 +11,9 @@ public class UnitSelectView : MonoBehaviour
     public GameObject JoinFlag;
     public Image Face;
     public TextMeshProUGUI Name;
-    public TextMeshProUGUI BloodText;
-    public Slider Blood;
     public Image Background;
     public Toggle Toggle;
+    public HpBar HpBar;
     public Shader BorderShader;
 
     public Outline Outline;
@@ -24,8 +23,7 @@ public class UnitSelectView : MonoBehaviour
         UnitData = unit;
         Face.sprite = UnitData.Face;
         Name.text = UnitData.Name;
-        Blood.value = UnitData.Blood / UnitData.BloodMax;
-        BloodText.text = $"{UnitData.Blood}/{UnitData.BloodMax}";
+        HpBar.InitHpBar(unit.Blood, unit.BloodMax);
         JoinFlag.SetActive(false);
         Outline.enabled = false;
         Toggle.onValueChanged.AddListener(value =>

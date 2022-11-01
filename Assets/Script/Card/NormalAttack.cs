@@ -7,6 +7,8 @@ using GameToolKit;
 
 public class NormalAttack : Card
 {
+    public override CardType Type => CardType.Attack;
+
     public AreaHelper AttackArea = new AreaHelper() { Flags = new bool[3, 3]
         {
             { false, true, false },

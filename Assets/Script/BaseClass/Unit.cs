@@ -178,6 +178,11 @@ public abstract class Unit : IHurtable, ICurable
         }
     }
 
+    public void RemoveBuff(Buff buff)
+    {
+        _buffList.Remove(buff);
+    }
+
     /// <summary>
     /// 移动
     /// </summary>

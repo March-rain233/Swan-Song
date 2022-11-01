@@ -9,6 +9,7 @@ using GameToolKit;
 public class TileSetting : ScriptableSingleton<TileSetting>
 {
     public Dictionary<TileType, TileBase> TileDic = new();
+    public List<(TileStatus status, TileBase tile)> TileStatusProList = new();
     public TileBase MoveMaskTile;
     public TileBase DepolyMaskTile;
     public TileBase TargetMaskTile;

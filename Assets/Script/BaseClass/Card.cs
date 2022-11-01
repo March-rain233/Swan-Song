@@ -11,6 +11,21 @@ using GameToolKit;
 public abstract class Card
 {
     /// <summary>
+    /// 卡牌类型
+    /// </summary>
+    /// <remarks>
+    /// 用于给AI判断卡牌类型来进行出牌逻辑
+    /// </remarks>
+    [Flags]
+    public enum CardType
+    {
+        Other,
+        Attack = 1,
+        Defence = 1 << 1,
+        Heal = 1 << 2,
+    }
+
+    /// <summary>
     /// 卡牌释放目标数据
     /// </summary>
     public struct TargetData
@@ -48,6 +63,11 @@ public abstract class Card
     /// 是否已被强化
     /// </summary>
     public bool HasEnchanted;
+
+    /// <summary>
+    /// 卡牌类型
+    /// </summary>
+    public virtual CardType Type => CardType.Other;
 
     /// <summary>
     /// 词条

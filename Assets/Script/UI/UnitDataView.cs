@@ -11,8 +11,7 @@ public class UnitDataView:MonoBehaviour
 
     public Image Face;
     public TextMeshProUGUI Name;
-    public Slider SldBlood;
-    public TextMeshProUGUI Blood;
+    public HpBar HpBar;
     public void BindingUnit(UnitData unit)
     {
         if (Unit != null)
@@ -21,6 +20,7 @@ public class UnitDataView:MonoBehaviour
         }
         Unit = unit;
         Unit.DataChanged += Refresh;
+        HpBar.InitHpBar(Unit.Blood, Unit.BloodMax);
         Refresh();
     }
 
@@ -28,7 +28,7 @@ public class UnitDataView:MonoBehaviour
     {
         Face.sprite = Unit.Face;
         Name.text = Unit.Name;
-        SldBlood.value = Unit.Blood / (float)Unit.BloodMax;
-        Blood.text = $"{Unit.Blood}/{Unit.BloodMax}";
+        HpBar.MaxHp = Unit.BloodMax;
+        HpBar.Hp = Unit.Blood;
     }
 }

@@ -12,21 +12,21 @@ public enum TileStatus
     /// <summary>
     /// 常态
     /// </summary>
-    Normal,
+    Normal = 0,
     /// <summary>
     /// 火场
     /// </summary>
-    Fire,
+    Fire = 1,
     /// <summary>
     /// 水流
     /// </summary>
-    Water,
+    Water = 1 << 1,
     /// <summary>
     /// 毒雾
     /// </summary>
-    Poison,
+    Poison = 1 << 2,
     /// <summary>
     /// 浓雾
     /// </summary>
-    Smog
+    Smog = 1 << 3,
 }

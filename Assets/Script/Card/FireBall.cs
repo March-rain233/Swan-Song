@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class FireBall : Card
 {
+    public override CardType Type => CardType.Attack;
+
     public AreaHelper AoeArea = new AreaHelper() { Center = new Vector2Int(2, 2), Flags = new bool[5, 5]
         {
             {false,false,true,false,false },
@@ -60,9 +62,16 @@ public class FireBall : Card
     {
         foreach(var point in GetAffecrTarget(user, target))
         {
-            if(TileUtility.TryGetTile(point, out var tile) && tile.Units.Count > 0)
+            if(TileUtility.TryGetTile(point, out var tile))
             {
-                (tile.Units.First() as IHurtable).Hurt(user.UnitData.Attack * 2, HurtType.FromUnit, user);
+                if (tile.Units.Count > 0)
+                {
+                    (tile.Units.First() as IHurtable).Hurt(user.UnitData.Attack * 2, HurtType.FromUnit, user);
+                }
+                if (tile.TileType != TileType.Lack)
+                {
+                    tile.AddStatus(TileStatus.Fire);
+                }
             }
         }
     }

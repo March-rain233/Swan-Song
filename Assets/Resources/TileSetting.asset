@@ -18,6 +18,7 @@ MonoBehaviour:
     ReferencedUnityObjects:
     - {fileID: 11400000, guid: 8f9284bdda89a9e408cfc79b52aee7aa, type: 2}
     - {fileID: 11400000, guid: 34f610ef8f4e48149bc8bc777ef86b89, type: 2}
+    - {fileID: 11400000, guid: 88ef24c366609ac40a8cc1bd8f3b2d53, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -64,6 +65,46 @@ MonoBehaviour:
     - Name: $v
       Entry: 10
       Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: TileStatusProList
+      Entry: 7
+      Data: 2|System.Collections.Generic.List`1[[System.ValueTuple`2[[TileStatus,
+        Assembly-CSharp],[UnityEngine.Tilemaps.TileBase, UnityEngine.TilemapModule]],
+        mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: System.ValueTuple`2[[TileStatus, Assembly-CSharp],[UnityEngine.Tilemaps.TileBase,
+        UnityEngine.TilemapModule]], mscorlib
+    - Name: Item1
+      Entry: 3
+      Data: 1
+    - Name: Item2
+      Entry: 10
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: System.ValueTuple`2[[TileStatus, Assembly-CSharp],[UnityEngine.Tilemaps.TileBase,
+        UnityEngine.TilemapModule]], mscorlib
+    - Name: Item1
+      Entry: 3
+      Data: 0
+    - Name: Item2
+      Entry: 6
+      Data: 
     - Name: 
       Entry: 8
       Data: 

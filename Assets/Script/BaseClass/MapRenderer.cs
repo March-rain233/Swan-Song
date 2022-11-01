@@ -15,6 +15,7 @@ public class MapRenderer
     public Grid Grid { get; private set; }
 
     Tilemap _tilemap;
+    Tilemap _statusTileMap;
 
     Tilemap _targetTileMask;
     Tilemap _moveMask;
@@ -29,12 +30,11 @@ public class MapRenderer
         var grid = new GameObject("Grid",typeof(Grid));
         Grid = grid.GetComponent<Grid>();
         _tilemap = CreateTileMap("Map");
+        _statusTileMap = CreateTileMap("Map", 1);
         _moveMask = CreateTileMap("Mask", 0);
         _targetTileMask = CreateTileMap("Mask", 1);
         _attackRangeMask = CreateTileMap("Mask", 2);
         _depolyMask = CreateTileMap("Mask", 3);
-
-        _tilemap.animationFrameRate = 6;
 
         Grid.transform.localScale = new Vector3(2, 2, 1);
     }
@@ -47,6 +47,7 @@ public class MapRenderer
         renderer.sortingLayerName = layer;
         renderer.sortingOrder = order;
         obj.transform.SetParent(Grid.transform, false);
+        tilemap.animationFrameRate = 6;
         return tilemap;
     }
 
@@ -111,7 +112,21 @@ public class MapRenderer
             {
                 if(map[i,j] != null)
                 {
+                    int x = i, y = j;
+                    System.Action<TileStatus> updataStatus = (sta) =>
+                    {
+                        foreach(var p in TileSetting.Instance.TileStatusProList)
+                        {
+                            if (sta.HasFlag(p.status))
+                            {
+                                _statusTileMap.SetTile(new Vector3Int(x, y, 0), p.tile);
+                                break;
+                            }
+                        }
+                    };
                     _tilemap.SetTile(new Vector3Int(i, j, 0), TileSetting.Instance.TileDic[map[i, j].TileType]);
+                    updataStatus(map[i, j].TileStatus);
+                    map[i, j].TileStatusChanged += updataStatus;
                 }
             }
         }
