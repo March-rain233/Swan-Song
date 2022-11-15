@@ -41,8 +41,10 @@ public class SelectLevelState : GameState
                 gm.SetStatus<BattleState>();
                 break;
             case PlaceType.AdvancedBattle:
+                gm.SetStatus<BattleState>();
                 break;
             case PlaceType.BossBattle:
+                gm.SetStatus<BattleState>();
                 break;
             case PlaceType.Start:
                 break;

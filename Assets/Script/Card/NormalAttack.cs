@@ -48,6 +48,6 @@ public class NormalAttack : Card
     protected internal override void Release(Unit user, Vector2Int target)
     {
         (_map[target.x, target.y].Units.First() as IHurtable)
-            .Hurt(user.UnitData.Attack, HurtType.FromUnit, user);
+            .Hurt(user.UnitData.Attack * 4, HurtType.FromUnit, user);
     }
 }

@@ -39,6 +39,14 @@ public class MapRenderer
         Grid.transform.localScale = new Vector3(2, 2, 1);
     }
 
+    /// <summary>
+    /// 销毁服务
+    /// </summary>
+    public void Destroy()
+    {
+        Object.Destroy(Grid.gameObject);
+    }
+
     Tilemap CreateTileMap(string layer, int order = 0)
     {
         var obj = new GameObject($"TileMap({layer}-{order})", typeof(Tilemap), typeof(TilemapRenderer));

@@ -7,28 +7,24 @@ using GameToolKit;
 
 public class UnitDataView:MonoBehaviour
 {
-    public UnitData Unit;
-
+    #region UI¿Ø¼þ
     public Image Face;
     public TextMeshProUGUI Name;
     public HpBar HpBar;
-    public void BindingUnit(UnitData unit)
+    #endregion
+
+    public void Refresh(UnitData data)
     {
-        if (Unit != null)
-        {
-            Unit.DataChanged -= Refresh;
-        }
-        Unit = unit;
-        Unit.DataChanged += Refresh;
-        HpBar.InitHpBar(Unit.Blood, Unit.BloodMax);
-        Refresh();
+        Face.sprite = data.Face;
+        Name.text = data.Name;
+        HpBar.MaxHp = data.BloodMax;
+        HpBar.Hp = data.Blood;
     }
 
-    void Refresh()
+    public void RefreshWithoutAnim(UnitData data)
     {
-        Face.sprite = Unit.Face;
-        Name.text = Unit.Name;
-        HpBar.MaxHp = Unit.BloodMax;
-        HpBar.Hp = Unit.Blood;
+        Face.sprite = data.Face;
+        Name.text = data.Name;
+        HpBar.InitHpBar(data.Blood, data.BloodMax);
     }
 }

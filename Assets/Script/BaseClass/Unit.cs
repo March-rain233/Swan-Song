@@ -12,6 +12,7 @@ public abstract class Unit : IHurtable, ICurable
     /// </summary>
     private Action _callback;
     private List<Buff> _buffList = new List<Buff>();
+    public Direction Direction;
 
     /// <summary>
     /// 该单位当前的行动状态
@@ -180,6 +181,7 @@ public abstract class Unit : IHurtable, ICurable
 
     public void RemoveBuff(Buff buff)
     {
+        buff.Disable();
         _buffList.Remove(buff);
     }
 
@@ -192,9 +194,12 @@ public abstract class Unit : IHurtable, ICurable
         var adapter = new GenericMapAdapter(this, GameManager.Instance.GetState<BattleState>().Map);
         var rawPath = UnitUtility.FindShortestPath(adapter, adapter.Point2ID(Position), adapter.Point2ID(target), UnitData.ActionPoint);
         var path = rawPath.Select(e => adapter.ID2Point(e));
+        var pre = path.First();
         foreach(var p in path.Skip(1))
         {
             Position = p;
+            Direction = (Position - pre).ToDirection();
+            pre = p;
             //todo 行动点计算
             UnitData.ActionPoint -= 1;
         }
@@ -247,6 +252,6 @@ public abstract class Unit : IHurtable, ICurable
 
     void ICurable.OnCure(float power)
     {
-        UnitData.Blood += (int)power;
+        UnitData.Blood = Mathf.Max(UnitData.BloodMax, UnitData.Blood + (int)power);
     }
 }

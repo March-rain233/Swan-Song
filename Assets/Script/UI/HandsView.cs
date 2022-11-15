@@ -14,12 +14,14 @@ using UnityEngine.InputSystem;
 /// </summary>
 public class HandsView : SerializedMonoBehaviour
 {
+    public CanvasGroup CanvasGroup;
+
     public ArcLayout ArcLayout;
     public float DefaultMinnumAngle;
     public float DefaultPreferedAngle;
     public float FloatPreferedAngle;
 
-    CardView _select;
+    HandsCardView _select;
     /// <summary>
     /// 在被选中前的ui次序
     /// </summary>
@@ -30,22 +32,29 @@ public class HandsView : SerializedMonoBehaviour
     Card.TargetData _avaliableTarget;
 
     /// <summary>
-    /// 阻挡卡牌的响应事件
+    /// 禁用
     /// </summary>
-    public void BlockCards()
+    public void Disable()
     {
-        foreach(CardView view in ArcLayout.Children)
+        CanvasGroup.interactable = false;
+        foreach (HandsCardView view in ArcLayout.Children)
         {
             view.Outline.enabled = view.enabled = false;
         }
     }
 
     /// <summary>
-    /// 恢复卡牌的响应事件
+    /// 恢复
     /// </summary>
-    public void UnblockCards()
+    public void Enable()
     {
-        foreach (CardView view in ArcLayout.Children)
+        CanvasGroup.interactable = true;
+        Refresh();
+    }
+
+    public void Refresh()
+    {
+        foreach (HandsCardView view in ArcLayout.Children)
         {
             view.Outline.enabled = view.enabled = view.CardScheduler.Unit.ActionStatus == ActionStatus.Running;
         }
@@ -53,9 +62,11 @@ public class HandsView : SerializedMonoBehaviour
 
     public void AddCard(Card card, CardScheduler scheduler)
     {
-        CardView cardView = Instantiate(UISetting.Instance.PrefabsDic["Card"], transform)
-            .GetComponent<CardView>();
+        //生成卡牌视图
+        HandsCardView cardView = Instantiate(UISetting.Instance.PrefabsDic["HandsCardView"], transform)
+            .GetComponent<HandsCardView>();
 
+        //初始化卡牌
         cardView.Card = card;
         cardView.CardScheduler = scheduler;
         cardView.MinnumAngle = DefaultMinnumAngle;
@@ -95,22 +106,25 @@ public class HandsView : SerializedMonoBehaviour
             cardView.CardScheduler.Unit.ActionStatus == ActionStatus.Running;
         cardView.LineRenderer.enabled = false;
 
+        //添加入布局器
         ArcLayout.Children.Add(cardView);
         ArcLayout.Refresh();
     }
 
     public void RemoveCard(Card card)
     {
-        var view = ArcLayout.Children.OfType<CardView>().First(v=>v.Card == card);
+        //移除卡牌视图
+        var view = ArcLayout.Children.OfType<HandsCardView>().First(v=>v.Card == card);
         var obj = view.gameObject;
         ArcLayout.Children.Remove(view);
         ArcLayout.Refresh();
 
         Destroy(view);
 
+        //卡牌移除动画
         var anim = DOTween.Sequence();
-        anim.Join(obj.transform.DOScale(Vector3.zero, 0.15f));
-        anim.Join(obj.transform.DOLocalMove(new Vector3(-500, 0), 0.15f));
+        anim.Join(obj.transform.DOScale(Vector3.zero, BattleAnimator.ShortAnimationDuration));
+        anim.Join(obj.transform.DOLocalMove(new Vector3(-500, 0), BattleAnimator.MiddleAnimationDuration));
         anim.onComplete = () => Destroy(obj);
     }
 
@@ -141,11 +155,11 @@ public class HandsView : SerializedMonoBehaviour
         }
     }
 
-    void SelectCard(CardView cardView)
+    void SelectCard(HandsCardView cardView)
     {
         _select = cardView;
-        _select.transform.DOLocalMove(new Vector3(0, 50, 0), 0.15f);
-        _select.transform.DOLocalRotate(Vector3.zero, 0.1f);
+        _select.transform.DOLocalMove(new Vector3(0, 50, 0), BattleAnimator.ShortAnimationDuration);
+        _select.transform.DOLocalRotate(Vector3.zero, BattleAnimator.ShortAnimationDuration);
         _oriIndex = _select.transform.GetSiblingIndex();
         _select.transform.SetAsLastSibling();
 

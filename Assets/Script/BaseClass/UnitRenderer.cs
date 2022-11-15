@@ -9,12 +9,21 @@ using System.Linq;
 public class UnitRenderer
 {
     Transform _unitRoot;
-    Dictionary<Unit, UnitView> _unitViews = new();
+    public IReadOnlyList<UnitView> UnitViews => _unitViews;
+    List<UnitView> _unitViews = new();
     BattleState _battleState;
     public UnitRenderer(BattleState battleState)
     {
         _battleState = battleState;
         _unitRoot = new GameObject("Unit Root").transform;
+    }
+
+    /// <summary>
+    /// 销毁服务
+    /// </summary>
+    public void Destroy()
+    {
+        Object.Destroy(_unitRoot.gameObject);
     }
 
     /// <summary>
@@ -27,13 +36,16 @@ public class UnitRenderer
         var model = Object.Instantiate(UnitDataManager.Instance.UnitViews[unit.UnitData.ViewType],
             _unitRoot);
         var view = model.GetComponent<UnitView>();
-        _unitViews.Add(unit, view);
+        view.Unit = unit;
+
+        _unitViews.Add(view);
+
         view.transform.position = _battleState
             .MapRenderer.Grid.CellToWorld(unit.Position.ToVector3Int());
-
         _battleState.Animator.BindindUnitAnimation(unit, view);
         return view;
     }
+
     /// <summary>
     /// 选中单位
     /// </summary>
@@ -44,21 +56,21 @@ public class UnitRenderer
         {
             foreach (var unit in _unitViews)
             {
-                if (units.Contains(unit.Key))
+                if (units.Contains(unit.Unit))
                 {
-                    unit.Value.Select();
+                    unit.Flag();
                 }
                 else
                 {
-                    unit.Value.Unselect();
+                    unit.Unflag();
                 }
             }
         }
         else
         {
-            foreach (var view in _unitViews.Values)
+            foreach (var view in _unitViews)
             {
-                view.Unselect();
+                view.Unflag();
             }
         }
     }

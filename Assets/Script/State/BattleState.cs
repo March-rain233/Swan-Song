@@ -124,22 +124,16 @@ public class BattleState : GameState
 
     protected internal override void OnExit()
     {
-        throw new NotImplementedException();
+        Animator.Destroy();
+        MapRenderer.Destroy();
+        UnitRenderer.Destroy();
+        ServiceFactory.Instance.GetService<PanelManager>()
+            .ClosePanel("BattlePanel");
     }
 
     protected internal override void OnUpdata()
     {
 
-    }
-
-    /// <summary>
-    /// 获取可部署的节点列表
-    /// </summary>
-    /// <returns></returns>
-    List<Vector2Int> GetDeployPoints()
-    {
-        //todo
-        return new List<Vector2Int>() { new Vector2Int(0, 0), new Vector2Int(1, 0) };
     }
 
     /// <summary>
@@ -175,8 +169,8 @@ public class BattleState : GameState
     public Unit GetNextUnit(Unit unit)
     {
         return UnitList.Where(u => u.ActionStatus == ActionStatus.Waitting)
-            .OrderBy(u => u.UnitData.Speed)
-            .FirstOrDefault(u => unit == null || (u != unit && u.UnitData.Speed >= unit.UnitData.Speed));
+            .OrderByDescending(u => u.UnitData.Speed)
+            .FirstOrDefault(u => unit == null || (u != unit && u.UnitData.Speed <= unit.UnitData.Speed));
     }
 
     /// <summary>
@@ -185,7 +179,7 @@ public class BattleState : GameState
     public IEnumerable<Unit> GetUnitOrderList()
     {
         return UnitList.Where(u => u.ActionStatus == ActionStatus.Waitting || u.ActionStatus == ActionStatus.Running)
-            .OrderBy(u => u.UnitData.Speed);
+            .OrderByDescending(u => u.UnitData.Speed);
     }
 
     /// <summary>
@@ -235,6 +229,8 @@ public class BattleState : GameState
                 (unit as IHurtable).Hurt(unit.UnitData.BloodMax * 0.35f, HurtType.FromBuff, this);
             }
         }
+
+        Map.Updata();
 
         foreach (var unit in UnitList.Where(u => u.ActionStatus != ActionStatus.Dead))
         {

@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
   <Class Name="Map">
-    <Position X="18.5" Y="18.25" Width="1.5" />
+    <Position X="19.25" Y="17.5" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAABACgEAAACAAAAEAAABAAAAAAAAAAAAEAAAA=</HashCode>
+      <HashCode>AAQAAAAABACgEAAACAAAAEAAABAAAAAAAAAAAAEAAAA=</HashCode>
       <FileName>Assets\Script\BaseClass\Map.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
@@ -11,77 +11,82 @@
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="MapRenderer" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="31.5" Y="1.5" Width="1.5" />
+    <Position X="30.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAKAAggAAEIAAQAAgEAAAABIAAAAEAAAAAABAAAIEAA=</HashCode>
+      <HashCode>BAKAAgwAEEIAAQAAgEAAAABIAABAAAAAAACAAAAIAAA=</HashCode>
       <FileName>Assets\Script\BaseClass\MapRenderer.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="MapFactory" Collapsed="true">
-    <Position X="29.75" Y="1.5" Width="1.5" />
+    <Position X="28.75" Y="1.5" Width="1.5" />
+    <NestedTypes>
+      <Struct Name="MapFactory.MapData" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Assets\Script\BaseClass\MapFactory.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+    </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAA=</HashCode>
+      <HashCode>AAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAA=</HashCode>
       <FileName>Assets\Script\BaseClass\MapFactory.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="GameManager">
-    <Position X="0.5" Y="5.25" Width="3.25" />
+    <Position X="19.25" Y="0.5" Width="3.25" />
     <TypeIdentifier>
       <HashCode>AAAAAEACAAAAAAAAAgAAAAAAQAEAAAAAQAAAAAAAAAA=</HashCode>
       <FileName>Assets\Script\BaseClass\GameManager.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
+      <Field Name="_gameStatus" />
       <Property Name="GameData" />
     </ShowAsAssociation>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="UnitModel">
-    <Position X="3.25" Y="8.25" Width="2.75" />
+    <Position X="0.5" Y="7.25" Width="2.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAABAAIACAQAAAAIABCIAwAIAAAIAEAggAAAQ=</HashCode>
       <FileName>Assets\Script\BaseClass\UnitModel.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CardScheduler">
-    <Position X="15.25" Y="18.75" Width="2" />
+    <Position X="5.75" Y="1.25" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAEAQAAAMAgAAAgAEAAEAAAAAABAAAAAEgA=</HashCode>
       <FileName>Assets\Script\BaseClass\CardScheduler.cs</FileName>
     </TypeIdentifier>
-    <ShowAsCollectionAssociation>
-      <Property Name="Deck" />
-    </ShowAsCollectionAssociation>
   </Class>
-  <Class Name="Buff" Collapsed="true">
-    <Position X="28" Y="0.5" Width="1.5" />
+  <Class Name="Buff">
+    <Position X="9.25" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAIAEACAAAAAAAAAAIAAAgAAIACAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAIAEACAAAAAAAAAIIAAAgAAAACAA=</HashCode>
       <FileName>Assets\Script\BaseClass\Buff.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="UnitUtility" Collapsed="true">
-    <Position X="29.75" Y="2.5" Width="1.5" />
+    <Position X="28.75" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQA=</HashCode>
       <FileName>Assets\Script\BaseClass\UnitUtility.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="MapAdapter">
-    <Position X="18.75" Y="12.25" Width="1.5" />
+    <Position X="8.25" Y="15.5" Width="3.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAQBAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Assets\Script\BaseClass\MapAdapter.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="EdgeData" Collapsed="true">
-    <Position X="31.5" Y="0.5" Width="1.5" />
+    <Position X="32.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAABAAAAAgAAAAAAAAAAAAAAAAAAAAAIAAAAAAAA=</HashCode>
       <FileName>Assets\Script\BaseClass\EdgeData.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="GameData">
-    <Position X="5.5" Y="5.75" Width="1.5" />
+    <Position X="16.25" Y="0.5" Width="2" />
     <Compartments>
       <Compartment Name="Nested Types" Collapsed="false" />
     </Compartments>
@@ -89,15 +94,9 @@
       <HashCode>AAAAAEAAAAAAAAAAAAAAAAAAQAAAAAAAAAAEAAAAAAE=</HashCode>
       <FileName>Assets\Script\BaseClass\GameData.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Field Name="TreeMap" />
-    </ShowAsAssociation>
-    <ShowAsCollectionAssociation>
-      <Field Name="Members" />
-    </ShowAsCollectionAssociation>
   </Class>
   <Class Name="UnitData">
-    <Position X="7.75" Y="7.5" Width="2" />
+    <Position X="5" Y="6.5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAACAAACEAIASAAAAQFAQBAIAAAIABAIBACgAAABA=</HashCode>
       <FileName>Assets\Script\BaseClass\UnitData.cs</FileName>
@@ -107,14 +106,14 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="CardPoolManager" Collapsed="true">
-    <Position X="29.75" Y="0.5" Width="1.5" />
+    <Position X="30.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAQAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Assets\Script\BaseClass\CardPoolManager.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TreeMap">
-    <Position X="4.75" Y="1.75" Width="2.75" />
+    <Position X="10.75" Y="21.5" Width="3" />
     <TypeIdentifier>
       <HashCode>AAAkABAQAAAAACAAAABAAIAAAAAAQAAAQAAAAEAIAAA=</HashCode>
       <FileName>Assets\Script\BaseClass\TreeMap.cs</FileName>
@@ -124,7 +123,7 @@
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="TreeMapNodeData">
-    <Position X="2.5" Y="2.75" Width="1.5" />
+    <Position X="14.5" Y="19.75" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
       <FileName>Assets\Script\BaseClass\TreeMapNodeData.cs</FileName>
@@ -133,49 +132,46 @@
       <Field Name="PlaceType" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="TreeMapFactory">
-    <Position X="8" Y="1.75" Width="2.5" />
+  <Class Name="TreeMapFactory" Collapsed="true">
+    <Position X="27" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Assets\Script\BaseClass\TreeMapFactory.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Entry" Collapsed="true">
-    <Position X="28" Y="1.5" Width="1.5" />
+    <Position X="27" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Assets\Script\BaseClass\Entry.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="WalkerMapAdapter">
-    <Position X="18.75" Y="14.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAEAAAABAAAQDAAAAAAAAAAAAAAEAAAAAAAAA=</HashCode>
-      <FileName>Assets\Script\BaseClass\WalkerMapAdapter.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="Unit">
-    <Position X="10.5" Y="7.25" Width="2.5" />
+    <Position X="8.25" Y="6.5" Width="3.25" />
     <TypeIdentifier>
       <HashCode>ACAAAJAEAIAAwAAkAAwhAgQAAMAAAAAVEAAEgBAAgAA=</HashCode>
       <FileName>Assets\Script\BaseClass\Unit.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
+      <Field Name="Camp" />
       <Property Name="ActionStatus" />
       <Property Name="Scheduler" />
       <Property Name="UnitData" />
     </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="BuffList" />
+    </ShowAsCollectionAssociation>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="GameState">
-    <Position X="19.25" Y="7.25" Width="1.75" />
+    <Position X="19.5" Y="3.5" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAACAAAAAAAAAAAAAAAAAAQABAAAIAAAAAAAAA=</HashCode>
       <FileName>Assets\Script\BaseClass\GameState.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BattleState">
-    <Position X="15" Y="9.75" Width="2.5" />
+    <Position X="14" Y="2.75" Width="4.5" />
     <Compartments>
       <Compartment Name="Nested Types" Collapsed="false" />
     </Compartments>
@@ -187,75 +183,67 @@
       </Enum>
     </NestedTypes>
     <TypeIdentifier>
-      <HashCode>ACCAAAAkABAEAIEACAgAgCGAQAgUABABBIAABAQAAAA=</HashCode>
+      <HashCode>ACSAAAAkABAEAIEACAgAgCGAQAgUABABBJAABAQAAAA=</HashCode>
       <FileName>Assets\Script\State\BattleState.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="Map" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="BonfireState">
-    <Position X="18.25" Y="9.75" Width="2" />
+    <Position X="19" Y="9" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAEAAAAAAAAABAAAQABAAAIAAAAAAAAA=</HashCode>
       <FileName>Assets\Script\State\BonfireState.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SelectLevelState">
-    <Position X="21" Y="9.75" Width="1.75" />
+    <Position X="21.75" Y="9" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAQAAAAAAAAAAAAAAAAAAAAAAAQABAAAIAAAAAAAAA=</HashCode>
       <FileName>Assets\Script\State\SelectLevelState.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="MainMenuState">
-    <Position X="23.5" Y="9.75" Width="1.75" />
+    <Position X="23.25" Y="3.5" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAACAAAAAAAAAAAAAAAAAAABAAQABAAAIAAAAAAAQA=</HashCode>
       <FileName>Assets\Script\State\MainMenuState.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Tile">
-    <Position X="9.75" Y="16.25" Width="1.75" />
+    <Position X="19.25" Y="11.75" Width="3" />
     <TypeIdentifier>
-      <HashCode>AAAAIAAAAAAAAAAAAAAAAAAAAgAUAAAAMIAAAAAAAAI=</HashCode>
+      <HashCode>AAQgIAAIAACAAAAAAAAAAADAAAAcABBAMIAAAAAAAAI=</HashCode>
       <FileName>Assets\Script\BaseClass\Tile.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Field Name="TileStatus" />
+      <Field Name="TileType" />
+      <Property Name="TileStatus" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="GrassTile">
-    <Position X="9.75" Y="19.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAgAQAAAAAIAAAAAAAAA=</HashCode>
-      <FileName>Assets\Script\Tile\GrassTile.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Idiot">
-    <Position X="12" Y="14" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAA=</HashCode>
-      <FileName>Assets\Script\Unit\Idiot.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="BattleAnimator" Collapsed="true">
-    <Position X="26.25" Y="0.5" Width="1.5" />
+    <Position X="27" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAIAIAAAEAAAAAABAAAAAAAAAgAAAAAAAAIA=</HashCode>
+      <HashCode>AAAAAAAAAIAIAAAEAAAAAABAAABAAAAAgAAAAAAAAIA=</HashCode>
       <FileName>Assets\Script\BaseClass\BattleAnimator.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Player">
-    <Position X="9.75" Y="14" Width="1.5" />
+    <Position X="9" Y="13" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAA=</HashCode>
       <FileName>Assets\Script\Unit\Player.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Card">
-    <Position X="12.75" Y="16.25" Width="3.5" />
+  <Class Name="Card" Collapsed="true">
+    <Position X="28.75" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
     <NestedTypes>
+      <Enum Name="Card.CardType" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Assets\Script\BaseClass\Card.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
       <Struct Name="Card.TargetData" Collapsed="true">
         <TypeIdentifier>
           <NewMemberFileName>Assets\Script\BaseClass\Card.cs</NewMemberFileName>
@@ -263,71 +251,78 @@
       </Struct>
     </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AAAABAAAAAAgACAEAAAAABQAAAAAAAAQAEACABAAABA=</HashCode>
+      <HashCode>AAAABAAAAAAgACAEAAAAABQAAAAAAAAQAUACABAAABA=</HashCode>
       <FileName>Assets\Script\BaseClass\Card.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="NormalAttack">
-    <Position X="12.75" Y="20.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAABCAAAAAAAAAAAAAAAAAAAAAAAAAAAAACABAAAAA=</HashCode>
-      <FileName>Assets\Script\Card\NormalAttack.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="TileUtility" Collapsed="true">
-    <Position X="26.25" Y="2.5" Width="1.5" />
+    <Position X="32.25" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAACAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Assets\Script\Other\TileUtility.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="GenericMapAdapter">
+    <Position X="8.25" Y="17.5" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAABAAAQDAAAAAAAAAAAAAAEAAAAAAAAI=</HashCode>
+      <FileName>Assets\Script\BaseClass\GenericMapAdapter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Interface Name="IHurtable" Collapsed="true">
-    <Position X="28" Y="3.75" Width="1.5" />
+    <Position X="28.75" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
       <FileName>Assets\Script\BaseClass\IHurtable.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="ICurable" Collapsed="true">
-    <Position X="26.25" Y="3.75" Width="1.5" />
+    <Position X="27" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAgAAAAAAAAAAAAEAAAAAAAAAAAAAAACAAAAAA=</HashCode>
       <FileName>Assets\Script\BaseClass\ICurable.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Enum Name="TileStatus">
-    <Position X="6.75" Y="16.75" Width="1.5" />
+    <Position X="23" Y="15.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAACCAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Assets\Script\BaseClass\TileStatus.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Enum Name="ActionStatus">
-    <Position X="14" Y="7.5" Width="1.5" />
+    <Position X="13.25" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAgAAAAAAAAAAAAACAAAAAIAAAACAAAAAA=</HashCode>
       <FileName>Assets\Script\BaseClass\ActionStatus.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Enum Name="HurtType" Collapsed="true">
-    <Position X="28" Y="4.75" Width="1.5" />
+    <Position X="27" Y="4.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAgAAAAAAIAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Assets\Script\BaseClass\HurtType.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Enum Name="PlaceType">
-    <Position X="2.5" Y="0.5" Width="1.5" />
+    <Position X="14.5" Y="21.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAACgACAAAAAAAIAAAAAAAAAAAAAAAAAEAAAAAAA=</HashCode>
       <FileName>Assets\Script\BaseClass\PlaceType.cs</FileName>
     </TypeIdentifier>
   </Enum>
-  <Enum Name="Camp" Collapsed="true">
-    <Position X="26.25" Y="4.75" Width="1.5" />
+  <Enum Name="Camp">
+    <Position X="13.25" Y="6.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAA=</HashCode>
       <FileName>Assets\Script\BaseClass\Camp.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="TileType">
+    <Position X="23" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAACAAAIAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Script\BaseClass\TileType.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Font Name="Microsoft YaHei UI" Size="9" />

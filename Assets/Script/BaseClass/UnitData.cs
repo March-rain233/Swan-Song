@@ -167,5 +167,7 @@ public class UnitData
             ActionPoint = Mathf.Min(ActionPointMax, ActionPoint);
         }
         Level = level;
+
+        DataChanged?.Invoke();
     }
 }
