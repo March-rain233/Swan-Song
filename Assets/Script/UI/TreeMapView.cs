@@ -74,7 +74,7 @@ public class TreeMapView : PanelBase
             nodeView.GetComponent<Button>().interactable = true;
         }
         //设定节点位置
-        GraphLayoutUtility.HierarchicalLayout(new GraphLayoutAdapter(this), _map.RootId);
+        GraphLayoutUtility.HierarchicalLayout(new GraphLayoutAdapter(this), _map.RootId, marginWidth:70, marginHeight:40);
         //设定节点间连线
         foreach(var node in _nodes)
         {

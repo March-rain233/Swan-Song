@@ -21,7 +21,7 @@ public class AreaHelper
     /// </summary>
     public Vector2Int Center;
 
-    public List<Vector2Int> GetPointList(Vector2Int pos)
+    public List<Vector2Int> GetPointList(Vector2Int pos, Direction direction = Direction.Up)
     {
         var res = new List<Vector2Int>();
         Vector2Int offset = pos - Center; 

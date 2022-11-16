@@ -22,24 +22,24 @@ namespace GameToolKit
         public virtual PanelShowType ShowType => PanelShowType.Normal;
 
         [ReadOnly, SerializeField]
-        protected CanvasGroup _canvasGroup;
+        protected CanvasGroup CanvasGroup;
 
         public bool BlocksRaycasts
         {
-            get { return _canvasGroup.blocksRaycasts; }
-            set { _canvasGroup.blocksRaycasts = value; }
+            get { return CanvasGroup.blocksRaycasts; }
+            set { CanvasGroup.blocksRaycasts = value; }
         }
 
         public bool Interactable
         {
-            get { return _canvasGroup.interactable; }
-            set { _canvasGroup.interactable = value; }
+            get { return CanvasGroup.interactable; }
+            set { CanvasGroup.interactable = value; }
         }
 
         public float Alpha
         {
-            get { return _canvasGroup.alpha; }
-            set { _canvasGroup.alpha = value; }
+            get { return CanvasGroup.alpha; }
+            set { CanvasGroup.alpha = value; }
         }
 
         /// <summary>
@@ -50,7 +50,7 @@ namespace GameToolKit
 
         private void OnValidate()
         {
-            _canvasGroup = _canvasGroup ?? GetComponent<CanvasGroup>();
+            CanvasGroup = CanvasGroup ?? GetComponent<CanvasGroup>();
         }
 
         /// <summary>

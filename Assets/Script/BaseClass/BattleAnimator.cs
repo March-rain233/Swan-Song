@@ -8,8 +8,15 @@ using DG.Tweening;
 /// <summary>
 /// 战场动画器
 /// </summary>
+/// <remarks>
+/// 用于管理战斗时视图层的逻辑
+/// </remarks>
 public class BattleAnimator
 {
+    public const float LongAnimationDuration = 0.5f;
+    public const float MiddleAnimationDuration = 0.25f;
+    public const float ShortAnimationDuration = 0.1f;
+
     BattleState _battleState;
     MapRenderer _mapRenderer => _battleState.MapRenderer;
     Queue<Tween> _animQueue = new();
@@ -32,6 +39,14 @@ public class BattleAnimator
     }
 
     /// <summary>
+    /// 销毁服务
+    /// </summary>
+    public void Destroy()
+    {
+
+    }
+
+    /// <summary>
     /// 绑定单位动画
     /// </summary>
     /// <param name="unit"></param>
@@ -41,43 +56,49 @@ public class BattleAnimator
         unit.Moved += (rawPath) =>
         {
             var panel = ServiceFactory.Instance.GetService<PanelManager>().GetOrOpenPanel("BattlePanel") as BattlePanel;
-            var cellWidth = _battleState.MapRenderer.Grid.cellSize.x;
-            var path = rawPath.Select(p => _battleState.MapRenderer.Grid.CellToWorld(p.ToVector3Int()))
-                .ToArray();
-            Tween anim = unitView.transform.DOPath(path, 
-                path.Length * 0.5f, 
-                gizmoColor: Color.green);
-            anim.SetEase(Ease.Linear);
-            anim.OnWaypointChange(i =>
-            {
-                Vector2 dir = path[i + 1] - path[i];
-                dir.Normalize();
-                unitView.Animator.SetFloat("Direction_X", dir.x);
-                unitView.Animator.SetFloat("Direction_Y", dir.y);
-            });
-            anim.OnPlay(() =>
+
+            //计算路线
+            var anim = unitView.MoveAnim(rawPath);
+            anim.onPlay += () =>
             {
                 if (unit is Player)
                 {
                     panel.Disable();
                 }
-                unitView.Animator.Play("Move", 0, 0f);
-            });
-            anim.OnKill(()=>
+            };
+            anim.onKill += ()=>
             {
                 if (unit is Player)
                 {
                     panel.Enable();
                 }
-                unitView.Animator.Play("Idle", 0, 0f);
-            });
+            };
+
             EnqueueAnimation(anim);
         };
         unit.Hurt += () =>
         {
-            var anim = DOTween.Sequence();
-            anim.Join(unitView.SpriteRenderer.DOColor(Color.red, 0.1f)
-                .SetLoops(2, LoopType.Yoyo));
+            var anim = unitView.HurtAnim();
+            EnqueueAnimation(anim);
+        };
+        unit.Scheduler.HandsAdded += (card) =>
+        {
+            var panel = ServiceFactory.Instance.GetService<PanelManager>().GetOrOpenPanel("BattlePanel") as BattlePanel;
+
+            EnqueueAnimation(panel.AddCard(card, unit.Scheduler));
+        };
+        unit.Scheduler.HandsRemoved += (card) =>
+        {
+            var panel = ServiceFactory.Instance.GetService<PanelManager>().GetOrOpenPanel("BattlePanel") as BattlePanel;
+
+            EnqueueAnimation(panel.RemoveCard(card));
+        };
+
+        unit.UnitData.DataChanged += () =>
+        {
+            var copy = unit.UnitData.Clone();
+            var anim = ExtensionDotween.GetEmptyTween(0.01f);
+            anim.OnStart(()=>unitView.ViewData = copy);
             EnqueueAnimation(anim);
         };
     }

@@ -37,6 +37,14 @@ public class TreeMap
     public TreeMapNodeData CurrentNode => FindNode(CurrentId);
 
     /// <summary>
+    /// 判断是否有子节点
+    /// </summary>
+    public bool HavingChildren(int id)
+    {
+        return _edges.ContainsKey(id);
+    }
+
+    /// <summary>
     /// 获得指定节点的子节点
     /// </summary>
     public HashSet<int> GetChildren(int id)
