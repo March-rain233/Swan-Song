@@ -2,28 +2,34 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using UnityEngine;
 using GameToolKit;
 
-public class NormalAttack : Card
+public class StoneAttack : Card
 {
     public override CardType Type => CardType.Attack;
 
-    public AreaHelper AttackArea = new AreaHelper() { Flags = new bool[3, 3]
+    public AreaHelper AttackArea = new AreaHelper()
+    {
+        Center = new Vector2Int(2, 2),
+        Flags = new bool[5, 5]
         {
-            { false, true, false },
-            { true, false,true },
-            { false, true, false }
-        },
-        Center = new Vector2Int(1, 1)
+            {true,true,true,true,true },
+            {true,true,true,true,true },
+            {true,true,true,true,true },
+            {true,true,true,true,true },
+            {true,true,true,true,true }
+        }
     };
 
-    public NormalAttack()
+    public StoneAttack()//投石
     {
-        Name = "Normal Attack";
-        Cost = 1;
-        Description = "Attack Enemy";
+        Name="StoneAttack";
+        Description="Deal 40% damage to selected enemies";
+        Cost=1;
     }
+
     protected internal override IEnumerable<Vector2Int> GetAffecrTarget(Unit user, Vector2Int target)
     {
         List<Vector2Int> res = new List<Vector2Int>();
@@ -47,7 +53,8 @@ public class NormalAttack : Card
 
     protected internal override void Release(Unit user, Vector2Int target)
     {
+        Percent = 0.4f;
         (_map[target.x, target.y].Units.First() as IHurtable)
-            .Hurt(user.UnitData.Attack, HurtType.FromUnit, user);
+            .Hurt(user.UnitData.Attack*Percent, HurtType.FromUnit, user);
     }
 }
