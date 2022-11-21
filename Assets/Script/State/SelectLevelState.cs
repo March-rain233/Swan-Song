@@ -48,7 +48,9 @@ public class SelectLevelState : GameState
                 break;
             case PlaceType.Start:
                 break;
-            case PlaceType.BonFire:
+            default:
+                gm.SetStatus<EventState>()
+                    .SetEvent(node.PlaceType);
                 break;
         }
     }

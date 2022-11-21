@@ -16,6 +16,14 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2303818168936857241, guid: 7e5fa9284909fcd4cabbba330d536123, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 2303818168936857241, guid: 7e5fa9284909fcd4cabbba330d536123, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 8350892751987790700, guid: 7e5fa9284909fcd4cabbba330d536123, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

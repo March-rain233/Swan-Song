@@ -7,17 +7,17 @@ using GameToolKit;
 
 public class CardListView : MonoBehaviour
 {
-    public GridLayoutGroup GridLayoutGroup;
-    public void ShowCardList(IEnumerable<Card> cards)
+    public LayoutGroup LayoutGroup;
+    public virtual void ShowCardList(IEnumerable<Card> cards)
     {
-        for(int i = GridLayoutGroup.transform.childCount - 1; i >= 0; i--)
+        for(int i = LayoutGroup.transform.childCount - 1; i >= 0; i--)
         {
-            Destroy(GridLayoutGroup.transform.GetChild(i).gameObject);
+            Destroy(LayoutGroup.transform.GetChild(i).gameObject);
         }
         var model = UISetting.Instance.PrefabsDic["CardView"];
         foreach (Card card in cards)
         {
-            var cardView = Instantiate(model, GridLayoutGroup.transform).GetComponent<CardView>();
+            var cardView = Instantiate(model, LayoutGroup.transform).GetComponent<CardView>();
             cardView.Card = card;
             cardView.Refresh();
             cardView.MouseEntered += () =>

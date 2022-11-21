@@ -19,13 +19,6 @@
   </Class>
   <Class Name="MapFactory" Collapsed="true">
     <Position X="28.75" Y="1.5" Width="1.5" />
-    <NestedTypes>
-      <Struct Name="MapFactory.MapData" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>Assets\Script\BaseClass\MapFactory.cs</NewMemberFileName>
-        </TypeIdentifier>
-      </Struct>
-    </NestedTypes>
     <TypeIdentifier>
       <HashCode>AAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAA=</HashCode>
       <FileName>Assets\Script\BaseClass\MapFactory.cs</FileName>
@@ -115,7 +108,7 @@
   <Class Name="TreeMap">
     <Position X="10.75" Y="21.5" Width="3" />
     <TypeIdentifier>
-      <HashCode>AAAkABAQAAAAACAAAABAAIAAAAAAQAAAQAAAAEAIAAA=</HashCode>
+      <HashCode>AAAkABAQAAAAACAAAABAAIAAAAAARAAAQAAAAEAIAAA=</HashCode>
       <FileName>Assets\Script\BaseClass\TreeMap.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
@@ -135,7 +128,7 @@
   <Class Name="TreeMapFactory" Collapsed="true">
     <Position X="27" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAABAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Assets\Script\BaseClass\TreeMapFactory.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -149,7 +142,7 @@
   <Class Name="Unit">
     <Position X="8.25" Y="6.5" Width="3.25" />
     <TypeIdentifier>
-      <HashCode>ACAAAJAEAIAAwAAkAAwhAgQAAMAAAAAVEAAEgBAAgAA=</HashCode>
+      <HashCode>ACIAAJAEAIAAwAAkACwhAgQAAMAAAQAVEAAEgBIAgAA=</HashCode>
       <FileName>Assets\Script\BaseClass\Unit.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -183,15 +176,8 @@
       </Enum>
     </NestedTypes>
     <TypeIdentifier>
-      <HashCode>ACSAAAAkABAEAIEACAgAgCGAQAgUABABBJAABAQAAAA=</HashCode>
+      <HashCode>ACQAAAAkABAEAIEACAgAgCGAQAgUABABBJAABAQAAAA=</HashCode>
       <FileName>Assets\Script\State\BattleState.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="BonfireState">
-    <Position X="19" Y="9" Width="2" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAEAAAAAAAAABAAAQABAAAIAAAAAAAAA=</HashCode>
-      <FileName>Assets\Script\State\BonfireState.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SelectLevelState">
@@ -222,7 +208,7 @@
   <Class Name="BattleAnimator" Collapsed="true">
     <Position X="27" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAIAIAAAEAAAAAABAAABAAAAAgAAAAAAAAIA=</HashCode>
+      <HashCode>AEAAAAEAAIAIAAAEAgAAAABAAABAAAAAgAAAAAAAAIA=</HashCode>
       <FileName>Assets\Script\BaseClass\BattleAnimator.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -238,20 +224,8 @@
     <Compartments>
       <Compartment Name="Nested Types" Collapsed="false" />
     </Compartments>
-    <NestedTypes>
-      <Enum Name="Card.CardType" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>Assets\Script\BaseClass\Card.cs</NewMemberFileName>
-        </TypeIdentifier>
-      </Enum>
-      <Struct Name="Card.TargetData" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>Assets\Script\BaseClass\Card.cs</NewMemberFileName>
-        </TypeIdentifier>
-      </Struct>
-    </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AAAABAAAAAAgACAEAAAAABQAAAAAAAAQAUACABAAABA=</HashCode>
+      <HashCode>AAAABAAAAAAgACAEAAAAABQAAAAAAAAQAUACCBAAABA=</HashCode>
       <FileName>Assets\Script\BaseClass\Card.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -267,6 +241,13 @@
     <TypeIdentifier>
       <HashCode>AAAAAAAAEAAAABAAAQDAAAAAAAAAAAAAAEAAAAAAAAI=</HashCode>
       <FileName>Assets\Script\BaseClass\GenericMapAdapter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EventState">
+    <Position X="19" Y="9" Width="2" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAAAAAAAAAAAAAAAAQABAAAIAAAAAAAAA=</HashCode>
+      <FileName>Assets\Script\State\EventState.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Interface Name="IHurtable" Collapsed="true">
@@ -307,7 +288,7 @@
   <Enum Name="PlaceType">
     <Position X="14.5" Y="21.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAACgACAAAAAAAIAAAAAAAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <HashCode>AAAAAACgACAAAAAACIAAAAAAAIAAAAQAAAAEAQAAAAA=</HashCode>
       <FileName>Assets\Script\BaseClass\PlaceType.cs</FileName>
     </TypeIdentifier>
   </Enum>

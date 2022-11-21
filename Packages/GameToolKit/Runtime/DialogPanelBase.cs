@@ -20,36 +20,37 @@ namespace GameToolKit
         [Button]
         public abstract void PlayDialog(TextArgument argument, Action onDialogEnd = null);
 
-        public void Wait(DialogTree dialogTree)
+        public void Rigister(DialogTree dialogTree)
         {
             _waitingList.Add(dialogTree);
         }
 
+        public void Unrigister(DialogTree dialogTree)
+        {
+            _waitingList.Remove(dialogTree);
+            if(_waitingList.Count == 0)
+            {
+                OnWaitingListEmpty();
+            }
+        }
+
+        protected abstract void OnWaitingListEmpty();
+
         protected override void OnInit()
         {
             ServiceFactory.Instance.GetService<EventManager>()
-                .RegisterCallback<DialogEndEvent>(Close);
+                .RegisterCallback<DialogEndEvent>(DialogEndHandler);
         }
 
         protected override void OnDispose()
         {
             ServiceFactory.Instance.GetService<EventManager>()
-                .UnregisterCallback<DialogEndEvent>(Close);
+                .UnregisterCallback<DialogEndEvent>(DialogEndHandler);
         }
 
-        /// <summary>
-        /// ¹Ø±Õ¶Ô»°¿ò
-        /// </summary>
-        void Close(DialogEndEvent context)
+        void DialogEndHandler(DialogEndEvent context)
         {
-            if (_waitingList.Remove(context.DialogTree))
-            {
-                ServiceFactory.Instance.GetService<PanelManager>().ClosePanel(this);
-                if(_waitingList.Count <= 0)
-                {
-                    ServiceFactory.Instance.GetService<PanelManager>().ClosePanel(this);
-                }
-            }
+            Unrigister(context.DialogTree);
         }
     }
 }

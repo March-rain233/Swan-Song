@@ -243,10 +243,11 @@ namespace GameToolKit.Editor
         public override List<Port> GetCompatiblePorts(Port startPort, NodeAdapter nodeAdapter)
         {
             var typeList = startPort.userData as HashSet<Type>;
+            bool isAcceptAll = startPort.direction == Direction.Input && typeList.Contains(typeof(object));
             var list = ports.ToList().Where(endPort =>
                 endPort.direction != startPort.direction
                 && endPort.node != startPort.node
-                && (endPort.userData as HashSet<Type>).Overlaps(typeList))
+                && (isAcceptAll || (endPort.userData as HashSet<Type>).Overlaps(typeList)))
                 .ToList();
             return list;
         }

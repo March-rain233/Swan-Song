@@ -115,13 +115,45 @@ namespace GameToolKit.Dialog.Editor
                     {
                         continue;
                     }
-                    foreach(var child in children)
+                    foreach (var child in children)
                     {
                         NodeView childView = FindNodeView(child);
                         Edge edge = view.outputContainer.Q<Port>("Next").ConnectTo(childView.inputContainer.Q<Port>("Prev"));
                         AddElement(edge);
                     }
                 }
+            }
+        }
+
+        protected override void OnAddField(ISelectable selectable)
+        {
+            switch (selectable)
+            {
+                case Edge edge:
+                    if (edge.input.name != "Prev" || edge.output.name != "Next")
+                    {
+                        base.OnAddField(selectable);
+                    }
+                    return;
+                default:
+                    base.OnAddField(selectable);
+                    return;
+            }
+        }
+
+        protected override void OnRemoveField(ISelectable selectable)
+        {
+            switch (selectable)
+            {
+                case Edge edge:
+                    if (edge.input.name != "Prev" || edge.output.name != "Next")
+                    {
+                        base.OnRemoveField(selectable);
+                    }
+                    return;
+                default:
+                    base.OnRemoveField(selectable);
+                    return;
             }
         }
     }

@@ -19,9 +19,17 @@ public abstract class Unit : IHurtable, ICurable
     /// </summary>
     public ActionStatus ActionStatus
     {
-        get;
-        private set;
-    } = ActionStatus.Waitting;
+        get => _actionStatus;
+        private set
+        {
+            _actionStatus = value;
+            if(_actionStatus == ActionStatus.Dead)
+            {
+                Died();
+            }
+        }
+    }
+    ActionStatus _actionStatus = ActionStatus.Waitting;
 
     /// <summary>
     /// 卡牌调度器
@@ -92,6 +100,10 @@ public abstract class Unit : IHurtable, ICurable
     /// 单位受伤事件
     /// </summary>
     public event Action Hurt;
+    /// <summary>
+    /// 单位死亡事件
+    /// </summary>
+    public event Action UnitDied;
 
     protected Unit(UnitData data, Vector2Int pos)
     {
@@ -204,6 +216,20 @@ public abstract class Unit : IHurtable, ICurable
             UnitData.ActionPoint -= 1;
         }
         Moved(path);
+    }
+
+    protected void Died()
+    {
+        OnDied();
+        UnitDied?.Invoke();
+    }
+
+    /// <summary>
+    /// 当死亡时
+    /// </summary>
+    protected virtual void OnDied()
+    {
+
     }
 
     /// <summary>

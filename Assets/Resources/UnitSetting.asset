@@ -637,6 +637,9 @@ MonoBehaviour:
     - Name: HasEnchanted
       Entry: 5
       Data: false
+    - Name: Percent
+      Entry: 4
+      Data: 0
     - Name: Entries
       Entry: 7
       Data: 17|System.Collections.Generic.HashSet`1[[Entry, Assembly-CSharp]], System.Core
@@ -747,7 +750,7 @@ MonoBehaviour:
       Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
     - Name: 
       Entry: 3
-      Data: 3
+      Data: 2
     - Name: 
       Entry: 3
       Data: 2
@@ -958,6 +961,9 @@ MonoBehaviour:
     - Name: HasEnchanted
       Entry: 5
       Data: false
+    - Name: Percent
+      Entry: 4
+      Data: 0
     - Name: Entries
       Entry: 7
       Data: 23|System.Collections.Generic.HashSet`1[[Entry, Assembly-CSharp]], System.Core
@@ -1051,6 +1057,9 @@ MonoBehaviour:
     - Name: HasEnchanted
       Entry: 5
       Data: false
+    - Name: Percent
+      Entry: 4
+      Data: 0
     - Name: Entries
       Entry: 7
       Data: 27|System.Collections.Generic.HashSet`1[[Entry, Assembly-CSharp]], System.Core
@@ -1678,6 +1687,9 @@ MonoBehaviour:
     - Name: HasEnchanted
       Entry: 5
       Data: false
+    - Name: Percent
+      Entry: 4
+      Data: 0
     - Name: Entries
       Entry: 7
       Data: 43|System.Collections.Generic.HashSet`1[[Entry, Assembly-CSharp]], System.Core
@@ -1927,6 +1939,9 @@ MonoBehaviour:
     - Name: HasEnchanted
       Entry: 5
       Data: false
+    - Name: Percent
+      Entry: 4
+      Data: 0
     - Name: Entries
       Entry: 7
       Data: 49|System.Collections.Generic.HashSet`1[[Entry, Assembly-CSharp]], System.Core
@@ -2020,6 +2035,9 @@ MonoBehaviour:
     - Name: HasEnchanted
       Entry: 5
       Data: false
+    - Name: Percent
+      Entry: 4
+      Data: 0
     - Name: Entries
       Entry: 7
       Data: 53|System.Collections.Generic.HashSet`1[[Entry, Assembly-CSharp]], System.Core

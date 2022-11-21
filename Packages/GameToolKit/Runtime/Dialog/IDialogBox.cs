@@ -18,9 +18,15 @@ namespace GameToolKit.Dialog
         public void PlayDialog(TextArgument argument, Action onDialogEnd = null);
 
         /// <summary>
-        /// 等待对话树结束后再关闭
+        /// 注册等待列表
         /// </summary>
         /// <param name="dialogTree"></param>
-        public void Wait(DialogTree dialogTree);
+        public void Rigister(DialogTree dialogTree);
+
+        /// <summary>
+        /// 注销等待列表
+        /// </summary>
+        /// <param name="dialogTree"></param>
+        public void Unrigister(DialogTree dialogTree);
     }
 }

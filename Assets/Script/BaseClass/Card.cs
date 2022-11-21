@@ -64,6 +64,8 @@ public abstract class Card
     /// </summary>
     public bool HasEnchanted;
 
+    public float Percent;
+
     /// <summary>
     /// 卡牌类型
     /// </summary>

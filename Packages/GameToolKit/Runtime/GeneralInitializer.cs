@@ -14,8 +14,8 @@ namespace GameToolKit
             var instance = ServiceFactory.Instance;
             instance.Register<EventManager, EventManager>();
             instance.Register<PanelManager, PanelManager>();
-            //instance.Register<Dialog.IDialogViewManager, Dialog.DialogViewManager>();
-            //instance.Register<Dialog.DialogManager, Dialog.DialogManager>();
+            instance.Register<Dialog.IDialogViewManager, Dialog.DialogViewManager>();
+            instance.Register<Dialog.DialogManager, Dialog.DialogManager>();
         }
     }
 }

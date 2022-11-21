@@ -33,6 +33,9 @@ public static class TreeMapFactory
         nodes[0][0] = map.AddNode(new TreeMapNodeData() { PlaceType = PlaceType.Start });
 
 
+        map.Connect(map.RootId, map.AddNode(new TreeMapNodeData() { PlaceType = PlaceType.BonFire }));
+        return map;
+
         for (int i = 1; i < step - 1; ++i)
         {
             //分配有多少个节点 和多少战斗节点

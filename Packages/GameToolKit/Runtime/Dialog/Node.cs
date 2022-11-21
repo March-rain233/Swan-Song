@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Sirenix.OdinInspector;
+using Sirenix.Serialization;
 
 namespace GameToolKit.Dialog
 {
@@ -34,6 +35,7 @@ namespace GameToolKit.Dialog
 
         }
     }
+
     /// <summary>
     /// 流程节点基类
     /// </summary>
@@ -88,6 +90,7 @@ namespace GameToolKit.Dialog
         public void Play()
         {
             Status = NodeStatus.Working;
+            InitInputData();
             OnPlay();
         }
 
@@ -103,6 +106,7 @@ namespace GameToolKit.Dialog
         {
             Status = NodeStatus.Completion;
             OnFinish();
+            InitOutputData();
             RunSubsequentNode();
         }
 
@@ -128,10 +132,6 @@ namespace GameToolKit.Dialog
         }
         protected override sealed object PullValue(string fieldName)
         {
-            if (LastDataUpdataTime != Time.time)
-            {
-                Debug.LogError("Invalid call order");
-            }
             return GetValue(fieldName);
         }
         protected override sealed void PushValue(string fieldName, object value)

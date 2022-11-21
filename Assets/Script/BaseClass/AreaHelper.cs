@@ -24,7 +24,7 @@ public class AreaHelper
     public List<Vector2Int> GetPointList(Vector2Int pos, Direction direction = Direction.Up)
     {
         var res = new List<Vector2Int>();
-        var angle = Mathf.Atan2(direction.ToVector2Int().y, direction.ToVector2Int().x);
+        var angle = Mathf.Atan2(direction.ToVector2Int().y, direction.ToVector2Int().x) - Mathf.PI / 2;
         Vector2Int offset = pos - Center; 
         for(int i = 0; i < Flags.GetLength(0); ++i)
         {
@@ -32,7 +32,10 @@ public class AreaHelper
             {
                 if(Flags[i, j])
                 {
-                    res.Add(new Vector2Int(i * Mathf.Cos(a) + offset.x, j + offset.y));
+                    var off = new Vector2Int(j - Center.x, (i) - Center.y);
+                    res.Add(new Vector2Int(Mathf.RoundToInt(off.x * Mathf.Cos(angle) - off.y * Mathf.Sin(angle)) + Center.x + offset.x,
+                        Mathf.RoundToInt(off.x * Mathf.Sin(angle) + off.y * Mathf.Cos(angle)) + Center.y + offset.y));
+                    //res.Add(new Vector2Int(i + offset.x, j + offset.y));
                 }
             }
         }
