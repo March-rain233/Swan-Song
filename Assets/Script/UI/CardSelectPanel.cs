@@ -4,16 +4,30 @@ using UnityEngine;
 using GameToolKit;
 using UnityEngine.UI;
 using System;
+using TMPro;
 
 public class CardSelectPanel : PanelBase
 {
-    public Button ReturnButton;
-    public LayoutGroup Root;
+    public CardListView CardListView;
+    public TextMeshProUGUI TxtTitle;
 
-    public event Action Returned;
-
-    public void Init(IEnumerable<Card> cards)
+    public event Action<Card> OnCardSelected;
+    protected override void OnInit()
     {
-        var model = UISetting.Instance.PrefabsDic["CardView"];
+        base.OnInit();
+        CardListView.InittingCardView += CardListView_InittingCardView;
+    }
+
+    private void CardListView_InittingCardView(CardView obj)
+    {
+        obj.Clicked += () =>
+        {
+            OnCardSelected?.Invoke(obj.Card);
+        };
+    }
+
+    public void SetCards(IEnumerable<Card> cards)
+    {
+        CardListView.ShowCardList(cards);
     }
 }

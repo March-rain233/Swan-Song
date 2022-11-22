@@ -7,13 +7,15 @@ using Sirenix.Serialization;
 using Sirenix.OdinInspector;
 using DG.Tweening;
 using UnityEngine.EventSystems;
+using System;
 
 public class CardView : SerializedMonoBehaviour,
     IPointerEnterHandler,
     IPointerExitHandler,
     IPointerDownHandler,
     IPointerUpHandler,
-    IPointerMoveHandler
+    IPointerMoveHandler,
+    IPointerClickHandler
 {
     public TextMeshProUGUI Name;
     public TextMeshProUGUI Description;
@@ -22,11 +24,12 @@ public class CardView : SerializedMonoBehaviour,
 
     public Card Card;
 
-    public event System.Action MouseEntered;
-    public event System.Action MouseExited;
-    public event System.Action MouseUp;
-    public event System.Action MouseDown;
-    public event System.Action MouseMove;
+    public event Action MouseEntered;
+    public event Action MouseExited;
+    public event Action MouseUp;
+    public event Action MouseDown;
+    public event Action MouseMove;
+    public event Action Clicked;
 
     public void Refresh()
     {
@@ -36,28 +39,33 @@ public class CardView : SerializedMonoBehaviour,
         Sprite.sprite = Card.Sprite;
     }
 
-    public void OnPointerEnter(PointerEventData eventData)
+    void IPointerEnterHandler.OnPointerEnter(PointerEventData eventData)
     {
         MouseEntered?.Invoke();
     }
 
-    public void OnPointerExit(PointerEventData eventData)
+    void IPointerExitHandler.OnPointerExit(PointerEventData eventData)
     {
         MouseExited?.Invoke();
     }
 
-    public void OnPointerUp(PointerEventData eventData)
+    void IPointerUpHandler.OnPointerUp(PointerEventData eventData)
     {
         MouseUp?.Invoke();
     }
 
-    public void OnPointerDown(PointerEventData eventData)
+    void IPointerDownHandler.OnPointerDown(PointerEventData eventData)
     {
         MouseDown?.Invoke();
     }
 
-    public void OnPointerMove(PointerEventData eventData)
+    void IPointerMoveHandler.OnPointerMove(PointerEventData eventData)
     {
         MouseMove?.Invoke();
+    }
+
+    void IPointerClickHandler.OnPointerClick(PointerEventData eventData)
+    {
+        Clicked?.Invoke();
     }
 }

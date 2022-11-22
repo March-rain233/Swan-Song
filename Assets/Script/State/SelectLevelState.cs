@@ -38,13 +38,16 @@ public class SelectLevelState : GameState
         switch (node.PlaceType)
         {
             case PlaceType.NormalBattle:
-                gm.SetStatus<BattleState>();
+                gm.SetStatus<BattleState>()
+                    .InitSystem();
                 break;
             case PlaceType.AdvancedBattle:
-                gm.SetStatus<BattleState>();
+                gm.SetStatus<BattleState>()
+                    .InitSystem();
                 break;
             case PlaceType.BossBattle:
-                gm.SetStatus<BattleState>();
+                gm.SetStatus<BattleState>()
+                    .InitSystem();
                 break;
             case PlaceType.Start:
                 break;

@@ -94,6 +94,24 @@ public class BattleState : GameState
     public UnitRenderer UnitRenderer;
     protected internal override void OnEnter()
     {
+    }
+
+    protected internal override void OnExit()
+    {
+        Animator.Destroy();
+        MapRenderer.Destroy();
+        UnitRenderer.Destroy();
+        ServiceFactory.Instance.GetService<PanelManager>()
+            .ClosePanel("BattlePanel");
+    }
+
+    protected internal override void OnUpdata()
+    {
+
+    }
+
+    public void InitSystem()
+    {
         //初始化系统
         var mapData = MapFactory.CreateMap("");
         Map = mapData.Map;
@@ -120,20 +138,6 @@ public class BattleState : GameState
         var gm = ServiceFactory.Instance.GetService<GameManager>();
         var unitDatas = gm.GameData.Members;
         DeployBeginning?.Invoke(depolyList, unitDatas);
-    }
-
-    protected internal override void OnExit()
-    {
-        Animator.Destroy();
-        MapRenderer.Destroy();
-        UnitRenderer.Destroy();
-        ServiceFactory.Instance.GetService<PanelManager>()
-            .ClosePanel("BattlePanel");
-    }
-
-    protected internal override void OnUpdata()
-    {
-
     }
 
     /// <summary>
@@ -180,6 +184,24 @@ public class BattleState : GameState
     {
         return UnitList.Where(u => u.ActionStatus == ActionStatus.Waitting || u.ActionStatus == ActionStatus.Running)
             .OrderByDescending(u => u.UnitData.Speed);
+    }
+
+    /// <summary>
+    /// 让玩家从待选列表中选择一张卡
+    /// </summary>
+    /// <param name="toSelect"></param>
+    /// <param name="callback"></param>
+    public void SelectCard(List<Card> toSelect, Action<Card> callback)
+    {
+        var panel = ServiceFactory.Instance.GetService<PanelManager>()
+            .OpenPanel("CardSelectPanel") as CardSelectPanel;
+        panel.SetCards(toSelect);
+        panel.OnCardSelected += (card) =>
+        {
+            ServiceFactory.Instance.GetService<PanelManager>()
+                .ClosePanel(panel);
+            callback(card);
+        };
     }
 
     /// <summary>
