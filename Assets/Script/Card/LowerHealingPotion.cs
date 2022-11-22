@@ -13,7 +13,7 @@ public class LowerHealingPotion : Card
     public LowerHealingPotion()//低级治疗药水
     {
         Name="LowerHealingPotion";
-        Description="Heal 50 health";
+        Description="Heal 50 blood";
         Cost=0;
     }
     protected internal override IEnumerable<Vector2Int> GetAffecrTarget(Unit user, Vector2Int target)
