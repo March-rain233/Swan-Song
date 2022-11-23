@@ -9,12 +9,12 @@ internal class Restrain : RoundBuff
     protected override void OnDisable()
     {
         base.OnDisable();
-        Unit.CanDecide = false;
+        Unit.CanMove = false;
     }
 
     protected override void OnEnable()
     {
         base.OnEnable();
-        Unit.CanDecide = true;
+        Unit.CanMove = true;
     }
 }

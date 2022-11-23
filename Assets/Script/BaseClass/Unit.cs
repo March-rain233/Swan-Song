@@ -82,7 +82,12 @@ public abstract class Unit : IHurtable, ICurable
     /// <summary>
     /// 是否可以进行决策
     /// </summary>
-    public bool CanDecide;
+    public bool CanDecide = true;
+
+    /// <summary>
+    /// 是否可移动
+    /// </summary>
+    public bool CanMove = true;
 
     #region 事件组
     /// <summary>
