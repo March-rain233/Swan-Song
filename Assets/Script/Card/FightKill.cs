@@ -53,6 +53,10 @@ public class FightKill : Card
 
     protected internal override void Release(Unit user, Vector2Int target)
     {
+        var tar = (_map[target.x, target.y].Units.First() as IHurtable);
+        var tp = (tar as Unit).Position;
+        Vector2Int dir = (user.Position - tp).ToDirection().ToVector2Int();
+        user.Position = (tar as Unit).Position + dir;
         (_map[target.x, target.y].Units.First() as IHurtable)
             .Hurt(user.UnitData.Attack * 2, HurtType.FromUnit, user);
         float SelfAttack = user.UnitData.Attack * 0.5f;

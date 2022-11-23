@@ -64,10 +64,6 @@ public abstract class Card
     /// </summary>
     public float Percent;
 
-    /// <summary>
-    /// 回合数
-    /// </summary>
-    public int Times = 0;
 
     /// <summary>
     /// 是否已被强化

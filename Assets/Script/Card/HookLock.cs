@@ -54,7 +54,10 @@ public class HookLock : Card
     protected internal override void Release(Unit user, Vector2Int target)
     {
         Percent = 0.2f;
-        (_map[target.x, target.y].Units.First() as IHurtable)
-            .Hurt(user.UnitData.Attack * Percent, HurtType.FromUnit, user);
+        var tar = (_map[target.x, target.y].Units.First() as IHurtable);
+        tar.Hurt(user.UnitData.Attack * Percent, HurtType.FromUnit, user);
+        var tp = (tar as Unit).Position;
+        Vector2Int dir = (tp - user.Position).ToDirection().ToVector2Int();
+        (tar as Unit).Position = user.Position + dir;
     }
 }

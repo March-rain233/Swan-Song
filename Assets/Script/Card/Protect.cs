@@ -68,16 +68,24 @@ public class Protect : Card
     protected internal override void Release(Unit user, Vector2Int target)
     {
         Percent = 0.5f;
-        foreach (var point in GetAffecrTarget(user, target))
-        {
-            if (TileUtility.TryGetTile(point, out var tile))
+        int times = 2;
+        GameManager.Instance.GetState<BattleState>()
+            .TurnBeginning += (_) =>
             {
-                if (tile.Units.Count > 0)
+                times -= 1;
+                if (times >= 0)
                 {
-                    (tile.Units.First() as ICurable).Cure(user.UnitData.Heal * Percent + 50, user);
+                    foreach (var point in GetAffecrTarget(user, target))
+                    {
+                        if (TileUtility.TryGetTile(point, out var tile))
+                        {
+                            if (tile.Units.Count > 0 && tile.Units.First().Camp == user.Camp)
+                            {
+                                (tile.Units.First() as ICurable).Cure(user.UnitData.Heal * Percent + 50, user);
+                            }
+                        }
+                    }
                 }
-            }
-        }
-        Times++;
+            };
     }
 }
