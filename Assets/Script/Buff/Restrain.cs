@@ -4,23 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-internal class Poison : RoundBuff
+internal class Restrain : RoundBuff
 {
-    public float Damage;
     protected override void OnDisable()
     {
         base.OnDisable();
-        Unit.TurnBeginning -= Unit_TurnBeginning;
+        Unit.CanMove = false;
     }
 
     protected override void OnEnable()
     {
         base.OnEnable();
-        Unit.TurnBeginning += Unit_TurnBeginning;
-    }
-
-    private void Unit_TurnBeginning()
-    {
-        (Unit as IHurtable).Hurt(Damage, HurtType.FromBuff, this);
+        Unit.CanMove = true;
     }
 }

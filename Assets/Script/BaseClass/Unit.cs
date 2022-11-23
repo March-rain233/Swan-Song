@@ -80,6 +80,17 @@ public abstract class Unit : IHurtable, ICurable
     public Camp Camp;
 
     /// <summary>
+    /// 是否可以进行决策
+    /// </summary>
+    public bool CanDecide = true;
+
+    /// <summary>
+    /// 是否可移动
+    /// </summary>
+    public bool CanMove = true;
+
+    #region 事件组
+    /// <summary>
     /// 当单位开始当前回合的行动
     /// </summary>
     public event Action TurnBeginning;
@@ -104,6 +115,7 @@ public abstract class Unit : IHurtable, ICurable
     /// 单位死亡事件
     /// </summary>
     public event Action UnitDied;
+    #endregion
 
     protected Unit(UnitData data, Vector2Int pos)
     {
@@ -148,7 +160,14 @@ public abstract class Unit : IHurtable, ICurable
         _callback = callback;
         ActionStatus = ActionStatus.Running;
         TurnBeginning?.Invoke();
-        Decide();
+        if (CanDecide)
+        {
+            Decide();
+        }
+        else
+        {
+            _callback();
+        }
     }
 
     /// <summary>
@@ -237,6 +256,10 @@ public abstract class Unit : IHurtable, ICurable
     /// </summary>
     public IEnumerable<Vector2Int> GetMoveArea()
     {
+        if (!CanMove)
+        {
+            return Enumerable.Empty<Vector2Int>();
+        }
         var adapter = new GenericMapAdapter(this, GameManager.Instance.GetState<BattleState>().Map);
         var list = UnitUtility.GetAllAvailableNode(adapter, adapter.Point2ID(Position), UnitData.ActionPoint);
         return list.Select(e => adapter.ID2Point(e)).Where(e =>
