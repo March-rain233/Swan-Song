@@ -99,7 +99,7 @@ public abstract class Unit : IHurtable, ICurable
     /// <summary>
     /// 单位受伤事件
     /// </summary>
-    public event Action Hurt;
+    public event Action<float, HurtType, object> Hurt;
     /// <summary>
     /// 单位死亡事件
     /// </summary>

@@ -76,7 +76,7 @@ public class BattleAnimator
 
             EnqueueAnimation(anim);
         };
-        unit.Hurt += () =>
+        unit.Hurt += (_, _, _) =>
         {
             var anim = unitView.HurtAnim();
             EnqueueAnimation(anim);

@@ -60,11 +60,29 @@ public abstract class Card
     public int Cost;
 
     /// <summary>
+    /// 数值比例
+    /// </summary>
+    public float Percent;
+
+    /// <summary>
+    /// 回合数
+    /// </summary>
+    public int Times = 0;
+
+    /// <summary>
     /// 是否已被强化
     /// </summary>
     public bool HasEnchanted;
 
+    /// <summary>
+    /// 数值比例
+    /// </summary>
     public float Percent;
+
+    /// <summary>
+    /// 回合数
+    /// </summary>
+    public int Times = 0;
 
     /// <summary>
     /// 卡牌类型
