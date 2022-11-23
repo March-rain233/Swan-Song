@@ -76,4 +76,6 @@ public class UnitModel
     /// 初始卡组
     /// </summary>
     public List<Card> DefaultDeck;
+    public string PrivilegeDeckIndex = "Normal";
+    public string CoreDeckIndex = "Normal";
 }
