@@ -253,10 +253,10 @@ public abstract class Unit : IHurtable, ICurable
         return damage;
     }
 
-    void IHurtable.OnHurt(float damage)
+    void IHurtable.OnHurt(float damage, HurtType type, object source)
     {
         UnitData.Blood -= (int)damage;
-        Hurt?.Invoke();
+        Hurt?.Invoke(damage, type, source);
         if(UnitData.Blood <= 0)
         {
             if (ActionStatus == ActionStatus.Running)

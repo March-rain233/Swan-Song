@@ -29,7 +29,7 @@ public interface IHurtable
     float Hurt(float damage, HurtType type, object source)
     {
         var res = HurtCalculate(damage, type, source);
-        OnHurt(res);
+        OnHurt(res, type, source);
         return res;
     }
     /// <summary>
@@ -37,5 +37,5 @@ public interface IHurtable
     /// </summary>
     /// <remarks>请实现受到伤害后实际扣除血量的过程</remarks>
     /// <param name="damage">运算后获得的伤害值</param>
-    protected void OnHurt(float damage);
+    protected void OnHurt(float damage, HurtType type, object source);
 }

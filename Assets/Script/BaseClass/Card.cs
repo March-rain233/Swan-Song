@@ -75,16 +75,6 @@ public abstract class Card
     public bool HasEnchanted;
 
     /// <summary>
-    /// 数值比例
-    /// </summary>
-    public float Percent;
-
-    /// <summary>
-    /// 回合数
-    /// </summary>
-    public int Times = 0;
-
-    /// <summary>
     /// 卡牌类型
     /// </summary>
     public virtual CardType Type => CardType.Other;

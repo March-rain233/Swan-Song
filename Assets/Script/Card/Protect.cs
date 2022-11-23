@@ -41,18 +41,11 @@ public class Protect : Card
         }
     };
 
-    public Protect()//庇护
-    {
-        Name = "Protect";
-        Description = "Add blood to enemies in range on two times";
-        Cost = 2;
-    }
-
     protected internal override IEnumerable<Vector2Int> GetAffecrTarget(Unit user, Vector2Int target)
     {
         var map = _map;
         var list = AoeArea.GetPointList(target);
-        list.Where(p =>
+        return list.Where(p =>
             0 <= p.x && p.x < map.Width
             && 0 <= p.y && p.y < map.Height
             && map[p.x, p.y] != null);
