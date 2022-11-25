@@ -6,28 +6,26 @@ using System.Threading.Tasks;
 using UnityEngine;
 using GameToolKit;
 
-public class SwingAttack : Card
+public class StabAttack : Card
 {
     AreaHelper AreaHelper;
     public override CardType Type => CardType.Attack;
 
-    public SwingAttack()
+    public StabAttack()
     {
-        Name = "挥击";
-        Description = "对前方横排三格敌人造成一次50%力量值的伤害";
-        Cost = 1;
+        Name = "穿刺";
+        Description = "对前方三格敌人造成一次70%力量值的伤害";
+        Cost = 2;
     }
 
-    protected internal override void Release(Unit user, Vector2Int target)
+    protected internal override IEnumerable<Vector2Int> GetAffecrTarget(Unit user, Vector2Int target)
     {
-        Percent = 0.5f;
-        var list = GetAffecrTarget(user, target)
-            .Where(p => _map[p.x, p.y].Units.Count > 0)
-            .Select(p => _map[p.x, p.y].Units.First());
-        foreach(IHurtable u in list)
-        {
-            u.Hurt(user.UnitData.Attack * Percent, HurtType.AD | HurtType.FromUnit, user);
-        }
+        var dir = (target - user.Position).ToDirection();
+        return AreaHelper.GetPointList(user.Position, dir)
+            .Where(p =>
+            0 <= p.x && p.x < _map.Width
+            && 0 <= p.y && p.y < _map.Height
+            && _map[p.x, p.y] != null);
     }
 
     protected internal override TargetData GetAvaliableTarget(Unit user)
@@ -46,13 +44,15 @@ public class SwingAttack : Card
         return data;
     }
 
-    protected internal override IEnumerable<Vector2Int> GetAffecrTarget(Unit user, Vector2Int target)
+    protected internal override void Release(Unit user, Vector2Int target)
     {
-        var dir = (target - user.Position).ToDirection();
-        return AreaHelper.GetPointList(user.Position, dir)
-            .Where(p =>
-            0 <= p.x && p.x < _map.Width
-            && 0 <= p.y && p.y < _map.Height
-            && _map[p.x, p.y] != null);
+        Percent = 0.7f;
+        var list = GetAffecrTarget(user, target)
+            .Where(p => _map[p.x, p.y].Units.Count > 0)
+            .Select(p => _map[p.x, p.y].Units.First());
+        foreach (IHurtable u in list)
+        {
+            u.Hurt(user.UnitData.Attack * Percent, HurtType.AD | HurtType.FromUnit, user);
+        }
     }
 }

@@ -6,28 +6,23 @@ using System.Threading.Tasks;
 using UnityEngine;
 using GameToolKit;
 
-public class SwingAttack : Card
+public class Slay : Card
 {
     AreaHelper AreaHelper;
     public override CardType Type => CardType.Attack;
 
-    public SwingAttack()
+    public Slay()
     {
-        Name = "挥击";
-        Description = "对前方横排三格敌人造成一次50%力量值的伤害";
-        Cost = 1;
+        Name = "斩杀";
+        Cost = 3;
+        Description = "对身前一格的敌人造成200%力量值的伤害，若敌人血量低于40%，直接将其消灭，消灭效果对boss无效";
     }
 
-    protected internal override void Release(Unit user, Vector2Int target)
+    protected internal override IEnumerable<Vector2Int> GetAffecrTarget(Unit user, Vector2Int target)
     {
-        Percent = 0.5f;
-        var list = GetAffecrTarget(user, target)
-            .Where(p => _map[p.x, p.y].Units.Count > 0)
-            .Select(p => _map[p.x, p.y].Units.First());
-        foreach(IHurtable u in list)
-        {
-            u.Hurt(user.UnitData.Attack * Percent, HurtType.AD | HurtType.FromUnit, user);
-        }
+        List<Vector2Int> res = new List<Vector2Int>();
+        res.Add(target);
+        return res;
     }
 
     protected internal override TargetData GetAvaliableTarget(Unit user)
@@ -46,13 +41,10 @@ public class SwingAttack : Card
         return data;
     }
 
-    protected internal override IEnumerable<Vector2Int> GetAffecrTarget(Unit user, Vector2Int target)
+    protected internal override void Release(Unit user, Vector2Int target)
     {
-        var dir = (target - user.Position).ToDirection();
-        return AreaHelper.GetPointList(user.Position, dir)
-            .Where(p =>
-            0 <= p.x && p.x < _map.Width
-            && 0 <= p.y && p.y < _map.Height
-            && _map[p.x, p.y] != null);
+        Percent = 2;
+        (_map[target.x, target.y].Units.First() as IHurtable)
+            .Hurt(user.UnitData.Attack * Percent, HurtType.FromUnit, user);
     }
 }

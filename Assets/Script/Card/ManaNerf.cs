@@ -69,19 +69,21 @@ public class ManaNerf : Card
 
     protected internal override void Release(Unit user, Vector2Int target)
     {
-        if (Times == 2)
-        {
-            foreach (var point in GetAffecrTarget(user, target))
+        Percent = 0.3f;
+        GameManager.Instance.GetState<BattleState>()
+            .TurnBeginning += (_) =>
             {
-                if (TileUtility.TryGetTile(point, out var tile))
+                foreach (var point in GetAffecrTarget(user, target))
                 {
-                    if (tile.Units.Count > 0)
+                    if (TileUtility.TryGetTile(point, out var tile))
                     {
-                        (tile.Units.First() as IHurtable).Hurt(user.UnitData.Attack * 2, HurtType.FromUnit, user);
+                        if (tile.Units.Count > 0)
+                        {
+                            (tile.Units.First() as IHurtable).Hurt(user.UnitData.Attack * Percent, HurtType.FromUnit, user);
+                            
+                        }
                     }
                 }
-            }
-        }
-        Times++;
+            };
     }
 }
