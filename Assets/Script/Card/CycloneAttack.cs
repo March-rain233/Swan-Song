@@ -14,11 +14,11 @@ public class CycloneAttack : Card
     {
         Center = new Vector2Int(1, 1),
         Flags = new bool[3, 3]
-    {
+        {
             { true, true, true },
             { true, true,true },
             { true, true, true }
-    }
+        }
     };
 
     public AreaHelper AttackArea = new AreaHelper()
@@ -42,7 +42,7 @@ public class CycloneAttack : Card
     protected internal override IEnumerable<Vector2Int> GetAffecrTarget(Unit user, Vector2Int target)
     {
         var map = _map;
-        var list = AoeArea.GetPointList(target);
+        var list = AoeArea.GetPointList(user.Position);
         return list.Where(p =>
             0 <= p.x && p.x < map.Width
             && 0 <= p.y && p.y < map.Height

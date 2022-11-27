@@ -4,16 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
+using GameToolKit;
 
-public class Rest : Card
+public class Pray : Card
 {
     public override CardType Type => CardType.Other;
 
-    public Rest()//休息
+    public Pray()
     {
-        Name="Rest";
-        Description="Heal 1 Physical values";
-        Cost=0;
+        Name = "祈祷";
+        Description = "抽两张牌，如果手牌数量少于3张，则改为抽取三张";
+        Cost = 2;
     }
 
     protected internal override IEnumerable<Vector2Int> GetAffecrTarget(Unit user, Vector2Int target)
@@ -22,6 +23,7 @@ public class Rest : Card
         res.Add(target);
         return res;
     }
+
     protected internal override TargetData GetAvaliableTarget(Unit user)
     {
         var targetData = new TargetData();
@@ -31,8 +33,19 @@ public class Rest : Card
         targetData.ViewTiles = targetData.AvaliableTile;
         return targetData;
     }
+
     protected internal override void Release(Unit user, Vector2Int target)
     {
-        user.UnitData.ActionPoint++;
+        if(user.Scheduler.Hands.Count < 3)
+        {
+            user.Scheduler.DrawCard();
+            user.Scheduler.DrawCard();
+            user.Scheduler.DrawCard();
+        }
+        else
+        {
+            user.Scheduler.DrawCard();
+            user.Scheduler.DrawCard();
+        }
     }
 }

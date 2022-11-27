@@ -4,16 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
+using GameToolKit;
 
-public class Rest : Card
+public class DevilContract : Card
 {
     public override CardType Type => CardType.Other;
 
-    public Rest()//休息
+    public DevilContract()
     {
-        Name="Rest";
-        Description="Heal 1 Physical values";
-        Cost=0;
+        Name = "恶魔契约";
+        Description = "五回合内受到伤害减少50%，造成的伤害增加20%，每回合额外回复1点体力，五回合后立刻死亡";
+        Cost = 4;
     }
 
     protected internal override IEnumerable<Vector2Int> GetAffecrTarget(Unit user, Vector2Int target)
@@ -31,8 +32,24 @@ public class Rest : Card
         targetData.ViewTiles = targetData.AvaliableTile;
         return targetData;
     }
+
     protected internal override void Release(Unit user, Vector2Int target)
     {
-        user.UnitData.ActionPoint++;
+        int times = 5;
+        GameManager.Instance.GetState<BattleState>()
+            .TurnBeginning += (_) =>
+            {
+                if (times > 0)
+                {
+                    user.UnitData.Defence = user.UnitData.Defence * 2;
+                    user.UnitData.Attack = user.UnitData.Attack * 12 / 10;
+                    user.UnitData.ActionPoint++;
+                }
+                if (times == 0)
+                {
+                    user.UnitData.Blood = 0;
+                }
+                times -= 1;
+            };
     }
 }

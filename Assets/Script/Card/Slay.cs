@@ -44,7 +44,17 @@ public class Slay : Card
     protected internal override void Release(Unit user, Vector2Int target)
     {
         Percent = 2;
-        (_map[target.x, target.y].Units.First() as IHurtable)
+        var tar = (_map[target.x, target.y].Units.First() as IHurtable);
+        var tb = (tar as Unit).UnitData.Blood;
+        var tbmax = (tar as Unit).UnitData.BloodMax;
+        if(tb <= tbmax * 0.4 )
+        {
+            (tar as Unit).UnitData.Blood = 0;
+        }
+        else
+        {
+            (_map[target.x, target.y].Units.First() as IHurtable)
             .Hurt(user.UnitData.Attack * Percent, HurtType.FromUnit, user);
+        }
     }
 }
