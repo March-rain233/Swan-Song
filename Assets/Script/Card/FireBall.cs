@@ -64,7 +64,7 @@ public class FireBall : Card
         {
             if(TileUtility.TryGetTile(point, out var tile))
             {
-                if (tile.Units.Count > 0)
+                if (tile.Units.Count > 0 && tile.Units.First().Camp != user.Camp)
                 {
                     (tile.Units.First() as IHurtable).Hurt(user.UnitData.Attack * 2, HurtType.FromUnit, user);
                 }

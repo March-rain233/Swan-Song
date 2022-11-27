@@ -6,22 +6,16 @@ using System.Threading.Tasks;
 using UnityEngine;
 using GameToolKit;
 
-public class ManaNerf : Card
+public class Earthquake : Card
 {
     public override CardType Type => CardType.Attack;
 
-    public AreaHelper AoeArea = new AreaHelper()
+    public Earthquake()
     {
-        Center = new Vector2Int(2, 2),
-        Flags = new bool[5, 5]
-        {
-            {true,true,true,true,true },
-            {true,true,true,true,true },
-            {true,true,true,true,true },
-            {true,true,true,true,true },
-            {true,true,true,true,true },
-        }
-    };
+        Name = "地震波";
+        Description = "选定一个3x3的方格，使其中的敌人晕眩一回合，对BOSS无效";
+        Cost = 2;
+    }
 
     public AreaHelper AttackArea = new AreaHelper()
     {
@@ -36,12 +30,16 @@ public class ManaNerf : Card
         }
     };
 
-    public ManaNerf()
+    public AreaHelper AoeArea = new AreaHelper()
     {
-        Name = "魔力削弱";
-        Description = "对范围内的敌人造成30%力量值的伤害，并使其在本回合内防御减少30点";
-        Cost = 3;
-    }
+        Center = new Vector2Int(1, 1),
+        Flags = new bool[3, 3]
+        {
+            { true, true, true },
+            { true, true, true },
+            { true, true, true }
+        }
+    };
 
     protected internal override IEnumerable<Vector2Int> GetAffecrTarget(Unit user, Vector2Int target)
     {
@@ -69,7 +67,6 @@ public class ManaNerf : Card
 
     protected internal override void Release(Unit user, Vector2Int target)
     {
-        Percent = 0.3f;
         int times = 1;
         GameManager.Instance.GetState<BattleState>()
             .TurnBeginning += (_) =>
@@ -81,9 +78,10 @@ public class ManaNerf : Card
                     {
                         if (tile.Units.Count > 0 && times == 0)
                         {
-                            var tar = (tile.Units.First() as IHurtable);
                             (tile.Units.First() as IHurtable).Hurt(user.UnitData.Attack * Percent, HurtType.FromUnit, user);
-                            (tar as Unit).UnitData.Defence = (tar as Unit).UnitData.Defence - 30;
+                            var tar = (tile.Units.First() as IHurtable);
+                            (tar as Unit).CanMove = false;
+                            (tar as Unit).CanDecide = false;
                         }
                     }
                 }

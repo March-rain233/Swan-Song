@@ -53,9 +53,14 @@ public class ComboAttack : Card
 
     protected internal override void Release(Unit user, Vector2Int target)
     {
-        Percent = 0.5f + (Times * 0.2f);
-        (_map[target.x, target.y].Units.First() as IHurtable)
-            .Hurt(user.UnitData.Attack * Percent, HurtType.FromUnit, user);
-        Times++;
+        int times = 0;
+        GameManager.Instance.GetState<BattleState>()
+            .TurnBeginning += (_) =>
+            {
+                Percent = 0.5f + (times * 0.2f);
+                times += 1;
+                (_map[target.x, target.y].Units.First() as IHurtable)
+                .Hurt(user.UnitData.Attack * Percent, HurtType.FromUnit, user);
+            };
     }
 }

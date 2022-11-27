@@ -68,19 +68,24 @@ public class ForceStorageMatrix : Card
 
     protected internal override void Release(Unit user, Vector2Int target)
     {
-        if(Times == 2)
-        {
-            foreach (var point in GetAffecrTarget(user, target))
+        int times = 2;
+        GameManager.Instance.GetState<BattleState>()
+            .TurnBeginning += (_) =>
             {
-                if (TileUtility.TryGetTile(point, out var tile))
+                times -= 1;
+                if (times == 0)
                 {
-                    if (tile.Units.Count > 0)
+                    foreach (var point in GetAffecrTarget(user, target))
                     {
-                        (tile.Units.First() as IHurtable).Hurt(user.UnitData.Attack * 2, HurtType.FromUnit, user);
+                        if (TileUtility.TryGetTile(point, out var tile))
+                        {
+                            if (tile.Units.Count > 0)
+                            {
+                                (tile.Units.First() as IHurtable).Hurt(user.UnitData.Attack * 2, HurtType.FromUnit, user);
+                            }
+                        }
                     }
                 }
-            }
-        }
-        Times++;
+            };
     }
 }

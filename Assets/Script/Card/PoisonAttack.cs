@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using GameToolKit;
 
-public class HookLock : Card
+public class PoisonAttack : Card
 {
     public override CardType Type => CardType.Attack;
 
@@ -23,11 +23,11 @@ public class HookLock : Card
         }
     };
 
-    public HookLock()//钩锁
+    public PoisonAttack()
     {
-        Name = "Hook Lock";
-        Cost = 2;
-        Description = "Pull an enemy in front of you and deal damage";
+        Name = "投毒";
+        Description = "使一个角色中毒，每回合损失20点血量，持续三回合";
+        Cost = 1;
     }
 
     protected internal override IEnumerable<Vector2Int> GetAffecrTarget(Unit user, Vector2Int target)
@@ -53,11 +53,17 @@ public class HookLock : Card
 
     protected internal override void Release(Unit user, Vector2Int target)
     {
-        Percent = 0.2f;
-        var tar = (_map[target.x, target.y].Units.First() as IHurtable);
-        tar.Hurt(user.UnitData.Attack * Percent, HurtType.FromUnit, user);
-        var tp = (tar as Unit).Position;
-        Vector2Int dir = (tp - user.Position).ToDirection().ToVector2Int();
-        (tar as Unit).Position = user.Position + dir;
+        int times = 3;
+        GameManager.Instance.GetState<BattleState>()
+            .TurnBeginning += (_) =>
+            {
+                times -= 1;
+                if (times >= 0)
+                {
+                    (_map[target.x, target.y].Units.First() as IHurtable)
+                    .Hurt(20 , HurtType.FromUnit, user);
+                    _map[target.x, target.y].AddStatus(TileStatus.Poison);
+                }
+            };
     }
 }

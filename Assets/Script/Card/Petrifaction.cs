@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using UnityEngine;
 using GameToolKit;
 
-public class HookLock : Card
+public class Petrifaction : Card
 {
-    public override CardType Type => CardType.Attack;
+    public override CardType Type => CardType.Other;
 
     public AreaHelper AttackArea = new AreaHelper()
     {
@@ -23,11 +23,11 @@ public class HookLock : Card
         }
     };
 
-    public HookLock()//钩锁
+    public Petrifaction(Unit user)
     {
-        Name = "Hook Lock";
-        Cost = 2;
-        Description = "Pull an enemy in front of you and deal damage";
+        Name = "石化";
+        Description = "接下来两回合受到的伤害减少30%，同时不能移动";
+        Cost = 1;
     }
 
     protected internal override IEnumerable<Vector2Int> GetAffecrTarget(Unit user, Vector2Int target)
@@ -53,11 +53,18 @@ public class HookLock : Card
 
     protected internal override void Release(Unit user, Vector2Int target)
     {
-        Percent = 0.2f;
+        int times = 2;
+        Percent = 1.429f;
         var tar = (_map[target.x, target.y].Units.First() as IHurtable);
-        tar.Hurt(user.UnitData.Attack * Percent, HurtType.FromUnit, user);
-        var tp = (tar as Unit).Position;
-        Vector2Int dir = (tp - user.Position).ToDirection().ToVector2Int();
-        (tar as Unit).Position = user.Position + dir;
+        GameManager.Instance.GetState<BattleState>()
+            .TurnBeginning += (_) =>
+            {
+                times -= 1;
+                if (times >= 0)
+                {
+                    (tar as Unit).UnitData.Defence = (tar as Unit).UnitData.Defence * 10 / 7;
+                    (tar as Unit).CanMove = false;
+                }
+            };
     }
 }

@@ -10,7 +10,7 @@ public class CounterPunch : Card
 {
     public override CardType Type => CardType.Attack;
 
-    public CounterPunch()
+    public CounterPunch()//反击重拳
     {
         Name = "Counter Punch";
         Description = "Deal counter damage to enemy";

@@ -46,7 +46,7 @@ public class PackAPunch : Card
     protected internal override IEnumerable<Vector2Int> GetAffecrTarget(Unit user, Vector2Int target)
     {
         var map = _map;
-        var list = AoeArea.GetPointList(target);
+        var list = AoeArea.GetPointList(user.Position);
         return list.Where(p =>
             0 <= p.x && p.x < map.Width
             && 0 <= p.y && p.y < map.Height

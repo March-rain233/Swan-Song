@@ -4,16 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
+using GameToolKit;
 
-public class Rest : Card
+public class Ambush : Card
 {
     public override CardType Type => CardType.Other;
 
-    public Rest()//休息
+    public Ambush()
     {
-        Name="Rest";
-        Description="Heal 1 Physical values";
-        Cost=0;
+        Name = "埋伏";
+        Description = "将两张挥击置入手牌";
+        Cost = 1;
     }
 
     protected internal override IEnumerable<Vector2Int> GetAffecrTarget(Unit user, Vector2Int target)
@@ -31,8 +32,10 @@ public class Rest : Card
         targetData.ViewTiles = targetData.AvaliableTile;
         return targetData;
     }
+
     protected internal override void Release(Unit user, Vector2Int target)
     {
-        user.UnitData.ActionPoint++;
+        //Card card = SwingAttack.Name;
+        //user.Scheduler.AddToHand(card);
     }
 }

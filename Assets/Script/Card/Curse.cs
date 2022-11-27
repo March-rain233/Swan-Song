@@ -6,9 +6,16 @@ using System.Threading.Tasks;
 using UnityEngine;
 using GameToolKit;
 
-public class HookLock : Card
+public class Curse : Card
 {
     public override CardType Type => CardType.Attack;
+
+    public Curse()
+    {
+        Name = "诅咒";
+        Description = "选定一个目标，如果两回合内被选定的目标死亡，抽一张卡牌";
+        Cost = 0;
+    }
 
     public AreaHelper AttackArea = new AreaHelper()
     {
@@ -22,13 +29,6 @@ public class HookLock : Card
             {true,true,true,true,true }
         }
     };
-
-    public HookLock()//钩锁
-    {
-        Name = "Hook Lock";
-        Cost = 2;
-        Description = "Pull an enemy in front of you and deal damage";
-    }
 
     protected internal override IEnumerable<Vector2Int> GetAffecrTarget(Unit user, Vector2Int target)
     {
@@ -53,11 +53,16 @@ public class HookLock : Card
 
     protected internal override void Release(Unit user, Vector2Int target)
     {
-        Percent = 0.2f;
+        int times = 2;
         var tar = (_map[target.x, target.y].Units.First() as IHurtable);
-        tar.Hurt(user.UnitData.Attack * Percent, HurtType.FromUnit, user);
-        var tp = (tar as Unit).Position;
-        Vector2Int dir = (tp - user.Position).ToDirection().ToVector2Int();
-        (tar as Unit).Position = user.Position + dir;
+        GameManager.Instance.GetState<BattleState>()
+            .TurnBeginning += (_) =>
+            {
+                times -= 1;
+                if (times >= 0 && (tar as Unit).ActionStatus == ActionStatus.Dead )
+                {
+                    user.Scheduler.DrawCard();
+                }
+            };
     }
 }
