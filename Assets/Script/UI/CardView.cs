@@ -20,9 +20,12 @@ public class CardView : SerializedMonoBehaviour,
     public TextMeshProUGUI Name;
     public TextMeshProUGUI Description;
     public TextMeshProUGUI AP;
+    public TextMeshProUGUI OwnerName;
+
     public Image Sprite;
 
     public Card Card;
+    public CardScheduler CardScheduler;
 
     public event Action MouseEntered;
     public event Action MouseExited;
@@ -37,6 +40,7 @@ public class CardView : SerializedMonoBehaviour,
         Description.text = Card.Description;
         AP.text = Card.Cost.ToString();
         Sprite.sprite = Card.Sprite;
+        OwnerName.text = CardScheduler.Unit.UnitData.Name;
     }
 
     void IPointerEnterHandler.OnPointerEnter(PointerEventData eventData)

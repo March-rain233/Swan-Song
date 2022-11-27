@@ -91,7 +91,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5656d60658cce7c4381ba7f1cfed24ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GridLayoutGroup: {fileID: 861312917441650583}
+  LayoutGroup: {fileID: 861312917441650583}
 --- !u!1 &760013765130585335
 GameObject:
   m_ObjectHideFlags: 0

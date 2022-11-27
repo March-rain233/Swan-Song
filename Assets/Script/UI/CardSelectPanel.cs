@@ -26,7 +26,7 @@ public class CardSelectPanel : PanelBase
         };
     }
 
-    public void SetCards(IEnumerable<Card> cards)
+    public void SetCards(IEnumerable<(Card, CardScheduler)> cards)
     {
         CardListView.ShowCardList(cards);
     }

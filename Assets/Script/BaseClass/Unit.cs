@@ -115,6 +115,11 @@ public abstract class Unit : IHurtable, ICurable
     /// 单位死亡事件
     /// </summary>
     public event Action UnitDied;
+
+    /// <summary>
+    /// Buff列表更改事件
+    /// </summary>
+    public event Action BuffListChanged;
     #endregion
 
     protected Unit(UnitData data, Vector2Int pos)
@@ -195,6 +200,8 @@ public abstract class Unit : IHurtable, ICurable
         _buffList.Add(buff);
         buff.Unit = this;
         buff.Enable();
+
+        BuffListChanged?.Invoke();
     }
 
     /// <summary>
@@ -207,6 +214,8 @@ public abstract class Unit : IHurtable, ICurable
         {
             ori.Disable();
             _buffList.Remove(ori);
+
+            BuffListChanged?.Invoke();
         }
     }
 
@@ -214,6 +223,8 @@ public abstract class Unit : IHurtable, ICurable
     {
         buff.Disable();
         _buffList.Remove(buff);
+
+        BuffListChanged?.Invoke();
     }
 
     /// <summary>

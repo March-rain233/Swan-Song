@@ -91,7 +91,7 @@ public abstract class Tile
     {
         if (TileStatus.HasFlag(TileStatus.Fire))
         {
-            unit.AddBuff(new Burn() { Times = 2 });
+            unit.AddBuff(new Burn() { Count = 2 });
         }
     }
 
@@ -109,7 +109,7 @@ public abstract class Tile
     {
         if (TileStatus.HasFlag(TileStatus.Fire))
         {
-            unit.AddBuff(new Burn() { Times = 2 });
+            unit.AddBuff(new Burn() { Count = 2 });
         }
 
     }

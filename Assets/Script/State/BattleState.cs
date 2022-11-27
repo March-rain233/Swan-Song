@@ -191,7 +191,7 @@ public class BattleState : GameState
     /// </summary>
     /// <param name="toSelect"></param>
     /// <param name="callback"></param>
-    public void SelectCard(List<Card> toSelect, Action<Card> callback)
+    public void SelectCard(List<(Card, CardScheduler)> toSelect, Action<Card> callback)
     {
         var panel = ServiceFactory.Instance.GetService<PanelManager>()
             .OpenPanel("CardSelectPanel") as CardSelectPanel;
@@ -210,6 +210,7 @@ public class BattleState : GameState
     void NextUnitTurn()
     {
         CurrentUnit = GetNextUnit(CurrentUnit);
+        CurrentUnitChanged?.Invoke(CurrentUnit);
         //当已无下一个单位执行时，当前回合结算
         if (CurrentUnit == null)
         {
@@ -234,7 +235,6 @@ public class BattleState : GameState
         {
             CurrentUnit.BeginTurn(NextUnitTurn);
         }
-        CurrentUnitChanged?.Invoke(CurrentUnit);
     }
     /// <summary>
     /// 下一回合

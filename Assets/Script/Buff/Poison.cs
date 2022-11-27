@@ -23,4 +23,12 @@ internal class Poison : RoundBuff
     {
         (Unit as IHurtable).Hurt(Damage, HurtType.FromBuff, this);
     }
+
+    public override BuffData GetBuffData()
+    {
+        var res = base.GetBuffData();
+        res.Name = "中毒";
+        res.Description = $"每回合损失{Damage}血量";
+        return res;
+    }
 }

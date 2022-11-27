@@ -32,6 +32,11 @@ public class BattlePanel : PanelBase
 
     public HorizontalLayoutGroup OrderList;
     public Image CurrentUnitView;
+
+    public LayoutGroup PlayerListView;
+    #region 控件模板
+    public GameObject UnitProfileModel;
+    #endregion
     #endregion
 
     /// <summary>
@@ -54,9 +59,13 @@ public class BattlePanel : PanelBase
 
         //绑定单位选择详情功能
         UnitView currentSelect = null;
-        System.Action refresh = () =>
+        System.Action<UnitData> refreshData = (_) =>
         {
-            UnitDataView.Refresh(currentSelect.ViewData);
+            UnitDataView.RefreshData(currentSelect.ViewData);
+        };
+        System.Action refreshBuff = () =>
+        {
+            UnitDataView.RefreshBuffList(currentSelect.BuffDatas);
         };
         foreach (var view in ur.UnitViews)
         {
@@ -64,14 +73,44 @@ public class BattlePanel : PanelBase
             {
                 if(currentSelect != null)
                 {
-                    currentSelect.ViewDataChanged -= refresh;
+                    currentSelect.ViewDataChanged -= refreshData;
+                    currentSelect.BuffChanged -= refreshBuff;
                 }
                 currentSelect = view;
-                currentSelect.ViewDataChanged += refresh;
+                currentSelect.ViewDataChanged += refreshData;
+                currentSelect.BuffChanged += refreshBuff;
 
                 UnitDataView.gameObject.SetActive(true);
-                UnitDataView.RefreshWithoutAnim(view.ViewData);
+                UnitDataView.RefreshDataWithoutAnim(view.ViewData);
+                refreshBuff();
             };
+        }
+        UnitDataView.transform.GetComponentInChildren<Button>()
+            .onClick.AddListener(() =>
+            {
+                UnitDataView.gameObject.SetActive(false);
+            });
+        UnitDataView.gameObject.SetActive(false);
+
+        //绑定玩家角色列表
+        foreach(var player in sta.PlayerList)
+        {
+            var obj = Instantiate(UnitProfileModel, PlayerListView.transform);
+            var face = obj.transform.Find("Face").GetComponent<Image>();
+            var name = obj.transform.Find("Name").GetComponent<TextMeshProUGUI>();
+            var hpBar = obj.transform.Find("HpBar").GetComponent<HpBar>();
+            face.sprite = player.UnitData.Face;
+            name.text = player.UnitData.Name;
+            hpBar.InitHpBar(player.UnitData.Blood, player.UnitData.BloodMax);
+            ur.UnitViews.First(v => v.Unit == player).ViewDataChanged += (_) =>
+              {
+                  hpBar.MaxHp = player.UnitData.BloodMax;
+                  hpBar.Hp = player.UnitData.Blood;
+              };
+            obj.GetComponent<Button>().onClick.AddListener(() =>
+            {
+                SwitchPlayer(player);
+            });
         }
 
         //绑定UI功能
@@ -96,24 +135,18 @@ public class BattlePanel : PanelBase
         BtnDeck.onClick.AddListener(() =>
         {
             Deck.gameObject.SetActive(true);
-            IEnumerable<Card> cards = new List<Card>();
-            foreach (var list in GameManager.Instance.GetState<BattleState>().PlayerList
-                .Select(p => p.Scheduler.Deck))
-            {
-                cards = cards.Concat(list);
-            }
-            Deck.ShowCardList(cards);
+            var res = from player in GameManager.Instance.GetState<BattleState>().PlayerList
+                      from card in player.Scheduler.Deck
+                      select (card, player.Scheduler);
+            Deck.ShowCardList(res);
         });
         BtnDiscard.onClick.AddListener(() =>
         {
             Discard.gameObject.SetActive(true);
-            IEnumerable<Card> cards = new List<Card>();
-            foreach (var list in GameManager.Instance.GetState<BattleState>().PlayerList
-                .Select(p => p.Scheduler.DiscardPile))
-            {
-                cards = cards.Concat(list);
-            }
-            Discard.ShowCardList(cards);
+            var res = from player in GameManager.Instance.GetState<BattleState>().PlayerList
+                      from card in player.Scheduler.DiscardPile
+                      select (card, player.Scheduler);
+            Discard.ShowCardList(res);
         });
         BtnDiscardReturn.onClick.AddListener(() =>
         {
@@ -153,15 +186,10 @@ public class BattlePanel : PanelBase
 
     public Tween NextUnit(List<Unit> orderList)
     {
-        var anim = ExtensionDotween.GetEmptyTween(0.01f);
-        anim.OnStart(() =>
+        var seq = DOTween.Sequence();
+        seq.AppendCallback(() =>
         {
-            if (_currentPlayer != null)
-            {
-                EndControl(_currentPlayer);
-            }
-            _currentPlayer = orderList.First() as Player;
-
+            //刷新行动序列UI
             CurrentUnitView.sprite = orderList[0].UnitData.Face;
             orderList.RemoveAt(0);
             if (orderList.Count < _orderListView.Count)
@@ -172,7 +200,7 @@ public class BattlePanel : PanelBase
                     _orderListView.RemoveAt(i);
                 }
             }
-            else if(orderList.Count > _orderListView.Count)
+            else if (orderList.Count > _orderListView.Count)
             {
                 for (int i = _orderListView.Count; i < orderList.Count; ++i)
                 {
@@ -191,17 +219,12 @@ public class BattlePanel : PanelBase
                     _orderListView.Add(img);
                 }
             }
-            for(int i = 0; i < orderList.Count; ++i)
+            for (int i = 0; i < orderList.Count; ++i)
             {
                 _orderListView[i].sprite = orderList[i].UnitData.Face;
             }
-
-            if(_currentPlayer != null)
-            {
-                BeginControl(_currentPlayer);
-            }
         });
-        return anim;
+        return seq;
     }
 
     public Tween NextRound(int round)
@@ -220,58 +243,93 @@ public class BattlePanel : PanelBase
         anim.OnStart(() =>
         {
             Hands.AddCard(card, cardScheduler);
+            Hands.Refresh();
         });
         return anim;
     }
 
-    public Tween RemoveCard(Card card)
+    public Tween RemoveCard(Card card, CardScheduler cardScheduler)
     {
         var anim = ExtensionDotween.GetEmptyTween(0.01f);
         anim.OnStart(() =>
         {
-            Hands.RemoveCard(card);
+            Hands.DiscardCard(card, cardScheduler);
+            Hands.Refresh();
         });
         return anim;
     }
 
+    public Tween SwitchPlayer(Player player)
+    {
+        var seq = DOTween.Sequence(this);
+        seq.AppendCallback(() =>
+        {
+            var ur = GameManager.Instance.GetState<BattleState>().UnitRenderer;
+            if (_currentPlayer != null)
+            {
+                ur.UnitViews.First(v => v.Unit == _currentPlayer).ViewDataChanged -= BattlePanel_ViewDataChanged;
+            }
+            _currentPlayer = player;
+            if (_currentPlayer != null)
+            {
+                ur.UnitViews.First(v => v.Unit == _currentPlayer).ViewDataChanged += BattlePanel_ViewDataChanged;
+                BattlePanel_ViewDataChanged(ur.UnitViews.First(v => v.Unit == _currentPlayer).ViewData);
+            }
+            BtnFinish.interactable = TogMove.interactable = _enable && _currentPlayer.ActionStatus == ActionStatus.Running;
+        });
+        seq.Append(Hands.SwitchPlayer(player));
+        return seq;
+    }
+
+    private void BattlePanel_ViewDataChanged(UnitData obj)
+    {
+        AP.text = $"{obj.ActionPoint}/{obj.ActionPointMax}";
+        Hands.Refresh();
+    }
 
     /// <summary>
     /// 启用玩家控制
     /// </summary>
-    public void BeginControl(Player player)
+    public Tween BeginControl(Player player)
     {
-        TogMove.interactable = true;
-        TogMove.SetIsOnWithoutNotify(false);
-        BtnFinish.interactable = true;
-        BtnFinish.onClick.AddListener(player.EndDecide);
-        Enable();
+        var seq = DOTween.Sequence();
+        seq.Append(SwitchPlayer(player));
+        seq.AppendCallback(()=>
+        {
+            TogMove.SetIsOnWithoutNotify(false);
+            BtnFinish.onClick.AddListener(player.EndDecide);
+            Enable();
+        });
+        return seq;
     }
 
     /// <summary>
     /// 结束玩家控制
     /// </summary>
-    public void EndControl(Player player)
+    public Tween EndControl(Player player)
     {
-        TogMove.interactable = false;
-        TogMove.SetIsOnWithoutNotify(false);
-        BtnFinish.interactable = false;
-        BtnFinish.onClick.RemoveListener(player.EndDecide);
-        Disable();
+        var seq = DOTween.Sequence();
+        seq.AppendCallback(() =>
+        {
+            _currentPlayer = null;
+            TogMove.SetIsOnWithoutNotify(false);
+            BtnFinish.onClick.RemoveListener(player.EndDecide);
+            Disable();
+        });
+        return seq;
     }
 
     public void Disable()
     {
-        CanvasGroup.interactable = false;
-        CanvasGroup.blocksRaycasts = false;
-        Hands.Disable();
         _enable = false;
+        BtnFinish.interactable = TogMove.interactable = false;
+        Hands.Disable();
     }
 
     public void Enable()
     {
-        CanvasGroup.interactable=true;
-        CanvasGroup.blocksRaycasts=true;
-        Hands.Enable();
         _enable = true;
+        BtnFinish.interactable = TogMove.interactable = _currentPlayer.ActionStatus == ActionStatus.Running;
+        Hands.Enable();
     }
 }

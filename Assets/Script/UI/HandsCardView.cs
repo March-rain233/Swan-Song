@@ -10,7 +10,6 @@ public class HandsCardView : CardView
 {
     public LineRenderer LineRenderer;
     public Outline Outline;
-    public CardScheduler CardScheduler;
 
     [OdinSerialize]
     public float Angle { get; set; }
