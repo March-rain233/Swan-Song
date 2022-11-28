@@ -25,7 +25,7 @@ public class CardView : SerializedMonoBehaviour,
     public Image Sprite;
 
     public Card Card;
-    public CardScheduler CardScheduler;
+    public UnitData UnitData;
 
     public event Action MouseEntered;
     public event Action MouseExited;
@@ -40,7 +40,7 @@ public class CardView : SerializedMonoBehaviour,
         Description.text = Card.Description;
         AP.text = Card.Cost.ToString();
         Sprite.sprite = Card.Sprite;
-        OwnerName.text = CardScheduler.Unit.UnitData.Name;
+        OwnerName.text = UnitData.Name;
     }
 
     void IPointerEnterHandler.OnPointerEnter(PointerEventData eventData)

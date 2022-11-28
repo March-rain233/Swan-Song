@@ -122,6 +122,7 @@ public class HandsView : SerializedMonoBehaviour
 
             //³õÊ¼»¯¿¨ÅÆ
             cardView.Card = card;
+            cardView.UnitData = scheduler.Unit.UnitData;
             cardView.CardScheduler = scheduler;
             cardView.MinnumAngle = DefaultMinnumAngle;
             cardView.PreferAngle = DefaultPreferedAngle;

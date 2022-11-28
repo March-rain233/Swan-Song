@@ -25,6 +25,7 @@ public class BattleAnimator
     Queue<Tween> _animQueue = new();
     public BattleAnimator(BattleState battleState)
     {
+        var pm = ServiceFactory.Instance.GetService<PanelManager>();
         _battleState = battleState;
         _battleState.CurrentUnitChanged += (unit) =>
         {
@@ -38,6 +39,15 @@ public class BattleAnimator
             var panel = ServiceFactory.Instance.GetService<PanelManager>()
                 .GetOrOpenPanel("BattlePanel") as BattlePanel;
             EnqueueAnimation(panel.NextRound(round));
+        };
+        _battleState.Successed += () =>
+        {
+            var panel = pm.OpenPanel("SuccessPanel") as SuccessPanel;
+            panel.ShowItems(_battleState.ItemList);
+        };
+        _battleState.Failed += () =>
+        {
+            pm.OpenPanel("FailurePanel");
         };
     }
 

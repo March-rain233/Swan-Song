@@ -10,6 +10,16 @@ using GameToolKit;
 /// </summary>
 public class BattleState : GameState
 {
+    public enum ItemType
+    {
+        Money,
+        Card
+    }
+    public struct Item
+    {
+        public ItemType Type;
+        public object Value;
+    }
     enum GameStatus
     {
         Victory,
@@ -92,6 +102,12 @@ public class BattleState : GameState
     public BattleAnimator Animator;
     public MapRenderer MapRenderer;
     public UnitRenderer UnitRenderer;
+
+    /// <summary>
+    /// 战利品
+    /// </summary>
+    public List<Item> ItemList = new();
+
     protected internal override void OnEnter()
     {
     }
@@ -110,7 +126,7 @@ public class BattleState : GameState
 
     }
 
-    public void InitSystem()
+    public void InitSystem(int chapter, int battleLevel)
     {
         //初始化系统
         var mapData = MapFactory.CreateMap("");
@@ -137,6 +153,46 @@ public class BattleState : GameState
         var depolyList = mapData.PlaceablePoints;
         var gm = ServiceFactory.Instance.GetService<GameManager>();
         var unitDatas = gm.GameData.Members;
+
+        ItemList.Add(new Item()
+        {
+            Type = ItemType.Money,
+            Value = battleLevel * 30
+        });
+        List<(Card, UnitData)> cards = new();
+        switch (battleLevel)
+        {
+            case 1:
+                foreach(var member in gm.GameData.Members)
+                {
+                    cards.Add((CardPoolManager.Instance.DrawCard(
+                        member.UnitModel.PrivilegeDeckIndex, "Normal")
+                        , member));
+                }
+                break;
+            case 2:
+                foreach (var member in gm.GameData.Members)
+                {
+                    cards.Add((CardPoolManager.Instance.DrawCard(
+                        member.UnitModel.PrivilegeDeckIndex, member.UnitModel.CoreDeckIndex)
+                        , member));
+                }
+                break;
+            case 3:
+                foreach (var member in gm.GameData.Members)
+                {
+                    cards.Add((CardPoolManager.Instance.DrawCard(
+                        member.UnitModel.CoreDeckIndex)
+                        , member));
+                }
+                break;
+        }
+        ItemList.Add(new Item()
+        {
+            Type = ItemType.Card,
+            Value = cards
+        });
+
         DeployBeginning?.Invoke(depolyList, unitDatas);
     }
 
@@ -191,16 +247,16 @@ public class BattleState : GameState
     /// </summary>
     /// <param name="toSelect"></param>
     /// <param name="callback"></param>
-    public void SelectCard(List<(Card, CardScheduler)> toSelect, Action<Card> callback)
+    public void SelectCard(List<(Card, CardScheduler)> toSelect, Action<(Card, CardScheduler)> callback)
     {
         var panel = ServiceFactory.Instance.GetService<PanelManager>()
             .OpenPanel("CardSelectPanel") as CardSelectPanel;
-        panel.SetCards(toSelect);
-        panel.OnCardSelected += (card) =>
+        panel.SetCards(toSelect.Select(p=>(p.Item1, p.Item2.Unit.UnitData)));
+        panel.CardSelected += (card, data) =>
         {
             ServiceFactory.Instance.GetService<PanelManager>()
                 .ClosePanel(panel);
-            callback(card);
+            callback((card, toSelect.First(u=>u.Item2.Unit.UnitData == data).Item2));
         };
     }
 

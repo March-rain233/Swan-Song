@@ -10,7 +10,7 @@ public class CardListView : MonoBehaviour
 {
     public LayoutGroup LayoutGroup;
     public event Action<CardView> InittingCardView;
-    public virtual void ShowCardList(IEnumerable<(Card card, CardScheduler scheduler)> cards)
+    public virtual void ShowCardList(IEnumerable<(Card card, UnitData unit)> cards)
     {
         for(int i = LayoutGroup.transform.childCount - 1; i >= 0; i--)
         {
@@ -21,7 +21,7 @@ public class CardListView : MonoBehaviour
         {
             var cardView = Instantiate(model, LayoutGroup.transform).GetComponent<CardView>();
             cardView.Card = card.card;
-            cardView.CardScheduler = card.scheduler;
+            cardView.UnitData = card.unit;
             InitCardView(cardView);
             cardView.Refresh();
         }

@@ -137,7 +137,7 @@ public class BattlePanel : PanelBase
             Deck.gameObject.SetActive(true);
             var res = from player in GameManager.Instance.GetState<BattleState>().PlayerList
                       from card in player.Scheduler.Deck
-                      select (card, player.Scheduler);
+                      select (card, player.UnitData);
             Deck.ShowCardList(res);
         });
         BtnDiscard.onClick.AddListener(() =>
@@ -145,7 +145,7 @@ public class BattlePanel : PanelBase
             Discard.gameObject.SetActive(true);
             var res = from player in GameManager.Instance.GetState<BattleState>().PlayerList
                       from card in player.Scheduler.DiscardPile
-                      select (card, player.Scheduler);
+                      select (card, player.UnitData);
             Discard.ShowCardList(res);
         });
         BtnDiscardReturn.onClick.AddListener(() =>
@@ -156,18 +156,6 @@ public class BattlePanel : PanelBase
         {
             Deck.gameObject.SetActive(false);
         });
-
-        //绑定对局事件
-        sta.Successed += () =>
-        {
-            ServiceFactory.Instance.GetService<PanelManager>()
-                .OpenPanel("SuccessPanel");
-        };
-        sta.Failed += () =>
-        {
-            ServiceFactory.Instance.GetService<PanelManager>()
-                .OpenPanel("FailurePanel");
-        };
     }
 
     private void Update()

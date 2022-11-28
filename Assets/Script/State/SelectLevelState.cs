@@ -10,6 +10,12 @@ public class SelectLevelState : GameState
 {
     protected internal override void OnEnter()
     {
+        var map = GameManager.Instance.GameData.TreeMap;
+        if(map.CurrentNode.PlaceType == PlaceType.BossBattle)
+        {
+            GameManager.Instance.GameData.Chapter += 1;
+            GameManager.Instance.GameData.TreeMap = TreeMapFactory.CreateTreeMap("");
+        }
         ServiceFactory.Instance.GetService<PanelManager>()
             .OpenPanel("TreeMapView");
     }
@@ -39,15 +45,15 @@ public class SelectLevelState : GameState
         {
             case PlaceType.NormalBattle:
                 gm.SetStatus<BattleState>()
-                    .InitSystem();
+                    .InitSystem(gm.GameData.Chapter, 1);
                 break;
             case PlaceType.AdvancedBattle:
                 gm.SetStatus<BattleState>()
-                    .InitSystem();
+                    .InitSystem(gm.GameData.Chapter, 2);
                 break;
             case PlaceType.BossBattle:
                 gm.SetStatus<BattleState>()
-                    .InitSystem();
+                    .InitSystem(gm.GameData.Chapter, 3);
                 break;
             case PlaceType.Start:
                 break;

@@ -248,7 +248,7 @@ public abstract class Unit : IHurtable, ICurable
         Moved(path);
     }
 
-    protected void Died()
+    void Died()
     {
         OnDied();
         UnitDied?.Invoke();

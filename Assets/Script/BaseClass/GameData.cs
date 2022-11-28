@@ -26,4 +26,9 @@ public class GameData
     /// 分支选择树
     /// </summary>
     public TreeMap TreeMap;
+
+    /// <summary>
+    /// 章节
+    /// </summary>
+    public int Chapter;
 }
