@@ -84,15 +84,15 @@ public static class TreeMapFactory
             int curIndex = 0;
             for (int j = 0; j < l1; ++j)
             {
-                int k = curIndex;
+                
                 //随机决定要不要从上个节点结束的位置开始连接动作 当然第一个节点不可以有这个动作 因为他只能从0开始
                 if (j != 0 && curIndex < l2 - 1)
                 {
-                    k = random.Next(curIndex, curIndex + 2);
+                    curIndex = random.Next(curIndex, curIndex + 2);
                 }
                 if (j == l1 - 1)//判断当前是不是需要分配的最后一个节点 如果是的话把剩下的节点全部分配给他
                 {
-                    for (; k < l2; k++)
+                    for (int k = curIndex; k < l2; k++)
                     {
                         map.Connect(nodes[i][j], nodes[i + 1][k]);
                     }
@@ -101,7 +101,7 @@ public static class TreeMapFactory
                 {
                     //表示要连接下一层几个节点
                     int conn_node = random.Next(1, l2 - curIndex + 1);
-                    for (; k < curIndex + conn_node; ++k)
+                    for (int k = curIndex; k < curIndex + conn_node; ++k)
                     {
                         map.Connect(nodes[i][j], nodes[i + 1][k]);
                     }
