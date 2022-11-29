@@ -80,8 +80,7 @@ public class Earthquake : Card
                         {
                             (tile.Units.First() as IHurtable).Hurt(user.UnitData.Attack * Percent, HurtType.FromUnit, user);
                             var tar = (tile.Units.First() as IHurtable);
-                            (tar as Unit).CanMove = false;
-                            (tar as Unit).CanDecide = false;
+                            (tar as Unit).AddBuff(new Stun() { Count = 1 });
                         }
                     }
                 }

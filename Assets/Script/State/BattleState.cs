@@ -251,6 +251,7 @@ public class BattleState : GameState
     {
         var panel = ServiceFactory.Instance.GetService<PanelManager>()
             .OpenPanel("CardSelectPanel") as CardSelectPanel;
+        panel.BtnBack.gameObject.SetActive(false);
         panel.SetCards(toSelect.Select(p=>(p.Item1, p.Item2.Unit.UnitData)));
         panel.CardSelected += (card, data) =>
         {

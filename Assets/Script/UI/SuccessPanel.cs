@@ -26,13 +26,6 @@ public class SuccessPanel : PanelBase
         });
     }
 
-    protected override void OnOpen()
-    {
-        base.OnOpen();
-        CanvasGroup.alpha = 0;
-        CanvasGroup.DOFade(1, 0.3f);
-    }
-
     public void ShowItems(IEnumerable<Item> items)
     {
         _items = new();

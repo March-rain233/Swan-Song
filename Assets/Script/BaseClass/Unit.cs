@@ -20,7 +20,7 @@ public abstract class Unit : IHurtable, ICurable
     public ActionStatus ActionStatus
     {
         get => _actionStatus;
-        private set
+        set
         {
             _actionStatus = value;
             if(_actionStatus == ActionStatus.Dead)
@@ -78,11 +78,6 @@ public abstract class Unit : IHurtable, ICurable
     /// 该单位所属阵营
     /// </summary>
     public Camp Camp;
-
-    /// <summary>
-    /// 是否可以进行决策
-    /// </summary>
-    public bool CanDecide = true;
 
     /// <summary>
     /// 是否可移动
@@ -165,13 +160,9 @@ public abstract class Unit : IHurtable, ICurable
         _callback = callback;
         ActionStatus = ActionStatus.Running;
         TurnBeginning?.Invoke();
-        if (CanDecide)
+        if (ActionStatus == ActionStatus.Running)
         {
             Decide();
-        }
-        else
-        {
-            _callback();
         }
     }
 
