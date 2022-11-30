@@ -6,28 +6,16 @@ using System.Threading.Tasks;
 using UnityEngine;
 using GameToolKit;
 
-public class SwingAttack : Card
+public class RockFall : Card
 {
     AreaHelper AreaHelper;
     public override CardType Type => CardType.Attack;
 
-    public SwingAttack()
+    public RockFall(Unit user)//战士专属
     {
-        Name = "挥击";
-        Description = "对前方横排三格敌人造成一次50%力量值的伤害";
-        Cost = 1;
-    }
-
-    protected internal override void Release(Unit user, Vector2Int target)
-    {
-        Percent = 0.5f;
-        var list = GetAffecrTarget(user, target)
-            .Where(p => _map[p.x, p.y].Units.Count > 0)
-            .Select(p => _map[p.x, p.y].Units.First());
-        foreach(IHurtable u in list)
-        {
-            u.Hurt(user.UnitData.Attack * Percent, HurtType.AD | HurtType.FromUnit, user);
-        }
+        Name = "岩崩斩";
+        Description = "向前方斩出一击，对直线上敌人造成200%力量值的伤害，对血量低于50%的敌人额外造成一次100%力量值的伤害";
+        Cost = 3;
     }
 
     protected internal override TargetData GetAvaliableTarget(Unit user)
@@ -54,6 +42,21 @@ public class SwingAttack : Card
             0 <= p.x && p.x < _map.Width
             && 0 <= p.y && p.y < _map.Height
             && _map[p.x, p.y] != null
-            && _map[p.x, p.y].Units.First().Camp != user.Camp);
+            &&_map[p.x, p.y].Units.First().Camp != user.Camp);
+    }
+
+    protected internal override void Release(Unit user, Vector2Int target)
+    {
+        var list = GetAffecrTarget(user, target)
+            .Where(p => _map[p.x, p.y].Units.Count > 0)
+            .Select(p => _map[p.x, p.y].Units.First());
+        foreach (IHurtable u in list)
+        {
+            u.Hurt(user.UnitData.Attack * 2, HurtType.AD | HurtType.FromUnit, user);
+            if((u as Unit).UnitData.Blood <= (u as Unit).UnitData.BloodMax / 2)
+            {
+                u.Hurt(user.UnitData.Attack , HurtType.AD | HurtType.FromUnit, user);
+            }
+        }
     }
 }

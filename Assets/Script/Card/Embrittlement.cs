@@ -6,9 +6,16 @@ using System.Threading.Tasks;
 using UnityEngine;
 using GameToolKit;
 
-public class FightKill : Card
+public class Embrittlement : Card
 {
-    public override CardType Type => CardType.Attack;
+    public override CardType Type => CardType.Other;
+
+    public Embrittlement()
+    {
+        Name = "脆化";
+        Description = "选定一个目标，使其防御力减少50%，持续三回合，如果是boss，则只减少10%";
+        Cost = 1;
+    }
 
     public AreaHelper AttackArea = new AreaHelper()
     {
@@ -22,13 +29,6 @@ public class FightKill : Card
             {true,true,true,true,true }
         }
     };
-
-    public FightKill()//搏杀
-    {
-        Name = "Fight Kill";
-        Description = "Deal a huge attack to the enemy while it bite itself";
-        Cost = 2;
-    }
 
     protected internal override IEnumerable<Vector2Int> GetAffecrTarget(Unit user, Vector2Int target)
     {
@@ -46,22 +46,26 @@ public class FightKill : Card
         targetData.ViewTiles = list.Where(p =>
             0 <= p.x && p.x < map.Width
             && 0 <= p.y && p.y < map.Height
-            && map[p.x, p.y] != null
-            && map[p.x, p.y].Units.First().Camp != user.Camp);
-        targetData.AvaliableTile = targetData.ViewTiles;
+            && map[p.x, p.y] != null);
+        targetData.AvaliableTile = targetData.ViewTiles.Where(p => map[p.x, p.y].Units.Count > 0);
         return targetData;
     }
 
     protected internal override void Release(Unit user, Vector2Int target)
     {
-        var tar = (_map[target.x, target.y].Units.First() as IHurtable);
-        var tp = (tar as Unit).Position;
-        Vector2Int dir = (user.Position - tp).ToDirection().ToVector2Int();
-        user.Position = (tar as Unit).Position + dir;
-        (_map[target.x, target.y].Units.First() as IHurtable)
-            .Hurt(user.UnitData.Attack * 2, HurtType.FromUnit, user);
-        float SelfAttack = user.UnitData.Attack * 0.5f;
-        int Int_SelfAttack = (int)SelfAttack;
-        user.UnitData.Blood = user.UnitData.Blood - Int_SelfAttack;
+        int times = 3;
+        GameManager.Instance.GetState<BattleState>()
+            .TurnBeginning += (_) =>
+            {
+                times -= 1;
+                if (times >= 0 && _map[target.x, target.y].Units is not Boss)
+                {
+                    user.UnitData.Defence = user.UnitData.Defence / 2;
+                }
+                else if(times >= 0 && _map[target.x, target.y].Units is Boss)
+                {
+                    user.UnitData.Defence = user.UnitData.Defence / 10 * 9;
+                }
+            };
     }
 }

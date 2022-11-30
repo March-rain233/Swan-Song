@@ -36,7 +36,8 @@ public class Slay : Card
         data.ViewTiles = data.ViewTiles.Where(p =>
             0 <= p.x && p.x < _map.Width
             && 0 <= p.y && p.y < _map.Height
-            && _map[p.x, p.y] != null);
+            && _map[p.x, p.y] != null
+            && _map[p.x, p.y].Units.First().Camp != user.Camp);
         data.AvaliableTile = data.ViewTiles;
         return data;
     }
@@ -47,14 +48,15 @@ public class Slay : Card
         var tar = (_map[target.x, target.y].Units.First() as IHurtable);
         var tb = (tar as Unit).UnitData.Blood;
         var tbmax = (tar as Unit).UnitData.BloodMax;
-        if(tb <= tbmax * 0.4 )
+        if(tb < tbmax * 0.4 && tar is not Boss)
         {
-            (tar as Unit).UnitData.Blood = 0;
+            (tar as IHurtable).Hurt(0, HurtType.Death | HurtType.FromUnit, user);
         }
         else
         {
             (_map[target.x, target.y].Units.First() as IHurtable)
             .Hurt(user.UnitData.Attack * Percent, HurtType.FromUnit, user);
         }
+
     }
 }

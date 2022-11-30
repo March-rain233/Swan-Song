@@ -4,16 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
+using GameToolKit;
 
-public class LightHeal : Card
+public class AngleBless : Card
 {
     public override CardType Type => CardType.Heal;
 
-    public LightHeal()//束光愈_牧师专属
+    public AngleBless()//天使庇佑_牧师专属
     {
-        Name = "束光愈";
-        Description = "回复一个角色（200+120%虔诚值）点生命，若此次治疗使其血量达到最大血量的80%，将血量回复至满";
-        Cost = 3;
+        Name = "天使庇佑";
+        Description = "使一个角色在两回合内血量不能降至1一点以下，同时这两回合额外抽一张卡";
+        Cost = 4;
     }
 
     protected internal override IEnumerable<Vector2Int> GetAffecrTarget(Unit user, Vector2Int target)
@@ -35,14 +36,15 @@ public class LightHeal : Card
 
     protected internal override void Release(Unit user, Vector2Int target)
     {
-        Percent = 1.2f;
-        (_map[target.x, target.y].Units.First() as ICurable)
-            .Cure(user.UnitData.Heal*Percent+200, user);
+        int times = 2;
         var tar = (_map[target.x, target.y].Units.First() as ICurable);
-        var tbmax = (tar as Unit).UnitData.BloodMax;
-        if((tar as Unit).UnitData.Blood >= (tar as Unit).UnitData.BloodMax * 0.8)
-        {
-            tar.Cure(user.UnitData.Heal, user);
-        }
+        GameManager.Instance.GetState<BattleState>()
+            .TurnBeginning += (_) =>
+            {
+                times -= 1;
+                if ((tar as Unit).UnitData.Blood < 1)
+                    (tar as Unit).UnitData.Blood = 1;
+            };
+        user.Scheduler.DrawCard();
     }
 }

@@ -9,6 +9,7 @@ using GameToolKit;
 public class Ambush : Card
 {
     public override CardType Type => CardType.Other;
+    public Card Card;
 
     public Ambush()
     {
@@ -35,7 +36,7 @@ public class Ambush : Card
 
     protected internal override void Release(Unit user, Vector2Int target)
     {
-        //Card card = SwingAttack.Name;
-        //user.Scheduler.AddToHand(card);
+        Card card = Card;
+        user.Scheduler.AddToHand(card);
     }
 }

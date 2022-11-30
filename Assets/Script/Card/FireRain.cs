@@ -30,7 +30,7 @@ public class FireRain : Card
     {
             { true, true, true, true, false},
             { true, true, true, true, false},
-            { true, true, true, false, false},
+            { true, true, true, true, false},
             { true, true, true, true, false},
             { false, false, false, false, false}
     }
@@ -38,8 +38,8 @@ public class FireRain : Card
 
     public FireRain()//火雨_法师专属
     {
-        Name="FireRain";
-        Description="Deal 10% damage to enemies in the area";
+        Name="火雨";
+        Description= "选定一个4x4的方格，对其中敌人造成150%力量值的伤害，并使其获得三回合灼伤效果";
         Cost=3;
     }
 
@@ -50,7 +50,8 @@ public class FireRain : Card
         return list.Where(p =>
             0 <= p.x && p.x < map.Width
             && 0 <= p.y && p.y < map.Height
-            && map[p.x, p.y] != null);
+            && map[p.x, p.y] != null
+            && _map[p.x, p.y].Units.First().Camp != user.Camp);
     }
 
     protected internal override TargetData GetAvaliableTarget(Unit user)
@@ -69,15 +70,38 @@ public class FireRain : Card
 
     protected internal override void Release(Unit user, Vector2Int target)
     {
+        int times = 3;
         foreach (var point in GetAffecrTarget(user, target))
         {
             if (TileUtility.TryGetTile(point, out var tile))
             {
-                if (tile.Units.Count > 0)
+                if (tile.Units.Count > 0 && tile.Units.First().Camp != user.Camp)
                 {
-                    (tile.Units.First() as IHurtable).Hurt(user.UnitData.Attack, HurtType.FromUnit, user);
+                    (tile.Units.First() as IHurtable).Hurt(user.UnitData.Attack * 1.5f, HurtType.FromUnit, user);
                 }
             }
         }
+        GameManager.Instance.GetState<BattleState>()
+            .TurnBeginning += (_) =>
+            {
+                times -= 1;
+                if (times >= 0)
+                {
+                    foreach (var point in GetAffecrTarget(user, target))
+                    {
+                        if (TileUtility.TryGetTile(point, out var tile))
+                        {
+                            if (tile.Units.Count > 0 && tile.Units.First().Camp != user.Camp)
+                            {
+                                (tile.Units.First() as IHurtable).Hurt(user.UnitData.Blood * 0.2f, HurtType.FromUnit, user);
+                            }
+                            if (tile.TileType != TileType.Lack)
+                            {
+                                tile.AddStatus(TileStatus.Fire);
+                            }
+                        }
+                    }
+                }
+            };
     }
 }

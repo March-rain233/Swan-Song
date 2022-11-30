@@ -47,7 +47,7 @@ public class DevilContract : Card
                 }
                 if (times == 0)
                 {
-                    user.UnitData.Blood = 0;
+                    (user as IHurtable).Hurt(0, HurtType.Death | HurtType.FromUnit, user);
                 }
                 times -= 1;
             };
