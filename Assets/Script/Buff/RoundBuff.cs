@@ -16,11 +16,11 @@ public abstract class RoundBuff : Buff
 
     private void Unit_TurnBeginning()
     {
-        if(Times > 0)
+        if(Count > 0)
         {
-            Times -= 1;
+            Count -= 1;
         }
-        else if(Times == 0)
+        else if(Count == 0)
         {
             Unit.RemoveBuff(this);
         }

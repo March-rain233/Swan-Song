@@ -33,6 +33,36 @@ namespace GameToolKit.Dialog
     }
 
     /// <summary>
+    /// 拆分节点
+    /// </summary>
+    /// <typeparam name="TValue"></typeparam>
+    public class SplitNode<TValue> : SourceNode
+    {
+        [Port("Value", PortDirection.Output, true)]
+        [Port("Value", PortDirection.Input)]
+        public TValue Value;
+        protected override void OnValueUpdate()
+        {
+
+        }
+    }
+
+    /// <summary>
+    /// 合并节点
+    /// </summary>
+    /// <typeparam name="TValue"></typeparam>
+    public class CombineNode<TValue> : SourceNode
+    {
+        [Port("Value", PortDirection.Output)]
+        [Port("Value", PortDirection.Input, true)]
+        public TValue Value;
+        protected override void OnValueUpdate()
+        {
+
+        }
+    }
+
+    /// <summary>
     /// 局部变量节点
     /// </summary>
     /// <typeparam name="TValue"></typeparam>
@@ -92,4 +122,34 @@ namespace GameToolKit.Dialog
             Result = A + B;
         }
     }
+
+    public abstract class CompareNode<TValue> : LogicNode
+        where TValue : IComparable<TValue>
+    {
+        [Flags]
+        public enum CompareType
+        {
+            Middle = 1,
+            Bigger = 1 << 1,
+            Lower = 1 << 2,
+        }
+        public CompareType Type;
+        [Port("SourceA", PortDirection.Input)]
+        public TValue SourceA;
+        [Port("SourceB", PortDirection.Input)]
+        public TValue SourceB;
+        [Port("Result", PortDirection.Output)]
+        public bool Result;
+
+        protected override void OnValueUpdate()
+        {
+            int res = SourceA.CompareTo(SourceB);
+            Result = (Type.HasFlag(CompareType.Middle) && res == 0)||
+                (Type.HasFlag(CompareType.Bigger) && res == -1) ||
+                (Type.HasFlag(CompareType.Lower) && res == 1);
+        }
+    }
+
+    public class CompareIntNode : CompareNode<int> { }
+    public class CompareFloatNode : CompareNode<float> { }
 }

@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Sirenix.Serialization;
 
 public class CardPoolManager : GameToolKit.ScriptableSingleton<CardPoolManager>
 {
+    [OdinSerialize]
     private Dictionary<string, List<Card>> _poolDic = new();
 
     /// <summary>

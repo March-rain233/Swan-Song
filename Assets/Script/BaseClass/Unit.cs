@@ -20,7 +20,7 @@ public abstract class Unit : IHurtable, ICurable
     public ActionStatus ActionStatus
     {
         get => _actionStatus;
-        private set
+        set
         {
             _actionStatus = value;
             if(_actionStatus == ActionStatus.Dead)
@@ -80,11 +80,6 @@ public abstract class Unit : IHurtable, ICurable
     public Camp Camp;
 
     /// <summary>
-    /// 是否可以进行决策
-    /// </summary>
-    public bool CanDecide = true;
-
-    /// <summary>
     /// 是否可移动
     /// </summary>
     public bool CanMove = true;
@@ -115,6 +110,11 @@ public abstract class Unit : IHurtable, ICurable
     /// 单位死亡事件
     /// </summary>
     public event Action UnitDied;
+
+    /// <summary>
+    /// Buff列表更改事件
+    /// </summary>
+    public event Action BuffListChanged;
     #endregion
 
     protected Unit(UnitData data, Vector2Int pos)
@@ -160,13 +160,9 @@ public abstract class Unit : IHurtable, ICurable
         _callback = callback;
         ActionStatus = ActionStatus.Running;
         TurnBeginning?.Invoke();
-        if (CanDecide)
+        if (ActionStatus == ActionStatus.Running)
         {
             Decide();
-        }
-        else
-        {
-            _callback();
         }
     }
 
@@ -195,6 +191,8 @@ public abstract class Unit : IHurtable, ICurable
         _buffList.Add(buff);
         buff.Unit = this;
         buff.Enable();
+
+        BuffListChanged?.Invoke();
     }
 
     /// <summary>
@@ -207,6 +205,8 @@ public abstract class Unit : IHurtable, ICurable
         {
             ori.Disable();
             _buffList.Remove(ori);
+
+            BuffListChanged?.Invoke();
         }
     }
 
@@ -214,6 +214,8 @@ public abstract class Unit : IHurtable, ICurable
     {
         buff.Disable();
         _buffList.Remove(buff);
+
+        BuffListChanged?.Invoke();
     }
 
     /// <summary>
@@ -237,7 +239,7 @@ public abstract class Unit : IHurtable, ICurable
         Moved(path);
     }
 
-    protected void Died()
+    void Died()
     {
         OnDied();
         UnitDied?.Invoke();

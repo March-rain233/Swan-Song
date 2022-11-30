@@ -19,9 +19,13 @@ public class BattleAnimator
 
     BattleState _battleState;
     MapRenderer _mapRenderer => _battleState.MapRenderer;
+
+    BattlePanel _battlePanel => ServiceFactory.Instance.GetService<PanelManager>().GetOrOpenPanel("BattlePanel") as BattlePanel;
+
     Queue<Tween> _animQueue = new();
     public BattleAnimator(BattleState battleState)
     {
+        var pm = ServiceFactory.Instance.GetService<PanelManager>();
         _battleState = battleState;
         _battleState.CurrentUnitChanged += (unit) =>
         {
@@ -35,6 +39,15 @@ public class BattleAnimator
             var panel = ServiceFactory.Instance.GetService<PanelManager>()
                 .GetOrOpenPanel("BattlePanel") as BattlePanel;
             EnqueueAnimation(panel.NextRound(round));
+        };
+        _battleState.Successed += () =>
+        {
+            var panel = pm.OpenPanel("SuccessPanel") as SuccessPanel;
+            panel.ShowItems(_battleState.ItemList);
+        };
+        _battleState.Failed += () =>
+        {
+            pm.OpenPanel("FailurePanel");
         };
     }
 
@@ -53,6 +66,20 @@ public class BattleAnimator
     /// <param name="unitView"></param>
     public void BindindUnitAnimation(Unit unit, UnitView unitView)
     {
+        if(unit is Player)
+        {
+            unit.TurnBeginning += () =>
+            {
+                var anim = _battlePanel.BeginControl(unit as Player);
+                EnqueueAnimation(anim);
+            };
+            unit.TurnEnding += () =>
+            {
+                var anim = _battlePanel.EndControl(unit as Player);
+                EnqueueAnimation(anim);
+            };
+        }
+
         unit.Moved += (rawPath) =>
         {
             var panel = ServiceFactory.Instance.GetService<PanelManager>().GetOrOpenPanel("BattlePanel") as BattlePanel;
@@ -81,6 +108,7 @@ public class BattleAnimator
             var anim = unitView.HurtAnim();
             EnqueueAnimation(anim);
         };
+
         unit.Scheduler.HandsAdded += (card) =>
         {
             var panel = ServiceFactory.Instance.GetService<PanelManager>().GetOrOpenPanel("BattlePanel") as BattlePanel;
@@ -91,14 +119,22 @@ public class BattleAnimator
         {
             var panel = ServiceFactory.Instance.GetService<PanelManager>().GetOrOpenPanel("BattlePanel") as BattlePanel;
 
-            EnqueueAnimation(panel.RemoveCard(card));
+            EnqueueAnimation(panel.RemoveCard(card, unit.Scheduler));
         };
 
-        unit.UnitData.DataChanged += () =>
+        unit.UnitData.DataChanged += (data) =>
         {
-            var copy = unit.UnitData.Clone();
+            var copy = data.Clone();
             var anim = ExtensionDotween.GetEmptyTween(0.01f);
             anim.OnStart(()=>unitView.ViewData = copy);
+            EnqueueAnimation(anim);
+        };
+
+        unit.BuffListChanged += () =>
+        {
+            var datas = unit.BuffList.Select(b => b.GetBuffData());
+            var anim = ExtensionDotween.GetEmptyTween(0.01f);
+            anim.OnStart(() => unitView.BuffDatas = datas);
             EnqueueAnimation(anim);
         };
     }

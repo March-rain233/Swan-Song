@@ -34,6 +34,7 @@ public class MainMenuState : GameState
         data.RandomState = UnityEngine.Random.state;
         data.TreeMap = TreeMapFactory.CreateTreeMap("");
         data.Members = new();
+        data.Chapter = 1;
         ServiceFactory.Instance.GetService<GameManager>()
             .GameData = data;
         ServiceFactory.Instance.GetService<GameManager>()

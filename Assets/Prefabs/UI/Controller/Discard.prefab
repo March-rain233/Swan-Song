@@ -91,7 +91,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5656d60658cce7c4381ba7f1cfed24ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GridLayoutGroup: {fileID: 861312917441650583}
+  LayoutGroup: {fileID: 861312917441650583}
 --- !u!1 &760013765130585335
 GameObject:
   m_ObjectHideFlags: 0
@@ -358,8 +358,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Return
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: ed38389ef8ad46a4d871d969a7c5e8cc, type: 2}
-  m_sharedMaterial: {fileID: -1478898231821634227, guid: ed38389ef8ad46a4d871d969a7c5e8cc, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8ec66fa55016ee04db5edd40cd17988b, type: 2}
+  m_sharedMaterial: {fileID: -5732437250872562727, guid: 8ec66fa55016ee04db5edd40cd17988b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

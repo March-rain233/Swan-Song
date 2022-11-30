@@ -38,7 +38,7 @@ public class UnitData
         set
         {
             _actionPoint = value;
-            DataChanged?.Invoke();
+            DataChanged?.Invoke(this);
         }
     }
     int _actionPoint;
@@ -57,7 +57,7 @@ public class UnitData
         set
         {
             _blood = value;
-            DataChanged?.Invoke();
+            DataChanged?.Invoke(this);
         }
     }
     int _blood;
@@ -102,7 +102,7 @@ public class UnitData
         internal set;
     }
 
-    public event Action DataChanged;
+    public event Action<UnitData> DataChanged;
 
     public UnitData() { }
     public UnitData(UnitModel model)
@@ -168,6 +168,6 @@ public class UnitData
         }
         Level = level;
 
-        DataChanged?.Invoke();
+        DataChanged?.Invoke(this);
     }
 }

@@ -24,6 +24,10 @@ PrefabInstance:
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 3906413992061427133, guid: 7e5fa9284909fcd4cabbba330d536123, type: 3}
+      propertyPath: LayoutGroup
+      value: 
+      objectReference: {fileID: 3333469980487211370}
     - target: {fileID: 8350892751987790700, guid: 7e5fa9284909fcd4cabbba330d536123, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -111,3 +115,14 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 7e5fa9284909fcd4cabbba330d536123, type: 3}
+--- !u!114 &3333469980487211370 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 861312917441650583, guid: 7e5fa9284909fcd4cabbba330d536123, type: 3}
+  m_PrefabInstance: {fileID: 2715990266309691133}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a8695521f0d02e499659fee002a26c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

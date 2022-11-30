@@ -8,9 +8,10 @@ using UnityEngine.UI;
 public class HandsCardView : CardView
     ,IArcLayoutElement
 {
+    public CardScheduler CardScheduler;
+
     public LineRenderer LineRenderer;
     public Outline Outline;
-    public CardScheduler CardScheduler;
 
     [OdinSerialize]
     public float Angle { get; set; }

@@ -634,12 +634,12 @@ MonoBehaviour:
     - Name: Cost
       Entry: 3
       Data: 2
-    - Name: HasEnchanted
-      Entry: 5
-      Data: false
     - Name: Percent
       Entry: 4
       Data: 0
+    - Name: HasEnchanted
+      Entry: 5
+      Data: false
     - Name: Entries
       Entry: 7
       Data: 17|System.Collections.Generic.HashSet`1[[Entry, Assembly-CSharp]], System.Core
@@ -958,12 +958,12 @@ MonoBehaviour:
     - Name: Cost
       Entry: 3
       Data: 1
-    - Name: HasEnchanted
-      Entry: 5
-      Data: false
     - Name: Percent
       Entry: 4
       Data: 0
+    - Name: HasEnchanted
+      Entry: 5
+      Data: false
     - Name: Entries
       Entry: 7
       Data: 23|System.Collections.Generic.HashSet`1[[Entry, Assembly-CSharp]], System.Core
@@ -1054,12 +1054,12 @@ MonoBehaviour:
     - Name: Cost
       Entry: 3
       Data: 1
-    - Name: HasEnchanted
-      Entry: 5
-      Data: false
     - Name: Percent
       Entry: 4
       Data: 0
+    - Name: HasEnchanted
+      Entry: 5
+      Data: false
     - Name: Entries
       Entry: 7
       Data: 27|System.Collections.Generic.HashSet`1[[Entry, Assembly-CSharp]], System.Core
@@ -1081,6 +1081,12 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+    - Name: PrivilegeDeckIndex
+      Entry: 1
+      Data: Normal
+    - Name: CoreDeckIndex
+      Entry: 1
+      Data: Normal
     - Name: 
       Entry: 8
       Data: 
@@ -1684,12 +1690,12 @@ MonoBehaviour:
     - Name: Cost
       Entry: 3
       Data: 2
-    - Name: HasEnchanted
-      Entry: 5
-      Data: false
     - Name: Percent
       Entry: 4
       Data: 0
+    - Name: HasEnchanted
+      Entry: 5
+      Data: false
     - Name: Entries
       Entry: 7
       Data: 43|System.Collections.Generic.HashSet`1[[Entry, Assembly-CSharp]], System.Core
@@ -1936,12 +1942,12 @@ MonoBehaviour:
     - Name: Cost
       Entry: 3
       Data: 1
-    - Name: HasEnchanted
-      Entry: 5
-      Data: false
     - Name: Percent
       Entry: 4
       Data: 0
+    - Name: HasEnchanted
+      Entry: 5
+      Data: false
     - Name: Entries
       Entry: 7
       Data: 49|System.Collections.Generic.HashSet`1[[Entry, Assembly-CSharp]], System.Core
@@ -2032,12 +2038,12 @@ MonoBehaviour:
     - Name: Cost
       Entry: 3
       Data: 1
-    - Name: HasEnchanted
-      Entry: 5
-      Data: false
     - Name: Percent
       Entry: 4
       Data: 0
+    - Name: HasEnchanted
+      Entry: 5
+      Data: false
     - Name: Entries
       Entry: 7
       Data: 53|System.Collections.Generic.HashSet`1[[Entry, Assembly-CSharp]], System.Core
@@ -2059,6 +2065,12 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+    - Name: PrivilegeDeckIndex
+      Entry: 1
+      Data: Normal
+    - Name: CoreDeckIndex
+      Entry: 1
+      Data: Normal
     - Name: 
       Entry: 8
       Data: 

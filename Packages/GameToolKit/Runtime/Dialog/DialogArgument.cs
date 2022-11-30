@@ -34,6 +34,6 @@ namespace GameToolKit.Dialog
         /// <summary>
         /// 该选项是否启用
         /// </summary>
-        public bool IsEnable;
+        public bool IsEnable = true;
     }
 }

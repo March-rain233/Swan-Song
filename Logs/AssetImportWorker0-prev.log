@@ -1,23 +1,23 @@
 Using pre-set license
 Built from '2022.1/china_unity/release' branch; Version is '2022.1.16f1c1 (c48b242658a2) revision 12880676'; Using compiler version '192829333'; Build Type 'Release'
-OS: 'Windows 10  (10.0.19043) 64bit CoreCountrySpecific' Language: 'zh' Physical Memory: 16204 MB
+OS: 'Windows 11  (10.0.22000) 64bit CoreCountrySpecific' Language: 'zh' Physical Memory: 8042 MB
 BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
 
 COMMAND LINE ARGUMENTS:
-C:\Program Files\Unity\Hub\Editor\2022.1.16f1c1\Editor\Unity.exe
+E:\App\Unity\Unity 2022.1.16f1c1\Editor\Unity.exe
 -adb2
 -batchMode
 -noUpm
 -name
 AssetImportWorker0
 -projectPath
-D:/Program/unity/Swan Song
+D:/Code/Swan-Song
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-53555
-Successfully changed project path to: D:/Program/unity/Swan Song
-D:/Program/unity/Swan Song
+60781
+Successfully changed project path to: D:/Code/Swan-Song
+D:/Code/Swan-Song
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
     "memorysetup-bucket-allocator-granularity=16"
     "memorysetup-bucket-allocator-bucket-count=8"
@@ -47,250 +47,61 @@ D:/Program/unity/Swan Song
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Refreshing native plugins compatible for Editor in 140.88 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 578.59 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2022.1.16f1c1 (c48b242658a2)
-[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2022.1.16f1c1/Editor/Data/Resources/UnitySubsystems
-[Subsystems] Discovering subsystems at path D:/Program/unity/Swan Song/Assets
+[Subsystems] Discovering subsystems at path E:/App/Unity/Unity 2022.1.16f1c1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path D:/Code/Swan-Song/Assets
 GfxDevice: creating device client; threaded=0; jobified=0
 Direct3D:
     Version:  Direct3D 11.0 [level 11.1]
-    Renderer: NVIDIA GeForce RTX 2070 Super (ID=0x1e91)
+    Renderer: NVIDIA GeForce GTX 1060 (ID=0x1c20)
     Vendor:   NVIDIA
-    VRAM:     8011 MB
-    Driver:   30.0.14.9613
+    VRAM:     6052 MB
+    Driver:   30.0.14.7111
 Initialize mono
-Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2022.1.16f1c1/Editor/Data/Managed'
-Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2022.1.16f1c1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
-Mono config path = 'C:/Program Files/Unity/Hub/Editor/2022.1.16f1c1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56304
+Mono path[0] = 'E:/App/Unity/Unity 2022.1.16f1c1/Editor/Data/Managed'
+Mono path[1] = 'E:/App/Unity/Unity 2022.1.16f1c1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'E:/App/Unity/Unity 2022.1.16f1c1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56444
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
-Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.1.16f1c1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.006948 seconds.
+Register platform support module: E:/App/Unity/Unity 2022.1.16f1c1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.022289 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 141.10 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 169.74 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.780 seconds
+- Completed reload, in  2.808 seconds
 Domain Reload Profiling:
-	ReloadAssembly (780ms)
-		BeginReloadAssembly (83ms)
+	ReloadAssembly (2809ms)
+		BeginReloadAssembly (1627ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (1ms)
-		EndReloadAssembly (573ms)
-			LoadAssemblies (78ms)
+		EndReloadAssembly (947ms)
+			LoadAssemblies (1624ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (127ms)
-				TypeCache.Initialize (127ms)
-					TypeCache.ScanAssembly (124ms)
+			SetupTypeCache (189ms)
+				TypeCache.Initialize (189ms)
+					TypeCache.ScanAssembly (187ms)
 				ResolveRequiredComponents (1ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (42ms)
-			SetupLoadedEditorAssemblies (344ms)
+			RebuildScriptCaches (49ms)
+			SetupLoadedEditorAssemblies (539ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (8ms)
-				SetLoadedEditorAssemblies (8ms)
-				RefreshPlugins (141ms)
-				BeforeProcessingInitializeOnLoad (1ms)
-				ProcessInitializeOnLoadAttributes (140ms)
-				ProcessInitializeOnLoadMethodAttributes (44ms)
+				InitializePlatformSupportModulesInManaged (10ms)
+				SetLoadedEditorAssemblies (10ms)
+				RefreshPlugins (170ms)
+				BeforeProcessingInitializeOnLoad (3ms)
+				ProcessInitializeOnLoadAttributes (248ms)
+				ProcessInitializeOnLoadMethodAttributes (98ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.017606 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image D:\Program\unity\Swan Song\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image D:\Program\unity\Swan Song\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 135.25 ms, found 4 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
-Mono: successfully reloaded assembly
-- Completed reload, in  2.214 seconds
-Domain Reload Profiling:
-	ReloadAssembly (2216ms)
-		BeginReloadAssembly (137ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (6ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (21ms)
-		EndReloadAssembly (1950ms)
-			LoadAssemblies (117ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (365ms)
-				TypeCache.Initialize (351ms)
-					TypeCache.ScanAssembly (342ms)
-				ResolveRequiredComponents (15ms)
-			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (91ms)
-			SetupLoadedEditorAssemblies (1318ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (5ms)
-				SetLoadedEditorAssemblies (9ms)
-				RefreshPlugins (135ms)
-				BeforeProcessingInitializeOnLoad (177ms)
-				ProcessInitializeOnLoadAttributes (597ms)
-				ProcessInitializeOnLoadMethodAttributes (382ms)
-				AfterProcessingInitializeOnLoad (12ms)
-				EditorAssembliesLoaded (0ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (6ms)
-Platform modules already initialized, skipping
-========================================================================
-Worker process is ready to serve import requests
-Refreshing native plugins compatible for Editor in 1.19 ms, found 4 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 6402 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 72 unused Assets / (420.9 KB). Loaded Objects now: 6927.
-Memory consumption went from 0.99 GB to 0.99 GB.
-Total: 17.696100 ms (FindLiveObjects: 0.541200 ms CreateObjectMapping: 0.560100 ms MarkObjects: 16.400900 ms  DeleteObjects: 0.192700 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Import Request.
-  Time since last request: 395379.060486 seconds.
-  path: Assets/Prefabs/UI/Panel/BattlePanel.prefab
-  artifactKey: Guid(00faf64804ef3624f93a840d05fdf6a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/UI/Panel/BattlePanel.prefab using Guid(00faf64804ef3624f93a840d05fdf6a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f25121b5d2bdb83448eabc84172a0c99') in 0.405370 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000029 seconds.
-  path: Assets/Prefabs/UI/Controller/HandsCardView.prefab
-  artifactKey: Guid(29f2aa9287c8cfa4c90cd02f702879cc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/UI/Controller/HandsCardView.prefab using Guid(29f2aa9287c8cfa4c90cd02f702879cc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9701a3e34a9d123b9dc75516ddba16c8') in 0.540754 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 4.665786 seconds.
-  path: Assets/Prefabs/UI/Panel/CardSelectPanel.prefab
-  artifactKey: Guid(5846b559a68fe494dba67baa09a90976) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/UI/Panel/CardSelectPanel.prefab using Guid(5846b559a68fe494dba67baa09a90976) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1e1a2c5f9c0abbb13cdbb1182daadbd7') in 0.298212 seconds 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.025682 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image D:\Program\unity\Swan Song\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image D:\Program\unity\Swan Song\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 1.28 ms, found 4 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  2.818 seconds
-Domain Reload Profiling:
-	ReloadAssembly (2819ms)
-		BeginReloadAssembly (237ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (13ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (1ms)
-			CreateAndSetChildDomain (94ms)
-		EndReloadAssembly (2439ms)
-			LoadAssemblies (144ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (451ms)
-				TypeCache.Initialize (432ms)
-					TypeCache.ScanAssembly (418ms)
-				ResolveRequiredComponents (20ms)
-			ReleaseScriptCaches (2ms)
-			RebuildScriptCaches (89ms)
-			SetupLoadedEditorAssemblies (1602ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (17ms)
-				SetLoadedEditorAssemblies (14ms)
-				RefreshPlugins (1ms)
-				BeforeProcessingInitializeOnLoad (137ms)
-				ProcessInitializeOnLoadAttributes (743ms)
-				ProcessInitializeOnLoadMethodAttributes (672ms)
-				AfterProcessingInitializeOnLoad (17ms)
-				EditorAssembliesLoaded (0ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (25ms)
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 5.50 ms, found 4 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 6246 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 50 unused Assets / (386.6 KB). Loaded Objects now: 6994.
-Memory consumption went from 0.99 GB to 0.98 GB.
-Total: 22.966200 ms (FindLiveObjects: 0.506500 ms CreateObjectMapping: 0.724300 ms MarkObjects: 21.564000 ms  DeleteObjects: 0.170300 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Import Request.
-  Time since last request: 1272.520734 seconds.
-  path: Assets/Prefabs/UI/Panel/CardSelectPanel.prefab
-  artifactKey: Guid(5846b559a68fe494dba67baa09a90976) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/UI/Panel/CardSelectPanel.prefab using Guid(5846b559a68fe494dba67baa09a90976) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7bdafcc3e928e918332d558b5d0e7f12') in 0.418859 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 20.299935 seconds.
-  path: Assets/Prefabs/UI/Panel/SuccessPanel.prefab
-  artifactKey: Guid(dfb45a2a27626a64e9db4d928d9b550a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/UI/Panel/SuccessPanel.prefab using Guid(dfb45a2a27626a64e9db4d928d9b550a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6e0dd6f107d97bc260a6e8743d4f9149') in 0.035645 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 6.159942 seconds.
-  path: Assets/Prefabs/UI/Panel/SuccessPanel.prefab
-  artifactKey: Guid(dfb45a2a27626a64e9db4d928d9b550a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/UI/Panel/SuccessPanel.prefab using Guid(dfb45a2a27626a64e9db4d928d9b550a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cbfaee09206d56f70274a3e03e672f26') in 0.027391 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 6.859601 seconds.
-  path: Assets/Prefabs/UI/Panel/SuccessPanel.prefab
-  artifactKey: Guid(dfb45a2a27626a64e9db4d928d9b550a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/UI/Panel/SuccessPanel.prefab using Guid(dfb45a2a27626a64e9db4d928d9b550a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd733fe477d0eba8bd73be6fb5a9001f9') in 0.027631 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 725.239855 seconds.
-  path: Assets/Prefabs/UI/Panel/SuccessPanel.prefab
-  artifactKey: Guid(dfb45a2a27626a64e9db4d928d9b550a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/UI/Panel/SuccessPanel.prefab using Guid(dfb45a2a27626a64e9db4d928d9b550a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '97ca8832f73342b6db40056dcca166bf') in 0.030180 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 5.140079 seconds.
-  path: Assets/Prefabs/UI/Panel/SuccessPanel.prefab
-  artifactKey: Guid(dfb45a2a27626a64e9db4d928d9b550a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/UI/Panel/SuccessPanel.prefab using Guid(dfb45a2a27626a64e9db4d928d9b550a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2f14661ba533db0aa40bdbe7437f49c6') in 0.025390 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 4.277031 seconds.
-  path: Assets/Prefabs/UI/Panel/SuccessPanel.prefab
-  artifactKey: Guid(dfb45a2a27626a64e9db4d928d9b550a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/UI/Panel/SuccessPanel.prefab using Guid(dfb45a2a27626a64e9db4d928d9b550a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fc4eb1eb49f282f44e44c56889eb7ab9') in 0.027132 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 8.872006 seconds.
-  path: Assets/Prefabs/UI/Panel/SuccessPanel.prefab
-  artifactKey: Guid(dfb45a2a27626a64e9db4d928d9b550a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/UI/Panel/SuccessPanel.prefab using Guid(dfb45a2a27626a64e9db4d928d9b550a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd49b39afeb1d93b8a2e19098143e6e68') in 0.025439 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 3.954546 seconds.
-  path: Assets/Prefabs/UI/Panel/SuccessPanel.prefab
-  artifactKey: Guid(dfb45a2a27626a64e9db4d928d9b550a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/UI/Panel/SuccessPanel.prefab using Guid(dfb45a2a27626a64e9db4d928d9b550a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dc9dc482d23a1f49c54b67581873dee1') in 0.024271 seconds 
+Registered in 0.583206 seconds.

@@ -12,6 +12,7 @@ public static class TreeMapFactory
     public static TreeMap CreateTreeMap(string description)
     {
         //todo
+        //简单的节点分配，后续可能考虑到关卡合理性会有改动
         PlaceType[] Battles = new PlaceType[2]
         {
             PlaceType.NormalBattle,
@@ -25,19 +26,26 @@ public static class TreeMapFactory
             PlaceType.Casino,
             PlaceType.FightForJus
         };
+
+
         Random random = new Random();
+        //随机生成节点层数 7 - 9层  第一层和最后一层固定
         int step = random.Next(7, 10);
         TreeMap map = new TreeMap();
         int[][] nodes = new int[step][];
+
+        //生成并加入开始节点，开始节点占第一层
         nodes[0] = new int[1];
         nodes[0][0] = map.AddNode(new TreeMapNodeData() { PlaceType = PlaceType.Start });
 
+        //开始中间节点层的生成和分配
         for (int i = 1; i < step - 1; ++i)
         {
-            //分配有多少个节点 和多少战斗节点
+            //分配有多少个非战斗节点和多少个战斗节点
             int NodeNum = random.Next(2, 5);
             int BattleNum = random.Next(1, NodeNum + 1);
-            PlaceType[] Choose = new PlaceType[NodeNum];
+            PlaceType[] Choose = new PlaceType[NodeNum];//记录每个节点的type
+            //先按顺序把所有type加进去，然后进行打乱 达到随机的效果
             int j = 0;
             for (; j < BattleNum; ++j)
             {
@@ -48,7 +56,7 @@ public static class TreeMapFactory
                 Choose[j] = NotBattle[random.Next(5)];
             }
 
-            //打乱index 然后在接下来赋予节点的时候 在已经有的节点里面随机挑选一个赋值
+            //打乱，先生成一个int数组记录index，然后打乱这个数组，在加入节点的时候使用该数组记录值作为下标，达到打乱的效果  不过有更简单的方法吗（？）
             int[] temp = new int[NodeNum];
             for (j = 0; j < NodeNum; j++)
             {
@@ -56,52 +64,52 @@ public static class TreeMapFactory
             }
             RandomArr(temp);
 
-
             nodes[i] = new int[NodeNum];
             for (j = 0; j < NodeNum; ++j)
             {
                 nodes[i][j] = map.AddNode(new TreeMapNodeData() { PlaceType = Choose[temp[j]] });
             }
         }
+
+        //生成并加入最后的boss关卡
         nodes[step - 1] = new int[1];
         nodes[step - 1][0] = map.AddNode(new TreeMapNodeData() { PlaceType = PlaceType.BossBattle });
 
-        for (int i = 1; i < step; ++i)
-        {
-            int l1 = nodes[i - 1].Length;
-            int l2 = nodes[i].Length;
-            //int l3 = nodes[i + 1].Length;
-            for (int j = 0; j < l2; j++)
-            {
-                int PreConn = random.Next(1, l1 + 1);
-                int[] pre = new int[l1];
-                for (int k = 0; k < PreConn; k++)
-                {
-                    pre[k] = 1;
-                }
-                RandomArr(pre);
-                for (int k = 0; k < l1; k++)
-                {
-                    if (pre[k] == 1) map.Connect(nodes[i - 1][k], nodes[i][j]);
-                }
 
-            }
-
-
-        }
-        for (int i = 1; i < step - 1; ++i)
+        //然后是节点连接的策略
+        for (int i = 0; i < step - 1; ++i)
         {
             int l1 = nodes[i].Length;
             int l2 = nodes[i + 1].Length;
-            for (int j = 0; j < l1; j++)
+            int curIndex = 0;
+            for (int j = 0; j < l1; ++j)
             {
-                if (!map.HavingChildren(nodes[i][j]))
+                
+                //随机决定要不要从上个节点结束的位置开始连接动作 当然第一个节点不可以有这个动作 因为他只能从0开始
+                if (j != 0 && curIndex < l2 - 1)
                 {
-                    int nextnode = random.Next(l2);
-                    map.Connect(nodes[i][j], nodes[i + 1][nextnode]);
-
+                    curIndex = random.Next(curIndex, curIndex + 2);
+                }
+                if (j == l1 - 1)//判断当前是不是需要分配的最后一个节点 如果是的话把剩下的节点全部分配给他
+                {
+                    for (int k = curIndex; k < l2; k++)
+                    {
+                        map.Connect(nodes[i][j], nodes[i + 1][k]);
+                    }
+                }
+                else
+                {
+                    //表示要连接下一层几个节点
+                    int conn_node = random.Next(1, l2 - curIndex + 1);
+                    for (int k = curIndex; k < curIndex + conn_node; ++k)
+                    {
+                        map.Connect(nodes[i][j], nodes[i + 1][k]);
+                    }
+                    curIndex += conn_node - 1;
                 }
             }
+
+
         }
         return map;
     }

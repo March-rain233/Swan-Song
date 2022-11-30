@@ -17,4 +17,12 @@ internal class Restrain : RoundBuff
         base.OnEnable();
         Unit.CanMove = true;
     }
+
+    public override BuffData GetBuffData()
+    {
+        var res = base.GetBuffData();
+        res.Name = "束缚";
+        res.Description = $"当前回合无法移动";
+        return res;
+    }
 }
