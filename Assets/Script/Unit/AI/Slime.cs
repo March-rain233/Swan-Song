@@ -18,6 +18,9 @@ public class Slime : Unit
         Attack = 10,//攻击力
         Defence = 4,//防御力
         Speed = 2,//先攻权重
+        //移动和技能的使用会消耗技能点,但怪物无行动点约束，设为最大值
+        ActionPointMax = int.MaxValue,
+        ActionPoint = int.MaxValue,
     }
 , pos)
     {
@@ -27,11 +30,9 @@ public class Slime : Unit
     /// 行动
     /// </summary>
     protected override void Decide()
-    {
-        //获得玩家对象
-        List<Player> players = GameManager.Instance.GetState<BattleState>().PlayerList.ToList();
+    {  
         //得到要攻击的对象
-        Player player = getAttackPlayer(players);
+        Player player = getAttackPlayer();
         //攻击对象
         attackPlayer(player);
         //撤退
@@ -43,8 +44,10 @@ public class Slime : Unit
     /// </summary>
     /// <param name="players">所有玩家</param>
     /// <returns></returns>
-    public Player getAttackPlayer(List<Player> players)
+    public Player getAttackPlayer()
     {
+        //获得玩家对象
+        List<Player> players = GameManager.Instance.GetState<BattleState>().PlayerList.ToList();
         int num = -1;//记录距离最短的玩家的号码
         int i = 0;
         double minDis = int.MaxValue;//设初值为最大值
@@ -70,8 +73,8 @@ public class Slime : Unit
     {
         //移动
         MoveclosePlayerPos(player.Position);
-        //攻击
-        (player as IHurtable).Hurt(this.UnitData.Attack, HurtType.FromUnit, this);
+        //近身攻击
+        (player as IHurtable).Hurt(this.UnitData.Attack, HurtType.Melee, this);
     }
 
     /// <summary>

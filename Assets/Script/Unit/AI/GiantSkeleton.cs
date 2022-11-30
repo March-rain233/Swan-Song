@@ -1,28 +1,20 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using UnityEngine;
 /// <summary>
-/// 影袭怪
-/// 对一个角色造成100%力量值的伤害，如果连续攻击同一角色，
-/// 从第二次开始，每次造成150%力量值的伤害
-/// （比如第一回合打了角色A，第二回合还打的角色A，那伤害会提升，中间转移过目标后要重新计算)，
-/// 优先攻击血量百分比最低的敌人，移动至角色身前进行攻击，攻击后返回原位置。
+/// 巨型骷髅: 
+/// 对一个角色及周围八格角色造成100 % 力量值的伤害，
+/// 攻击时搜索最近距离的敌人,
+/// 移动至敌人身前进行攻击，
+/// 攻击后停留在角色周围（5x5的格子内随机)
+/// 死亡后在自身位置召唤一个骷髅弓手。
 /// </summary>
-public class ShaAttkMonster : Unit
+public class GiantSkeleton : Unit
 {
-    /// <summary>
-    /// 上一回合伤害的角色
-    /// </summary>
-    public Player hurtedPlayer
+    public GiantSkeleton(Vector2Int pos) : base(new UnitData()
     {
-        get;
-        private set;
-    }
-    public ShaAttkMonster(Vector2Int pos) : base(new UnitData()
-    {
-        Name = "ShaAttkMonster",//史莱姆
+        Name = "GiantSkeleton",//巨型骷髅
         BloodMax = 80,//最大血量
         Blood = 80,//初始血量为最大血量
         Attack = 10,//攻击力
@@ -50,54 +42,49 @@ public class ShaAttkMonster : Unit
     }
 
     /// <summary>
-    /// 根据血量，选择合适的攻击对象
+    /// 根据玩家距离巨型骷髅的距离，选择合适的还活着的攻击对象
     /// </summary>
-    /// <returns>要攻击的玩家</returns>
+    /// <param name="players">所有玩家</param>
+    /// <returns></returns>
     public Player getAttackPlayer()
     {
         //获得玩家对象
         List<Player> players = GameManager.Instance.GetState<BattleState>().PlayerList.ToList();
-        int num = -1;//记录血量比最少的玩家的号码
+        int num = -1;//记录距离最短的玩家的号码
         int i = 0;
-        double minbloodPercent = int.MaxValue;//设初值为最大值
+        double minDis = int.MaxValue;//设初值为最大值
 
         foreach (Player p in players)
         {
-            double bloodPercent = (double)p.UnitData.Blood / p.UnitData.BloodMax;
-            if (bloodPercent < minbloodPercent && p.ActionStatus == ActionStatus.Running)
+            double dis = Math.Pow(Math.Abs(p.Position.x - this.Position.x), 2.0) + Math.Pow(Math.Abs(p.Position.y - this.Position.y), 2.0);
+            if (dis < minDis && p.ActionStatus == ActionStatus.Running)
             {
-                minbloodPercent = bloodPercent;
+                minDis = dis;
                 num = i;
             }
             i++;
         }
         return players[num];
     }
+
     /// <summary>
-    /// 移动到要攻击玩家附近
-    /// 对一个角色造成100%力量值的伤害，如果连续攻击同一角色，
-    /// 从第二次开始，每次造成150%力量值的伤害
+    ///  进行范围攻击
+    ///  对一个3x3方格内的所有敌方角色造成100%力量值的伤害
     /// </summary>
-    /// <param name="player">要攻击的玩家</param>
+    /// <param name="player"></param>
     public void attackPlayer(Player player)
     {
-        //移动
-        MoveclosePlayerPos(player.Position);
-        //得到当前回合数
-        int roundNumber = GameManager.Instance.GetState<BattleState>().RoundNumber;
-        //不是第一回合，影袭怪已经攻击过，判断当前回合攻击玩家是否是上一轮攻击过的对象
-        if (roundNumber != 1 && this.hurtedPlayer == player)
+        List<Player> players = GameManager.Instance.GetState<BattleState>().PlayerList.ToList();
+        foreach (Player p in players)
         {
-            //150%近身伤害
-            (player as IHurtable).Hurt((int)(this.UnitData.Attack*1.5), HurtType.Melee, this);
+            if (p.Position.x <= player.Position.x + 1 && p.Position.x >= player.Position.x - 1
+             && p.Position.y <= player.Position.y + 1 && p.Position.y >= player.Position.y - 1
+                )
+            {
+                //近身伤害
+                (p as IHurtable).Hurt((int)(this.UnitData.Attack), HurtType.Melee, this);
+            }
         }
-        else//是第一回合或两次攻击对象不一样
-        {
-            //100%近身伤害
-            (player as IHurtable).Hurt(this.UnitData.Attack, HurtType.Melee, this);
-        }
-        this.hurtedPlayer = player;
-       
     }
 
     /// <summary>
@@ -163,4 +150,12 @@ public class ShaAttkMonster : Unit
         Move(pos);
     }
 
+    /// <summary>
+    /// /// 死亡后在自身位置召唤一个骷髅弓手
+    /// </summary>
+    protected override void OnDied()
+    {
+        Skeletonarchers newSkeArc = new Skeletonarchers(this.Position);
+        GameManager.Instance.GetState<BattleState>().UnitList.Add(newSkeArc);
+    }
 }

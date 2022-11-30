@@ -18,6 +18,9 @@ public class Goblinis : Unit
         Attack = 20,//攻击力
         Defence = 4,//防御力
         Speed = 4,//先攻权重
+        //移动和技能的使用会消耗技能点,但怪物无行动点约束，设为最大值
+        ActionPointMax = int.MaxValue,
+        ActionPoint = int.MaxValue,
     }
 , pos)
     {
@@ -27,13 +30,11 @@ public class Goblinis : Unit
     /// 行动
     /// </summary>
     protected override void Decide()
-    {
-        //获得玩家对象
-        List<Player> players = GameManager.Instance.GetState<BattleState>().PlayerList.ToList();
+    { 
         //得到要攻击的对象
-        Player player = getAttackPlayer(players);
+        Player player = getAttackPlayer();
         //攻击对象
-        attackPlayer(players,player);
+        attackPlayer(player);
         //撤退
         retreat(player.Position);
     }
@@ -41,10 +42,11 @@ public class Goblinis : Unit
     /// <summary>
     /// 根据玩家距离哥布林力士的距离，选择合适的攻击对象
     /// </summary>
-    /// <param name="players">所有玩家</param>
     /// <returns></returns>
-    public Player getAttackPlayer(List<Player> players)
+    public Player getAttackPlayer()
     {
+        //获得玩家对象
+        List<Player> players = GameManager.Instance.GetState<BattleState>().PlayerList.ToList();
         int num = -1;//记录距离最短的玩家的号码
         int i = 0;
         double minDis = int.MaxValue;//设初值为最大值
@@ -66,40 +68,24 @@ public class Goblinis : Unit
     ///  进行范围攻击
     /// </summary>
     /// <param name="player"></param>
-    public void attackPlayer(List<Player> players, Player player)
+    public void attackPlayer(Player player)
     {
+        //获得玩家对象
+        List<Player> players = GameManager.Instance.GetState<BattleState>().PlayerList.ToList();
         //移动
         MoveclosePlayerPos(player.Position);
-        for (int i = -1; i <= 1; ++i)
+        //逐个判断玩家是否在 以被攻击玩家为中心的 3*3 位置
+        foreach (Player p in players)
         {
-            for (int j = -1; j <= 1; ++j)
+            if(p.Position.x <= player.Position.x + 1 && p.Position.x >= player.Position.x - 1
+             &&p.Position.y <= player.Position.y + 1 && p.Position.y >= player.Position.y - 1
+                )
             {
-                int index = hasPlayer(players, new Vector2Int(player.Position.x + i, player.Position.y + j));
-                if (index != -1)//如果该位置有角色进行攻击
-                {
-                    (players[index] as IHurtable).Hurt(this.UnitData.Attack, HurtType.FromUnit, this);
-                }
+                //近身伤害
+                (p as IHurtable).Hurt(this.UnitData.Attack, HurtType.Melee, this);
             }
         }
-    }
-    /// <summary>
-    /// 判断是否有玩家在这个位置上
-    /// </summary>
-    /// <param name="players"></param>
-    /// <param name="pos"></param>
-    /// <returns></returns>
-    public int hasPlayer(List<Player> players, Vector2Int pos)
-    {
-        int i = 0;
-        foreach (Player player in players)
-        {
-            if (player.Position == pos)
-            {
-                return i;
-            }
-            i++;
-        }
-        return -1;
+
     }
     /// <summary>
     /// 靠近玩家

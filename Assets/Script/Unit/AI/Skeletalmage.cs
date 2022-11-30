@@ -19,6 +19,9 @@ public class Skeletalmage : Unit
         Attack = 20,
         Defence = 4,
         Speed = 4,
+        //移动和技能的使用会消耗技能点,但怪物无行动点约束，设为最大值
+        ActionPointMax = int.MaxValue,
+        ActionPoint = int.MaxValue,
     }
 , pos)
     {
@@ -28,21 +31,20 @@ public class Skeletalmage : Unit
     /// </summary>
     protected override void Decide()
     {
-        //获得玩家对象
-        List<Player> players = GameManager.Instance.GetState<BattleState>().PlayerList.ToList();
         //得到要攻击的对象
-        Player player = getAttackPlayer(players);
+        Player player = getAttackPlayer();
         //攻击对象
-        attackPlayer(players, player);
+        attackPlayer(player);
     }
 
     /// <summary>
     /// 根据玩家距离骷髅法师的距离，选择合适的攻击对象
     /// </summary>
-    /// <param name="players">所有玩家</param>
     /// <returns></returns>
-    public Player getAttackPlayer(List<Player> players)
+    public Player getAttackPlayer()
     {
+        //获得玩家对象
+        List<Player> players = GameManager.Instance.GetState<BattleState>().PlayerList.ToList();
         int num = -1;//记录距离最短的玩家的号码
         int i = 0;
         double minDis = int.MaxValue;//设初值为最大值
@@ -65,37 +67,21 @@ public class Skeletalmage : Unit
     ///  对一个3x3方格内的所有敌方角色造成80%力量值的伤害
     /// </summary>
     /// <param name="player"></param>
-    public void attackPlayer(List<Player> players, Player player)
+    public void attackPlayer(Player player)
     {
-        for (int i = -1; i <= 1; ++i)
+        //获得玩家对象
+        List<Player> players = GameManager.Instance.GetState<BattleState>().PlayerList.ToList();
+
+        foreach (Player p in players)
         {
-            for (int j = -1; j <= 1; ++j)
+            if (p.Position.x <= player.Position.x + 1 && p.Position.x >= player.Position.x - 1
+             && p.Position.y <= player.Position.y + 1 && p.Position.y >= player.Position.y - 1
+                )
             {
-                int index = hasPlayer(players, new Vector2Int(player.Position.x + i, player.Position.y + j));
-                if (index != -1)//如果该位置有角色进行攻击
-                {
-                    (players[index] as IHurtable).Hurt((int)(this.UnitData.Attack * 0.8), HurtType.FromUnit, this);
-                }
+                //近身伤害
+                (p as IHurtable).Hurt((int)(this.UnitData.Attack * 0.8), HurtType.Ranged, this);
             }
         }
     }
-    /// <summary>
-    /// 判断是否有玩家在这个位置上
-    /// </summary>
-    /// <param name="players"></param>
-    /// <param name="pos"></param>
-    /// <returns></returns>
-    public int hasPlayer(List<Player> players, Vector2Int pos)
-    {
-        int i = 0;
-        foreach (Player player in players)
-        {
-            if (player.Position == pos)
-            {
-                return i;
-            }
-            i++;
-        }
-        return -1;
-    }
+
 }

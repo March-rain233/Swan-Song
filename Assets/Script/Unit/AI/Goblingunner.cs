@@ -10,7 +10,6 @@ using UnityEngine;
 /// </summary>
 public class Goblingunner : Unit
 {
-   
     public Goblingunner(Vector2Int pos) : base(new UnitData()
     {
         Name = "Goblingunner",//哥林布枪手
@@ -19,8 +18,9 @@ public class Goblingunner : Unit
         Attack = 20,//攻击力
         Defence = 4,//防御力
         Speed = 4,//先攻权重
-        ActionPointMax = 15,
-        ActionPoint = 15,//移动和技能的使用会消耗技能点
+        //移动和技能的使用会消耗技能点,但怪物无行动点约束，设为最大值
+        ActionPointMax = int.MaxValue,
+        ActionPoint = int.MaxValue,
     }
 , pos)
     {
@@ -31,10 +31,8 @@ public class Goblingunner : Unit
     /// </summary>
     protected override void Decide()
     {
-        //获得玩家对象
-        List<Player> players = GameManager.Instance.GetState<BattleState>().PlayerList.ToList();
         //得到要攻击的对象
-        Player player = getAttackPlayer(players);
+        Player player = getAttackPlayer();
         //攻击对象
         attackPlayer(player);
         //撤退
@@ -44,10 +42,11 @@ public class Goblingunner : Unit
     /// <summary>
     /// 根据玩家距离哥布林抢手的距离，选择合适的攻击对象
     /// </summary>
-    /// <param name="players">所有玩家</param>
     /// <returns></returns>
-    public Player getAttackPlayer(List<Player> players)
+    public Player getAttackPlayer()
     {
+        //获得玩家对象
+        List<Player> players = GameManager.Instance.GetState<BattleState>().PlayerList.ToList();
         int num = -1;//记录距离最短的玩家的号码
         int i = 0;
         double minDis = int.MaxValue;//设初值为最大值
@@ -73,10 +72,10 @@ public class Goblingunner : Unit
     {
         //移动
         MoveclosePlayerPos(player.Position);
-        //攻击
+        //近身攻击
         for (int i = 0; i < 3; i++)
         {
-            (player as IHurtable).Hurt((int)(this.UnitData.Attack * 0.5), HurtType.FromUnit, this);
+            (player as IHurtable).Hurt((int)(this.UnitData.Attack * 0.5), HurtType.Melee, this);
         }
     }
 
@@ -142,43 +141,4 @@ public class Goblingunner : Unit
         }
         Move(pos);
     }
-
-    /*
-    /// <summary>
-    /// 根据剩余血量，防御力综合选择更适合杀死的对象
-    /// </summary>
-    /// <param name="players"></param>
-    /// <returns></returns>
-    public int getAttackPlayerNum(List<Player> players)
-    {
-        int num = -1;//记录选择攻击的玩家的index
-        int i = 0;
-        int nearDeath = int.MaxValue;//设初值为最大值
-
-        foreach (Player p in players)
-        {
-            //当前血量 减去三次攻击，加上三次防御，最接近0的则为最划算的
-            int remainBlood = p.UnitData.Blood - this.UnitData.Attack * 3 * 50 % + p.UnitData.Defence * 3;
-            
-            if (Math.Abs(remainBlood) < nearDeath && p.ActionStatus == ActionStatus.Running)
-            {
-                nearDeath = Math.Abs(remainBlood);
-                num = i;
-            }
-            i++;
-        }
-        return num;
-    }
-    /// <summary>
-    ///  进行3次攻击
-    /// </summary>
-    /// <param name="player"></param>
-    public void attackPlayer(Player player)
-    {
-        for(int i = 0; i < 3; i++)
-        {
-            (player as IHurtable).Hurt((int)(this.UnitData.Attack * 0.5), HurtType.FromUnit, this);
-        }
-    }
-    */
 }

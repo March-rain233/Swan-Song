@@ -1,28 +1,22 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using UnityEngine;
 /// <summary>
-/// 影袭怪
-/// 对一个角色造成100%力量值的伤害，如果连续攻击同一角色，
-/// 从第二次开始，每次造成150%力量值的伤害
-/// （比如第一回合打了角色A，第二回合还打的角色A，那伤害会提升，中间转移过目标后要重新计算)，
-/// 优先攻击血量百分比最低的敌人，移动至角色身前进行攻击，攻击后返回原位置。
+/// 剧毒蜘蛛: 
+/// 对一个角色造成50%力量值的伤害，
+/// 优先攻击血量最少的敌人，
+/// 并附带三回合的中毒效果，
+/// 每回合造成10%力量值的伤害，该伤害无视防御，
+/// 死亡后原地3x3的范围生成毒液地形，
+/// 触碰到的敌人施加上述中毒效果，毒液地形存在两回合，
+/// 移动至敌人身前进行攻击,攻击后停留在角色周围(5x5的格子内随机)。
 /// </summary>
-public class ShaAttkMonster : Unit
+public class FungalSpider : Unit
 {
-    /// <summary>
-    /// 上一回合伤害的角色
-    /// </summary>
-    public Player hurtedPlayer
+    public FungalSpider(Vector2Int pos) : base(new UnitData()
     {
-        get;
-        private set;
-    }
-    public ShaAttkMonster(Vector2Int pos) : base(new UnitData()
-    {
-        Name = "ShaAttkMonster",//史莱姆
+        Name = "FungalSpider",//剧毒蜘蛛
         BloodMax = 80,//最大血量
         Blood = 80,//初始血量为最大血量
         Attack = 10,//攻击力
@@ -40,7 +34,7 @@ public class ShaAttkMonster : Unit
     /// 行动
     /// </summary>
     protected override void Decide()
-    {  
+    {
         //得到要攻击的对象
         Player player = getAttackPlayer();
         //攻击对象
@@ -50,23 +44,21 @@ public class ShaAttkMonster : Unit
     }
 
     /// <summary>
-    /// 根据血量，选择合适的攻击对象
+    /// 优先攻击血量最少的敌人
     /// </summary>
-    /// <returns>要攻击的玩家</returns>
+    /// <returns></returns>
     public Player getAttackPlayer()
     {
         //获得玩家对象
         List<Player> players = GameManager.Instance.GetState<BattleState>().PlayerList.ToList();
-        int num = -1;//记录血量比最少的玩家的号码
-        int i = 0;
-        double minbloodPercent = int.MaxValue;//设初值为最大值
+        int num = -1,i = 0;//记录血量最少的玩家索引
+        int lessBlood = int.MaxValue;//设初值为最大值
 
         foreach (Player p in players)
         {
-            double bloodPercent = (double)p.UnitData.Blood / p.UnitData.BloodMax;
-            if (bloodPercent < minbloodPercent && p.ActionStatus == ActionStatus.Running)
+            if(p.UnitData.Blood < lessBlood)
             {
-                minbloodPercent = bloodPercent;
+                lessBlood = p.UnitData.Blood;
                 num = i;
             }
             i++;
@@ -75,29 +67,22 @@ public class ShaAttkMonster : Unit
     }
     /// <summary>
     /// 移动到要攻击玩家附近
-    /// 对一个角色造成100%力量值的伤害，如果连续攻击同一角色，
-    /// 从第二次开始，每次造成150%力量值的伤害
+    /// 对一个角色造成50%的力量值伤害
+    /// 附带三回合的中毒效果，
+    /// 每回合造成10%力量值的伤害，该伤害无视防御
     /// </summary>
     /// <param name="player">要攻击的玩家</param>
     public void attackPlayer(Player player)
     {
         //移动
         MoveclosePlayerPos(player.Position);
-        //得到当前回合数
-        int roundNumber = GameManager.Instance.GetState<BattleState>().RoundNumber;
-        //不是第一回合，影袭怪已经攻击过，判断当前回合攻击玩家是否是上一轮攻击过的对象
-        if (roundNumber != 1 && this.hurtedPlayer == player)
-        {
-            //150%近身伤害
-            (player as IHurtable).Hurt((int)(this.UnitData.Attack*1.5), HurtType.Melee, this);
-        }
-        else//是第一回合或两次攻击对象不一样
-        {
-            //100%近身伤害
-            (player as IHurtable).Hurt(this.UnitData.Attack, HurtType.Melee, this);
-        }
-        this.hurtedPlayer = player;
-       
+        //攻击
+        (player as IHurtable).Hurt(this.UnitData.Attack * 0.5f, HurtType.Melee, this);
+        //中毒buff
+        Poison poison = new Poison();
+        poison.Times = 3;
+        poison.Damage = this.UnitData.Attack * 0.1f;
+        player.AddBuff(poison);
     }
 
     /// <summary>
@@ -163,4 +148,27 @@ public class ShaAttkMonster : Unit
         Move(pos);
     }
 
+    /// <summary>
+    /// 死亡后原地3x3的范围生成毒液地形
+    /// 触碰到的敌人施加上述中毒效果，毒液地形存在两回合
+    /// </summary>
+    protected override void OnDied()
+    {
+        //获得玩家对象
+        List<Player> players = GameManager.Instance.GetState<BattleState>().PlayerList.ToList();
+        Poison poison = new Poison();
+        poison.Times = 3;
+        poison.Damage = this.UnitData.Attack * 0.1f;
+        foreach (Player p in players)
+        {
+            if (p.Position.x <= this.Position.x + 1 && p.Position.x >= this.Position.x - 1
+             && p.Position.y <= this.Position.y + 1 && p.Position.y >= this.Position.y - 1
+                )
+            {
+                //添加中毒buff
+                p.AddBuff(poison);
+            }
+        }
+    }
+    
 }

@@ -1,24 +1,26 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using UnityEngine;
 
 /// <summary>
 /// 吸血飞蚊
-/// 对一个角色造成80%力量值的伤害，并回复自身造成伤害的五分之一的血量，
+/// 对一个角色造成80%力量值的伤害，并恢复自身造成伤害的五分之一的血量，
 /// 优先攻击防御最低的角色，移动至角色身前进行攻击，攻击后停留在角色周围(5x5的格子内随机)。
 /// </summary>
 public class BloodSuckFloater :Unit
 {
     public BloodSuckFloater(Vector2Int pos) : base(new UnitData()
     {
-        Name = "BloodSuckFloater",//史莱姆
+        Name = "BloodSuckFloater",//吸血飞蚊
         BloodMax = 80,//最大血量
         Blood = 80,//初始血量为最大血量
         Attack = 10,//攻击力
         Defence = 4,//防御力
         Speed = 2,//先攻权重
+        //移动和技能的使用会消耗技能点,但怪物无行动点约束，设为最大值
+        ActionPointMax = int.MaxValue,
+        ActionPoint = int.MaxValue,
     }
    , pos)
     {
@@ -28,10 +30,9 @@ public class BloodSuckFloater :Unit
     /// </summary>
     protected override void Decide()
     {
-        //获得玩家对象
-        List<Player> players = GameManager.Instance.GetState<BattleState>().PlayerList.ToList();
+        
         //得到要攻击的对象
-        Player player = getAttackPlayer(players);
+        Player player = getAttackPlayer();
         //攻击对象
         attackPlayer(player);
         //撤退
@@ -39,22 +40,22 @@ public class BloodSuckFloater :Unit
     }
 
     /// <summary>
-    /// 根据玩家距离吸血飞蚊的距离，选择合适的攻击对象
+    /// 优先攻击防御最低的角色
     /// </summary>
-    /// <param name="players">所有玩家</param>
-    /// <returns></returns>
-    public Player getAttackPlayer(List<Player> players)
+    /// <returns>要攻击的玩家</returns>
+    public Player getAttackPlayer()
     {
-        int num = -1;//记录距离最短的玩家的号码
+        //获得玩家对象
+        List<Player> players = GameManager.Instance.GetState<BattleState>().PlayerList.ToList();
+        int num = -1;//记录防御最低的玩家的索引
         int i = 0;
-        double minDis = int.MaxValue;//设初值为最大值
+        double minDifence = int.MaxValue;//设初值为最大值
 
         foreach (Player p in players)
-        {
-            double dis = Math.Pow(Math.Abs(p.Position.x - this.Position.x), 2.0) + Math.Pow(Math.Abs(p.Position.y - this.Position.y), 2.0);
-            if (dis < minDis && p.ActionStatus == ActionStatus.Running)
+        { 
+            if (p.UnitData.Defence < minDifence && p.ActionStatus == ActionStatus.Running)
             {
-                minDis = dis;
+                minDifence = p.UnitData.Defence;
                 num = i;
             }
             i++;
