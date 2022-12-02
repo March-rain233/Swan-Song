@@ -25,7 +25,8 @@ public class StabAttack : Card
             .Where(p =>
             0 <= p.x && p.x < _map.Width
             && 0 <= p.y && p.y < _map.Height
-            && _map[p.x, p.y] != null);
+            && _map[p.x, p.y] != null
+            && _map[p.x, p.y].Units.First().Camp != user.Camp);
     }
 
     protected internal override TargetData GetAvaliableTarget(Unit user)

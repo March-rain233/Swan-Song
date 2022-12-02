@@ -4,23 +4,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
+using GameToolKit;
 
-public class LightHeal : Card
+public class Hymn : Card
 {
     public override CardType Type => CardType.Heal;
 
-    public LightHeal()//束光愈_牧师专属
+    public Hymn()//赞美诗_牧师专属
     {
-        Name = "束光愈";
-        Description = "回复一个角色（200+120%虔诚值）点生命，若此次治疗使其血量达到最大血量的80%，将血量回复至满";
-        Cost = 3;
+        Name = "赞美诗";
+        Description = "回复所有友方角色一点体力和80%虔诚值点生命";
+        Cost = 2;
     }
 
     protected internal override IEnumerable<Vector2Int> GetAffecrTarget(Unit user, Vector2Int target)
     {
-        List<Vector2Int> res = new List<Vector2Int>();
-        res.Add(target);
-        return res;
+        return GameManager.Instance.GetState<BattleState>().UnitList
+            .Where(u => u.Camp == user.Camp)
+            .Select(u => u.Position);
     }
 
     protected internal override TargetData GetAvaliableTarget(Unit user)
@@ -35,14 +36,16 @@ public class LightHeal : Card
 
     protected internal override void Release(Unit user, Vector2Int target)
     {
-        Percent = 1.2f;
-        (_map[target.x, target.y].Units.First() as ICurable)
-            .Cure(user.UnitData.Heal*Percent+200, user);
-        var tar = (_map[target.x, target.y].Units.First() as ICurable);
-        var tbmax = (tar as Unit).UnitData.BloodMax;
-        if((tar as Unit).UnitData.Blood >= (tar as Unit).UnitData.BloodMax * 0.8)
+        if (TileUtility.TryGetTile(target, out var tile) && tile.Units.Count > 0)
         {
-            tar.Cure(user.UnitData.Heal, user);
+            var tar = (_map[target.x, target.y].Units.First() as ICurable);
+            (tar as Unit).UnitData.ActionPoint++;
+            var healing = user.UnitData.Heal;
+            (tile.Units.First() as ICurable).Cure(healing * 0.8f, user);
+        }
+        else
+        {
+            Debug.LogWarning("There is no target, please check it.");
         }
     }
 }

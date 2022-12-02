@@ -33,4 +33,8 @@ public enum HurtType
     /// 魔法伤害
     /// </summary>
     AP,
+    /// <summary>
+    /// 即死
+    /// </summary>
+    Death,
 }

@@ -6,9 +6,16 @@ using System.Threading.Tasks;
 using UnityEngine;
 using GameToolKit;
 
-public class ManaNerf : Card
+public class SnowStorm : Card
 {
     public override CardType Type => CardType.Attack;
+
+    public SnowStorm()//法师专属
+    {
+        Name = "暴风雪";
+        Description = "对周围5x5的方格内角色造成五次60%力量值的伤害，并冻结一回合，使其无法行动";
+        Cost = 4;
+    }
 
     public AreaHelper AoeArea = new AreaHelper()
     {
@@ -19,10 +26,9 @@ public class ManaNerf : Card
             {true,true,true,true,true },
             {true,true,true,true,true },
             {true,true,true,true,true },
-            {true,true,true,true,true },
+            {true,true,true,true,true }
         }
     };
-
     public AreaHelper AttackArea = new AreaHelper()
     {
         Center = new Vector2Int(2, 2),
@@ -36,21 +42,14 @@ public class ManaNerf : Card
         }
     };
 
-    public ManaNerf()
-    {
-        Name = "魔力削弱";
-        Description = "对范围内的敌人造成30%力量值的伤害，并使其在本回合内防御减少30点";
-        Cost = 3;
-    }
-
     protected internal override IEnumerable<Vector2Int> GetAffecrTarget(Unit user, Vector2Int target)
     {
         var map = _map;
-        var list = AoeArea.GetPointList(target);
+        var list = AoeArea.GetPointList(user.Position);
         return list.Where(p =>
             0 <= p.x && p.x < map.Width
             && 0 <= p.y && p.y < map.Height
-            && map[p.x, p.y] != null
+            && map[p.x, p.y] != null 
             && map[p.x, p.y].Units.First().Camp != user.Camp);
     }
 
@@ -63,22 +62,34 @@ public class ManaNerf : Card
         targetData.ViewTiles = list.Where(p =>
             0 <= p.x && p.x < map.Width
             && 0 <= p.y && p.y < map.Height
-            && map[p.x, p.y] != null);
+            && map[p.x, p.y] != null );
         targetData.AvaliableTile = targetData.ViewTiles;
         return targetData;
     }
 
     protected internal override void Release(Unit user, Vector2Int target)
     {
-        foreach (var point in GetAffecrTarget(user, target))
-        {
-            var tile = _map[point.x, point.y];
-            if (tile.Units.Count > 0)
+        int times = 1;
+        GameManager.Instance.GetState<BattleState>()
+            .TurnBeginning += (_) =>
             {
-                var tar = tile.Units.First();
-                (tile as IHurtable).Hurt(user.UnitData.Attack * Percent, HurtType.FromUnit, user);
-                tar.AddBuff(new ArcaneChain() { Count = 1 });
-            }
-        }
+                times -= 1;
+                foreach (var point in GetAffecrTarget(user, target))
+                {
+                    if (TileUtility.TryGetTile(point, out var tile))
+                    {
+                        if (tile.Units.Count > 0 && times >= 0)
+                        {
+                            (tile.Units.First() as IHurtable).Hurt(user.UnitData.Attack * 0.6f, HurtType.FromUnit, user);
+                            (tile.Units.First() as IHurtable).Hurt(user.UnitData.Attack * 0.6f, HurtType.FromUnit, user);
+                            (tile.Units.First() as IHurtable).Hurt(user.UnitData.Attack * 0.6f, HurtType.FromUnit, user);
+                            (tile.Units.First() as IHurtable).Hurt(user.UnitData.Attack * 0.6f, HurtType.FromUnit, user);
+                            (tile.Units.First() as IHurtable).Hurt(user.UnitData.Attack * 0.6f, HurtType.FromUnit, user);
+                            var tar = (tile.Units.First() as IHurtable);
+                            (tar as Unit).CanMove = false;
+                        }
+                    }
+                }
+            };
     }
 }

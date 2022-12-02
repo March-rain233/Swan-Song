@@ -40,7 +40,8 @@ public class NormalAttack : Card
         targetData.ViewTiles = list.Where(p =>
             0 <= p.x && p.x < map.Width
             && 0 <= p.y && p.y < map.Height
-            && map[p.x, p.y] != null);
+            && map[p.x, p.y] != null
+            && map[p.x, p.y].Units.First().Camp != user.Camp);
         targetData.AvaliableTile = targetData.ViewTiles.Where(p => map[p.x, p.y].Units.Count > 0);
         return targetData;
     }
