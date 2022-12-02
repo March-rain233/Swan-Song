@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UnityEngine;
+using GameToolKit;
 
 /// <remarks>单位对象</remarks>
 public abstract class Unit : IHurtable, ICurable
@@ -107,6 +108,10 @@ public abstract class Unit : IHurtable, ICurable
     /// </summary>
     public event Action<float, HurtType, object> Hurt;
     /// <summary>
+    /// 单位受伤计算事件
+    /// </summary>
+    public event Action<HurtCalculateEvent> HurtCalculating;
+    /// <summary>
     /// 单位死亡事件
     /// </summary>
     public event Action UnitDied;
@@ -131,7 +136,7 @@ public abstract class Unit : IHurtable, ICurable
     internal void Prepare()
     {
         ActionStatus = ActionStatus.Waitting;
-        if(UnitData.ActionPoint < UnitData.ActionPointMax)
+        if(UnitData.ActionPoint < UnitData.ActionPointMax + 2)
         {
             UnitData.ActionPoint += 2;
         }
@@ -180,16 +185,19 @@ public abstract class Unit : IHurtable, ICurable
     /// <remarks>
     /// 相同类型的buff将被替代
     /// </remarks>
-    public void AddBuff(Buff buff)
+    public void AddBuff<TBuff>(TBuff buff) 
+        where TBuff : Buff
     {
-        var ori = _buffList.Find(e => e.GetType() == buff.GetType());
-        if(ori != null)
+        foreach(var ori in _buffList.Where(e=>e is TBuff))
         {
-            ori.Disable();
-            _buffList.Remove(ori);
+            if (buff.CheckReplace(ori))
+            {
+                ori.Disable();
+                _buffList.Remove(ori);
+            }
         }
         _buffList.Add(buff);
-        buff.Unit = this;
+        buff.Register(this);
         buff.Enable();
 
         BuffListChanged?.Invoke();
@@ -198,7 +206,8 @@ public abstract class Unit : IHurtable, ICurable
     /// <summary>
     /// 移除Buff
     /// </summary>
-    public void RemoveBuff<TBuff>() where TBuff : Buff
+    public void RemoveBuff<TBuff>() 
+        where TBuff : Buff
     {
         var ori = _buffList.Find(e => e.GetType() == typeof(TBuff));
         if (ori != null)
@@ -273,7 +282,19 @@ public abstract class Unit : IHurtable, ICurable
     float IHurtable.HurtCalculate(float damage, HurtType type, object source)
     {
         //todo:重新设计计算公式
-        damage = Math.Max(0, damage - UnitData.Defence);
+        HurtCalculateEvent @event = new HurtCalculateEvent()
+        {
+            OriDamage = damage,
+            DamageAdd = -UnitData.Defence,
+            Rate = 1,
+            Source = source,
+            Target = this,
+            Type = type,
+        };
+        HurtCalculating?.Invoke(@event);
+        ServiceFactory.Instance.GetService<EventManager>()
+            .Broadcast(@event);
+        damage = Math.Max(0, @event.FinalDamage);
         damage = Math.Min(UnitData.Blood, damage);
         return damage;
     }

@@ -70,7 +70,7 @@ public class FireBall : Card
                 }
                 if (tile.TileType != TileType.Lack)
                 {
-                    tile.AddStatus(TileStatus.Fire);
+                    tile.AddStatus(new FireStatus() { Count = -1});
                 }
             }
         }

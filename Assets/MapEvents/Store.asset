@@ -253,7 +253,7 @@ MonoBehaviour:
       Data: 24797052-17d0-4852-94ba-1699cf249345
     - Name: LastDataUpdataTime
       Entry: 4
-      Data: 91.0554
+      Data: 21.0423069
     - Name: Name
       Entry: 1
       Data: CombineNode(2)
@@ -287,7 +287,7 @@ MonoBehaviour:
       Data: 21dfb101-89c2-4a5f-aacd-1be63e089c69
     - Name: LastDataUpdataTime
       Entry: 4
-      Data: 91.0554
+      Data: 21.0423069
     - Name: Name
       Entry: 1
       Data: CompareIntNode(2)
@@ -321,7 +321,7 @@ MonoBehaviour:
       Data: 3369f308-adc2-4d72-9b40-b87d4563ca93
     - Name: LastDataUpdataTime
       Entry: 4
-      Data: 91.0554
+      Data: 21.0423069
     - Name: Name
       Entry: 1
       Data: InputNode(2)
@@ -398,7 +398,7 @@ MonoBehaviour:
       Data: 866c0f21-6b8d-4b1a-b223-ef35e9cd667c
     - Name: LastDataUpdataTime
       Entry: 4
-      Data: 91.0554
+      Data: 21.0423069
     - Name: Name
       Entry: 1
       Data: GameDataNode
@@ -451,22 +451,22 @@ MonoBehaviour:
       Data: UnityEngine.Random+State, UnityEngine.CoreModule
     - Name: s0
       Entry: 3
-      Data: -163145244
+      Data: 542024687
     - Name: s1
       Entry: 3
-      Data: -123790554
+      Data: 71346916
     - Name: s2
       Entry: 3
-      Data: 801953461
+      Data: -242513971
     - Name: s3
       Entry: 3
-      Data: -382947482
+      Data: 221327855
     - Name: 
       Entry: 8
       Data: 
     - Name: Gold
       Entry: 3
-      Data: 90
+      Data: -30
     - Name: Members
       Entry: 7
       Data: 26|System.Collections.Generic.List`1[[UnitData, Assembly-CSharp]], mscorlib
@@ -523,7 +523,7 @@ MonoBehaviour:
       Data: 0
     - Name: CurrentId
       Entry: 3
-      Data: 11
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -575,13 +575,13 @@ MonoBehaviour:
       Data: 3
     - Name: SourceA
       Entry: 3
-      Data: 120
+      Data: 0
     - Name: SourceB
       Entry: 3
       Data: 30
     - Name: Result
       Entry: 5
-      Data: false
+      Data: true
     - Name: 
       Entry: 8
       Data: 
@@ -608,7 +608,7 @@ MonoBehaviour:
       Data: 4fdb8c9a-0ba3-4517-8892-88a75428dace
     - Name: LastDataUpdataTime
       Entry: 4
-      Data: 91.0554
+      Data: 21.0423069
     - Name: Name
       Entry: 1
       Data: ItemWrapper(1)
@@ -725,7 +725,7 @@ MonoBehaviour:
       Data: "\u901A\u7528\u5361\u5305\uFF0830 Gold\uFF09"
     - Name: IsEnable
       Entry: 5
-      Data: false
+      Data: true
     - Name: 
       Entry: 8
       Data: 
@@ -853,25 +853,25 @@ MonoBehaviour:
       Data: 1
     - Name: 
       Entry: 7
-      Data: 41|GameToolKit.Dialog.OptionSelectorNode, GameToolKit.Dialog
+      Data: 41|GameToolKit.Dialog.SingleDialogNode, GameToolKit.Dialog
     - Name: Guid
       Entry: 1
-      Data: 04dae4ca-7fb2-4a49-b229-812aef4c46b5
+      Data: 5349478d-8121-44cc-b588-4b398d7b8fc6
     - Name: LastDataUpdataTime
       Entry: 4
       Data: 0
     - Name: Name
       Entry: 1
-      Data: OptionSelectorNode(1)
+      Data: SingleDialogNode(5)
     - Name: ViewPosition
       Entry: 7
       Data: UnityEngine.Vector2, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: 1261.6001
+      Data: 1264
     - Name: 
       Entry: 4
-      Data: -154.4
+      Data: -154.400055
     - Name: 
       Entry: 8
       Data: 
@@ -913,22 +913,22 @@ MonoBehaviour:
       Data: 1
     - Name: 
       Entry: 7
-      Data: 45|GameToolKit.Dialog.SingleDialogNode, GameToolKit.Dialog
+      Data: 45|GameToolKit.Dialog.OptionSelectorNode, GameToolKit.Dialog
     - Name: Guid
       Entry: 1
-      Data: 5349478d-8121-44cc-b588-4b398d7b8fc6
+      Data: 04dae4ca-7fb2-4a49-b229-812aef4c46b5
     - Name: LastDataUpdataTime
       Entry: 4
       Data: 0
     - Name: Name
       Entry: 1
-      Data: SingleDialogNode(5)
+      Data: OptionSelectorNode(1)
     - Name: ViewPosition
       Entry: 7
       Data: UnityEngine.Vector2, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: 1492.79993
+      Data: 1459.2
     - Name: 
       Entry: 4
       Data: -154.400024
@@ -1497,25 +1497,25 @@ MonoBehaviour:
       Data: 1
     - Name: 
       Entry: 7
-      Data: 81|GameToolKit.Dialog.SingleDialogNode, GameToolKit.Dialog
+      Data: 81|GameToolKit.Dialog.OptionSelectorNode, GameToolKit.Dialog
     - Name: Guid
       Entry: 1
-      Data: 576a0e19-b0ec-4312-adb0-c2decf0248d4
+      Data: 94da1456-d760-456a-967b-e8c259e934c2
     - Name: LastDataUpdataTime
       Entry: 4
       Data: 0
     - Name: Name
       Entry: 1
-      Data: SingleDialogNode(2)
+      Data: OptionSelectorNode(4)
     - Name: ViewPosition
       Entry: 7
       Data: UnityEngine.Vector2, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: 1492.79993
+      Data: 1459.2002
     - Name: 
       Entry: 4
-      Data: 323.2
+      Data: 323.200073
     - Name: 
       Entry: 8
       Data: 
@@ -1573,25 +1573,25 @@ MonoBehaviour:
       Data: 1
     - Name: 
       Entry: 7
-      Data: 86|GameToolKit.Dialog.OptionSelectorNode, GameToolKit.Dialog
+      Data: 86|GameToolKit.Dialog.SingleDialogNode, GameToolKit.Dialog
     - Name: Guid
       Entry: 1
-      Data: 94da1456-d760-456a-967b-e8c259e934c2
+      Data: 576a0e19-b0ec-4312-adb0-c2decf0248d4
     - Name: LastDataUpdataTime
       Entry: 4
       Data: 0
     - Name: Name
       Entry: 1
-      Data: OptionSelectorNode(4)
+      Data: SingleDialogNode(2)
     - Name: ViewPosition
       Entry: 7
       Data: UnityEngine.Vector2, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: 1261.6
+      Data: 1264.00024
     - Name: 
       Entry: 4
-      Data: 323.2
+      Data: 323.200073
     - Name: 
       Entry: 8
       Data: 
@@ -1689,7 +1689,7 @@ MonoBehaviour:
       Data: 416425cd-a1cb-47a6-8169-1218d8e1d501
     - Name: LastDataUpdataTime
       Entry: 4
-      Data: 83.02147
+      Data: 3.37576747
     - Name: Name
       Entry: 1
       Data: InputNode(3)
@@ -1843,7 +1843,7 @@ MonoBehaviour:
       Data: 960af0a7-de3d-4893-9fb1-e9fe3ff15ba6
     - Name: LastDataUpdataTime
       Entry: 4
-      Data: 83.02147
+      Data: 3.37576747
     - Name: Name
       Entry: 1
       Data: CombineNode(3)
@@ -1877,7 +1877,7 @@ MonoBehaviour:
       Data: e6d0e8e8-997d-46c0-a879-5e05773cdfe2
     - Name: LastDataUpdataTime
       Entry: 4
-      Data: 83.02147
+      Data: 3.37576747
     - Name: Name
       Entry: 1
       Data: CompareIntNode(3)
@@ -1966,7 +1966,7 @@ MonoBehaviour:
       Data: 60
     - Name: SourceB
       Entry: 3
-      Data: 120
+      Data: 0
     - Name: Result
       Entry: 5
       Data: false
@@ -1996,7 +1996,7 @@ MonoBehaviour:
       Data: e14d0879-6f23-4ab9-8711-93f31f420259
     - Name: LastDataUpdataTime
       Entry: 4
-      Data: 83.02147
+      Data: 3.37576747
     - Name: Name
       Entry: 1
       Data: ItemWrapper(3)
@@ -2218,24 +2218,6 @@ MonoBehaviour:
     - Name: ViewType
       Entry: 9
       Data: 72
-    - Name: SelectedOptionIndex
-      Entry: 3
-      Data: -1
-    - Name: SelectedOptionNode
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: ViewType
-      Entry: 9
-      Data: 72
     - Name: IsReleaseDialogOnEnd
       Entry: 5
       Data: false
@@ -2253,6 +2235,24 @@ MonoBehaviour:
       Data: "\u65C5\u884C\u5546\u4EBA"
     - Name: 
       Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: ViewType
+      Entry: 9
+      Data: 72
+    - Name: SelectedOptionIndex
+      Entry: 3
+      Data: -1
+    - Name: SelectedOptionNode
+      Entry: 6
       Data: 
     - Name: 
       Entry: 8
@@ -2456,25 +2456,25 @@ MonoBehaviour:
       Data: 1
     - Name: 
       Entry: 7
-      Data: 125|GameToolKit.Dialog.SingleDialogNode, GameToolKit.Dialog
+      Data: 125|GameToolKit.Dialog.OptionSelectorNode, GameToolKit.Dialog
     - Name: Guid
       Entry: 1
-      Data: 1f0b1c47-d919-483c-99d7-0ab407706605
+      Data: badfd1dc-f206-4795-aac9-02d874ab0c6c
     - Name: LastDataUpdataTime
       Entry: 4
       Data: 0
     - Name: Name
       Entry: 1
-      Data: SingleDialogNode(3)
+      Data: OptionSelectorNode(3)
     - Name: ViewPosition
       Entry: 7
       Data: UnityEngine.Vector2, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: 1492.79993
+      Data: 1459.2
     - Name: 
       Entry: 4
-      Data: 162.4
+      Data: 162.400024
     - Name: 
       Entry: 8
       Data: 
@@ -2532,16 +2532,16 @@ MonoBehaviour:
       Data: 1
     - Name: 
       Entry: 7
-      Data: 130|GameToolKit.Dialog.OptionSelectorNode, GameToolKit.Dialog
+      Data: 130|GameToolKit.Dialog.SingleDialogNode, GameToolKit.Dialog
     - Name: Guid
       Entry: 1
-      Data: badfd1dc-f206-4795-aac9-02d874ab0c6c
+      Data: 1f0b1c47-d919-483c-99d7-0ab407706605
     - Name: LastDataUpdataTime
       Entry: 4
       Data: 0
     - Name: Name
       Entry: 1
-      Data: OptionSelectorNode(3)
+      Data: SingleDialogNode(3)
     - Name: ViewPosition
       Entry: 7
       Data: UnityEngine.Vector2, UnityEngine.CoreModule
@@ -2550,7 +2550,7 @@ MonoBehaviour:
       Data: 1264
     - Name: 
       Entry: 4
-      Data: 162.4
+      Data: 162.400055
     - Name: 
       Entry: 8
       Data: 
@@ -2648,7 +2648,7 @@ MonoBehaviour:
       Data: 7c969447-3dea-4dcc-9e5a-fa66f4413b2c
     - Name: LastDataUpdataTime
       Entry: 4
-      Data: 83.02147
+      Data: 3.37576747
     - Name: Name
       Entry: 1
       Data: InputNode
@@ -2802,7 +2802,7 @@ MonoBehaviour:
       Data: e585448e-a9c4-4547-83b0-5b0c19160613
     - Name: LastDataUpdataTime
       Entry: 4
-      Data: 83.02147
+      Data: 3.37576747
     - Name: Name
       Entry: 1
       Data: CombineNode
@@ -2836,7 +2836,7 @@ MonoBehaviour:
       Data: 88adce12-fcad-495d-983a-860f9a333444
     - Name: LastDataUpdataTime
       Entry: 4
-      Data: 83.02147
+      Data: 3.37576747
     - Name: Name
       Entry: 1
       Data: CompareIntNode
@@ -2922,13 +2922,13 @@ MonoBehaviour:
       Data: 3
     - Name: SourceA
       Entry: 3
-      Data: 120
+      Data: 0
     - Name: SourceB
       Entry: 3
       Data: 90
     - Name: Result
       Entry: 5
-      Data: false
+      Data: true
     - Name: 
       Entry: 8
       Data: 
@@ -2955,7 +2955,7 @@ MonoBehaviour:
       Data: 803a0b9c-b4de-4dee-83d7-7d7a1e3f5153
     - Name: LastDataUpdataTime
       Entry: 4
-      Data: 83.02147
+      Data: 3.37576747
     - Name: Name
       Entry: 1
       Data: ItemWrapper
@@ -3072,7 +3072,7 @@ MonoBehaviour:
       Data: "\u6838\u5FC3\u5361\u5305\uFF0890 Gold\uFF09"
     - Name: IsEnable
       Entry: 5
-      Data: false
+      Data: true
     - Name: 
       Entry: 8
       Data: 
@@ -3175,24 +3175,6 @@ MonoBehaviour:
     - Name: ViewType
       Entry: 9
       Data: 72
-    - Name: SelectedOptionIndex
-      Entry: 3
-      Data: -1
-    - Name: SelectedOptionNode
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: ViewType
-      Entry: 9
-      Data: 72
     - Name: IsReleaseDialogOnEnd
       Entry: 5
       Data: false
@@ -3210,6 +3192,24 @@ MonoBehaviour:
       Data: "\u65C5\u884C\u5546\u4EBA"
     - Name: 
       Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: ViewType
+      Entry: 9
+      Data: 72
+    - Name: SelectedOptionIndex
+      Entry: 3
+      Data: -1
+    - Name: SelectedOptionNode
+      Entry: 6
       Data: 
     - Name: 
       Entry: 8
@@ -3416,25 +3416,25 @@ MonoBehaviour:
       Data: 1
     - Name: 
       Entry: 7
-      Data: 169|GameToolKit.Dialog.SingleDialogNode, GameToolKit.Dialog
+      Data: 169|GameToolKit.Dialog.OptionSelectorNode, GameToolKit.Dialog
     - Name: Guid
       Entry: 1
-      Data: 9423d975-9771-4b8f-b6a5-077d5238c0f7
+      Data: 17dcbe64-005a-4f9c-a760-0275998d4433
     - Name: LastDataUpdataTime
       Entry: 4
       Data: 0
     - Name: Name
       Entry: 1
-      Data: SingleDialogNode(4)
+      Data: OptionSelectorNode(2)
     - Name: ViewPosition
       Entry: 7
       Data: UnityEngine.Vector2, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: 1492.79993
+      Data: 1459.2002
     - Name: 
       Entry: 4
-      Data: 2.39999
+      Data: 2.39999628
     - Name: 
       Entry: 8
       Data: 
@@ -3492,25 +3492,25 @@ MonoBehaviour:
       Data: 1
     - Name: 
       Entry: 7
-      Data: 174|GameToolKit.Dialog.OptionSelectorNode, GameToolKit.Dialog
+      Data: 174|GameToolKit.Dialog.SingleDialogNode, GameToolKit.Dialog
     - Name: Guid
       Entry: 1
-      Data: 17dcbe64-005a-4f9c-a760-0275998d4433
+      Data: 9423d975-9771-4b8f-b6a5-077d5238c0f7
     - Name: LastDataUpdataTime
       Entry: 4
       Data: 0
     - Name: Name
       Entry: 1
-      Data: OptionSelectorNode(2)
+      Data: SingleDialogNode(4)
     - Name: ViewPosition
       Entry: 7
       Data: UnityEngine.Vector2, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: 1261.6
+      Data: 1261.60022
     - Name: 
       Entry: 4
-      Data: 2.399994
+      Data: 2.39999628
     - Name: 
       Entry: 8
       Data: 
@@ -3608,7 +3608,7 @@ MonoBehaviour:
       Data: b3dd66bf-dd83-48c9-9ce1-0fc1f17159bb
     - Name: LastDataUpdataTime
       Entry: 4
-      Data: 83.02147
+      Data: 3.37576747
     - Name: Name
       Entry: 1
       Data: InputNode(1)
@@ -3762,7 +3762,7 @@ MonoBehaviour:
       Data: ce39f991-f188-4e85-9d80-31186f8b6260
     - Name: LastDataUpdataTime
       Entry: 4
-      Data: 83.02147
+      Data: 3.37576747
     - Name: Name
       Entry: 1
       Data: CombineNode(1)
@@ -3796,7 +3796,7 @@ MonoBehaviour:
       Data: a61c988b-0669-49d2-8e9b-65aaa4fd4d51
     - Name: LastDataUpdataTime
       Entry: 4
-      Data: 83.02147
+      Data: 3.37576747
     - Name: Name
       Entry: 1
       Data: CompareIntNode(1)
@@ -3882,13 +3882,13 @@ MonoBehaviour:
       Data: 3
     - Name: SourceA
       Entry: 3
-      Data: 120
+      Data: 0
     - Name: SourceB
       Entry: 3
       Data: 60
     - Name: Result
       Entry: 5
-      Data: false
+      Data: true
     - Name: 
       Entry: 8
       Data: 
@@ -3915,7 +3915,7 @@ MonoBehaviour:
       Data: 37be479b-a61e-4395-a713-813ec891440f
     - Name: LastDataUpdataTime
       Entry: 4
-      Data: 83.02147
+      Data: 3.37576747
     - Name: Name
       Entry: 1
       Data: ItemWrapper(2)
@@ -4032,7 +4032,7 @@ MonoBehaviour:
       Data: "\u4E13\u5C5E\u5361\u5305\uFF0860 Gold\uFF09"
     - Name: IsEnable
       Entry: 5
-      Data: false
+      Data: true
     - Name: 
       Entry: 8
       Data: 
@@ -4135,24 +4135,6 @@ MonoBehaviour:
     - Name: ViewType
       Entry: 9
       Data: 72
-    - Name: SelectedOptionIndex
-      Entry: 3
-      Data: -1
-    - Name: SelectedOptionNode
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: ViewType
-      Entry: 9
-      Data: 72
     - Name: IsReleaseDialogOnEnd
       Entry: 5
       Data: false
@@ -4170,6 +4152,24 @@ MonoBehaviour:
       Data: "\u65C5\u884C\u5546\u4EBA"
     - Name: 
       Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: ViewType
+      Entry: 9
+      Data: 72
+    - Name: SelectedOptionIndex
+      Entry: 3
+      Data: -1
+    - Name: SelectedOptionNode
+      Entry: 6
       Data: 
     - Name: 
       Entry: 8
@@ -4384,23 +4384,11 @@ MonoBehaviour:
     - Name: ViewType
       Entry: 9
       Data: 72
-    - Name: IsReleaseDialogOnEnd
-      Entry: 5
-      Data: false
-    - Name: Dialog
-      Entry: 7
-      Data: 210|EventPanel+EventTextArgument, Assembly-CSharp
-    - Name: Text
-      Entry: 1
-      Data: "\u9009\u62E9\u4E00\u4E2A\u89D2\u8272"
-    - Name: EventImage
+    - Name: SelectedOptionIndex
+      Entry: 3
+      Data: -1
+    - Name: SelectedOptionNode
       Entry: 6
-      Data: 
-    - Name: EventName
-      Entry: 1
-      Data: "\u65C5\u884C\u5546\u4EBA"
-    - Name: 
-      Entry: 8
       Data: 
     - Name: 
       Entry: 8
@@ -4413,7 +4401,7 @@ MonoBehaviour:
       Data: 
     - Name: Parents
       Entry: 7
-      Data: 211|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
+      Data: 210|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
         GameToolKit.Dialog]], mscorlib
     - Name: 
       Entry: 12
@@ -4430,11 +4418,23 @@ MonoBehaviour:
     - Name: ViewType
       Entry: 9
       Data: 72
-    - Name: SelectedOptionIndex
-      Entry: 3
-      Data: -1
-    - Name: SelectedOptionNode
+    - Name: IsReleaseDialogOnEnd
+      Entry: 5
+      Data: false
+    - Name: Dialog
+      Entry: 7
+      Data: 211|EventPanel+EventTextArgument, Assembly-CSharp
+    - Name: Text
+      Entry: 1
+      Data: "\u9009\u62E9\u4E00\u4E2A\u89D2\u8272"
+    - Name: EventImage
       Entry: 6
+      Data: 
+    - Name: EventName
+      Entry: 1
+      Data: "\u65C5\u884C\u5546\u4EBA"
+    - Name: 
+      Entry: 8
       Data: 
     - Name: 
       Entry: 8
@@ -5189,16 +5189,16 @@ MonoBehaviour:
       Data: 91
     - Name: 
       Entry: 9
-      Data: 41
+      Data: 45
     - Name: 
       Entry: 9
-      Data: 174
+      Data: 169
     - Name: 
       Entry: 9
-      Data: 130
+      Data: 125
     - Name: 
       Entry: 9
-      Data: 86
+      Data: 81
     - Name: 
       Entry: 9
       Data: 49
@@ -5213,16 +5213,16 @@ MonoBehaviour:
       Data: 76
     - Name: 
       Entry: 9
-      Data: 81
+      Data: 86
     - Name: 
       Entry: 9
-      Data: 125
+      Data: 130
     - Name: 
       Entry: 9
-      Data: 169
+      Data: 174
     - Name: 
       Entry: 9
-      Data: 45
+      Data: 41
     - Name: 
       Entry: 9
       Data: 74

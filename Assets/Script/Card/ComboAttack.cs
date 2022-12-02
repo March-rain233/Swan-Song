@@ -9,24 +9,24 @@ using GameToolKit;
 public class ComboAttack : Card
 {
     public override CardType Type => CardType.Attack;
+    public float Percent = 0.5f;
+    public float AddPercent = 0.2f;
 
     public AreaHelper AttackArea = new AreaHelper()
     {
-        Center = new Vector2Int(2, 2),
-        Flags = new bool[5, 5]
+        Center = new Vector2Int(0, 0),
+        Flags = new bool[2, 1]
         {
-            {true,true,true,true,true },
-            {true,true,true,true,true },
-            {true,true,true,true,true },
-            {true,true,true,true,true },
-            {true,true,true,true,true }
+            {false },
+            {true }
         }
     };
 
     public ComboAttack()//连击
     {
-        Name = "Combo Attack";
-        Description = "Continuous attacks against enemies";
+        Name = "连击";
+        Description = $"对敌人造成<color=red>{Percent * 100}%</color>力量值的伤害，" +
+            $"本局对战中每使用过一次，就增加<color=red>{AddPercent * 100}</color>力量值的伤害";
         Cost = 1;
     }
 
@@ -53,14 +53,11 @@ public class ComboAttack : Card
 
     protected internal override void Release(Unit user, Vector2Int target)
     {
-        int times = 0;
-        GameManager.Instance.GetState<BattleState>()
-            .TurnBeginning += (_) =>
-            {
-                Percent = 0.5f + (times * 0.2f);
-                times += 1;
-                (_map[target.x, target.y].Units.First() as IHurtable)
-                .Hurt(user.UnitData.Attack * Percent, HurtType.FromUnit, user);
-            };
+        (_map[target.x, target.y].Units.First() as IHurtable)
+            .Hurt(Percent * user.UnitData.Attack, HurtType.AD | HurtType.FromUnit | HurtType.Melee, user);
+            
+        Percent += AddPercent;
+        Description = $"对敌人造成<color=red>{Percent * 100}%</color>力量值的伤害，" +
+            $"本局对战中每使用过一次，就增加<color=red>{AddPercent * 100}</color>力量值的伤害";
     }
 }

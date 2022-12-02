@@ -59,11 +59,6 @@ public abstract class Card
     /// </summary>
     public int Cost;
 
-    /// <summary>
-    /// 数值比例
-    /// </summary>
-    public float Percent;
-
 
     /// <summary>
     /// 是否已被强化

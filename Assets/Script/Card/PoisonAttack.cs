@@ -60,9 +60,9 @@ public class PoisonAttack : Card
                 times -= 1;
                 if (times >= 0)
                 {
-                    (_map[target.x, target.y].Units.First() as IHurtable)
-                    .Hurt(20 , HurtType.FromUnit, user);
-                    _map[target.x, target.y].AddStatus(TileStatus.Poison);
+                    var unit = _map[target.x, target.y].Units.First();
+                    (unit as IHurtable).Hurt(20 , HurtType.FromUnit, user);
+                    unit.AddBuff(new Poison() { Count = 3, Damage = 30});
                 }
             };
     }

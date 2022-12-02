@@ -50,6 +50,8 @@ public class EventPanel : DialogPanelBase, IOptionalView
             {
                 onSelected(index);
             });
+
+            button.interactable = options[i].IsEnable;
         }
     }
 

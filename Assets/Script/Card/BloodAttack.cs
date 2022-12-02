@@ -36,16 +36,6 @@ public class BloodAttack : Card
 
     protected internal override void Release(Unit user, Vector2Int target)
     {
-        user.UnitData.Blood = user.UnitData.Blood - user.UnitData.BloodMax/10;
-        int times = 3;
-        GameManager.Instance.GetState<BattleState>()
-            .TurnBeginning += (_) =>
-            {
-                times -= 1;
-                if (times >= 0)
-                {
-                    user.UnitData.Attack = user.UnitData.Attack + 100;
-                }
-            };
+        user.AddBuff(new Bloodlust() { Count = 3 });
     }
 }

@@ -8,21 +8,11 @@ using System.Text;
 /// </summary>
 public abstract class Tile
 {
-    public TileStatus TileStatus
+    public IReadOnlyList<TileStatus> TileStatusList
     {
-        get => _tileStatus;
-        set
-        {
-            _tileStatus = value;
-            TileStatusChanged?.Invoke(value);
-            foreach(var unit in _units)
-            {
-                StatusProcessOnEnter(unit);
-                StatusProcessOnUpdata(unit);
-            }
-        }
+        get => _statusList;
     }
-    TileStatus _tileStatus;
+    List<TileStatus> _statusList = new List<TileStatus>();
 
     /// <summary>
     /// 图块种类I
@@ -35,18 +25,47 @@ public abstract class Tile
     public IReadOnlyList<Unit> Units => _units;
     List<Unit> _units = new();
 
-    public event Action<TileStatus> TileStatusChanged;
+    public event Action TileStatusChanged;
 
     /// <summary>
     /// 添加图格状态
     /// </summary>
     /// <param name="status"></param>
-    public void AddStatus(TileStatus status)
+    public void AddStatus<TStatus>(TStatus status)
+        where TStatus : TileStatus
     {
-        if (!TileStatus.HasFlag(status))
+        foreach(var ori in _statusList.Where(e=>e is TStatus))
         {
-            //todo
-            TileStatus = TileStatus | status;
+            OnRemoveStatus(ori);
+        }
+        _statusList.Add(status);
+        status.Register(this);
+        status.Enable();
+        status.StatusProcessOnEnter(_units);
+        status.StatusProcessOnUpdata(_units);
+        TileStatusChanged?.Invoke();
+    }
+
+    void OnRemoveStatus(TileStatus status)
+    {
+        status.StatusProcessOnExit(_units);
+        status.Disable();
+        _statusList.Remove(status);
+    }
+
+    public void RemoveStatus(TileStatus tileStatus)
+    {
+        OnRemoveStatus(tileStatus);
+        TileStatusChanged?.Invoke();
+    }
+    public void RemoveStatus<TStatus>()
+        where TStatus : TileStatus
+    {
+        var ori = _statusList.Find(e => e is TStatus);
+        if (ori != null)
+        {
+            OnRemoveStatus(ori);
+            TileStatusChanged?.Invoke();
         }
     }
 
@@ -57,7 +76,7 @@ public abstract class Tile
     {
         _units.Add(unit);
         OnEnter(unit);
-        StatusProcessOnEnter(unit);
+        StatusProcessOnEnter();
     }
 
     protected abstract void OnEnter(Unit unit);
@@ -68,7 +87,7 @@ public abstract class Tile
     public void Exit(Unit unit)
     {
         OnExit(unit);
-        StatusProcessOnExit(unit);
+        StatusProcessOnExit();
         _units.Remove(unit);
     }
 
@@ -87,38 +106,41 @@ public abstract class Tile
     /// <summary>
     /// 处理单位进入时的需要处理buff的图格状态
     /// </summary>
-    protected virtual void StatusProcessOnEnter(Unit unit)
+    protected void StatusProcessOnEnter()
     {
-        if (TileStatus.HasFlag(TileStatus.Fire))
+        foreach(var status in _statusList)
         {
-            unit.AddBuff(new Burn() { Count = 2 });
+            status.StatusProcessOnEnter(_units);
         }
     }
 
     /// <summary>
     /// 处理单位退出时的需要处理uff的图格状态
     /// </summary>
-    protected virtual void StatusProcessOnExit(Unit unit)
+    protected void StatusProcessOnExit()
     {
+        foreach (var status in _statusList)
+        {
+            status.StatusProcessOnExit(_units);
+        }
     }
 
     /// <summary>
     /// 处理单位处于图块上时的需要处理buff的图格状态
     /// </summary>
-    protected virtual void StatusProcessOnUpdata(Unit unit)
+    protected void StatusProcessOnUpdata()
     {
-        if (TileStatus.HasFlag(TileStatus.Fire))
+        foreach (var status in _statusList)
         {
-            unit.AddBuff(new Burn() { Count = 2 });
+            status.StatusProcessOnUpdata(_units);
         }
-
     }
 
     internal void Updata()
     {
         foreach(var unit in _units)
         {
-            StatusProcessOnUpdata(unit);
+            StatusProcessOnUpdata();
         }
     }
 }

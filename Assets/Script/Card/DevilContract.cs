@@ -35,21 +35,6 @@ public class DevilContract : Card
 
     protected internal override void Release(Unit user, Vector2Int target)
     {
-        int times = 5;
-        GameManager.Instance.GetState<BattleState>()
-            .TurnBeginning += (_) =>
-            {
-                if (times > 0)
-                {
-                    user.UnitData.Defence = user.UnitData.Defence * 2;
-                    user.UnitData.Attack = user.UnitData.Attack * 12 / 10;
-                    user.UnitData.ActionPoint++;
-                }
-                if (times == 0)
-                {
-                    user.UnitData.Blood = 0;
-                }
-                times -= 1;
-            };
+        user.AddBuff(new DaemonBride() { Count = 5 });
     }
 }

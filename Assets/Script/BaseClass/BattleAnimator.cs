@@ -59,6 +59,26 @@ public class BattleAnimator
 
     }
 
+    void BindingMap(Map map)
+    {
+        for(var i = 0; i< map.Width; i++)
+        {
+            for(var j = 0; j < map.Height; j++)
+            {
+                if(map[i, j] != null)
+                {
+                    var seq = DOTween.Sequence();
+                    var tile = map[i, j];
+                    int x= i, y = j;
+                    seq.AppendCallback(() =>
+                    {
+                        _battleState.MapRenderer.RenderTile(x, y, tile);
+                    });
+                }
+            }
+        }
+    }
+
     /// <summary>
     /// 绑定单位动画
     /// </summary>

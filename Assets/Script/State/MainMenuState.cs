@@ -35,6 +35,7 @@ public class MainMenuState : GameState
         data.TreeMap = TreeMapFactory.CreateTreeMap("");
         data.Members = new();
         data.Chapter = 1;
+        data.Gold = 30;
         ServiceFactory.Instance.GetService<GameManager>()
             .GameData = data;
         ServiceFactory.Instance.GetService<GameManager>()

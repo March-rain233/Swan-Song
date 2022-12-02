@@ -19,7 +19,7 @@ public abstract class Buff
     /// <summary>
     /// 生效的对象
     /// </summary>
-    public Unit Unit;
+    public Unit Unit { get; private set; }
 
     /// <summary>
     /// 剩余计数
@@ -53,6 +53,11 @@ public abstract class Buff
         OnDisable();
     }
 
+    internal void Register(Unit unit)
+    {
+        Unit = unit;
+    }
+
     protected abstract void OnEnable();
 
     protected abstract void OnDisable();
@@ -63,5 +68,10 @@ public abstract class Buff
         {
             Count = Count,
         };
+    }
+
+    public virtual bool CheckReplace(Buff buff)
+    {
+        return buff.Count >= 0 && buff.Count < Count;
     }
 }
