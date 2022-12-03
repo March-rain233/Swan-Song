@@ -8,25 +8,31 @@ using GameToolKit;
 
 public class SwingAttack : Card
 {
-    AreaHelper AreaHelper;
+    AreaHelper AreaHelper = new AreaHelper()
+    {
+        Center = new Vector2Int(0, 1),
+        Flags = new bool[2, 3]
+        {
+            {false, false, false},
+            {true, true, true },
+        }
+    };
     public override CardType Type => CardType.Attack;
 
     public SwingAttack()
     {
         Name = "挥击";
-        Description = "对前方横排三格敌人造成一次50%力量值的伤害";
+        Description = "对前方横排三格敌人造成一次<color=red>50%</color>力量值的伤害";
         Cost = 1;
     }
 
     protected internal override void Release(Unit user, Vector2Int target)
     {
-        Percent = 0.5f;
-        var list = GetAffecrTarget(user, target)
-            .Where(p => _map[p.x, p.y].Units.Count > 0)
-            .Select(p => _map[p.x, p.y].Units.First());
-        foreach(IHurtable u in list)
+        foreach(var u in GetAffecrTarget(user, target)
+            .Where(p=>EnemyFilter(p, user.Camp))
+            .Select(p => _map[p].Units.First<IHurtable>()))
         {
-            u.Hurt(user.UnitData.Attack * Percent, HurtType.AD | HurtType.FromUnit, user);
+            u.Hurt(user.UnitData.Attack * 0.5f, HurtType.FromUnit | HurtType.AD | HurtType.Melee, user);
         }
     }
 
@@ -38,22 +44,14 @@ public class SwingAttack : Card
         data.ViewTiles.Union(AreaHelper.GetPointList(user.Position, Direction.Down));
         data.ViewTiles.Union(AreaHelper.GetPointList(user.Position, Direction.Left));
         data.ViewTiles.Union(AreaHelper.GetPointList(user.Position, Direction.Right));
-        data.ViewTiles = data.ViewTiles.Where(p =>
-            0 <= p.x && p.x < _map.Width
-            && 0 <= p.y && p.y < _map.Height
-            && _map[p.x, p.y] != null);
+        data.ViewTiles = data.ViewTiles.Where(p =>UniversalFilter(p));
         data.AvaliableTile = data.ViewTiles;
         return data;
     }
 
     protected internal override IEnumerable<Vector2Int> GetAffecrTarget(Unit user, Vector2Int target)
     {
-        var dir = (target - user.Position).ToDirection();
-        return AreaHelper.GetPointList(user.Position, dir)
-            .Where(p =>
-            0 <= p.x && p.x < _map.Width
-            && 0 <= p.y && p.y < _map.Height
-            && _map[p.x, p.y] != null
-            && _map[p.x, p.y].Units.First().Camp != user.Camp);
+        return AreaHelper.GetPointList(user.Position, (target - user.Position).ToDirection())
+            .Where(p=>ExcludeFriendFilter(p, user.Camp));
     }
 }

@@ -13,7 +13,9 @@ public class DevilContract : Card
     public DevilContract()
     {
         Name = "恶魔契约";
-        Description = "五回合内受到伤害减少50%，造成的伤害增加20%，每回合额外回复1点体力，五回合后立刻死亡";
+        Description = "五回合内受到伤害减少<color=blue>50%</color>，" +
+            "造成的伤害增加<color=red>20%</color>，" +
+            "每回合额外回复<color=yellow>1</color>点体力，<color=purple>5</color>回合后立刻死亡";
         Cost = 4;
     }
 
@@ -35,6 +37,6 @@ public class DevilContract : Card
 
     protected internal override void Release(Unit user, Vector2Int target)
     {
-        user.AddBuff(new DaemonBride() { Count = 5 });
+        user.AddBuff(new DaemonBride() { Time = 5 });
     }
 }

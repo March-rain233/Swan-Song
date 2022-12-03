@@ -10,7 +10,8 @@ public class BuffView : MonoBehaviour,
     IPointerExitHandler
 {
     public Image ImgBuff;
-    public TextMeshProUGUI TxtBuffCount;
+    public TextMeshProUGUI TxtBuffTime;
+    public TextMeshProUGUI TxtBuffLevel;
     public TextMeshProUGUI TxtBuffName;
     public TextMeshProUGUI TxtBuffDescription;
     public GameObject Tip;
@@ -18,7 +19,8 @@ public class BuffView : MonoBehaviour,
     public void Binding(Buff.BuffData buffData)
     {
         ImgBuff.sprite = buffData.Sprite;
-        TxtBuffCount.text = buffData.Count > 0 ? $"{buffData.Count}" : null;
+        TxtBuffTime.text = buffData.Time > 0 ? $"{buffData.Time}" : null;
+        TxtBuffLevel.text = buffData.Level.ToString();
         TxtBuffDescription.text = buffData.Description;
         TxtBuffName.text = buffData.Name;
         Tip.SetActive(false);

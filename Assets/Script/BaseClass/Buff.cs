@@ -13,7 +13,8 @@ public abstract class Buff
         public string Name;
         public string Description;
         public UnityEngine.Sprite Sprite;
-        public int Count;
+        public int Time;
+        public int Level;
     }
 
     /// <summary>
@@ -21,10 +22,7 @@ public abstract class Buff
     /// </summary>
     public Unit Unit { get; private set; }
 
-    /// <summary>
-    /// 剩余计数
-    /// </summary>
-    public int Count;
+    public int Level = 1;
 
     /// <summary>
     /// 该效果是否生效
@@ -66,12 +64,13 @@ public abstract class Buff
     {
         return new BuffData()
         {
-            Count = Count,
+            Time = 0,
+            Level = Level,
         };
     }
 
     public virtual bool CheckReplace(Buff buff)
     {
-        return buff.Count >= 0 && buff.Count < Count;
+        return buff.Level > Level;
     }
 }

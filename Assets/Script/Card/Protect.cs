@@ -13,7 +13,7 @@ public class Protect : Card
     public Protect()//庇护
     {
         Name = "Protect";
-        Description = "Restore blood for characters in range";
+        Description = "创建法阵，使其中的角色每回合回复<color=green>（50+50%虔诚值）</color>点生命，两回合后消失";
         Cost = 2;
     }
 
@@ -28,65 +28,27 @@ public class Protect : Card
         }
     };
 
-    public AreaHelper HealArea = new AreaHelper()
-    {
-        Center = new Vector2Int(2, 2),
-        Flags = new bool[5, 5]
-        {
-            {true,true,true,true,true },
-            {true,true,true,true,true },
-            {true,true,true,true,true },
-            {true,true,true,true,true },
-            {true,true,true,true,true }
-        }
-    };
-
     protected internal override IEnumerable<Vector2Int> GetAffecrTarget(Unit user, Vector2Int target)
     {
-        var map = _map;
-        var list = AoeArea.GetPointList(target);
-        return list.Where(p =>
-            0 <= p.x && p.x < map.Width
-            && 0 <= p.y && p.y < map.Height
-            && map[p.x, p.y] != null
-            && map[p.x, p.y].Units.First().Camp == user.Camp);
+        return AoeArea.GetPointList(target)
+            .Where(p=>UniversalFilter(p));
     }
 
     protected internal override TargetData GetAvaliableTarget(Unit user)
     {
         TargetData targetData = new TargetData();
-        var position = user.Position;
-        var map = _map;
-        var list = HealArea.GetPointList(position);
-        targetData.ViewTiles = list.Where(p =>
-            0 <= p.x && p.x < map.Width
-            && 0 <= p.y && p.y < map.Height
-            && map[p.x, p.y] != null);
-        targetData.AvaliableTile = targetData.ViewTiles.Where(p => map[p.x, p.y].Units.Count > 0);
+        var list = _map.Select(p=>p.pos);
+        targetData.ViewTiles = list;
+        targetData.AvaliableTile = list;
         return targetData;
     }
 
     protected internal override void Release(Unit user, Vector2Int target)
     {
-        Percent = 0.5f;
-        int times = 2;
-        GameManager.Instance.GetState<BattleState>()
-            .TurnBeginning += (_) =>
-            {
-                times -= 1;
-                if (times >= 0)
-                {
-                    foreach (var point in GetAffecrTarget(user, target))
-                    {
-                        if (TileUtility.TryGetTile(point, out var tile))
-                        {
-                            if (tile.Units.Count > 0)
-                            {
-                                (tile.Units.First() as ICurable).Cure(user.UnitData.Heal * Percent + 50, user);
-                            }
-                        }
-                    }
-                }
-            };
+        foreach(var t in GetAffecrTarget(user, target)
+            .Select(p=>_map[p]))
+        {
+            t.AddStatus(new HealMatrixStatus() { Heal = 50 + user.UnitData.Heal * 0.5f, Count = 2 });
+        }
     }
 }

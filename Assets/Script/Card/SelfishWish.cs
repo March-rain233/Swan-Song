@@ -13,7 +13,7 @@ public class SelfishWish : Card
     public SelfishWish()
     {
         Name = "自私的祝福";
-        Description = "选定一个友方角色，在本局对战中，此角色每造成一次伤害，回复施法者20点生命";
+        Description = "选定一个友方角色，在本局对战中，此角色每造成一次伤害，回复施法者<color=green>20</color>点生命";
         Cost = 2;
     }
 
@@ -36,17 +36,7 @@ public class SelfishWish : Card
 
     protected internal override void Release(Unit user, Vector2Int target)
     {
-        int times = 1;
-        var tar = (_map[target.x, target.y].Units.First() as IHurtable);
-        GameManager.Instance.GetState<BattleState>()
-            .TurnBeginning += (_) =>
-            {
-                times -= 1;
-                if (times == 0 && (tar as Unit).ActionStatus == ActionStatus.Running)
-                {
-                    (_map[target.x, target.y].Units.First() as ICurable)
-                    .Cure(20, user);
-                }
-            };
+        _map[target].Units.First()
+            .AddBuff(new SoulLink() { User = user });
     }
 }

@@ -10,16 +10,14 @@ using UnityEngine;
 /// </summary>
 public class Goblinis : Unit
 {
-    public Goblinis(Vector2Int pos) : base(new UnitData()
+    public Goblinis(Vector2Int pos) : base(new UnitModel()
     {
-        Name = "Goblinis",//哥林布力士
-        BloodMax = 100,//最大血量
+        DefaultName = "哥林布力士",//哥林布力士
         Blood = 100,//初始血量为最大血量
         Attack = 20,//攻击力
         Defence = 4,//防御力
         Speed = 4,//先攻权重
-    }
-, pos)
+    }, pos)
     {
     }
 

@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class Boss : Unit
 {
-    public Boss(Vector2Int pos) : base(new UnitData()
+    public Boss(Vector2Int pos) : base(new UnitModel()
     {
-        Name = "BOSS 1号",
-        BloodMax = 120,//最大血量
-        Blood = 120,//初始血量为最大血量
-        Deck = new(),//持有的牌库
+        DefaultName = "BOSS 1号",
+        Blood = 120,
     }, pos)
     {
     }

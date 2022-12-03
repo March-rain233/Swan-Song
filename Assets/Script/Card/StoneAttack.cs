@@ -10,23 +10,10 @@ public class StoneAttack : Card
 {
     public override CardType Type => CardType.Attack;
 
-    public AreaHelper AttackArea = new AreaHelper()
-    {
-        Center = new Vector2Int(2, 2),
-        Flags = new bool[5, 5]
-        {
-            {true,true,true,true,true },
-            {true,true,true,true,true },
-            {true,true,true,true,true },
-            {true,true,true,true,true },
-            {true,true,true,true,true }
-        }
-    };
-
     public StoneAttack()//投石
     {
-        Name="StoneAttack";
-        Description="Deal 40% damage to selected enemies";
+        Name="投石";
+        Description= "对选中单位造成<color=red>40%</color>力量值的伤害";
         Cost=1;
     }
 
@@ -40,22 +27,17 @@ public class StoneAttack : Card
     protected internal override TargetData GetAvaliableTarget(Unit user)
     {
         TargetData targetData = new TargetData();
-        var position = user.Position;
-        var map = _map;
-        var list = AttackArea.GetPointList(position);
-        targetData.ViewTiles = list.Where(p =>
-            0 <= p.x && p.x < map.Width
-            && 0 <= p.y && p.y < map.Height
-            && map[p.x, p.y] != null
-            && map[p.x, p.y].Units.First().Camp != user.Camp);
-        targetData.AvaliableTile = targetData.ViewTiles.Where(p => map[p.x, p.y].Units.Count > 0);
+        var list = GameManager.Instance.GetState<BattleState>().UnitList
+            .Where(u=>u.Camp != user.Camp && u.ActionStatus != ActionStatus.Dead)
+            .Select(u=>u.Position);
+        targetData.ViewTiles = list;
+        targetData.AvaliableTile = list;
         return targetData;
     }
 
     protected internal override void Release(Unit user, Vector2Int target)
     {
-        Percent = 0.4f;
         (_map[target.x, target.y].Units.First() as IHurtable)
-            .Hurt(user.UnitData.Attack*Percent, HurtType.FromUnit, user);
+            .Hurt(user.UnitData.Attack * 0.4f, HurtType.FromUnit | HurtType.AD | HurtType.Ranged, user);
     }
 }

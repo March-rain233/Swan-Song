@@ -13,7 +13,7 @@ public class Dedicate : Card
     public Dedicate()
     {
         Name = "奉献";
-        Description = "自己扣除10%最大生命值，让指定目标恢复他的20%最大生命值";
+        Description = "对自身造成等于<color=red>10%</color>最大生命值的魔法伤害，恢复选中目标<color=green>20%</color>最大生命值的血量";
         Cost = 1;
     }
 
@@ -36,9 +36,8 @@ public class Dedicate : Card
 
     protected internal override void Release(Unit user, Vector2Int target)
     {
-        user.UnitData.Blood = user.UnitData.Blood - user.UnitData.BloodMax/10;
-        Percent = 0.2f;
-        (_map[target.x, target.y].Units.First() as ICurable)
-            .Cure(user.UnitData.Heal * Percent , user);
+        (user as IHurtable).Hurt(user.UnitData.BloodMax * 0.1f, HurtType.FromUnit | HurtType.AP, user);
+        (_map[target].Units.First() as ICurable)
+            .Cure(user.UnitData.BloodMax * 0.2f , user);
     }
 }

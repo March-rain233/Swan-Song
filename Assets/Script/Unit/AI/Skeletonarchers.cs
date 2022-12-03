@@ -12,16 +12,14 @@ using UnityEngine;
 /// </summary>
 public class Skeletonarchers : Unit
 { 
-    public Skeletonarchers(Vector2Int pos) : base(new UnitData()
+    public Skeletonarchers(Vector2Int pos) : base(new UnitModel()
     {
-        Name = "Skeletonarchers",//÷¼÷Ã¹­ÊÖ
-        BloodMax = 100,
+        DefaultName = "÷¼÷Ã¹­ÊÖ",//÷¼÷Ã¹­ÊÖ
         Blood = 100,
         Attack = 20,
         Defence = 4,
         Speed = 4,
-    }
-, pos)
+    }, pos)
     {
 
     }

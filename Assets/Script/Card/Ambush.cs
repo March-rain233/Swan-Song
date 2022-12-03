@@ -9,7 +9,7 @@ using GameToolKit;
 public class Ambush : Card
 {
     public override CardType Type => CardType.Other;
-    public Card Card;
+    public Card CardPointer;
 
     public Ambush()
     {
@@ -27,16 +27,14 @@ public class Ambush : Card
     protected internal override TargetData GetAvaliableTarget(Unit user)
     {
         var targetData = new TargetData();
-        targetData.AvaliableTile = GameManager.Instance.GetState<BattleState>().UnitList
-            .Where(u => u.Camp == user.Camp && u.ActionStatus != ActionStatus.Dead && u.Position == user.Position)
-            .Select(u => u.Position);
+        targetData.AvaliableTile = new List<Vector2Int>() { user.Position };
         targetData.ViewTiles = targetData.AvaliableTile;
         return targetData;
     }
 
     protected internal override void Release(Unit user, Vector2Int target)
     {
-        Card card = Card;
-        user.Scheduler.AddToHand(card);
+        user.Scheduler.AddToHand(CardPointer.Clone());
+        user.Scheduler.AddToHand(CardPointer.Clone());
     }
 }

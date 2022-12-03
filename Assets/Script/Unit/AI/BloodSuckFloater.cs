@@ -11,16 +11,15 @@ using UnityEngine;
 /// </summary>
 public class BloodSuckFloater :Unit
 {
-    public BloodSuckFloater(Vector2Int pos) : base(new UnitData()
-    {
-        Name = "BloodSuckFloater",//史莱姆
-        BloodMax = 80,//最大血量
-        Blood = 80,//初始血量为最大血量
-        Attack = 10,//攻击力
-        Defence = 4,//防御力
-        Speed = 2,//先攻权重
-    }
-   , pos)
+    public BloodSuckFloater(Vector2Int pos) : base(new UnitData(
+        new UnitModel()
+        {
+            DefaultName = "吸血飞蚊",
+            Blood = 80,
+            Attack = 10,
+            Defence = 4,
+            Speed = 2
+        }), pos)
     {
     }
     /// <summary>

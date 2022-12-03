@@ -11,8 +11,8 @@ public class Rest : Card
 
     public Rest()//休息
     {
-        Name="Rest";
-        Description="Heal 1 Physical values";
+        Name="休息";
+        Description= "回复一点行动点";
         Cost=0;
     }
 
@@ -25,9 +25,7 @@ public class Rest : Card
     protected internal override TargetData GetAvaliableTarget(Unit user)
     {
         var targetData = new TargetData();
-        targetData.AvaliableTile = GameManager.Instance.GetState<BattleState>().UnitList
-            .Where(u => u.Camp == user.Camp && u.ActionStatus != ActionStatus.Dead && u.Position == user.Position)
-            .Select(u => u.Position);
+        targetData.AvaliableTile = new List<Vector2Int>() { user.Position };
         targetData.ViewTiles = targetData.AvaliableTile;
         return targetData;
     }

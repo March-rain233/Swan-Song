@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class BaseMonster : Unit
 {
-    public BaseMonster(Vector2Int pos) : base(new UnitData()
-    {
-        Name = "Ð¡±ø1ºÅ",
-        BloodMax = 30,
-        Blood = 30,
-        Deck = new(),
-    }, pos)
+    public BaseMonster(Vector2Int pos) : base(new UnitData(
+        new UnitModel()
+        {
+            DefaultName = "Ð¡±ø1ºÅ",
+            Blood = 30,
+        }), pos)
     {
     }
 

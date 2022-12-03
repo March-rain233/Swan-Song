@@ -10,23 +10,11 @@ public class FightKill : Card
 {
     public override CardType Type => CardType.Attack;
 
-    public AreaHelper AttackArea = new AreaHelper()
-    {
-        Center = new Vector2Int(2, 2),
-        Flags = new bool[5, 5]
-        {
-            {true,true,true,true,true },
-            {true,true,true,true,true },
-            {true,true,true,true,true },
-            {true,true,true,true,true },
-            {true,true,true,true,true }
-        }
-    };
-
     public FightKill()//搏杀
     {
-        Name = "Fight Kill";
-        Description = "Deal a huge attack to the enemy while it bite itself";
+        Name = "搏杀";
+        Description = "移动至目标身前一格，对其造成<color=red>200%</color>力量值的伤害，" +
+            "并立刻受到目标<color=red>50%</color>力量值的伤害";
         Cost = 2;
     }
 
@@ -40,28 +28,22 @@ public class FightKill : Card
     protected internal override TargetData GetAvaliableTarget(Unit user)
     {
         TargetData targetData = new TargetData();
-        var position = user.Position;
-        var map = _map;
-        var list = AttackArea.GetPointList(position);
-        targetData.ViewTiles = list.Where(p =>
-            0 <= p.x && p.x < map.Width
-            && 0 <= p.y && p.y < map.Height
-            && map[p.x, p.y] != null
-            && map[p.x, p.y].Units.First().Camp != user.Camp);
-        targetData.AvaliableTile = targetData.ViewTiles;
+        var list = GameManager.Instance.GetState<BattleState>()
+            .UnitList.Where(u=>u.Camp != user.Camp)
+            .Select(u=>u.Position)
+            .Where(p=>CheckPlaceable((user.Position - p).ToDirection().ToVector2Int() + p, user));
+        targetData.ViewTiles = list;
+        targetData.AvaliableTile = list;
         return targetData;
     }
 
     protected internal override void Release(Unit user, Vector2Int target)
     {
-        var tar = (_map[target.x, target.y].Units.First() as IHurtable);
-        var tp = (tar as Unit).Position;
+        var tar = _map[target].Units.First();
+        var tp = tar.Position;
         Vector2Int dir = (user.Position - tp).ToDirection().ToVector2Int();
-        user.Position = (tar as Unit).Position + dir;
-        (_map[target.x, target.y].Units.First() as IHurtable)
-            .Hurt(user.UnitData.Attack * 2, HurtType.FromUnit, user);
-        float SelfAttack = user.UnitData.Attack * 0.5f;
-        int Int_SelfAttack = (int)SelfAttack;
-        user.UnitData.Blood = user.UnitData.Blood - Int_SelfAttack;
+        user.Position = tar.Position + dir;
+        (tar as IHurtable).Hurt(user.UnitData.Attack * 2, HurtType.FromUnit | HurtType.AD | HurtType.Melee, user);
+        (user as IHurtable).Hurt(tar.UnitData.Attack * 0.5f, HurtType.FromUnit | HurtType.AD | HurtType.Melee, tar);
     }
 }

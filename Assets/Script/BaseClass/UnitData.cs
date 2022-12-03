@@ -71,7 +71,7 @@ public class UnitData
         get => _blood;
         set
         {
-            _blood = value;
+            _blood = Mathf.Clamp(value, 0, BloodMax);
             DataChanged?.Invoke(this);
         }
     }
@@ -92,7 +92,11 @@ public class UnitData
     /// <summary>
     /// 单位等级
     /// </summary>
-    public int Level = 1;
+    public int Level
+    {
+        get;
+        private set;
+    } = 1;
 
     /// <summary>
     /// 先手
@@ -159,6 +163,7 @@ public class UnitData
 
     public void SetLevel(int level)
     {
+        level = Mathf.Clamp(level, 1, GameManager.MaxLevel);
         //todo：升级公式
         Func<AnimationCurve, float, int> getDiff = (curve, baseValue) =>
          {

@@ -11,16 +11,14 @@ using UnityEngine;
 /// </summary>
 public class Skeletalmage : Unit
 {
-    public Skeletalmage(Vector2Int pos) : base(new UnitData()
+    public Skeletalmage(Vector2Int pos) : base(new UnitModel()
     {
-        Name = "Skeletalmage",//骷髅法师
-        BloodMax = 100,
+        DefaultName = "骷髅法师",//骷髅法师
         Blood = 100,
         Attack = 20,
         Defence = 4,
         Speed = 4,
-    }
-, pos)
+    }, pos)
     {
     }
     /// <summary>

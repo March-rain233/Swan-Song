@@ -96,10 +96,7 @@ public class FireStatus :RoundStatus
 
     protected internal override void StatusProcessOnEnter(IEnumerable<Unit> units)
     {
-        foreach (var unit in units)
-        {
-            unit.AddBuff(new Burn() { Count = 2 });
-        }
+
     }
 
     protected internal override void StatusProcessOnExit(IEnumerable<Unit> units)
@@ -111,7 +108,7 @@ public class FireStatus :RoundStatus
     {
         foreach (var unit in units)
         {
-            unit.AddBuff(new Burn() { Count = 2 });
+            unit.AddBuff(new Burn() { Time = 2 });
         }
     }
 }
@@ -130,10 +127,7 @@ public class PoisonStatus : RoundStatus
 
     protected internal override void StatusProcessOnEnter(IEnumerable<Unit> units)
     {
-        foreach (var unit in units)
-        {
-            unit.AddBuff(new Poison() { Count = 2 });
-        }
+
     }
 
     protected internal override void StatusProcessOnExit(IEnumerable<Unit> units)
@@ -146,7 +140,66 @@ public class PoisonStatus : RoundStatus
         base.StatusProcessOnUpdata(units);
         foreach (var unit in units)
         {
-            unit.AddBuff(new Poison() { Count = 2 });
+            unit.AddBuff(new Poison() { Time = 2 });
         }
+    }
+}
+
+public class CaltropStatus : RoundStatus
+{
+    public float Damage;
+    protected override void OnDisable()
+    {
+
+    }
+
+    protected override void OnEnable()
+    {
+
+    }
+
+    protected internal override void StatusProcessOnEnter(IEnumerable<Unit> units)
+    {
+        foreach(IHurtable unit in units)
+        {
+            unit.Hurt(Damage, HurtType.FromTile | HurtType.AD, this);
+        }
+    }
+
+    protected internal override void StatusProcessOnExit(IEnumerable<Unit> units)
+    {
+
+    }
+}
+
+public class HealMatrixStatus : RoundStatus
+{
+    public float Heal;
+    protected internal override void StatusProcessOnUpdata(IEnumerable<Unit> units)
+    {
+        base.StatusProcessOnUpdata(units);
+        foreach(ICurable unit in units)
+        {
+            unit.Cure(Heal, this);
+        }
+    }
+    protected override void OnDisable()
+    {
+
+    }
+
+    protected override void OnEnable()
+    {
+
+    }
+
+    protected internal override void StatusProcessOnEnter(IEnumerable<Unit> units)
+    {
+
+    }
+
+    protected internal override void StatusProcessOnExit(IEnumerable<Unit> units)
+    {
+
     }
 }

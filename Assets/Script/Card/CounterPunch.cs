@@ -8,27 +8,17 @@ using GameToolKit;
 
 public class CounterPunch : Card
 {
-    public override CardType Type => CardType.Attack;
+    public override CardType Type => CardType.Other;
 
     public CounterPunch()//反击重拳
     {
-        Name = "Counter Punch";
-        Description = "Deal counter damage to enemy";
+        Name = "反击重拳";
+        Description = "下次遭遇敌人的近身攻击时，对其造成<color=red>100%</color>力量值的伤害";
         Cost = 1;
     }
     protected internal override void Release(Unit user, Vector2Int target)
     {
-        Action<float, HurtType, object> callback = null;
-        callback = (float arg1, HurtType arg2, object arg3) =>
-        {
-            if (arg2.HasFlag(HurtType.Melee | HurtType.FromUnit))
-            {
-                var tar = arg3 as IHurtable;
-                tar.Hurt(user.UnitData.Attack, HurtType.FromUnit | HurtType.AD | HurtType.Melee, user);
-                user.Hurt -= callback;
-            }
-        };
-        user.Hurt += callback;
+        user.AddBuff(new Endure());
     }
 
     protected internal override TargetData GetAvaliableTarget(Unit user)

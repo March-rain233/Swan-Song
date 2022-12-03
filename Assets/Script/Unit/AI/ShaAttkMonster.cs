@@ -20,16 +20,14 @@ public class ShaAttkMonster : Unit
         get;
         private set;
     }
-    public ShaAttkMonster(Vector2Int pos) : base(new UnitData()
+    public ShaAttkMonster(Vector2Int pos) : base(new UnitModel()
     {
-        Name = "ShaAttkMonster",//史莱姆
-        BloodMax = 80,//最大血量
+        DefaultName = "影袭怪",//史莱姆
         Blood = 80,//初始血量为最大血量
         Attack = 10,//攻击力
         Defence = 4,//防御力
         Speed = 2,//先攻权重
-    }
-, pos)
+    }, pos)
     {
     }
 

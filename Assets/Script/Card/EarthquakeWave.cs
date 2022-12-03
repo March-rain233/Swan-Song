@@ -8,27 +8,14 @@ using GameToolKit;
 
 public class Earthquake : Card
 {
-    public override CardType Type => CardType.Attack;
+    public override CardType Type => CardType.Other;
 
     public Earthquake()
     {
         Name = "地震波";
-        Description = "选定一个3x3的方格，使其中的敌人晕眩一回合，对BOSS无效";
+        Description = "令范围内敌人晕眩一回合（对BOSS无效）";
         Cost = 2;
     }
-
-    public AreaHelper AttackArea = new AreaHelper()
-    {
-        Center = new Vector2Int(2, 2),
-        Flags = new bool[5, 5]
-        {
-            {true,true,true,true,true },
-            {true,true,true,true,true },
-            {true,true,true,true,true },
-            {true,true,true,true,true },
-            {true,true,true,true,true }
-        }
-    };
 
     public AreaHelper AoeArea = new AreaHelper()
     {
@@ -45,46 +32,26 @@ public class Earthquake : Card
     {
         var map = _map;
         var list = AoeArea.GetPointList(target);
-        return list.Where(p =>
-            0 <= p.x && p.x < map.Width
-            && 0 <= p.y && p.y < map.Height
-            && map[p.x, p.y] != null
-            && map[p.x, p.y].Units.First().Camp != user.Camp);
+        return list.Where(p => ExcludeFriendFilter(p, user.Camp));
     }
 
     protected internal override TargetData GetAvaliableTarget(Unit user)
     {
         TargetData targetData = new TargetData();
-        var position = user.Position;
-        var map = _map;
-        var list = AttackArea.GetPointList(position);
-        targetData.ViewTiles = list.Where(p =>
-            0 <= p.x && p.x < map.Width
-            && 0 <= p.y && p.y < map.Height
-            && map[p.x, p.y] != null);
-        targetData.AvaliableTile = targetData.ViewTiles;
+        var list = _map.Select(p=>p.pos);
+        targetData.ViewTiles = list;
+        targetData.AvaliableTile = list;
         return targetData;
     }
 
     protected internal override void Release(Unit user, Vector2Int target)
     {
-        int times = 1;
-        GameManager.Instance.GetState<BattleState>()
-            .TurnBeginning += (_) =>
-            {
-                times -= 1;
-                foreach (var point in GetAffecrTarget(user, target))
-                {
-                    if (TileUtility.TryGetTile(point, out var tile))
-                    {
-                        if (tile.Units.Count > 0 && times == 0)
-                        {
-                            (tile.Units.First() as IHurtable).Hurt(user.UnitData.Attack * Percent, HurtType.FromUnit, user);
-                            var tar = (tile.Units.First() as IHurtable);
-                            (tar as Unit).AddBuff(new Stun() { Count = 1 });
-                        }
-                    }
-                }
-            };
+        foreach(var u in GetAffecrTarget(user, target)
+            .Where(p=>EnemyFilter(p, user.Camp))
+            .Select(p=>_map[p].Units.First())
+            .Where(u=>u is not Boss))
+        {
+            u.AddBuff(new Stun() { Time = 1 });
+        }
     }
 }

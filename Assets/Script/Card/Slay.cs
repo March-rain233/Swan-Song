@@ -15,7 +15,7 @@ public class Slay : Card
     {
         Name = "斩杀";
         Cost = 3;
-        Description = "对身前一格的敌人造成200%力量值的伤害，若敌人血量低于40%，直接将其消灭，消灭效果对boss无效";
+        Description = "对身前一格的敌人造成<color=red>200%</color>力量值的伤害，若敌人血量低于40%，直接将其消灭，消灭效果对boss无效";
     }
 
     protected internal override IEnumerable<Vector2Int> GetAffecrTarget(Unit user, Vector2Int target)
@@ -33,29 +33,23 @@ public class Slay : Card
         data.ViewTiles.Union(AreaHelper.GetPointList(user.Position, Direction.Down));
         data.ViewTiles.Union(AreaHelper.GetPointList(user.Position, Direction.Left));
         data.ViewTiles.Union(AreaHelper.GetPointList(user.Position, Direction.Right));
-        data.ViewTiles = data.ViewTiles.Where(p =>
-            0 <= p.x && p.x < _map.Width
-            && 0 <= p.y && p.y < _map.Height
-            && _map[p.x, p.y] != null
-            && _map[p.x, p.y].Units.First().Camp != user.Camp);
-        data.AvaliableTile = data.ViewTiles;
+        data.ViewTiles = data.ViewTiles.Where(p=>UniversalFilter(p));
+        data.AvaliableTile = data.ViewTiles.Where(p=>EnemyFilter(p, user.Camp));
         return data;
     }
 
     protected internal override void Release(Unit user, Vector2Int target)
     {
-        Percent = 2;
         var tar = (_map[target.x, target.y].Units.First() as IHurtable);
         var tb = (tar as Unit).UnitData.Blood;
         var tbmax = (tar as Unit).UnitData.BloodMax;
         if(tb < tbmax * 0.4 && tar is not Boss)
         {
-            (tar as IHurtable).Hurt(0, HurtType.Death | HurtType.FromUnit, user);
+            tar.Hurt(0, HurtType.Death | HurtType.FromUnit | HurtType.AD | HurtType.Melee, user);
         }
         else
         {
-            (_map[target.x, target.y].Units.First() as IHurtable)
-            .Hurt(user.UnitData.Attack * Percent, HurtType.FromUnit, user);
+            tar.Hurt(user.UnitData.Attack * 2, HurtType.FromUnit, user);
         }
 
     }

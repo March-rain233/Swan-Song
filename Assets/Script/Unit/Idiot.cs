@@ -12,11 +12,10 @@ using UnityEngine;
 /// </remarks>
 public class Idiot : Unit
 {
-    public Idiot(Vector2Int pos) : base(new UnitData(
-        new UnitModel()
-        {
-            Blood = int.MaxValue,
-        }), pos)
+    public Idiot(Vector2Int pos) : base(new UnitModel()
+    {
+        Blood = int.MaxValue,
+    }, pos)
     {
     }
 

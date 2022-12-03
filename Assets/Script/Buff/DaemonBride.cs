@@ -51,7 +51,7 @@ internal class DaemonBride : RoundBuff
         res.Name = "恶魔契约";
         res.Description = $"陌生的力量充满了身体……\n" +
             $"受到伤害减少{DefennceRate * 100}%，造成的伤害增加{AttackRate * 100}%，" +
-            $"每回合额外回复{ApAdd}点体力，{Count}回合后死亡";
+            $"每回合额外回复{ApAdd}点体力，{Time}回合后死亡";
         return res;
     }
 }

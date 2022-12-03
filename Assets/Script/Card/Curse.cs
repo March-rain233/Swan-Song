@@ -8,12 +8,12 @@ using GameToolKit;
 
 public class Curse : Card
 {
-    public override CardType Type => CardType.Attack;
+    public override CardType Type => CardType.Other;
 
     public Curse()
     {
         Name = "诅咒";
-        Description = "选定一个目标，如果两回合内被选定的目标死亡，抽一张卡牌";
+        Description = "选定一个目标，如果<color=purple>两回合</color>内被选定的目标死亡，抽一张卡牌";
         Cost = 0;
     }
 
@@ -43,26 +43,14 @@ public class Curse : Card
         var position = user.Position;
         var map = _map;
         var list = AttackArea.GetPointList(position);
-        targetData.ViewTiles = list.Where(p =>
-            0 <= p.x && p.x < map.Width
-            && 0 <= p.y && p.y < map.Height
-            && map[p.x, p.y] != null);
-        targetData.AvaliableTile = targetData.ViewTiles.Where(p => map[p.x, p.y].Units.Count > 0);
+        targetData.ViewTiles = list.Where(p=>UniversalFilter(p));
+        targetData.AvaliableTile = list.Where(p=>UniversalFilter(p, true));
         return targetData;
     }
 
     protected internal override void Release(Unit user, Vector2Int target)
     {
-        int times = 2;
-        var tar = (_map[target.x, target.y].Units.First() as IHurtable);
-        GameManager.Instance.GetState<BattleState>()
-            .TurnBeginning += (_) =>
-            {
-                times -= 1;
-                if (times >= 0 && (tar as Unit).ActionStatus == ActionStatus.Dead )
-                {
-                    user.Scheduler.DrawCard();
-                }
-            };
+        _map[target].Units.First()
+            .AddBuff(new CurseBuff() { User = user});
     }
 }

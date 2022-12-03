@@ -9,6 +9,10 @@ using System.Threading.Tasks;
 /// </summary>
 public abstract class RoundBuff : Buff
 {
+    /// <summary>
+    /// 剩余计数
+    /// </summary>
+    public int Time = -1;
     protected override void OnEnable()
     {
         Unit.TurnBeginning += Unit_TurnBeginning;
@@ -16,11 +20,11 @@ public abstract class RoundBuff : Buff
 
     private void Unit_TurnBeginning()
     {
-        if(Count > 0)
+        if(Time > 0)
         {
-            Count -= 1;
+            Time -= 1;
         }
-        else if(Count == 0)
+        else if(Time == 0)
         {
             Unit.RemoveBuff(this);
         }
@@ -29,5 +33,18 @@ public abstract class RoundBuff : Buff
     protected override void OnDisable()
     {
         Unit.TurnBeginning -= Unit_TurnBeginning;
+    }
+
+    public override bool CheckReplace(Buff buff)
+    {
+        return base.CheckReplace(buff) 
+            || (buff.Level == Level && buff is RoundBuff && (buff as RoundBuff).Time > Time);
+    }
+
+    public override BuffData GetBuffData()
+    {
+        var data = base.GetBuffData();
+        data.Time = Time;
+        return data;
     }
 }

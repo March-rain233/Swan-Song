@@ -11,18 +11,15 @@ using UnityEngine;
 public class Goblingunner : Unit
 {
    
-    public Goblingunner(Vector2Int pos) : base(new UnitData()
+    public Goblingunner(Vector2Int pos) : base(new UnitModel()
     {
-        Name = "Goblingunner",//哥林布枪手
-        BloodMax = 100,//最大血量
+        DefaultName = "哥林布枪手",//哥林布枪手
         Blood = 100,//初始血量为最大血量
         Attack = 20,//攻击力
         Defence = 4,//防御力
         Speed = 4,//先攻权重
-        ActionPointMax = 15,
         ActionPoint = 15,//移动和技能的使用会消耗技能点
-    }
-, pos)
+    }, pos)
     {
     }
 

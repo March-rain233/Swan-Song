@@ -12,8 +12,8 @@ public class LowerHealingPotion : Card
 
     public LowerHealingPotion()//低级治疗药水
     {
-        Name="LowerHealingPotion";
-        Description="Heal 50 blood";
+        Name= "低级治疗药水";
+        Description="恢复<color=green>50</color>血量";
         Cost=0;
     }
     protected internal override IEnumerable<Vector2Int> GetAffecrTarget(Unit user, Vector2Int target)
@@ -36,7 +36,7 @@ public class LowerHealingPotion : Card
     protected internal override void Release(Unit user, Vector2Int target)
     {
         (_map[target.x, target.y].Units.First() as ICurable)
-            .Cure(50,user);
+            .Cure(50, user);
     }
 
 }

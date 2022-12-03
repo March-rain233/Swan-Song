@@ -11,19 +11,15 @@ public class elite : Unit
         get;
         set;
     } = new();
-    public elite(Vector2Int pos) : base(new UnitData()
+    public elite(Vector2Int pos) : base(new UnitModel()
     {
-        Name = "精英1号",
-        BloodMax = 80,//最大血量
+        DefaultName = "精英1号",
         Blood = 80,//初始血量为最大血量
         Attack = 10,//攻击力
         Defence = 4,//防御力
         Speed = 3,//先攻权重
-        ActionPointMax = 20,
         ActionPoint = 20,//角色的移动和技能的使用会消耗技能点
-        Deck = new(),//持有的牌库
-    }
-, pos)
+    }, pos)
     {
         Console.WriteLine("精英被创建，加入战场。");
     }

@@ -7,6 +7,8 @@ using Sirenix.Serialization;
 public class CardPoolManager : GameToolKit.ScriptableSingleton<CardPoolManager>
 {
     [OdinSerialize]
+    private List<Card> _pool;
+    [OdinSerialize]
     private Dictionary<string, List<Card>> _poolDic = new();
 
     /// <summary>

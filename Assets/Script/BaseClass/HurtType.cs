@@ -12,29 +12,37 @@ public enum HurtType
     /// <summary>
     /// 来自单位的伤害
     /// </summary>
-    FromUnit,
+    FromUnit = 1,
     /// <summary>
     /// 来自Buff的伤害
     /// </summary>
-    FromBuff,
+    FromBuff = 1 << 1,
+    /// <summary>
+    /// 来自图块的伤害
+    /// </summary>
+    FromTile = 1 << 2,
     /// <summary>
     /// 近身伤害
     /// </summary>
-    Melee,
+    Melee = 1 << 3,
     /// <summary>
     /// 远程伤害
     /// </summary>
-    Ranged,
+    Ranged = 1 << 4,
     /// <summary>
     /// 物理伤害
     /// </summary>
-    AD,
+    AD = 1 << 5,
     /// <summary>
     /// 魔法伤害
     /// </summary>
-    AP,
+    AP = 1 << 6,
     /// <summary>
     /// 即死
     /// </summary>
-    Death,
+    Death = 1 << 7,
+    /// <summary>
+    /// 穿甲
+    /// </summary>
+    APDS = 1 << 8,
 }

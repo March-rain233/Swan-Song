@@ -130,6 +130,8 @@ public abstract class Unit : IHurtable, ICurable
         UnitData.ActionPoint = UnitData.ActionPointMax;
     }
 
+    protected Unit(UnitModel model, Vector2Int pos) : this(new UnitData(model), pos) { }
+
     /// <summary>
     /// 回合开始初始化
     /// </summary>
@@ -285,23 +287,26 @@ public abstract class Unit : IHurtable, ICurable
         HurtCalculateEvent @event = new HurtCalculateEvent()
         {
             OriDamage = damage,
-            DamageAdd = -UnitData.Defence,
+            DamageAdd = 0,
             Rate = 1,
             Source = source,
             Target = this,
             Type = type,
         };
+        if (!type.HasFlag(HurtType.APDS))
+        {
+            @event.DamageAdd = -UnitData.Defence;
+        }
         HurtCalculating?.Invoke(@event);
         ServiceFactory.Instance.GetService<EventManager>()
             .Broadcast(@event);
         damage = Math.Max(0, @event.FinalDamage);
-        damage = Math.Min(UnitData.Blood, damage);
         return damage;
     }
 
     void IHurtable.OnHurt(float damage, HurtType type, object source)
     {
-        UnitData.Blood -= (int)damage;
+        UnitData.Blood -= Mathf.FloorToInt(damage);
         Hurt?.Invoke(damage, type, source);
         if(UnitData.Blood <= 0)
         {
@@ -310,7 +315,7 @@ public abstract class Unit : IHurtable, ICurable
                 ActionStatus = ActionStatus.Dead;
                 EndTurn();
             }
-            else
+            else if(ActionStatus != ActionStatus.Dead)
             {
                 ActionStatus = ActionStatus.Dead;
             }
@@ -324,6 +329,6 @@ public abstract class Unit : IHurtable, ICurable
 
     void ICurable.OnCure(float power)
     {
-        UnitData.Blood = Mathf.Max(UnitData.BloodMax, UnitData.Blood + (int)power);
+        UnitData.Blood += Mathf.FloorToInt(power);
     }
 }

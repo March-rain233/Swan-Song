@@ -10,16 +10,14 @@ using UnityEngine;
 /// </summary>
 public class Slime : Unit
 {
-    public Slime(Vector2Int pos) : base(new UnitData()
+    public Slime(Vector2Int pos) : base(new UnitModel()
     {
-        Name = "Slime",//史莱姆
-        BloodMax = 80,//最大血量
+        DefaultName = "史莱姆",//史莱姆
         Blood = 80,//初始血量为最大血量
         Attack = 10,//攻击力
         Defence = 4,//防御力
         Speed = 2,//先攻权重
-    }
-, pos)
+    }, pos)
     {
     }
 

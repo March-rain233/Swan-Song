@@ -5,6 +5,7 @@ using System.Text;
 using GameToolKit;
 public class GameManager : IService
 {
+    public const int MaxLevel = 5;
     public static GameManager Instance => ServiceFactory.Instance.GetService<GameManager>();
     private GameState _gameStatus;
 
