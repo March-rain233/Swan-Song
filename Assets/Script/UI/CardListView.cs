@@ -10,17 +10,18 @@ public class CardListView : MonoBehaviour
 {
     public LayoutGroup LayoutGroup;
     public event Action<CardView> InittingCardView;
-    public virtual void ShowCardList(IEnumerable<Card> cards)
+    public virtual void ShowCardList(IEnumerable<(Card card, UnitData unit)> cards)
     {
         for(int i = LayoutGroup.transform.childCount - 1; i >= 0; i--)
         {
             Destroy(LayoutGroup.transform.GetChild(i).gameObject);
         }
         var model = UISetting.Instance.PrefabsDic["CardView"];
-        foreach (Card card in cards)
+        foreach (var card in cards)
         {
             var cardView = Instantiate(model, LayoutGroup.transform).GetComponent<CardView>();
-            cardView.Card = card;
+            cardView.Card = card.card;
+            cardView.UnitData = card.unit;
             InitCardView(cardView);
             cardView.Refresh();
         }

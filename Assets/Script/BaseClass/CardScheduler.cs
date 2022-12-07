@@ -77,7 +77,7 @@ public class CardScheduler
     {
         var card = Hands[index];
         Hands[index].Release(Unit, target);
-        Unit.UnitData.ActionPoint -= card.Cost;
+        Unit.UnitData.ActionPoint -= card.Cost == -1 ? Unit.UnitData.ActionPoint : card.Cost;
         DiscardPile.Add(card);
         Hands.RemoveAt(index);
         HandsRemoved?.Invoke(card);

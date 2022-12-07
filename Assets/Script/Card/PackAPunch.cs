@@ -23,62 +23,36 @@ public class PackAPunch : Card
         }
     };
 
-    public AreaHelper AttackArea = new AreaHelper()
-    {
-        Center = new Vector2Int(2, 2),
-        Flags = new bool[5, 5]
-        {
-            {true,true,true,true,true },
-            {true,true,true,true,true },
-            {true,true,true,true,true },
-            {true,true,true,true,true },
-            {true,true,true,true,true }
-        }
-    };
-
     public PackAPunch (Unit user)//蓄力猛击
     {
-        Name = "Pack a Punch";
-        Description = "Expend all actionpoint to deal damage to surrounding enemies";
-        Cost = user.UnitData.ActionPoint;
+        Name = "蓄力猛击";
+        Description = "对范围内敌人造成<color=red>10%</color>力量值的伤害，每消耗1体力，提升<color=red>40%</color>力量值的伤害";
+        Cost = -1;
     }
 
     protected internal override IEnumerable<Vector2Int> GetAffecrTarget(Unit user, Vector2Int target)
     {
-        var map = _map;
-        var list = AoeArea.GetPointList(target);
-        return list.Where(p =>
-            0 <= p.x && p.x < map.Width
-            && 0 <= p.y && p.y < map.Height
-            && map[p.x, p.y] != null);
+        return AoeArea.GetPointList(user.Position)
+            .Where(p =>ExcludeFriendFilter(p, user.Camp));
     }
 
     protected internal override TargetData GetAvaliableTarget(Unit user)
     {
         TargetData targetData = new TargetData();
-        var position = user.Position;
-        var map = _map;
-        var list = AttackArea.GetPointList(position);
-        targetData.ViewTiles = list.Where(p =>
-            0 <= p.x && p.x < map.Width
-            && 0 <= p.y && p.y < map.Height
-            && map[p.x, p.y] != null);
-        targetData.AvaliableTile = targetData.ViewTiles;
+        var list = _map.Select(p=>p.pos);
+        targetData.ViewTiles = list;
+        targetData.AvaliableTile = list;
         return targetData;
     }
 
     protected internal override void Release(Unit user, Vector2Int target)
     {
-        Percent = 0.1f;
-        foreach (var point in GetAffecrTarget(user, target))
+        var damage = user.UnitData.Attack * (0.1f + 0.4f * user.UnitData.ActionPoint);
+        foreach (var u in GetAffecrTarget(user, target)
+            .Where(p=>EnemyFilter(p, user.Camp))
+            .Select(p=>_map[p].Units.First() as IHurtable))
         {
-            if (TileUtility.TryGetTile(point, out var tile))
-            {
-                if (tile.Units.Count > 0)
-                {
-                    (tile.Units.First() as IHurtable).Hurt(user.UnitData.Attack * Percent + 0.4f * user.UnitData.ActionPoint, HurtType.FromUnit, user);
-                }
-            }
+            u.Hurt(damage, HurtType.FromUnit | HurtType.AD, user);
         }
     }
 }

@@ -7,7 +7,7 @@ using GameToolKit.Dialog;
 
 internal class MemberOptionNode : OptionNode
 {
-    protected override IEnumerable<OptionArgument> GetOptions()
+    protected override IEnumerable<OptionArgument> OnGetOptions()
     {
         var list = new List<OptionArgument>();
         foreach(var member in GameManager.Instance.GameData.Members)

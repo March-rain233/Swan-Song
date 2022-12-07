@@ -23,65 +23,36 @@ public class ManaNerf : Card
         }
     };
 
-    public AreaHelper AttackArea = new AreaHelper()
+    public ManaNerf()
     {
-        Center = new Vector2Int(2, 2),
-        Flags = new bool[5, 5]
-        {
-            {true,true,true,true,true },
-            {true,true,true,true,true },
-            {true,true,true,true,true },
-            {true,true,true,true,true },
-            {true,true,true,true,true }
-        }
-    };
-
-    public ManaNerf()//魔力削弱
-    {
-        Name = "Mana Nerf";
-        Description = "Weaken enemy defenses within range";
+        Name = "魔力削弱";
+        Description = "对范围内的敌人造成<color=red>30%</color>力量值的伤害，并使其在本回合内防御减少30点";
         Cost = 3;
     }
 
     protected internal override IEnumerable<Vector2Int> GetAffecrTarget(Unit user, Vector2Int target)
     {
-        var map = _map;
-        var list = AoeArea.GetPointList(target);
-        return list.Where(p =>
-            0 <= p.x && p.x < map.Width
-            && 0 <= p.y && p.y < map.Height
-            && map[p.x, p.y] != null);
+        return AoeArea.GetPointList(target)
+            .Where(p => ExcludeFriendFilter(p, user.Camp));
     }
 
     protected internal override TargetData GetAvaliableTarget(Unit user)
     {
         TargetData targetData = new TargetData();
-        var position = user.Position;
-        var map = _map;
-        var list = AttackArea.GetPointList(position);
-        targetData.ViewTiles = list.Where(p =>
-            0 <= p.x && p.x < map.Width
-            && 0 <= p.y && p.y < map.Height
-            && map[p.x, p.y] != null);
+        var list = _map.Select(p=>p.pos);
+        targetData.ViewTiles = list;
         targetData.AvaliableTile = targetData.ViewTiles;
         return targetData;
     }
 
     protected internal override void Release(Unit user, Vector2Int target)
     {
-        if (Times == 2)
+        foreach (var u in GetAffecrTarget(user, target)
+            .Where(p => EnemyFilter(p, user.Camp))
+            .Select(p => _map[p].Units.First()))
         {
-            foreach (var point in GetAffecrTarget(user, target))
-            {
-                if (TileUtility.TryGetTile(point, out var tile))
-                {
-                    if (tile.Units.Count > 0)
-                    {
-                        (tile.Units.First() as IHurtable).Hurt(user.UnitData.Attack * 2, HurtType.FromUnit, user);
-                    }
-                }
-            }
+            (u as IHurtable).Hurt(user.UnitData.Attack * 0.3f, HurtType.FromUnit | HurtType.AP | HurtType.Ranged, user);
+            u.AddBuff(new ArcaneChain() { Time = 1 });
         }
-        Times++;
     }
 }

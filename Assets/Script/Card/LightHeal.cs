@@ -11,8 +11,9 @@ public class LightHeal : Card
 
     public LightHeal()//束光愈_牧师专属
     {
-        Name = "Light Heal";
-        Description = "Restores health to a character (200+120% healing)";
+        Name = "束光愈";
+        Description = "回复一个目标<color=green>（200+120%虔诚值）</color>点生命值，" +
+            "若此次治疗使其血量达到最大血量的80%，将血量回复至满";
         Cost = 3;
     }
 
@@ -26,17 +27,21 @@ public class LightHeal : Card
     protected internal override TargetData GetAvaliableTarget(Unit user)
     {
         var targetData = new TargetData();
-        targetData.AvaliableTile = GameManager.Instance.GetState<BattleState>().UnitList
+        var list = GameManager.Instance.GetState<BattleState>().UnitList
             .Where(u => u.Camp == user.Camp && u.ActionStatus != ActionStatus.Dead)
             .Select(u => u.Position);
-        targetData.ViewTiles = targetData.AvaliableTile;
+        targetData.AvaliableTile = list;
+        targetData.ViewTiles = list;
         return targetData;
     }
 
     protected internal override void Release(Unit user, Vector2Int target)
     {
-        Percent = 1.2f;
-        (_map[target.x, target.y].Units.First() as ICurable)
-            .Cure(user.UnitData.Heal*Percent+200, user);
+        var tar = (_map[target.x, target.y].Units.First() as ICurable);
+        tar.Cure(user.UnitData.Heal * 1.2f + 200, user);
+        if((tar as Unit).UnitData.Blood >= (tar as Unit).UnitData.BloodMax * 0.8)
+        {
+            tar.Cure(user.UnitData.BloodMax, user);
+        }
     }
 }

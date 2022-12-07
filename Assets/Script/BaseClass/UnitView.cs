@@ -21,6 +21,7 @@ public class UnitView : MonoBehaviour,IPointerClickHandler
         {
             _unit = value;
             ViewData = _unit.UnitData.Clone();
+            BuffDatas = _unit.BuffList.Select(b => b.GetBuffData());
         }
     }
     Unit _unit;
@@ -34,10 +35,21 @@ public class UnitView : MonoBehaviour,IPointerClickHandler
         set
         {
             _viewData = value;
-            ViewDataChanged?.Invoke();
+            ViewDataChanged?.Invoke(_viewData);
         }
     }
     UnitData _viewData;
+
+    public IEnumerable<Buff.BuffData> BuffDatas
+    {
+        get => _buffDatas;
+        set
+        {
+            _buffDatas = value;
+            BuffChanged?.Invoke();
+        }
+    }
+    IEnumerable<Buff.BuffData> _buffDatas;
 
     public Animator Animator;
 
@@ -45,7 +57,8 @@ public class UnitView : MonoBehaviour,IPointerClickHandler
 
     public Transform AttackTargetFlag;
 
-    public event Action ViewDataChanged;
+    public event Action<UnitData> ViewDataChanged;
+    public event Action BuffChanged;
 
     /// <summary>
     /// 是否被选定为目标

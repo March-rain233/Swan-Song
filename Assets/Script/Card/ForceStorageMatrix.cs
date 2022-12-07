@@ -14,73 +14,56 @@ public class ForceStorageMatrix : Card
     {
         Center = new Vector2Int(2, 2),
         Flags = new bool[4, 4]
-    {
+        {
             { true, true, true, true },
             { true, true, true, true },
             { true, true, true, true },
             { true, true, true, true }
-    }
-    };
-
-    public AreaHelper AttackArea = new AreaHelper()
-    {
-        Center = new Vector2Int(2, 2),
-        Flags = new bool[5, 5]
-        {
-            {true,true,true,true,true },
-            {true,true,true,true,true },
-            {true,true,true,true,true },
-            {true,true,true,true,true },
-            {true,true,true,true,true }
         }
     };
 
     public ForceStorageMatrix()//蓄力法阵
     {
-        Name = "Force Storage Matrix";
-        Description = "Deal huge damage to range enemies after two times";
+        Name = "蓄力法阵";
+        Description = "两回合后对范围内所有敌人造成<color=red>200%</color>力量值的伤害";
         Cost = 2;
     }
 
     protected internal override IEnumerable<Vector2Int> GetAffecrTarget(Unit user, Vector2Int target)
     {
-        var map = _map;
-        var list = AoeArea.GetPointList(target);
-        return list.Where(p =>
-            0 <= p.x && p.x < map.Width
-            && 0 <= p.y && p.y < map.Height
-            && map[p.x, p.y] != null);
+        return AoeArea.GetPointList(target)
+            .Where(p=>UniversalFilter(p));
     }
 
     protected internal override TargetData GetAvaliableTarget(Unit user)
     {
         TargetData targetData = new TargetData();
-        var position = user.Position;
-        var map = _map;
-        var list = AttackArea.GetPointList(position);
-        targetData.ViewTiles = list.Where(p =>
-            0 <= p.x && p.x < map.Width
-            && 0 <= p.y && p.y < map.Height
-            && map[p.x, p.y] != null);
-        targetData.AvaliableTile = targetData.ViewTiles;
+        var list = _map.Select(p=>p.pos);
+        targetData.ViewTiles = list;
+        targetData.AvaliableTile = list;
         return targetData;
     }
 
     protected internal override void Release(Unit user, Vector2Int target)
     {
-        if(Times == 2)
+        var sta = GameManager.Instance.GetState<BattleState>();
+        int times = 2;
+        int attack = user.UnitData.Attack;
+        Action<int> callback = null;
+        callback = (_) =>
         {
-            foreach (var point in GetAffecrTarget(user, target))
+            times -= 1;
+            if (times == 0)
             {
-                if (TileUtility.TryGetTile(point, out var tile))
+                foreach (var u in GetAffecrTarget(user, target)
+                    .Where(p => EnemyFilter(p, user.Camp))
+                    .Select(p => _map[p].Units.First() as IHurtable))
                 {
-                    if (tile.Units.Count > 0)
-                    {
-                        (tile.Units.First() as IHurtable).Hurt(user.UnitData.Attack * 2, HurtType.FromUnit, user);
-                    }
+                    u.Hurt(attack * 2, HurtType.AP | HurtType.Ranged | HurtType.FromUnit, user);
                 }
+                sta.TurnBeginning -= callback;
             }
-        }
-        Times++;
+        };
+        sta.TurnBeginning += callback;
     }
 }

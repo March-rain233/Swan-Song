@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UnityEngine;
+using GameToolKit;
 
 /// <remarks>单位对象</remarks>
 public abstract class Unit : IHurtable, ICurable
@@ -20,7 +21,7 @@ public abstract class Unit : IHurtable, ICurable
     public ActionStatus ActionStatus
     {
         get => _actionStatus;
-        private set
+        set
         {
             _actionStatus = value;
             if(_actionStatus == ActionStatus.Dead)
@@ -80,11 +81,6 @@ public abstract class Unit : IHurtable, ICurable
     public Camp Camp;
 
     /// <summary>
-    /// 是否可以进行决策
-    /// </summary>
-    public bool CanDecide = true;
-
-    /// <summary>
     /// 是否可移动
     /// </summary>
     public bool CanMove = true;
@@ -112,9 +108,18 @@ public abstract class Unit : IHurtable, ICurable
     /// </summary>
     public event Action<float, HurtType, object> Hurt;
     /// <summary>
+    /// 单位受伤计算事件
+    /// </summary>
+    public event Action<HurtCalculateEvent> HurtCalculating;
+    /// <summary>
     /// 单位死亡事件
     /// </summary>
     public event Action UnitDied;
+
+    /// <summary>
+    /// Buff列表更改事件
+    /// </summary>
+    public event Action BuffListChanged;
     #endregion
 
     protected Unit(UnitData data, Vector2Int pos)
@@ -125,13 +130,15 @@ public abstract class Unit : IHurtable, ICurable
         UnitData.ActionPoint = UnitData.ActionPointMax;
     }
 
+    protected Unit(UnitModel model, Vector2Int pos) : this(new UnitData(model), pos) { }
+
     /// <summary>
     /// 回合开始初始化
     /// </summary>
     internal void Prepare()
     {
         ActionStatus = ActionStatus.Waitting;
-        if(UnitData.ActionPoint < UnitData.ActionPointMax)
+        if(UnitData.ActionPoint < UnitData.ActionPointMax + 2)
         {
             UnitData.ActionPoint += 2;
         }
@@ -160,13 +167,9 @@ public abstract class Unit : IHurtable, ICurable
         _callback = callback;
         ActionStatus = ActionStatus.Running;
         TurnBeginning?.Invoke();
-        if (CanDecide)
+        if (ActionStatus == ActionStatus.Running)
         {
             Decide();
-        }
-        else
-        {
-            _callback();
         }
     }
 
@@ -184,29 +187,37 @@ public abstract class Unit : IHurtable, ICurable
     /// <remarks>
     /// 相同类型的buff将被替代
     /// </remarks>
-    public void AddBuff(Buff buff)
+    public void AddBuff<TBuff>(TBuff buff) 
+        where TBuff : Buff
     {
-        var ori = _buffList.Find(e => e.GetType() == buff.GetType());
-        if(ori != null)
+        foreach(var ori in _buffList.Where(e=>e is TBuff))
         {
-            ori.Disable();
-            _buffList.Remove(ori);
+            if (buff.CheckReplace(ori))
+            {
+                ori.Disable();
+                _buffList.Remove(ori);
+            }
         }
         _buffList.Add(buff);
-        buff.Unit = this;
+        buff.Register(this);
         buff.Enable();
+
+        BuffListChanged?.Invoke();
     }
 
     /// <summary>
     /// 移除Buff
     /// </summary>
-    public void RemoveBuff<TBuff>() where TBuff : Buff
+    public void RemoveBuff<TBuff>() 
+        where TBuff : Buff
     {
         var ori = _buffList.Find(e => e.GetType() == typeof(TBuff));
         if (ori != null)
         {
             ori.Disable();
             _buffList.Remove(ori);
+
+            BuffListChanged?.Invoke();
         }
     }
 
@@ -214,6 +225,8 @@ public abstract class Unit : IHurtable, ICurable
     {
         buff.Disable();
         _buffList.Remove(buff);
+
+        BuffListChanged?.Invoke();
     }
 
     /// <summary>
@@ -237,7 +250,7 @@ public abstract class Unit : IHurtable, ICurable
         Moved(path);
     }
 
-    protected void Died()
+    void Died()
     {
         OnDied();
         UnitDied?.Invoke();
@@ -271,14 +284,29 @@ public abstract class Unit : IHurtable, ICurable
     float IHurtable.HurtCalculate(float damage, HurtType type, object source)
     {
         //todo:重新设计计算公式
-        damage = Math.Max(0, damage - UnitData.Defence);
-        damage = Math.Min(UnitData.Blood, damage);
+        HurtCalculateEvent @event = new HurtCalculateEvent()
+        {
+            OriDamage = damage,
+            DamageAdd = 0,
+            Rate = 1,
+            Source = source,
+            Target = this,
+            Type = type,
+        };
+        if (!type.HasFlag(HurtType.APDS))
+        {
+            @event.DamageAdd = -UnitData.Defence;
+        }
+        HurtCalculating?.Invoke(@event);
+        ServiceFactory.Instance.GetService<EventManager>()
+            .Broadcast(@event);
+        damage = Math.Max(0, @event.FinalDamage);
         return damage;
     }
 
     void IHurtable.OnHurt(float damage, HurtType type, object source)
     {
-        UnitData.Blood -= (int)damage;
+        UnitData.Blood -= Mathf.FloorToInt(damage);
         Hurt?.Invoke(damage, type, source);
         if(UnitData.Blood <= 0)
         {
@@ -287,7 +315,7 @@ public abstract class Unit : IHurtable, ICurable
                 ActionStatus = ActionStatus.Dead;
                 EndTurn();
             }
-            else
+            else if(ActionStatus != ActionStatus.Dead)
             {
                 ActionStatus = ActionStatus.Dead;
             }
@@ -301,6 +329,6 @@ public abstract class Unit : IHurtable, ICurable
 
     void ICurable.OnCure(float power)
     {
-        UnitData.Blood = Mathf.Max(UnitData.BloodMax, UnitData.Blood + (int)power);
+        UnitData.Blood += Mathf.FloorToInt(power);
     }
 }

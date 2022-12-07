@@ -182,11 +182,17 @@ namespace GameToolKit.Dialog
             Finish();
         }
 
+        internal IEnumerable<OptionArgument> GetOptions()
+        {
+            InitInputData();
+            return OnGetOptions();
+        }
+
         /// <summary>
-        /// 获取选项列表
+        /// 当获取选项列表
         /// </summary>
         /// <returns></returns>
-        protected internal abstract IEnumerable<OptionArgument> GetOptions();
+        protected abstract IEnumerable<OptionArgument> OnGetOptions();
     }
 
     /// <summary>
@@ -196,7 +202,7 @@ namespace GameToolKit.Dialog
     {
         [Port("OptionArgument", PortDirection.Input)]
         public OptionArgument Option;
-        protected internal override IEnumerable<OptionArgument> GetOptions()
+        protected override IEnumerable<OptionArgument> OnGetOptions()
         {
             return new List<OptionArgument>() { Option };
         }

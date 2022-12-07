@@ -12,8 +12,8 @@ public class LowerTreatment : Card
 
     public LowerTreatment()//低级治疗术
     {
-        Name="LowerTreatment";
-        Description="Heal 40 health and 40% Religious values";
+        Name= "低级治疗术";
+        Description= "恢复指定角色<color=green>（60+40%虔诚值）</color>点生命";
         Cost=1;
     }
 
@@ -36,10 +36,8 @@ public class LowerTreatment : Card
 
     protected internal override void Release(Unit user, Vector2Int target)
     {
-        var healing = user.UnitData.Heal;
-        Percent = 0.4f;
         (_map[target.x, target.y].Units.First() as ICurable)
-            .Cure(60+Percent*healing, user);
+            .Cure(60+ 0.4f * user.UnitData.Heal, user);
     }
 
 }

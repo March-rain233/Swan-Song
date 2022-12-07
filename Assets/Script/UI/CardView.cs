@@ -20,9 +20,12 @@ public class CardView : SerializedMonoBehaviour,
     public TextMeshProUGUI Name;
     public TextMeshProUGUI Description;
     public TextMeshProUGUI AP;
+    public TextMeshProUGUI OwnerName;
+
     public Image Sprite;
 
     public Card Card;
+    public UnitData UnitData;
 
     public event Action MouseEntered;
     public event Action MouseExited;
@@ -35,8 +38,9 @@ public class CardView : SerializedMonoBehaviour,
     {
         Name.text = Card.Name;
         Description.text = Card.Description;
-        AP.text = Card.Cost.ToString();
+        AP.text = Card.Cost == -1 ? "ALL" : Card.Cost.ToString();
         Sprite.sprite = Card.Sprite;
+        OwnerName.text = UnitData.Name;
     }
 
     void IPointerEnterHandler.OnPointerEnter(PointerEventData eventData)

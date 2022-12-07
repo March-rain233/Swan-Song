@@ -41,7 +41,8 @@ public class FireBall : Card
         return list.Where(p =>
             0 <= p.x && p.x < map.Width
             && 0 <= p.y && p.y < map.Height
-            && map[p.x, p.y] != null);
+            && map[p.x, p.y] != null
+            && map[p.x, p.y].Units.First().Camp != user.Camp);
     }
 
     protected internal override TargetData GetAvaliableTarget(Unit user)
@@ -64,13 +65,13 @@ public class FireBall : Card
         {
             if(TileUtility.TryGetTile(point, out var tile))
             {
-                if (tile.Units.Count > 0)
+                if (tile.Units.Count > 0 && tile.Units.First().Camp != user.Camp)
                 {
                     (tile.Units.First() as IHurtable).Hurt(user.UnitData.Attack * 2, HurtType.FromUnit, user);
                 }
                 if (tile.TileType != TileType.Lack)
                 {
-                    tile.AddStatus(TileStatus.Fire);
+                    tile.AddStatus(new FireStatus() { Count = -1});
                 }
             }
         }

@@ -21,61 +21,35 @@ public class ExplodeBottle : Card
         }
     };
 
-        public AreaHelper AttackArea = new AreaHelper()
-        {
-            Center = new Vector2Int(2, 2),
-            Flags = new bool[5, 5]
-        {
-            {true,true,true,true,true },
-            {true,true,true,true,true },
-            {true,true,true,true,true },
-            {true,true,true,true,true },
-            {true,true,true,true,true }
-        }
-        };
-
     public ExplodeBottle()//爆爆瓶
     {
-        Name = "Explode Bottle";
-        Description = "Deal 200 damage to enemies in range";
+        Name = "爆爆瓶";
+        Description = "对范围内敌人造成<color=red>200</color>伤害";
         Cost = 3;
     }
 
     protected internal override IEnumerable<Vector2Int> GetAffecrTarget(Unit user, Vector2Int target)
     {
-        var map = _map;
-        var list = AoeArea.GetPointList(target);
-        return list.Where(p =>
-            0 <= p.x && p.x < map.Width
-            && 0 <= p.y && p.y < map.Height
-            && map[p.x, p.y] != null);
+        return AoeArea.GetPointList(target)
+            .Where(p=>ExcludeFriendFilter(p, user.Camp));
     }
 
     protected internal override TargetData GetAvaliableTarget(Unit user)
     {
         TargetData targetData = new TargetData();
-        var position = user.Position;
-        var map = _map;
-        var list = AttackArea.GetPointList(position);
-        targetData.ViewTiles = list.Where(p =>
-            0 <= p.x && p.x < map.Width
-            && 0 <= p.y && p.y < map.Height
-            && map[p.x, p.y] != null);
-        targetData.AvaliableTile = targetData.ViewTiles;
+        var list = _map.Select(p => p.pos);
+        targetData.ViewTiles = list;
+        targetData.AvaliableTile = list;
         return targetData;
     }
 
     protected internal override void Release(Unit user, Vector2Int target)
     {
-        foreach (var point in GetAffecrTarget(user, target))
+        foreach (var u in GetAffecrTarget(user, target)
+            .Where(p=>_map[p].Units.Count > 0)
+            .Select(p=>_map[p].Units.First() as IHurtable))
         {
-            if (TileUtility.TryGetTile(point, out var tile))
-            {
-                if (tile.Units.Count > 0)
-                {
-                    (tile.Units.First() as IHurtable).Hurt(200, HurtType.FromUnit, user);
-                }
-            }
+            u.Hurt(200, HurtType.AP | HurtType.FromUnit | HurtType.Ranged, user);
         }
     }
 }

@@ -60,16 +60,6 @@ public abstract class Card
     public int Cost;
 
     /// <summary>
-    /// 数值比例
-    /// </summary>
-    public float Percent;
-
-    /// <summary>
-    /// 回合数
-    /// </summary>
-    public int Times = 0;
-
-    /// <summary>
     /// 是否已被强化
     /// </summary>
     public bool HasEnchanted;
@@ -84,7 +74,7 @@ public abstract class Card
     /// </summary>
     public HashSet<Entry> Entries = new();
 
-    protected Map _map => (ServiceFactory.Instance.GetService<GameManager>().GetState() as BattleState).Map;
+    protected static Map _map => (ServiceFactory.Instance.GetService<GameManager>().GetState() as BattleState).Map;
 
     /// <summary>
     /// 释放卡牌
@@ -117,5 +107,56 @@ public abstract class Card
         var card = MemberwiseClone() as Card;
         card.Entries = new HashSet<Entry>(card.Entries);
         return card;
+    }
+
+    /// <summary>
+    /// 通用过滤器
+    /// </summary>
+    /// <param name="p"></param>
+    /// <param name="isCheckUnit">是否过滤掉没有单位的单元格</param>
+    /// <returns></returns>
+    protected static bool UniversalFilter(Vector2Int p, bool isCheckUnit = false)
+    {
+        return 0 <= p.x && p.x < _map.Width
+            && 0 <= p.y && p.y < _map.Height
+            && _map[p] != null
+            && (!isCheckUnit || (isCheckUnit & _map[p].Units.Count > 0));
+    }
+
+    /// <summary>
+    /// 敌方单位过滤器
+    /// </summary>
+    /// <param name="p"></param>
+    /// <param name="camp"></param>
+    /// <returns>仅有非我方单位的格子</returns>
+    protected static bool EnemyFilter(Vector2Int p, Camp camp)
+    {
+        return UniversalFilter(p, true) && _map[p].Units.First().Camp != camp;
+    }
+
+    /// <summary>
+    /// 我方单位过滤器
+    /// </summary>
+    /// <param name="p"></param>
+    /// <param name="camp"></param>
+    /// <returns>排除我方单位所在单元格</returns>
+    protected static bool ExcludeFriendFilter(Vector2Int p, Camp camp)
+    {
+        return UniversalFilter(p, false)
+            && _map[p].Units.Count > 0 ? _map[p].Units.First().Camp != camp : true;
+    }
+
+    /// <summary>
+    /// 检测指定坐标图块能否放置单位
+    /// </summary>
+    /// <param name="p"></param>
+    /// <returns></returns>
+    protected static bool CheckPlaceable(Vector2Int p, Unit unit)
+    {
+        return 0 <= p.x && p.x < _map.Width
+            && 0 <= p.y && p.y < _map.Height
+            && _map[p] != null
+            && _map[p].CheckPlaceable(unit)
+            && _map[p].Units.Count == 0;
     }
 }

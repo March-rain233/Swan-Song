@@ -12,10 +12,9 @@ using UnityEngine;
 /// </remarks>
 public class Idiot : Unit
 {
-    public Idiot(Vector2Int pos) : base(new UnitData() { 
-        BloodMax = int.MaxValue, 
+    public Idiot(Vector2Int pos) : base(new UnitModel()
+    {
         Blood = int.MaxValue,
-        Deck = new(),
     }, pos)
     {
     }

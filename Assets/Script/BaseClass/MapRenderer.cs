@@ -120,23 +120,14 @@ public class MapRenderer
             {
                 if(map[i,j] != null)
                 {
-                    int x = i, y = j;
-                    System.Action<TileStatus> updataStatus = (sta) =>
-                    {
-                        foreach(var p in TileSetting.Instance.TileStatusProList)
-                        {
-                            if (sta.HasFlag(p.status))
-                            {
-                                _statusTileMap.SetTile(new Vector3Int(x, y, 0), p.tile);
-                                break;
-                            }
-                        }
-                    };
-                    _tilemap.SetTile(new Vector3Int(i, j, 0), TileSetting.Instance.TileDic[map[i, j].TileType]);
-                    updataStatus(map[i, j].TileStatus);
-                    map[i, j].TileStatusChanged += updataStatus;
+                    RenderTile(i, j, map[i,j]);
                 }
             }
         }
+    }
+
+    public void RenderTile(int i, int j, Tile tile)
+    {
+        _tilemap.SetTile(new Vector3Int(i, j, 0), TileSetting.Instance.TileDic[tile.TileType]);
     }
 }

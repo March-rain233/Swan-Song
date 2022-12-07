@@ -6,27 +6,200 @@ using System.Text;
 /// <summary>
 /// 图块的叠加状态
 /// </summary>
-[System.Flags]
-public enum TileStatus
+public abstract class TileStatus
 {
+    public Tile Tile { get; private set; }
+
     /// <summary>
-    /// 常态
+    /// 剩余计数
     /// </summary>
-    Normal = 0,
+    public int Count;
+
     /// <summary>
-    /// 火场
+    /// 该效果是否生效
     /// </summary>
-    Fire = 1,
+    public bool IsEnable
+    {
+        get;
+        private set;
+    }
+
     /// <summary>
-    /// 水流
+    /// 使效果生效
     /// </summary>
-    Water = 1 << 1,
+    public void Enable()
+    {
+        IsEnable = true;
+        OnEnable();
+    }
+
     /// <summary>
-    /// 毒雾
+    /// 使效果失效
     /// </summary>
-    Poison = 1 << 2,
+    public void Disable()
+    {
+        IsEnable = false;
+        OnDisable();
+    }
+
+    protected abstract void OnEnable();
+
+    protected abstract void OnDisable();
+
+    internal void Register(Tile tile)
+    {
+        Tile = tile;
+    }
+
     /// <summary>
-    /// 浓雾
+    /// 处理单位进入时的需要处理buff的图格状态
     /// </summary>
-    Smog = 1 << 3,
+    internal protected abstract void StatusProcessOnEnter(IEnumerable<Unit> units);
+
+    /// <summary>
+    /// 处理单位退出时的需要处理uff的图格状态
+    /// </summary>
+    internal protected abstract void StatusProcessOnExit(IEnumerable<Unit> units);
+
+    /// <summary>
+    /// 处理单位处于图块上时的需要处理buff的图格状态
+    /// </summary>
+    internal protected abstract void StatusProcessOnUpdata(IEnumerable<Unit> units);
+}
+
+public abstract class RoundStatus : TileStatus
+{
+    protected internal override void StatusProcessOnUpdata(IEnumerable<Unit> units)
+    {
+        if(Count > 0)
+        {
+            Count -= 1;
+        }
+        else if(Count == 0)
+        {
+            Tile.RemoveStatus(this);
+        }
+    }
+}
+
+public class FireStatus :RoundStatus
+{
+    protected override void OnDisable()
+    {
+        
+    }
+
+    protected override void OnEnable()
+    {
+        
+    }
+
+    protected internal override void StatusProcessOnEnter(IEnumerable<Unit> units)
+    {
+
+    }
+
+    protected internal override void StatusProcessOnExit(IEnumerable<Unit> units)
+    {
+        
+    }
+
+    protected internal override void StatusProcessOnUpdata(IEnumerable<Unit> units)
+    {
+        foreach (var unit in units)
+        {
+            unit.AddBuff(new Burn() { Time = 2 });
+        }
+    }
+}
+
+public class PoisonStatus : RoundStatus
+{
+    protected override void OnDisable()
+    {
+
+    }
+
+    protected override void OnEnable()
+    {
+
+    }
+
+    protected internal override void StatusProcessOnEnter(IEnumerable<Unit> units)
+    {
+
+    }
+
+    protected internal override void StatusProcessOnExit(IEnumerable<Unit> units)
+    {
+
+    }
+
+    protected internal override void StatusProcessOnUpdata(IEnumerable<Unit> units)
+    {
+        base.StatusProcessOnUpdata(units);
+        foreach (var unit in units)
+        {
+            unit.AddBuff(new Poison() { Time = 2 });
+        }
+    }
+}
+
+public class CaltropStatus : RoundStatus
+{
+    public float Damage;
+    protected override void OnDisable()
+    {
+
+    }
+
+    protected override void OnEnable()
+    {
+
+    }
+
+    protected internal override void StatusProcessOnEnter(IEnumerable<Unit> units)
+    {
+        foreach(IHurtable unit in units)
+        {
+            unit.Hurt(Damage, HurtType.FromTile | HurtType.AD, this);
+        }
+    }
+
+    protected internal override void StatusProcessOnExit(IEnumerable<Unit> units)
+    {
+
+    }
+}
+
+public class HealMatrixStatus : RoundStatus
+{
+    public float Heal;
+    protected internal override void StatusProcessOnUpdata(IEnumerable<Unit> units)
+    {
+        base.StatusProcessOnUpdata(units);
+        foreach(ICurable unit in units)
+        {
+            unit.Cure(Heal, this);
+        }
+    }
+    protected override void OnDisable()
+    {
+
+    }
+
+    protected override void OnEnable()
+    {
+
+    }
+
+    protected internal override void StatusProcessOnEnter(IEnumerable<Unit> units)
+    {
+
+    }
+
+    protected internal override void StatusProcessOnExit(IEnumerable<Unit> units)
+    {
+
+    }
 }

@@ -1,12 +1,14 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using UnityEngine;
 
 /// <summary>
 /// 运行时的游戏地图数据
 /// </summary>
-public class Map
+public class Map : IEnumerable<(Vector2Int pos, Tile tile)>
 {
     public Map(int width, int height)
     {
@@ -30,7 +32,17 @@ public class Map
             _gridDatas[x, y] = value;
         }
     }
-
+    public Tile this[Vector2Int pos]
+    {
+        get
+        {
+            return this[pos.x, pos.y];
+        }
+        set
+        {
+            this[pos.x, pos.y] = value;
+        }
+    }
     /// <summary>
     /// 宽度
     /// </summary>
@@ -93,5 +105,24 @@ public class Map
         {
             tile.Updata();
         }
+    }
+
+    public IEnumerator<(Vector2Int pos, Tile tile)> GetEnumerator()
+    {
+        for(int i = 0; i < Width; ++i)
+        {
+            for(int j = 0; j < Height; ++j)
+            {
+                if(_gridDatas[i, j] != null)
+                {
+                    yield return (new Vector2Int(i, j), _gridDatas[i, j]);
+                }
+            }
+        }
+    }
+
+    IEnumerator IEnumerable.GetEnumerator()
+    {
+        return GetEnumerator();
     }
 }
