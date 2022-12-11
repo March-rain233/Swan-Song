@@ -8,7 +8,7 @@ using GameToolKit;
 
 public class SwingAttack : Card
 {
-    AreaHelper AreaHelper = new AreaHelper()
+    public AreaHelper AreaHelper = new AreaHelper()
     {
         Center = new Vector2Int(0, 1),
         Flags = new bool[2, 3]

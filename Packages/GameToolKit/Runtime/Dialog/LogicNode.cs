@@ -112,7 +112,7 @@ namespace GameToolKit.Dialog
         public TValueA SourceA;
         [Port("SourceB", PortDirection.Input)]
         public TValueB SourceB;
-        [Port("Resuly", PortDirection.Output)]
+        [Port("Result", PortDirection.Output)]
         public TResult Result;
     }
 
@@ -169,7 +169,15 @@ namespace GameToolKit.Dialog
         }
     }
 
-    public abstract class MultiplyNode : BinaryOperationNode<float, float, float>
+    public class MultiplyFloatNode : BinaryOperationNode<float, float, float>
+    {
+        protected override void OnValueUpdate()
+        {
+            Result = SourceA * SourceB;
+        }
+    }
+
+    public class MultiplyIntNode : BinaryOperationNode<int, int, int>
     {
         protected override void OnValueUpdate()
         {
@@ -220,4 +228,17 @@ namespace GameToolKit.Dialog
             }
         }
     }
+
+    public class RandomIntNode : SourceNode
+    {
+        public int MaxValue;
+        public int MinValue;
+        [Port("Value", PortDirection.Output)]
+        public int Value;
+        protected override void OnValueUpdate()
+        {
+            Value = UnityEngine.Random.Range(MinValue, MaxValue + 1);
+        }
+    }
+
 }

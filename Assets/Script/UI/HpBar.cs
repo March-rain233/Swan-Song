@@ -72,6 +72,6 @@ public class HpBar : MonoBehaviour
         _hp = hp;
         _maxHp = maxHp;
         UpdataBlood();
-        _anim.Complete();
+        _anim?.Complete();
     }
 }

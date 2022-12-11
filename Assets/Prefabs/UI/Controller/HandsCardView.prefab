@@ -341,7 +341,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 0.37169808, g: 0.9270553, b: 1, a: 1}
+  m_EffectColor: {r: 0.09800005, g: 0.8928874, b: 1, a: 1}
   m_EffectDistance: {x: 3, y: 3}
   m_UseGraphicAlpha: 1
 --- !u!114 &5058622150612202666
@@ -368,7 +368,7 @@ MonoBehaviour:
     - Name: Card
       Entry: 6
       Data: 
-    - Name: CardScheduler
+    - Name: UnitData
       Entry: 6
       Data: 
     - Name: Angle
@@ -383,6 +383,9 @@ MonoBehaviour:
     - Name: FlexibleAngle
       Entry: 4
       Data: 0
+    - Name: CardScheduler
+      Entry: 6
+      Data: 
   Name: {fileID: 3738043215065301097}
   Description: {fileID: 3738043215023134484}
   AP: {fileID: 3738043215159671757}

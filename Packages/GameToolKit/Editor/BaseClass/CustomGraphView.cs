@@ -86,10 +86,15 @@ namespace GameToolKit.Editor
                 CreateNodeView(node);
             }
 
+            
             //为传入的树的边生成视图
             foreach (var node in graph.Nodes)
             {
                 var view = FindNodeView(node);
+                //修正资源边数据
+                EdgeRectify(node.InputEdges);
+                EdgeRectify(node.OutputEdges);
+
                 //生成资源边
                 foreach (var edge in node.InputEdges)
                 {
@@ -130,6 +135,58 @@ namespace GameToolKit.Editor
             //修改显示参数
             _inspector.title = graph.name;
         }
+
+        /// <summary>
+        /// 资源边合法性矫正
+        /// </summary>
+        /// <param name="edges"></param>
+        protected void EdgeRectify(List<SourceInfo> edges)
+        {
+            for (int i = edges.Count - 1; i >= 0; i--)
+            {
+                var edge = edges[i];
+                var source = FindNodeView(edge.SourceNode);
+                var target = FindNodeView(edge.TargetNode);
+                if(source != null && target != null)
+                {
+                    var sourcePort = source.outputContainer.Q<Port>(edge.SourceField);
+                    var targetPort = target.inputContainer.Q<Port>(edge.TargetField);
+                    if(sourcePort == null)
+                    {
+                        var newField = edge.SourceNode.FixPortIndex(edge.SourceField);
+                        if(newField != null)
+                        {
+                            edge.SourceField = newField;
+                        }
+                        else
+                        {
+                            edges.Remove(edge);
+                            continue;
+                        }
+                    }
+                    if (targetPort == null)
+                    {
+                        var newField = edge.TargetNode.FixPortIndex(edge.TargetField);
+                        if (newField != null)
+                        {
+                            edge.TargetField = newField;
+                        }
+                        else
+                        {
+                            edges.Remove(edge);
+                            continue;
+                        }
+                    }
+                    edges[i] = edge;
+                }
+                else
+                {
+                    edges.Remove(edge);
+                    continue;
+                }
+            }
+        }
+
 
         /// <summary>
         /// 当图发生变化时

@@ -2,38 +2,59 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Newtonsoft.Json;
 
 /// <summary>
 /// 分支选择树
 /// </summary>
+[Serializable]
 public class TreeMap
 {
     /// <summary>
     /// 节点查询表
     /// </summary>
+    [JsonRequired]
     private Dictionary<int, TreeMapNodeData> _nodes = new();
     /// <summary>
     /// 边查询表
     /// </summary>
+    [JsonRequired]
     private Dictionary<int, HashSet<int>> _edges = new();
-    public readonly int RootId = 0;
+
+    [JsonIgnore]
+    public int RootId = 0;
 
     /// <summary>
     /// 当前节点的ID
     /// </summary>
-    public int CurrentId = 0;
+    [JsonIgnore]
+    public int CurrentId
+    {
+        get => _path.Last();
+        set => _path.Add(value);
+    }
+
+    [JsonProperty]
+    private List<int> _path = new List<int>();
+
+    [JsonIgnore]
+    public IReadOnlyCollection<int> Path => _path;
+
     /// <summary>
     /// 节点ID列表
     /// </summary>
+    [JsonIgnore]
     public IEnumerable<int> Nodes => _nodes.Keys;
     /// <summary>
     /// 根节点
     /// </summary>
+    [JsonIgnore]
     public TreeMapNodeData Root => FindNode(RootId);
 
     /// <summary>
     /// 当前位于的节点
     /// </summary>
+    [JsonIgnore]
     public TreeMapNodeData CurrentNode => FindNode(CurrentId);
 
     /// <summary>

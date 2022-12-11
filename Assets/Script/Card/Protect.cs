@@ -12,7 +12,7 @@ public class Protect : Card
 
     public Protect()//庇护
     {
-        Name = "Protect";
+        Name = "庇护";
         Description = "创建法阵，使其中的角色每回合回复<color=green>（50+50%虔诚值）</color>点生命，两回合后消失";
         Cost = 2;
     }

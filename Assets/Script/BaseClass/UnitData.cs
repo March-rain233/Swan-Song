@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UnityEngine;
+using Newtonsoft.Json;
 
 /// <summary>
 /// 单位数据成员
@@ -18,9 +19,10 @@ public class UnitData
     /// </remarks>
     public class DataWrapper
     {
-        public int OriValue { get; internal set; } = 0;
+        public int OriValue = 0;
         public int AddValue = 0;
         public float Rate = 1;
+        [JsonIgnore]
         public int Value => Mathf.FloorToInt((OriValue + AddValue) * Rate); 
     }
     /// <summary>
@@ -34,8 +36,14 @@ public class UnitData
     public string Name;
 
     /// <summary>
+    /// 单位描述
+    /// </summary>
+    public string Description;
+
+    /// <summary>
     /// 单位头像
     /// </summary>
+    [JsonConverter(typeof(ObjectConvert))]
     public Sprite Face;
 
     /// <summary>
@@ -60,8 +68,51 @@ public class UnitData
     /// <summary>
     /// 攻击力
     /// </summary>
+    [JsonIgnore]
     public int Attack => AttackWrapper.Value;
-    public DataWrapper AttackWrapper { get; private set; }
+    [JsonProperty]
+    public DataWrapper AttackWrapper { get; private set; } = new DataWrapper();
+
+    /// <summary>
+    /// 防御力
+    /// </summary>
+    [JsonIgnore]
+    public int Defence => DefenceWrapper.Value;
+    [JsonProperty]
+    public DataWrapper DefenceWrapper { get; private set; } = new DataWrapper();
+
+    /// <summary>
+    /// 治愈力
+    /// </summary>
+    [JsonIgnore]
+    public int Heal => HealWrapper.Value;
+    [JsonProperty]
+    public DataWrapper HealWrapper { get; private set; } = new DataWrapper();
+
+    /// <summary>
+    /// 单位等级
+    /// </summary>
+    public int Level
+    {
+        get;
+        private set;
+    } = 1;
+
+    /// <summary>
+    /// 先手
+    /// </summary>
+    [JsonIgnore]
+    public int Speed => SpeedWrapper.Value;
+    [JsonProperty]
+    public DataWrapper SpeedWrapper { get; private set; } = new DataWrapper();
+
+    /// <summary>
+    /// 血量上限
+    /// </summary>
+    [JsonIgnore]
+    public int BloodMax => BloodMaxWrapper.Value;
+    [JsonProperty]
+    public DataWrapper BloodMaxWrapper { get; private set; } = new DataWrapper();
 
     /// <summary>
     /// 当前单位的血量
@@ -77,73 +128,41 @@ public class UnitData
     }
     int _blood;
 
-    /// <summary>
-    /// 防御力
-    /// </summary>
-    public int Defence => DefenceWrapper.Value;
-    public DataWrapper DefenceWrapper { get; private set; }
-
-    /// <summary>
-    /// 治愈力
-    /// </summary>
-    public int Heal => HealWrapper.Value;
-    public DataWrapper HealWrapper { get; private set; }
-
-    /// <summary>
-    /// 单位等级
-    /// </summary>
-    public int Level
-    {
-        get;
-        private set;
-    } = 1;
-
-    /// <summary>
-    /// 先手
-    /// </summary>
-    public int Speed => SpeedWrapper.Value;
-    public DataWrapper SpeedWrapper { get; private set; }
-
-    /// <summary>
-    /// 血量上限
-    /// </summary>
-    public int BloodMax => BloodMaxWrapper.Value;
-    public DataWrapper BloodMaxWrapper { get; private set; }
-
-    public UnitModel UnitModel
-    {
-        get;
-        internal set;
-    }
+    public UnitModel UnitModel { get; private set; }
 
     /// <summary>
     /// 持有的牌库
     /// </summary>
-    public List<Card> Deck
-    {
-        get;
-        internal set;
-    }
+    public List<Card> Deck;
 
     public event Action<UnitData> DataChanged;
-    public UnitData(UnitModel model)
+
+    [JsonConstructor]
+    public UnitData(UnitModel unitModel)
     {
-        UnitModel = model;
-        Name = model.DefaultName;
-        Face = model.DefaultFace;
-        ViewType = model.DefaultViewType;
-        BloodMaxWrapper.OriValue = Blood = model.Blood;
-        AttackWrapper.OriValue = model.Attack;
-        DefenceWrapper.OriValue = model.Defence;
-        HealWrapper.OriValue = model.Heal;
-        ActionPointMax = ActionPoint = model.ActionPoint;
-        SpeedWrapper.OriValue = model.Speed;
+        UnitModel = unitModel;
+        Name = unitModel.DefaultName;
+        Description = unitModel.DefaultDescription;
+        Face = unitModel.DefaultFace;
+        ViewType = unitModel.DefaultViewType;
+        BloodMaxWrapper.OriValue = unitModel.Blood;
+        Blood = BloodMax;
+        AttackWrapper.OriValue = unitModel.Attack;
+        DefenceWrapper.OriValue = unitModel.Defence;
+        HealWrapper.OriValue = unitModel.Heal;
+        ActionPointMax = ActionPoint = unitModel.ActionPoint;
+        SpeedWrapper.OriValue = unitModel.Speed;
         Deck = new();
-        foreach(var card in model.DefaultDeck)
+        foreach(var card in unitModel.DefaultDeck)
         {
             Deck.Add(card.Clone());
         }
     }
+
+    //public UnitData()
+    //{
+
+    //}
 
     /// <summary>
     /// 复制单位数据

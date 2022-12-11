@@ -34,15 +34,9 @@ public class NormalAttack : Card
     protected internal override TargetData GetAvaliableTarget(Unit user)
     {
         TargetData targetData = new TargetData();
-        var position = user.Position;
-        var map = _map;
-        var list = AttackArea.GetPointList(position);
-        targetData.ViewTiles = list.Where(p =>
-            0 <= p.x && p.x < map.Width
-            && 0 <= p.y && p.y < map.Height
-            && map[p.x, p.y] != null
-            && map[p.x, p.y].Units.First().Camp != user.Camp);
-        targetData.AvaliableTile = targetData.ViewTiles.Where(p => map[p.x, p.y].Units.Count > 0);
+        var list = AttackArea.GetPointList(user.Position);
+        targetData.ViewTiles = list;
+        targetData.AvaliableTile = list.Where(p => EnemyFilter(p, user.Camp));
         return targetData;
     }
 

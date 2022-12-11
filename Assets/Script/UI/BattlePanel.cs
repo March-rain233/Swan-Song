@@ -24,20 +24,19 @@ public class BattlePanel : PanelBase
     public TextMeshProUGUI RoundNumber;
     public TextMeshProUGUI SwanSongRoundNumber;
 
-    public CardListView Discard;
-    public Button BtnDiscardReturn;
-
-    public CardListView Deck;
-    public Button BtnDeckReturn;
-
     public HorizontalLayoutGroup OrderList;
     public Image CurrentUnitView;
 
     public LayoutGroup PlayerListView;
+    public ToggleGroup PlayerGroup;
     #region 控件模板
     public GameObject UnitProfileModel;
     #endregion
     #endregion
+
+    Dictionary<Player, Toggle> ToggleDic = new Dictionary<Player, Toggle>();
+    public Color SelectColor;
+    public Color UnselectColor;
 
     /// <summary>
     /// 当前玩家角色
@@ -99,6 +98,8 @@ public class BattlePanel : PanelBase
             var face = obj.transform.Find("Face").GetComponent<Image>();
             var name = obj.transform.Find("Name").GetComponent<TextMeshProUGUI>();
             var hpBar = obj.transform.Find("HpBar").GetComponent<HpBar>();
+            var toggle = obj.GetComponent<Toggle>();
+            var img = obj.GetComponent<Image>();
             face.sprite = player.UnitData.Face;
             name.text = player.UnitData.Name;
             hpBar.InitHpBar(player.UnitData.Blood, player.UnitData.BloodMax);
@@ -107,10 +108,23 @@ public class BattlePanel : PanelBase
                   hpBar.MaxHp = player.UnitData.BloodMax;
                   hpBar.Hp = player.UnitData.Blood;
               };
-            obj.GetComponent<Button>().onClick.AddListener(() =>
+            toggle.group = PlayerGroup;
+            toggle.onValueChanged.AddListener((v) =>
             {
-                SwitchPlayer(player);
+                if (v)
+                {
+                    img.color = SelectColor;
+                    if (_currentPlayer != player)
+                    {
+                        SwitchPlayer(player);
+                    }
+                }
+                else
+                {
+                    img.color = UnselectColor;
+                }
             });
+            ToggleDic[player] = toggle;
         }
 
         //绑定UI功能
@@ -134,27 +148,23 @@ public class BattlePanel : PanelBase
 
         BtnDeck.onClick.AddListener(() =>
         {
-            Deck.gameObject.SetActive(true);
             var res = from player in GameManager.Instance.GetState<BattleState>().PlayerList
-                      from card in player.Scheduler.Deck
-                      select (card, player.UnitData);
-            Deck.ShowCardList(res);
+                      let list = from card in player.Scheduler.Deck
+                                select (card, player.UnitData)
+                      select (player.UnitData.Name, list);
+            var panel = ServiceFactory.Instance.GetService<PanelManager>()
+                .OpenPanel(nameof(DeckPanel)) as DeckPanel;
+            panel.ShowCardList(res);
         });
         BtnDiscard.onClick.AddListener(() =>
         {
-            Discard.gameObject.SetActive(true);
             var res = from player in GameManager.Instance.GetState<BattleState>().PlayerList
-                      from card in player.Scheduler.DiscardPile
-                      select (card, player.UnitData);
-            Discard.ShowCardList(res);
-        });
-        BtnDiscardReturn.onClick.AddListener(() =>
-        {
-            Discard.gameObject.SetActive(false);
-        });
-        BtnDeckReturn.onClick.AddListener(() =>
-        {
-            Deck.gameObject.SetActive(false);
+                      let list = from card in player.Scheduler.DiscardPile
+                                 select (card, player.UnitData)
+                      select (player.UnitData.Name, list);
+            var panel = ServiceFactory.Instance.GetService<PanelManager>()
+                .OpenPanel(nameof(DeckPanel)) as DeckPanel;
+            panel.ShowCardList(res);
         });
     }
 
@@ -162,7 +172,7 @@ public class BattlePanel : PanelBase
     {
         var mouse = TileUtility.GetMouseInCell();
         var pos = mouse.ToVector2Int();
-        if (_enable && Mouse.current.leftButton.wasReleasedThisFrame && TileUtility.TryGetTile(pos, out var tile))
+        if (_enable && Pointer.current.press.wasReleasedThisFrame && TileUtility.TryGetTile(pos, out var tile))
         {
             if (TogMove.isOn && _movePoint.Contains(pos))
             {
@@ -220,7 +230,7 @@ public class BattlePanel : PanelBase
         var anim = ExtensionDotween.GetEmptyTween(0.01f);
         anim.OnStart(() =>
         {
-            RoundNumber.text = $"{round}Turn";
+            RoundNumber.text = $"回合 {round}";
         });
         return anim;
     }
@@ -264,6 +274,7 @@ public class BattlePanel : PanelBase
                 BattlePanel_ViewDataChanged(ur.UnitViews.First(v => v.Unit == _currentPlayer).ViewData);
             }
             BtnFinish.interactable = TogMove.interactable = _enable && _currentPlayer.ActionStatus == ActionStatus.Running;
+            ToggleDic[player].isOn = true;
         });
         seq.Append(Hands.SwitchPlayer(player));
         return seq;

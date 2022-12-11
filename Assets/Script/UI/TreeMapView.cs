@@ -4,10 +4,14 @@ using UnityEngine;
 using GameToolKit;
 using GameToolKit.Utility;
 using System.Linq;
+using Sirenix.OdinInspector;
 using UnityEngine.UI;
+using Sirenix.Serialization;
 
 public class TreeMapView : PanelBase
 {
+    public Vector4 Margin;
+
     class GraphLayoutAdapter : GameToolKit.Utility.GraphLayoutAdapter
     {
         TreeMapView _view;
@@ -40,14 +44,19 @@ public class TreeMapView : PanelBase
         public override void SetNodeData(int id, NodeData data)
         {
             var view = _view._nodes[id];
-            view.localPosition = data.Position - new Vector2(((RectTransform)_view.transform).rect.width / 2, 0);
+            view.localPosition = data.Position + new Vector2(_view.Margin.x, _view.Margin.y);
         }
     }
+
     public override PanelShowType ShowType => PanelShowType.Normal;
     Dictionary<int, RectTransform> _nodes = new Dictionary<int, RectTransform>();
     TreeMap _map;
     public Material LineMaterial;
     public Gradient LineColor;
+    public Gradient AvaliableLineColor;
+    public Gradient PathLineColor;
+    public RectTransform Root;
+    public LineRendererUGUI LineRendererUGUI;
 
     protected override void OnInit()
     {
@@ -58,10 +67,10 @@ public class TreeMapView : PanelBase
         foreach (var id in _map.Nodes)
         {
             var node = _map.FindNode(id);
-            var nodeView = Instantiate(nodeModel, transform);
+            var nodeView = Instantiate(nodeModel, Root);
             nodeView.name = $"{id}";
             nodeView.GetComponentInChildren<TMPro.TextMeshProUGUI>().text 
-                = System.Enum.GetName(node.PlaceType.GetType(), node.PlaceType);
+                = node.PlaceType.GetDescription();
             var btn = nodeView.GetComponent<Button>();
             btn.interactable = false;
             btn.onClick.AddListener(()=>(ServiceFactory.Instance.GetService<GameManager>()
@@ -74,26 +83,60 @@ public class TreeMapView : PanelBase
             nodeView.GetComponent<Button>().interactable = true;
         }
         //设定节点位置
-        GraphLayoutUtility.HierarchicalLayout(new GraphLayoutAdapter(this), _map.RootId, marginWidth:70, marginHeight:40);
+        float actualWidth, actualHeight;
+        GraphLayoutUtility.HierarchicalLayout(new GraphLayoutAdapter(this), _map.RootId,
+            actualWidth: out actualWidth,  actualHeight: out actualHeight,
+            intervalWidth:70, intervalHeight:40);
+        //扩展画布宽度
+        actualWidth += Margin.x + Margin.z;
+        actualHeight += Margin.y + Margin.w;
+        Root.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, actualWidth);
+        Root.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, actualHeight);
+        foreach (var node in _nodes.Values)
+        {
+            UIUtility.SetAnchor(node);
+        }
+        var arf =Root.gameObject.AddComponent<AspectRatioFitter>();
+        arf.aspectRatio = actualWidth / actualHeight;
+        arf.aspectMode = AspectRatioFitter.AspectMode.HeightControlsWidth;
+        Root.sizeDelta = new Vector2(Root.sizeDelta.x, 0);
+        Root.ForceUpdateRectTransforms();
         //设定节点间连线
-        foreach(var node in _nodes)
+        LineRendererUGUI.material = LineMaterial;
+        foreach (var node in _nodes)
         {
             var children = _map.GetChildren(node.Key);
-            foreach (var child in children)
+            foreach (var childIndex in children)
             {
-                var obj = new GameObject("Line", typeof(RectTransform), typeof(LineRenderer));
-                obj.layer = LayerMask.NameToLayer("UI");
-                obj.transform.SetParent(node.Value, false);
-                var line = obj.GetComponent<LineRenderer>();
-                line.material = LineMaterial;
-                line.colorGradient = LineColor;
-                line.useWorldSpace = false;
-                line.widthMultiplier = 0.5f;
-                line.SetPositions(new Vector3[2] { 
-                    Vector3.zero, 
-                    node.Value.InverseTransformPoint(_nodes[child].position) 
-                });
+                var child = _nodes[childIndex];
+                var line = new UISegment();
+                line.LineColor = node.Key == _map.CurrentId ? AvaliableLineColor : 
+                    _map.Path.Contains(node.Key) && _map.Path.Contains(childIndex) ? PathLineColor: LineColor;
+                line.WidthCruve = new AnimationCurve(new Keyframe(0, 5));
+                line.StarTransform = node.Value;
+                line.EndTransform = child;
+                LineRendererUGUI.Lines.Add(line);
             }
         }
+        LineRendererUGUI.Refresh();
+        //foreach (var node in _nodes)
+        //{
+        //    var children = _map.GetChildren(node.Key);
+        //    foreach (var child in children)
+        //    {
+        //        var obj = new GameObject("Line", typeof(RectTransform), typeof(LineRenderer));
+        //        obj.layer = LayerMask.NameToLayer("UI");
+        //        obj.transform.SetParent(node.Value, false);
+        //        var line = obj.GetComponent<LineRenderer>();
+        //        line.material = LineMaterial;
+        //        line.colorGradient = LineColor;
+        //        line.useWorldSpace = false;
+        //        line.widthMultiplier = 0.5f;
+        //        line.SetPositions(new Vector3[2] {
+        //            Vector3.zero,
+        //            node.Value.InverseTransformPoint(_nodes[child].position)
+        //        });
+        //    }
+        //}
     }
 }

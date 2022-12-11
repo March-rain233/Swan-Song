@@ -166,10 +166,10 @@ MonoBehaviour:
       Data: UnityEngine.Vector2, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: 376.8
+      Data: 376.8001
     - Name: 
       Entry: 4
-      Data: 1.14440918E-05
+      Data: -1.02996819E-06
     - Name: 
       Entry: 8
       Data: 
@@ -261,10 +261,10 @@ MonoBehaviour:
       Data: UnityEngine.Vector2, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: 421.3713
+      Data: 436.800018
     - Name: 
       Entry: 4
-      Data: 164.799988
+      Data: 164.8
     - Name: 
       Entry: 8
       Data: 
@@ -484,7 +484,73 @@ MonoBehaviour:
       Data: 28|UnityEngine.Keyframe[], UnityEngine.CoreModule
     - Name: 
       Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: UnityEngine.Keyframe, UnityEngine.CoreModule
+    - Name: ver
+      Entry: 3
+      Data: 1
+    - Name: m_Time
+      Entry: 4
+      Data: 1
+    - Name: m_Value
+      Entry: 4
+      Data: 30
+    - Name: m_InTangent
+      Entry: 4
+      Data: 30
+    - Name: m_OutTangent
+      Entry: 4
+      Data: 30
+    - Name: m_TangentMode
+      Entry: 3
+      Data: 34
+    - Name: m_WeightedMode
+      Entry: 3
       Data: 0
+    - Name: m_InWeight
+      Entry: 4
+      Data: 0
+    - Name: m_OutWeight
+      Entry: 4
+      Data: 0.333333343
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: UnityEngine.Keyframe, UnityEngine.CoreModule
+    - Name: ver
+      Entry: 3
+      Data: 1
+    - Name: m_Time
+      Entry: 4
+      Data: 5
+    - Name: m_Value
+      Entry: 4
+      Data: 150
+    - Name: m_InTangent
+      Entry: 4
+      Data: 30
+    - Name: m_OutTangent
+      Entry: 4
+      Data: 30
+    - Name: m_TangentMode
+      Entry: 3
+      Data: 34
+    - Name: m_WeightedMode
+      Entry: 3
+      Data: 0
+    - Name: m_InWeight
+      Entry: 4
+      Data: 0.333333343
+    - Name: m_OutWeight
+      Entry: 4
+      Data: 0.333333343
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: 
       Entry: 13
       Data: 
@@ -732,7 +798,7 @@ MonoBehaviour:
       Data: 31
     - Name: _sourceField
       Entry: 1
-      Data: GameData.Gold
+      Data: GameData._gold
     - Name: _targetField
       Entry: 1
       Data: SourceB
@@ -934,7 +1000,10 @@ MonoBehaviour:
         GameToolKit.Dialog]], mscorlib
     - Name: 
       Entry: 12
-      Data: 0
+      Data: 1
+    - Name: 
+      Entry: 9
+      Data: 9
     - Name: 
       Entry: 13
       Data: 
@@ -1382,7 +1451,13 @@ MonoBehaviour:
       Entry: 8
       Data: 
     - Name: ViewType
-      Entry: 6
+      Entry: 7
+      Data: 70|System.RuntimeType, mscorlib
+    - Name: 
+      Entry: 1
+      Data: EventPanel, Assembly-CSharp
+    - Name: 
+      Entry: 8
       Data: 
     - Name: SelectedOptionIndex
       Entry: 3
@@ -1401,7 +1476,7 @@ MonoBehaviour:
       Data: 
     - Name: Parents
       Entry: 7
-      Data: 70|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
+      Data: 71|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
         GameToolKit.Dialog]], mscorlib
     - Name: 
       Entry: 12
@@ -1416,14 +1491,8 @@ MonoBehaviour:
       Entry: 8
       Data: 
     - Name: ViewType
-      Entry: 7
-      Data: 71|System.RuntimeType, mscorlib
-    - Name: 
-      Entry: 1
-      Data: EventPanel, Assembly-CSharp
-    - Name: 
-      Entry: 8
-      Data: 
+      Entry: 9
+      Data: 70
     - Name: IsReleaseDialogOnEnd
       Entry: 5
       Data: false
@@ -1497,10 +1566,13 @@ MonoBehaviour:
         GameToolKit.Dialog]], mscorlib
     - Name: 
       Entry: 12
-      Data: 1
+      Data: 2
     - Name: 
       Entry: 9
       Data: 5
+    - Name: 
+      Entry: 9
+      Data: 40
     - Name: 
       Entry: 13
       Data: 
@@ -1509,7 +1581,7 @@ MonoBehaviour:
       Data: 
     - Name: ViewType
       Entry: 9
-      Data: 71
+      Data: 70
     - Name: SelectedOptionIndex
       Entry: 3
       Data: 0
@@ -1543,7 +1615,7 @@ MonoBehaviour:
       Data: 
     - Name: ViewType
       Entry: 9
-      Data: 71
+      Data: 70
     - Name: IsReleaseDialogOnEnd
       Entry: 5
       Data: false

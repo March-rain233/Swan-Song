@@ -70,11 +70,13 @@ namespace GameToolKit.Utility
         /// <remarks>
         /// 要求：无环
         /// </remarks>
-        public static void HierarchicalLayout(GraphLayoutAdapter graph, int root,
-            Vector2 oriPosition = default, float marginWidth = 20f, float marginHeight = 20f)
+        public static void HierarchicalLayout(GraphLayoutAdapter graph, int root, 
+            out float actualWidth, out float actualHeight,
+            Vector2 oriPosition = default, float intervalWidth = 20f, float intervalHeight = 20f)
         {
             Dictionary<int, int> levels = new();
             HashSet<int> visited = new();
+            actualHeight = actualWidth = 0;
             //确定节点层级
             System.Action<int> walker = (int start) =>
             {
@@ -128,17 +130,20 @@ namespace GameToolKit.Utility
                     maxWidth = System.Math.Max(maxWidth, data.Width);
                     height += data.Height;
                 }
-                height += marginHeight * System.Math.Max(0, levels.Count(n => n.Value == i) - 1);
+                height += intervalHeight * System.Math.Max(0, levels.Count(n => n.Value == i) - 1);
                 float y = -height / 2;
                 foreach (var n in levels.Where(n => n.Value == i).Select(p => p.Key))
                 {
                     var data = graph.GetNodeData(n);
                     data.Position = new Vector2(x + data.Width/2, y + data.Height/2);
                     graph.SetNodeData(n, data);
-                    y += data.Height + marginHeight;
+                    y += data.Height + intervalHeight;
                 }
-                x += marginWidth + maxWidth;
+                x += intervalWidth + maxWidth;
+                actualHeight = Mathf.Max(actualHeight, height);
             }
+            actualWidth = x - intervalWidth;
+            
         }
     }
 }

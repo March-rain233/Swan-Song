@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using GameToolKit;
+using UnityEngine;
 
 /// <summary>
 /// 主界面状态
@@ -11,6 +11,7 @@ public class MainMenuState : GameState
 {
     protected internal override void OnEnter()
     {
+        GameManager.Instance.LoadGame();
         ServiceFactory.Instance.GetService<PanelManager>()
             .OpenPanel("MainMenu");
     }
@@ -31,7 +32,8 @@ public class MainMenuState : GameState
     public void NewGame()
     {
         GameData data = new GameData();
-        data.RandomState = UnityEngine.Random.state;
+        Random.InitState(Mathf.RoundToInt(Time.unscaledTime));
+        data.RandomState = Random.state;
         data.TreeMap = TreeMapFactory.CreateTreeMap("");
         data.Members = new();
         data.Chapter = 1;
@@ -47,7 +49,8 @@ public class MainMenuState : GameState
     /// </summary>
     public void Continue()
     {
-        throw new System.NotImplementedException();
+        ServiceFactory.Instance.GetService<GameManager>()
+            .SetStatus<SelectLevelState>();
     }
 
     /// <summary>
@@ -55,6 +58,6 @@ public class MainMenuState : GameState
     /// </summary>
     public void Quit()
     {
-        UnityEngine.Application.Quit();
+        Application.Quit();
     }
 }

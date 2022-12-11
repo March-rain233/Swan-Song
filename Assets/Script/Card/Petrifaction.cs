@@ -9,7 +9,7 @@ using GameToolKit;
 public class Petrifaction : Card
 {
     public override CardType Type => CardType.Other;
-    public Petrifaction(Unit user)
+    public Petrifaction()
     {
         Name = "石化";
         Description = "接下来两回合受到的伤害减少<color=blue>30%</color>，同时不能移动";
@@ -26,7 +26,7 @@ public class Petrifaction : Card
     protected internal override TargetData GetAvaliableTarget(Unit user)
     {
         TargetData targetData = new TargetData();
-        var list = GameManager.Instance.GetState<BattleState>().UnitList
+        var list = GetUnitList()
             .Select(u => u.Position);
         targetData.ViewTiles = list;
         targetData.AvaliableTile = list;
@@ -35,6 +35,6 @@ public class Petrifaction : Card
 
     protected internal override void Release(Unit user, Vector2Int target)
     {
-        _map[target].Units.First().AddBuff(new Petrify());
+        _map[target].Units.First().AddBuff(new Petrify() { Time = 2 });
     }
 }

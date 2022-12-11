@@ -27,8 +27,8 @@ public class HookLock : Card
     protected internal override TargetData GetAvaliableTarget(Unit user)
     {
         TargetData targetData = new TargetData();
-        var list = GameManager.Instance.GetState<BattleState>()
-            .UnitList.Select(p => p.Position)
+        var list = GetUnitList()
+            .Select(p => p.Position)
             .Where(p => CheckPlaceable(user.Position + (p - user.Position).ToDirection().ToVector2Int(), user));
         targetData.ViewTiles = list;
         targetData.AvaliableTile = list;

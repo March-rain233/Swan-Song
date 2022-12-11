@@ -8,7 +8,17 @@ using GameToolKit;
 
 public class Slay : Card
 {
-    AreaHelper AreaHelper;
+    public AreaHelper AreaHelper = new AreaHelper()
+    {
+        Center = new Vector2Int(1, 1),
+        Flags = new bool[3, 3]
+        {
+            {false, true, false },
+            {true, false, true },
+            {false, true, false },
+        }
+    };
+
     public override CardType Type => CardType.Attack;
 
     public Slay()
@@ -28,13 +38,9 @@ public class Slay : Card
     protected internal override TargetData GetAvaliableTarget(Unit user)
     {
         TargetData data = new TargetData();
-        data.ViewTiles = new List<Vector2Int>();
-        data.ViewTiles.Union(AreaHelper.GetPointList(user.Position, Direction.Up));
-        data.ViewTiles.Union(AreaHelper.GetPointList(user.Position, Direction.Down));
-        data.ViewTiles.Union(AreaHelper.GetPointList(user.Position, Direction.Left));
-        data.ViewTiles.Union(AreaHelper.GetPointList(user.Position, Direction.Right));
-        data.ViewTiles = data.ViewTiles.Where(p=>UniversalFilter(p));
-        data.AvaliableTile = data.ViewTiles.Where(p=>EnemyFilter(p, user.Camp));
+        var list = AreaHelper.GetPointList(user.Position);
+        data.ViewTiles = list.Where(p=>UniversalFilter(p));
+        data.AvaliableTile = list.Where(p=>EnemyFilter(p, user.Camp));
         return data;
     }
 

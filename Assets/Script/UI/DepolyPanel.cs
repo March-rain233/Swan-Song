@@ -13,7 +13,7 @@ public class DepolyPanel : PanelBase
     public Button BtnComplete;
     public ToggleGroup UnitSelectGroup;
 
-    GameObject _toggleModel => UISetting.Instance.PrefabsDic["UnitSelectView"];
+    public GameObject ToggleModel;
 
     List<Vector2Int> _points;
     List<UnitData> _units;
@@ -65,7 +65,7 @@ public class DepolyPanel : PanelBase
 
     void CreateSelect(UnitData unit)
     {
-        var model = Instantiate(_toggleModel, UnitSelectGroup.transform);
+        var model = Instantiate(ToggleModel, UnitSelectGroup.transform);
         var view = model.GetComponent<UnitSelectView>();
         view.Binding(unit);
         view.Toggle.group = UnitSelectGroup;
@@ -79,7 +79,7 @@ public class DepolyPanel : PanelBase
         var pos = new Vector2Int(mouse.x, mouse.y);
         //如果点击了可选择的图块，且该图块还未被单位占据，则将当前选中单位放置于该图块
         //如果该图块占据的单位就是当前单位，则取消单位参战状态
-        if (Mouse.current.leftButton.wasReleasedThisFrame && _points.Contains(pos))
+        if (Pointer.current.press.wasReleasedThisFrame && _points.Contains(pos))
         {
             if (_result.ContainsValue(pos))
             {

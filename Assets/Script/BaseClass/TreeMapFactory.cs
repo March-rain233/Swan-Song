@@ -111,6 +111,8 @@ public static class TreeMapFactory
 
 
         }
+
+        map.CurrentId = map.RootId;
         return map;
     }
     static void RandomArr(int[] arr)

@@ -25,5 +25,13 @@ internal class Petrify : RoundBuff
         Unit.CanMove = true;
         Unit.HurtCalculating -= Unit_HurtCalculating;
     }
+
+    public override BuffData GetBuffData()
+    {
+        var data = base.GetBuffData();
+        data.Name = "石化";
+        data.Description = "受到的伤害减少<color=blue>30%</color>，同时不能移动";
+        return data;
+    }
 }
 

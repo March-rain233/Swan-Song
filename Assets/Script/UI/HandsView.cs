@@ -38,6 +38,13 @@ public class HandsView : SerializedMonoBehaviour
 
     bool _enable = false;
 
+    ViewPoint _viewPoint;
+
+    private void Awake()
+    {
+        _viewPoint = FindObjectOfType<ViewPoint>();
+    }
+
     /// <summary>
     /// 更改手牌显示角色
     /// </summary>
@@ -208,7 +215,7 @@ public class HandsView : SerializedMonoBehaviour
             var mouse = TileUtility.GetMouseInCell().ToVector2Int();
             _select.SetLineEnd( _select.LineRenderer.transform.InverseTransformPoint(
                     ServiceFactory.Instance.GetService<PanelManager>().UICamera
-                    .ScreenToWorldPoint(Mouse.current.position.ReadValue())));
+                    .ScreenToWorldPoint(Pointer.current.position.ReadValue())));
             if (_avaliableTarget.AvaliableTile.Contains(mouse))
             {
                 var list = _select.Card.GetAffecrTarget(_select.CardScheduler.Unit, mouse);
@@ -227,6 +234,7 @@ public class HandsView : SerializedMonoBehaviour
 
     void SelectCard(HandsCardView cardView)
     {
+        _viewPoint.enabled = false;
         _select = cardView;
 
         //将卡移入中央
@@ -244,6 +252,7 @@ public class HandsView : SerializedMonoBehaviour
 
     void UnSelect()
     {
+        _viewPoint.enabled = true;
         var mr = GameManager.Instance.GetState<BattleState>().MapRenderer;
         var ur = GameManager.Instance.GetState<BattleState>().UnitRenderer;
         var mouse = TileUtility.GetMouseInCell().ToVector2Int();

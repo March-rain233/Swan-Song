@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 using GameToolKit;
@@ -13,29 +14,17 @@ public class PlayerSelectPanel : PanelBase
 {
     List<UnitModel> _team = new();
 
-    UnitData _currentData;
     UnitModel _currentModel;
 
     List<(Button btn, Outline ol, UnitModel model)> SelectList = new();
 
     public HorizontalLayoutGroup UnitList;
 
-    public TextMeshProUGUI Blood;
-    public TextMeshProUGUI Attack;
-    public TextMeshProUGUI Defence;
-    public TextMeshProUGUI Heal;
-    public TextMeshProUGUI Speed;
-    public TextMeshProUGUI AP;
-    public TextMeshProUGUI Level;
-    public Button BtnLevelUp;
-    public Button BtnLevelDown;
-    public TextMeshProUGUI Name;
-    public Image Face;
-    public Button BtnSkill;
-
     public Button BtnComplete;
     public Button BtnJoin;
     public Button BtnDelete;
+
+    public UnitDataDetailView UnitDataView;
 
     public List<Image> TeamView;
     protected override void OnInit()
@@ -68,13 +57,11 @@ public class PlayerSelectPanel : PanelBase
                 if(_currentModel != unitModel)
                 {
                     _currentModel = unitModel;
-                    _currentData = new UnitData(unitModel);
-                    Name.text = _currentData.Name;
-                    Face.sprite = _currentData.Face;
-                    UpdataView();
+                    UnitDataView.UnitData = new UnitData(unitModel);
+                    UnitDataView.Refresh();
 
-                    BtnLevelDown.interactable = false;
-                    BtnLevelUp.interactable = true;
+                    UnitDataView.BtnLevelDown.interactable = false;
+                    UnitDataView.BtnLevelUp.interactable = true;
 
                     BtnJoin.interactable = !_team.Contains(unitModel) && _team.Count < TeamView.Count;
                     BtnDelete.interactable = _team.Contains(unitModel);
@@ -83,21 +70,19 @@ public class PlayerSelectPanel : PanelBase
 
             SelectList.Add((btn, ol, unitModel));
         }
-        BtnLevelDown.onClick.AddListener(() =>
+
+        UnitDataView.OnConstructSkills += (data) =>
         {
-            _currentData.SetLevel(_currentData.Level - 1);
-            if(_currentData.Level == 1)
+            var res = new List<(string, IEnumerable<(Card, UnitData)>)>();
+            System.Func<string, string, (string, IEnumerable<(Card, UnitData)>)> func = (index, name) =>
             {
-                BtnLevelDown.interactable = false;
-            }
-            UpdataView();
-        });
-        BtnLevelUp.onClick.AddListener(() =>
-        {
-            _currentData.SetLevel(_currentData.Level + 1);
-            BtnLevelDown.interactable = true;
-            UpdataView();
-        });
+                return (name, from card in CardPoolManager.Instance.PoolDic[index]
+                                select (card, data));
+            };
+            res.Add(func(data.UnitModel.PrivilegeDeckIndex, "×¨Êô"));
+            res.Add(func(data.UnitModel.CoreDeckIndex, "ºËÐÄ"));
+            return res;
+        };
 
         BtnComplete.interactable = false;
         BtnJoin.onClick.AddListener(() =>
@@ -133,16 +118,5 @@ public class PlayerSelectPanel : PanelBase
         });
 
         SelectList[0].btn.onClick.Invoke();
-    }
-
-    void UpdataView()
-    {
-        Blood.text = $"{_currentData.BloodMax}";
-        Attack.text = $"{_currentData.Attack}";
-        Defence.text = $"{_currentData.Defence}";
-        Speed.text = $"{_currentData.Speed}";
-        Heal.text = $"{_currentData.Heal}";
-        AP.text = $"{_currentData.ActionPointMax}";
-        Level.text = $"Level {_currentData.Level}";
     }
 }

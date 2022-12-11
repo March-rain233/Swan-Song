@@ -21,8 +21,33 @@ internal class LotteryNode : ProcessNode
                 item.Value = UnityEngine.Random.Range(30, 150);
                 break;
             case ItemType.Card:
+                var cards = new List<(Card, UnitData)>();
+                for(int i = 0; i < GameManager.Instance.GameData.Members.Count; i++)
+                {
+                    var member = GameManager.Instance.GameData.Members[i];
+                    var card = CardPoolManager.Instance.DrawCard(
+                        CardPoolManager.NormalPoolIndex,
+                        member.UnitModel.PrivilegeDeckIndex,
+                        member.UnitModel.CoreDeckIndex
+                        );
+                    cards.Add((card, member));
+                }
+                for(int i = 0; i < 1; ++i)
+                {
+                    var member = GameManager.Instance.GameData.Members[UnityEngine.Random.Range(0, GameManager.Instance.GameData.Members.Count)];
+                    var card = CardPoolManager.Instance.DrawCard(
+                        member.UnitModel.PrivilegeDeckIndex,
+                        member.UnitModel.CoreDeckIndex
+                        );
+                    cards.Add((card, member));
+                }
+                item.Value = cards;
                 break;
         }
+        var panel = ServiceFactory.Instance.GetService<PanelManager>()
+            .OpenPanel(nameof(BootyPanel)) as BootyPanel;
+        panel.ShowItems(new List<Item>() { item });
+        panel.Quitting += Finish;
     }
 }
 

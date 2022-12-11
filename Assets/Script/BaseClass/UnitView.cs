@@ -80,6 +80,12 @@ public class UnitView : MonoBehaviour,IPointerClickHandler
             .SetEase(Ease.InOutSine);
     }
 
+    private void OnDestroy()
+    {
+        AttackTargetFlag
+            .DOKill(true);
+    }
+
     /// <summary>
     /// 标记为攻击对象
     /// </summary>

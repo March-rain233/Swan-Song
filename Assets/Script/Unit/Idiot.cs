@@ -14,7 +14,7 @@ public class Idiot : Unit
 {
     public Idiot(Vector2Int pos) : base(new UnitModel()
     {
-        Blood = int.MaxValue,
+        Blood = int.MaxValue / 2,
     }, pos)
     {
     }

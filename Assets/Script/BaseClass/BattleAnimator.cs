@@ -27,6 +27,15 @@ public class BattleAnimator
     {
         var pm = ServiceFactory.Instance.GetService<PanelManager>();
         _battleState = battleState;
+
+        //设置相机边框
+        var vp = GameObject.FindObjectOfType<ViewPoint>();
+        vp.enabled = true;
+        var map = _battleState.Map;
+        vp.Border.min = _mapRenderer.Grid.CellToWorld(new Vector3Int(0, 0));
+        vp.Border.max = _mapRenderer.Grid.CellToWorld(new Vector3Int(map.Width, map.Height));
+        vp.ResetToCenter();
+
         _battleState.CurrentUnitChanged += (unit) =>
         {
             List<Unit> orderList = _battleState.GetUnitOrderList().ToList();
@@ -42,11 +51,17 @@ public class BattleAnimator
         };
         _battleState.Successed += () =>
         {
-            var panel = pm.OpenPanel("SuccessPanel") as SuccessPanel;
+            vp.enabled = false;
+            var panel = pm.OpenPanel(nameof(BootyPanel)) as BootyPanel;
             panel.ShowItems(_battleState.ItemList);
+            panel.Quitting += () =>
+            {
+                GameManager.Instance.SetStatus<SelectLevelState>();
+            };
         };
         _battleState.Failed += () =>
         {
+            vp.enabled = false;
             pm.OpenPanel("FailurePanel");
         };
     }

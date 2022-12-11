@@ -10,16 +10,19 @@ using GameToolKit.Dialog;
 /// </summary>
 public class EventState : GameState
 {
+    DialogTree _dialog;
     protected internal override void OnEnter()
     {
         ServiceFactory.Instance.GetService<PanelManager>()
-            .OpenPanel("EventPanel");
+            .OpenPanel(nameof(EventPanel));
     }
 
     protected internal override void OnExit()
     {
+        ServiceFactory.Instance.GetService<DialogManager>()
+            .CancelDialog(_dialog);
         ServiceFactory.Instance.GetService<PanelManager>()
-            .ClosePanel("EventPanel");
+            .ClosePanel(nameof(EventPanel));
     }
 
     protected internal override void OnUpdata()
@@ -29,8 +32,8 @@ public class EventState : GameState
 
     public void SetEvent(PlaceType placeType)
     {
-        var dialog = EventSetting.Instance.EventDialogDic[placeType];
+        _dialog = EventSetting.Instance.EventDialogDic[placeType];
         ServiceFactory.Instance.GetService<DialogManager>()
-            .PlayDialog(dialog);
+            .PlayDialog(_dialog);
     }
 }

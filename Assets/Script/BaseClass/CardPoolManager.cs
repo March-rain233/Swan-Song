@@ -3,13 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Sirenix.Serialization;
+using Sirenix.OdinInspector;
+using UnityEngine.Serialization;
 
 public class CardPoolManager : GameToolKit.ScriptableSingleton<CardPoolManager>
 {
-    [OdinSerialize]
-    private List<Card> _pool;
-    [OdinSerialize]
-    private Dictionary<string, List<Card>> _poolDic = new();
+    [OdinSerialize, Searchable, FormerlySerializedAs("_pool")]
+    public List<Card> TotalPool;
+    [OdinSerialize, Searchable]
+    public Dictionary<string, List<Card>> PoolDic{ get; private set;}
+
+    public const string NormalPoolIndex = "Normal";
 
     /// <summary>
     /// 抽取指定卡池中的一张卡
@@ -24,7 +28,7 @@ public class CardPoolManager : GameToolKit.ScriptableSingleton<CardPoolManager>
     {
         int rand = AdvanceRandom.Draw(poolIndex
             .Select((p, i)=>(new AdvanceRandom.Item() { Value = i, Weight = p.weight})));
-        var pool = _poolDic[poolIndex[rand].poolIndex];
+        var pool = PoolDic[poolIndex[rand].poolIndex];
         rand = UnityEngine.Random.Range(0, pool.Count);
         return pool[rand].Clone();
     }

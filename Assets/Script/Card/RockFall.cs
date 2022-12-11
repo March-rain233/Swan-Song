@@ -8,10 +8,20 @@ using GameToolKit;
 
 public class RockFall : Card
 {
-    AreaHelper AreaHelper;
+    public AreaHelper AreaHelper = new AreaHelper()
+    {
+        Center = new Vector2Int(0, 0),
+        Flags = new bool[4, 1]
+        {
+            {false },
+            {true},
+            {true},
+            {true }
+        }
+    };
     public override CardType Type => CardType.Attack;
 
-    public RockFall(Unit user)//战士专属
+    public RockFall()//战士专属
     {
         Name = "岩崩斩";
         Description = "向前方斩出一击，对直线上敌人造成200%力量值的伤害，对血量低于50%的敌人额外造成一次100%力量值的伤害";

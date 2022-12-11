@@ -22,4 +22,12 @@ internal class Stun : RoundBuff
     {
         Unit.ActionStatus = ActionStatus.Rest;
     }
+
+    public override BuffData GetBuffData()
+    {
+        var data = base.GetBuffData();
+        data.Name = "晕眩";
+        data.Description = "无法行动";
+        return data;
+    }
 }

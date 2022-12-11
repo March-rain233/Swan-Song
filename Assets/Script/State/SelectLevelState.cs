@@ -10,6 +10,9 @@ public class SelectLevelState : GameState
 {
     protected internal override void OnEnter()
     {
+        //进入一次地图存一次档
+        GameManager.Instance.SaveGame();
+
         var map = GameManager.Instance.GameData.TreeMap;
         if(map.CurrentNode.PlaceType == PlaceType.BossBattle)
         {

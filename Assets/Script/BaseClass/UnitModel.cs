@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UnityEngine;
+using Newtonsoft.Json;
 
 /// <remarks>单位数据模板</remarks>
 public class UnitModel
@@ -12,12 +13,17 @@ public class UnitModel
     /// </summary>
     public int DefaultViewType = 0;
     /// <summary>
+    /// 默认描述
+    /// </summary>
+    public string DefaultDescription;
+    /// <summary>
     /// 默认名
     /// </summary>
     public string DefaultName = "Default";
     /// <summary>
     /// 默认立绘
     /// </summary>
+    [JsonConverter(typeof(ObjectConvert))]
     public Sprite DefaultFace = null;
     /// <summary>
     /// 初始攻击力

@@ -34,7 +34,7 @@ public abstract class Tile
     public void AddStatus<TStatus>(TStatus status)
         where TStatus : TileStatus
     {
-        foreach(var ori in _statusList.Where(e=>e is TStatus))
+        foreach(var ori in _statusList.Where(e=>e is TStatus).ToList())
         {
             OnRemoveStatus(ori);
         }

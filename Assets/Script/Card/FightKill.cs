@@ -28,8 +28,8 @@ public class FightKill : Card
     protected internal override TargetData GetAvaliableTarget(Unit user)
     {
         TargetData targetData = new TargetData();
-        var list = GameManager.Instance.GetState<BattleState>()
-            .UnitList.Where(u=>u.Camp != user.Camp)
+        var list = GetUnitList()
+            .Where(u=>u.Camp != user.Camp)
             .Select(u=>u.Position)
             .Where(p=>CheckPlaceable((user.Position - p).ToDirection().ToVector2Int() + p, user));
         targetData.ViewTiles = list;

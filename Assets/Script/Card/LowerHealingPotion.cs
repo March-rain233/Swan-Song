@@ -26,8 +26,8 @@ public class LowerHealingPotion : Card
     protected internal override TargetData GetAvaliableTarget(Unit user)
     {
         var targetData = new TargetData();
-        targetData.AvaliableTile = GameManager.Instance.GetState<BattleState>().UnitList
-            .Where(u => u.Camp == user.Camp && u.ActionStatus != ActionStatus.Dead)
+        targetData.AvaliableTile = GetUnitList()
+            .Where(u => u.Camp == user.Camp)
             .Select(u => u.Position);
         targetData.ViewTiles = targetData.AvaliableTile;
         return targetData;

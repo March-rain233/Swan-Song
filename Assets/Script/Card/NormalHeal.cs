@@ -15,7 +15,7 @@ public class NormalHeal : Card
     }
     protected internal override IEnumerable<Vector2Int> GetAffecrTarget(Unit user, Vector2Int target)
     {
-        return GameManager.Instance.GetState<BattleState>().UnitList
+        return GetUnitList()
             .Where(u => u.Camp == user.Camp)
             .Select(u => u.Position);
     }
@@ -23,8 +23,8 @@ public class NormalHeal : Card
     protected internal override TargetData GetAvaliableTarget(Unit user)
     {
         var targetData = new TargetData();
-        targetData.AvaliableTile = GameManager.Instance.GetState<BattleState>().UnitList
-            .Where(u => u.Camp == user.Camp && u.ActionStatus != ActionStatus.Dead)
+        targetData.AvaliableTile = GetUnitList()
+            .Where(u => u.Camp == user.Camp)
             .Select(u=>u.Position);
         targetData.ViewTiles = targetData.AvaliableTile;
         return targetData;
@@ -32,14 +32,10 @@ public class NormalHeal : Card
 
     protected internal override void Release(Unit user, Vector2Int target)
     {
-        if(TileUtility.TryGetTile(target, out var tile) && tile.Units.Count>0)
+        foreach(var u in GetAffecrTarget(user, target)
+            .Select(p => _map[p].Units.First<ICurable>()))
         {
-            var healing = user.UnitData.Heal;
-            (tile.Units.First() as ICurable).Cure(healing, user);
-        }
-        else
-        {
-            Debug.LogWarning("There is no target, please check it.");
+            u.Cure(user.UnitData.Heal, user);
         }
     }
 }

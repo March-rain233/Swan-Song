@@ -17,19 +17,6 @@ public class Curse : Card
         Cost = 0;
     }
 
-    public AreaHelper AttackArea = new AreaHelper()
-    {
-        Center = new Vector2Int(2, 2),
-        Flags = new bool[5, 5]
-        {
-            {true,true,true,true,true },
-            {true,true,true,true,true },
-            {true,true,true,true,true },
-            {true,true,true,true,true },
-            {true,true,true,true,true }
-        }
-    };
-
     protected internal override IEnumerable<Vector2Int> GetAffecrTarget(Unit user, Vector2Int target)
     {
         List<Vector2Int> res = new List<Vector2Int>();
@@ -40,17 +27,16 @@ public class Curse : Card
     protected internal override TargetData GetAvaliableTarget(Unit user)
     {
         TargetData targetData = new TargetData();
-        var position = user.Position;
-        var map = _map;
-        var list = AttackArea.GetPointList(position);
-        targetData.ViewTiles = list.Where(p=>UniversalFilter(p));
-        targetData.AvaliableTile = list.Where(p=>UniversalFilter(p, true));
+        var list = GetUnitList()
+            .Select(u=>u.Position);
+        targetData.ViewTiles = list;
+        targetData.AvaliableTile = list;
         return targetData;
     }
 
     protected internal override void Release(Unit user, Vector2Int target)
     {
         _map[target].Units.First()
-            .AddBuff(new CurseBuff() { User = user});
+            .AddBuff(new CurseBuff() { User = user, Time = 2});
     }
 }

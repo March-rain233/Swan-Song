@@ -27,8 +27,7 @@ public class PoisonAttack : Card
     protected internal override TargetData GetAvaliableTarget(Unit user)
     {
         TargetData targetData = new TargetData();
-        var list = GameManager.Instance.GetState<BattleState>()
-            .UnitList
+        var list = GetUnitList()
             .Select(u => u.Position);
         targetData.ViewTiles = list;
         targetData.AvaliableTile = list;
@@ -38,6 +37,6 @@ public class PoisonAttack : Card
     protected internal override void Release(Unit user, Vector2Int target)
     {
         _map[target].Units.First()
-            .AddBuff(new Poison() { Time = 3 });
+            .AddBuff(new Poison() { Time = 3, Damage = 20 });
     }
 }

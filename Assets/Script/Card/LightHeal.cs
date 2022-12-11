@@ -27,8 +27,8 @@ public class LightHeal : Card
     protected internal override TargetData GetAvaliableTarget(Unit user)
     {
         var targetData = new TargetData();
-        var list = GameManager.Instance.GetState<BattleState>().UnitList
-            .Where(u => u.Camp == user.Camp && u.ActionStatus != ActionStatus.Dead)
+        var list = GetUnitList()
+            .Where(u => u.Camp == user.Camp)
             .Select(u => u.Position);
         targetData.AvaliableTile = list;
         targetData.ViewTiles = list;

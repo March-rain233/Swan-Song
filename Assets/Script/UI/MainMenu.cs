@@ -25,5 +25,7 @@ public class MainMenu : PanelBase
         _btnNewGame.onClick.AddListener(()=>state.NewGame());
         _btnQuit.onClick.AddListener(()=>state.Quit());
         _btnContinue.onClick.AddListener(()=>state.Continue());
+
+        _btnContinue.interactable = GameManager.Instance.HasSave;
     }
 }

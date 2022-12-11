@@ -13,7 +13,7 @@ public class Hymn : Card
     public Hymn()//赞美诗_牧师专属
     {
         Name = "赞美诗";
-        Description = "回复所有友方角色一点体力和80%虔诚值点生命";
+        Description = "回复所有友方角色<color=yellow>1</color>点体力和<color=green>80%</color>虔诚值点的生命";
         Cost = 2;
     }
 
@@ -27,8 +27,8 @@ public class Hymn : Card
     protected internal override TargetData GetAvaliableTarget(Unit user)
     {
         var targetData = new TargetData();
-        targetData.AvaliableTile = GameManager.Instance.GetState<BattleState>().UnitList
-            .Where(u => u.Camp == user.Camp && u.ActionStatus != ActionStatus.Dead)
+        targetData.AvaliableTile = GetUnitList()
+            .Where(u => u.Camp == user.Camp)
             .Select(u => u.Position);
         targetData.ViewTiles = targetData.AvaliableTile;
         return targetData;
@@ -36,16 +36,11 @@ public class Hymn : Card
 
     protected internal override void Release(Unit user, Vector2Int target)
     {
-        if (TileUtility.TryGetTile(target, out var tile) && tile.Units.Count > 0)
+        foreach(var u in GetAffecrTarget(user, target)
+            .Select(p => _map[p].Units.First()))
         {
-            var tar = (_map[target.x, target.y].Units.First() as ICurable);
-            (tar as Unit).UnitData.ActionPoint++;
-            var healing = user.UnitData.Heal;
-            (tile.Units.First() as ICurable).Cure(healing * 0.8f, user);
-        }
-        else
-        {
-            Debug.LogWarning("There is no target, please check it.");
+            u.UnitData.ActionPoint += 1;
+            (u as ICurable).Cure(user.UnitData.Heal * 0.8f, user);
         }
     }
 }

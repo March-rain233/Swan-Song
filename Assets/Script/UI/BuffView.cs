@@ -19,7 +19,7 @@ public class BuffView : MonoBehaviour,
     public void Binding(Buff.BuffData buffData)
     {
         ImgBuff.sprite = buffData.Sprite;
-        TxtBuffTime.text = buffData.Time > 0 ? $"{buffData.Time}" : null;
+        TxtBuffTime.text = buffData.Time > 0 ? $"{buffData.Time}" : "¡Þ";
         TxtBuffLevel.text = buffData.Level.ToString();
         TxtBuffDescription.text = buffData.Description;
         TxtBuffName.text = buffData.Name;

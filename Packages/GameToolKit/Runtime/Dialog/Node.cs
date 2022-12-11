@@ -87,7 +87,7 @@ namespace GameToolKit.Dialog
         /// <summary>
         /// ÔËÐÐ
         /// </summary>
-        public void Play()
+        public virtual void Play()
         {
             Status = NodeStatus.Working;
             InitInputData();

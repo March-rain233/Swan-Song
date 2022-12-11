@@ -34,5 +34,20 @@ namespace GameToolKit
                 updata(source.ElementAt(i), newViews[i], i);
             }
         }
+
+        /// <summary>
+        /// 设置锚点为组件的四角
+        /// </summary>
+        /// <param name="rectTransform"></param>
+        public static void SetAnchor(RectTransform rectTransform)
+        {
+            var parentRect = rectTransform.parent as RectTransform;
+            var parentSize = parentRect.rect.size;
+            var offsetMin = rectTransform.offsetMin + (rectTransform.anchorMin * parentSize);
+            var offsetMax = rectTransform.offsetMax + (rectTransform.anchorMax * parentSize);
+            rectTransform.anchorMin = offsetMin / parentSize;
+            rectTransform.anchorMax = offsetMax / parentSize;
+            rectTransform.offsetMin = rectTransform.offsetMax = Vector2.zero;
+        }
     }
 }

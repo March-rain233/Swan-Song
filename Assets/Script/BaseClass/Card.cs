@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 using GameToolKit;
+using Newtonsoft.Json;
 
 /// <summary>
 /// 卡牌对象
@@ -52,6 +53,7 @@ public abstract class Card
     /// <summary>
     /// 卡面图片
     /// </summary>
+    [JsonConverter(typeof(ObjectConvert))]
     public Sprite Sprite;
 
     /// <summary>
@@ -67,6 +69,7 @@ public abstract class Card
     /// <summary>
     /// 卡牌类型
     /// </summary>
+    [JsonIgnore]
     public virtual CardType Type => CardType.Other;
 
     /// <summary>
@@ -74,6 +77,7 @@ public abstract class Card
     /// </summary>
     public HashSet<Entry> Entries = new();
 
+    [JsonIgnore]
     protected static Map _map => (ServiceFactory.Instance.GetService<GameManager>().GetState() as BattleState).Map;
 
     /// <summary>
@@ -143,7 +147,7 @@ public abstract class Card
     protected static bool ExcludeFriendFilter(Vector2Int p, Camp camp)
     {
         return UniversalFilter(p, false)
-            && _map[p].Units.Count > 0 ? _map[p].Units.First().Camp != camp : true;
+            && (_map[p].Units.Count > 0 ? _map[p].Units.First().Camp != camp : true);
     }
 
     /// <summary>
@@ -158,5 +162,16 @@ public abstract class Card
             && _map[p] != null
             && _map[p].CheckPlaceable(unit)
             && _map[p].Units.Count == 0;
+    }
+
+    /// <summary>
+    /// 获取所有单位
+    /// </summary>
+    /// <param name="isIncluedDead"></param>
+    /// <returns></returns>
+    protected static IEnumerable<Unit> GetUnitList(bool isIncluedDead = false)
+    {
+        return GameManager.Instance.GetState<BattleState>()
+            .UnitList.Where(u => isIncluedDead || u.ActionStatus != ActionStatus.Dead);
     }
 }

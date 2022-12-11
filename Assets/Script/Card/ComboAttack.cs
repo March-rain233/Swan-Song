@@ -14,11 +14,12 @@ public class ComboAttack : Card
 
     public AreaHelper AttackArea = new AreaHelper()
     {
-        Center = new Vector2Int(0, 0),
-        Flags = new bool[2, 1]
+        Center = new Vector2Int(1, 1),
+        Flags = new bool[3, 3]
         {
-            {false },
-            {true }
+            {true, true, true },
+            {true, false, true },
+            {true, true, true }
         }
     };
 
@@ -40,11 +41,9 @@ public class ComboAttack : Card
     protected internal override TargetData GetAvaliableTarget(Unit user)
     {
         TargetData targetData = new TargetData();
-        var position = user.Position;
-        var map = _map;
-        var list = AttackArea.GetPointList(position);
-        targetData.ViewTiles = list.Where(p=>EnemyFilter(p, user.Camp));
-        targetData.AvaliableTile = targetData.ViewTiles.Where(p => map[p].Units.Count > 0);
+        var list = AttackArea.GetPointList(user.Position);
+        targetData.ViewTiles = list;
+        targetData.AvaliableTile = list.Where(p => EnemyFilter(p, user.Camp));
         return targetData;
     }
 

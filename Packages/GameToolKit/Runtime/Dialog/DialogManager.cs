@@ -38,6 +38,23 @@ namespace GameToolKit.Dialog
         }
 
         /// <summary>
+        /// 取消对话
+        /// </summary>
+        /// <param name="dialog"></param>
+        public void CancelDialog(DialogTree dialog)
+        {
+            if (RunningList.Contains(dialog))
+            {
+                dialog.Finish();
+            }
+            else if(WaitQueue.Contains(dialog))
+            {
+                WaitQueue = new Queue<DialogTree>(WaitQueue.Where(e => e != dialog));
+            }
+        }
+
+
+        /// <summary>
         /// 刷新数据，检查当前逻辑
         /// </summary>
         private void Refresh()

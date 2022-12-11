@@ -8,7 +8,18 @@ using GameToolKit;
 
 public class StabAttack : Card
 {
-    AreaHelper AreaHelper;
+    public AreaHelper AreaHelper = new AreaHelper()
+    {
+        Center = new Vector2Int(0, 0),
+        Flags = new bool[4, 1]
+        {
+            {false },
+            {true},
+            {true},
+            {true }
+        }
+    };
+
     public override CardType Type => CardType.Attack;
 
     public StabAttack()

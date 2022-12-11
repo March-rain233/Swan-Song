@@ -24,11 +24,11 @@ namespace GameToolKit
         /// <summary>
         /// 源数据段名称
         /// </summary>
-        public string SourceField { get { return _sourceField; } }
+        public string SourceField { get => _sourceField; set => _sourceField = value; }
         /// <summary>
         /// 目标数据段名称
         /// </summary>
-        public string TargetField { get { return _targetField; } }
+        public string TargetField { get => _targetField; set => _targetField = value; }
 
         public SourceInfo(BaseNode sourceNode, BaseNode targetNode, string sourceField, string targetField)
         {

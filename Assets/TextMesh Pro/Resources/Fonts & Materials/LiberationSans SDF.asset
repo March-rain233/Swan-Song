@@ -13,6 +13,7 @@ Material:
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - OUTLINE_ON
+  - UNDERLAY_ON
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -110,7 +111,7 @@ Material:
     - _OutlineSoftness: 0
     - _OutlineUVSpeedX: 0
     - _OutlineUVSpeedY: 0
-    - _OutlineWidth: 0.12
+    - _OutlineWidth: 0.2
     - _Parallax: 0.02
     - _PerspectiveFilter: 0.875
     - _Reflectivity: 10
@@ -133,10 +134,10 @@ Material:
     - _TextureHeight: 1024
     - _TextureWidth: 1024
     - _UVSec: 0
-    - _UnderlayDilate: 0
-    - _UnderlayOffsetX: 0.5
-    - _UnderlayOffsetY: -0.5
-    - _UnderlaySoftness: 0.05
+    - _UnderlayDilate: 0.04
+    - _UnderlayOffsetX: 0.54
+    - _UnderlayOffsetY: -0.61
+    - _UnderlaySoftness: 0.1
     - _VertexOffsetX: 0
     - _VertexOffsetY: 0
     - _WeightBold: 0.75

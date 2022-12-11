@@ -177,6 +177,12 @@ namespace GameToolKit.Dialog
             SelectedOptionIndex = -1;
         }
 
+        public override void Play()
+        {
+            Status = NodeStatus.Working;
+            OnPlay();
+        }
+
         protected override void OnPlay()
         {
             Finish();

@@ -24,10 +24,11 @@ public abstract class RoundBuff : Buff
         {
             Time -= 1;
         }
-        else if(Time == 0)
+        if(Time == 0)
         {
             Unit.RemoveBuff(this);
         }
+        Unit.NotifyBuffChange();
     }
 
     protected override void OnDisable()

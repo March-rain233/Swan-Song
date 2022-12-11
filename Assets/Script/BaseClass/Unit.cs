@@ -83,7 +83,22 @@ public abstract class Unit : IHurtable, ICurable
     /// <summary>
     /// 是否可移动
     /// </summary>
-    public bool CanMove = true;
+    public bool CanMove
+    {
+        get => _canMoveCount == 0;
+        set
+        {
+            if (value)
+            {
+                _canMoveCount = Mathf.Max(0, _canMoveCount - 1);
+            }
+            else
+            {
+                _canMoveCount += 1;
+            }
+        }
+    }
+    int _canMoveCount = 0;
 
     #region 事件组
     /// <summary>
@@ -138,10 +153,7 @@ public abstract class Unit : IHurtable, ICurable
     internal void Prepare()
     {
         ActionStatus = ActionStatus.Waitting;
-        if(UnitData.ActionPoint < UnitData.ActionPointMax + 2)
-        {
-            UnitData.ActionPoint += 2;
-        }
+        UnitData.ActionPoint += Mathf.Clamp(UnitData.ActionPointMax - UnitData.ActionPoint, 0, 2);
         Scheduler.Prepare();
         Preparing?.Invoke();
     }
@@ -187,22 +199,30 @@ public abstract class Unit : IHurtable, ICurable
     /// <remarks>
     /// 相同类型的buff将被替代
     /// </remarks>
-    public void AddBuff<TBuff>(TBuff buff) 
+    public void AddBuff<TBuff>(TBuff buff)
         where TBuff : Buff
     {
-        foreach(var ori in _buffList.Where(e=>e is TBuff))
+        bool isReplace = true;
+        foreach (var ori in _buffList.Where(e => e is TBuff).ToList())
         {
             if (buff.CheckReplace(ori))
             {
                 ori.Disable();
                 _buffList.Remove(ori);
             }
+            else
+            {
+                isReplace = false;
+            }
         }
-        _buffList.Add(buff);
-        buff.Register(this);
-        buff.Enable();
+        if (isReplace)
+        {
+            _buffList.Add(buff);
+            buff.Register(this);
+            buff.Enable();
 
-        BuffListChanged?.Invoke();
+            BuffListChanged?.Invoke();
+        }
     }
 
     /// <summary>
@@ -226,6 +246,11 @@ public abstract class Unit : IHurtable, ICurable
         buff.Disable();
         _buffList.Remove(buff);
 
+        BuffListChanged?.Invoke();
+    }
+
+    internal void NotifyBuffChange()
+    {
         BuffListChanged?.Invoke();
     }
 
@@ -300,7 +325,14 @@ public abstract class Unit : IHurtable, ICurable
         HurtCalculating?.Invoke(@event);
         ServiceFactory.Instance.GetService<EventManager>()
             .Broadcast(@event);
-        damage = Math.Max(0, @event.FinalDamage);
+        if (type.HasFlag(HurtType.Death))
+        {
+            damage = UnitData.Blood;
+        }
+        else
+        {
+            damage = Math.Max(0, @event.FinalDamage);
+        }
         return damage;
     }
 

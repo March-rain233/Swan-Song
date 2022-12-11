@@ -321,7 +321,7 @@ MonoBehaviour:
       Data: 3369f308-adc2-4d72-9b40-b87d4563ca93
     - Name: LastDataUpdataTime
       Entry: 4
-      Data: 21.0423069
+      Data: 6.345407
     - Name: Name
       Entry: 1
       Data: InputNode(2)
@@ -398,7 +398,7 @@ MonoBehaviour:
       Data: 866c0f21-6b8d-4b1a-b223-ef35e9cd667c
     - Name: LastDataUpdataTime
       Entry: 4
-      Data: 21.0423069
+      Data: 6.345407
     - Name: Name
       Entry: 1
       Data: GameDataNode
@@ -451,22 +451,22 @@ MonoBehaviour:
       Data: UnityEngine.Random+State, UnityEngine.CoreModule
     - Name: s0
       Entry: 3
-      Data: 542024687
+      Data: -427975950
     - Name: s1
       Entry: 3
-      Data: 71346916
+      Data: -1020559826
     - Name: s2
       Entry: 3
-      Data: -242513971
+      Data: -748664741
     - Name: s3
       Entry: 3
-      Data: 221327855
+      Data: -1557163516
     - Name: 
       Entry: 8
       Data: 
-    - Name: Gold
+    - Name: _gold
       Entry: 3
-      Data: -30
+      Data: 30
     - Name: Members
       Entry: 7
       Data: 26|System.Collections.Generic.List`1[[UnitData, Assembly-CSharp]], mscorlib
@@ -482,30 +482,474 @@ MonoBehaviour:
     - Name: Name
       Entry: 1
       Data: Test
+    - Name: Description
+      Entry: 6
+      Data: 
     - Name: Face
       Entry: 10
       Data: 1
     - Name: ActionPointMax
       Entry: 3
       Data: 5
-    - Name: Attack
+    - Name: Deck
+      Entry: 7
+      Data: 28|System.Collections.Generic.List`1[[Card, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 3
+    - Name: 
+      Entry: 7
+      Data: 29|FireBall, Assembly-CSharp
+    - Name: Name
+      Entry: 1
+      Data: Fire Ball
+    - Name: Description
+      Entry: 1
+      Data: AOE
+    - Name: Sprite
+      Entry: 6
+      Data: 
+    - Name: Cost
       Entry: 3
-      Data: 5
-    - Name: Defence
-      Entry: 3
+      Data: 2
+    - Name: HasEnchanted
+      Entry: 5
+      Data: false
+    - Name: Entries
+      Entry: 7
+      Data: 30|System.Collections.Generic.HashSet`1[[Entry, Assembly-CSharp]], System.Core
+    - Name: 
+      Entry: 12
       Data: 0
-    - Name: Heal
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: AoeArea
+      Entry: 7
+      Data: 31|AreaHelper, Assembly-CSharp
+    - Name: Flags
+      Entry: 7
+      Data: 32|System.Boolean[,], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 25
+    - Name: ranks
+      Entry: 1
+      Data: 5|5
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Center
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 5
-    - Name: Level
+      Data: 2
+    - Name: 
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: AttackArea
+      Entry: 7
+      Data: 33|AreaHelper, Assembly-CSharp
+    - Name: Flags
+      Entry: 7
+      Data: 34|System.Boolean[,], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 49
+    - Name: ranks
+      Entry: 1
+      Data: 7|7
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Center
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 3
+    - Name: 
+      Entry: 3
+      Data: 3
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 35|NormalAttack, Assembly-CSharp
+    - Name: Name
+      Entry: 1
+      Data: Normal Attack
+    - Name: Description
+      Entry: 1
+      Data: Attack Enemy
+    - Name: Sprite
+      Entry: 6
+      Data: 
+    - Name: Cost
       Entry: 3
       Data: 1
-    - Name: Speed
+    - Name: HasEnchanted
+      Entry: 5
+      Data: false
+    - Name: Entries
+      Entry: 7
+      Data: 36|System.Collections.Generic.HashSet`1[[Entry, Assembly-CSharp]], System.Core
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: AttackArea
+      Entry: 7
+      Data: 37|AreaHelper, Assembly-CSharp
+    - Name: Flags
+      Entry: 7
+      Data: 38|System.Boolean[,], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 9
+    - Name: ranks
+      Entry: 1
+      Data: 3|3
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Center
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
       Entry: 3
-      Data: 20
-    - Name: BloodMax
+      Data: 1
+    - Name: 
       Entry: 3
-      Data: 100
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 39|NormalHeal, Assembly-CSharp
+    - Name: Name
+      Entry: 1
+      Data: Normal Heal
+    - Name: Description
+      Entry: 1
+      Data: Heal all friendly unit
+    - Name: Sprite
+      Entry: 6
+      Data: 
+    - Name: Cost
+      Entry: 3
+      Data: 1
+    - Name: HasEnchanted
+      Entry: 5
+      Data: false
+    - Name: Entries
+      Entry: 7
+      Data: 40|System.Collections.Generic.HashSet`1[[Entry, Assembly-CSharp]], System.Core
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: 
       Entry: 8
       Data: 
@@ -517,13 +961,13 @@ MonoBehaviour:
       Data: 
     - Name: TreeMap
       Entry: 7
-      Data: 28|TreeMap, Assembly-CSharp
+      Data: 41|TreeMap, Assembly-CSharp
     - Name: RootId
       Entry: 3
       Data: 0
     - Name: CurrentId
       Entry: 3
-      Data: 1
+      Data: 2
     - Name: 
       Entry: 8
       Data: 
@@ -541,7 +985,7 @@ MonoBehaviour:
       Data: 17
     - Name: _sourceField
       Entry: 1
-      Data: GameData.Gold
+      Data: GameData._gold
     - Name: _targetField
       Entry: 1
       Data: SourceA
@@ -556,7 +1000,7 @@ MonoBehaviour:
       Data: 
     - Name: OutputEdges
       Entry: 7
-      Data: 29|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
+      Data: 42|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
         mscorlib
     - Name: 
       Entry: 12
@@ -570,9 +1014,6 @@ MonoBehaviour:
     - Name: DialogTree
       Entry: 10
       Data: 0
-    - Name: Type
-      Entry: 3
-      Data: 3
     - Name: SourceA
       Entry: 3
       Data: 0
@@ -582,6 +1023,9 @@ MonoBehaviour:
     - Name: Result
       Entry: 5
       Data: true
+    - Name: Type
+      Entry: 3
+      Data: 3
     - Name: 
       Entry: 8
       Data: 
@@ -602,7 +1046,7 @@ MonoBehaviour:
       Data: GameToolKit.SourceInfo, GameToolKit.BaseClass
     - Name: _sourceNode
       Entry: 7
-      Data: 30|ItemWrapper, Assembly-CSharp
+      Data: 43|ItemWrapper, Assembly-CSharp
     - Name: Guid
       Entry: 1
       Data: 4fdb8c9a-0ba3-4517-8892-88a75428dace
@@ -626,7 +1070,7 @@ MonoBehaviour:
       Data: 
     - Name: InputEdges
       Entry: 7
-      Data: 31|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
+      Data: 44|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
         mscorlib
     - Name: 
       Entry: 12
@@ -639,7 +1083,7 @@ MonoBehaviour:
       Data: 19
     - Name: _targetNode
       Entry: 9
-      Data: 30
+      Data: 43
     - Name: _sourceField
       Entry: 1
       Data: _value
@@ -657,7 +1101,7 @@ MonoBehaviour:
       Data: 
     - Name: OutputEdges
       Entry: 7
-      Data: 32|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
+      Data: 45|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
         mscorlib
     - Name: 
       Entry: 12
@@ -703,7 +1147,7 @@ MonoBehaviour:
       Data: 
     - Name: OutputEdges
       Entry: 7
-      Data: 33|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
+      Data: 46|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
         mscorlib
     - Name: 
       Entry: 12
@@ -719,7 +1163,7 @@ MonoBehaviour:
       Data: 0
     - Name: Value
       Entry: 7
-      Data: 34|GameToolKit.Dialog.OptionArgument, GameToolKit.Dialog
+      Data: 47|GameToolKit.Dialog.OptionArgument, GameToolKit.Dialog
     - Name: Option
       Entry: 1
       Data: "\u901A\u7528\u5361\u5305\uFF0830 Gold\uFF09"
@@ -752,7 +1196,7 @@ MonoBehaviour:
       Data: 
     - Name: OutputEdges
       Entry: 7
-      Data: 35|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
+      Data: 48|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
         mscorlib
     - Name: 
       Entry: 12
@@ -768,14 +1212,14 @@ MonoBehaviour:
       Data: 0
     - Name: Children
       Entry: 7
-      Data: 36|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
+      Data: 49|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
         GameToolKit.Dialog]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 37|ConsumeNode, Assembly-CSharp
+      Data: 50|ConsumeNode, Assembly-CSharp
     - Name: Guid
       Entry: 1
       Data: 3c086987-7a56-4f0b-8252-a87e3073703b
@@ -799,7 +1243,7 @@ MonoBehaviour:
       Data: 
     - Name: InputEdges
       Entry: 7
-      Data: 38|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
+      Data: 51|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
         mscorlib
     - Name: 
       Entry: 12
@@ -812,7 +1256,7 @@ MonoBehaviour:
       Data: 19
     - Name: _targetNode
       Entry: 9
-      Data: 37
+      Data: 50
     - Name: _sourceField
       Entry: 1
       Data: _value
@@ -830,7 +1274,7 @@ MonoBehaviour:
       Data: 
     - Name: OutputEdges
       Entry: 7
-      Data: 39|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
+      Data: 52|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
         mscorlib
     - Name: 
       Entry: 12
@@ -846,14 +1290,14 @@ MonoBehaviour:
       Data: 0
     - Name: Children
       Entry: 7
-      Data: 40|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
+      Data: 53|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
         GameToolKit.Dialog]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 41|GameToolKit.Dialog.SingleDialogNode, GameToolKit.Dialog
+      Data: 54|GameToolKit.Dialog.SingleDialogNode, GameToolKit.Dialog
     - Name: Guid
       Entry: 1
       Data: 5349478d-8121-44cc-b588-4b398d7b8fc6
@@ -877,7 +1321,7 @@ MonoBehaviour:
       Data: 
     - Name: InputEdges
       Entry: 7
-      Data: 42|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
+      Data: 55|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
         mscorlib
     - Name: 
       Entry: 12
@@ -890,7 +1334,7 @@ MonoBehaviour:
       Data: 
     - Name: OutputEdges
       Entry: 7
-      Data: 43|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
+      Data: 56|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
         mscorlib
     - Name: 
       Entry: 12
@@ -906,14 +1350,14 @@ MonoBehaviour:
       Data: 0
     - Name: Children
       Entry: 7
-      Data: 44|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
+      Data: 57|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
         GameToolKit.Dialog]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 45|GameToolKit.Dialog.OptionSelectorNode, GameToolKit.Dialog
+      Data: 58|GameToolKit.Dialog.OptionSelectorNode, GameToolKit.Dialog
     - Name: Guid
       Entry: 1
       Data: 04dae4ca-7fb2-4a49-b229-812aef4c46b5
@@ -937,7 +1381,7 @@ MonoBehaviour:
       Data: 
     - Name: InputEdges
       Entry: 7
-      Data: 46|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
+      Data: 59|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
         mscorlib
     - Name: 
       Entry: 12
@@ -950,7 +1394,7 @@ MonoBehaviour:
       Data: 
     - Name: OutputEdges
       Entry: 7
-      Data: 47|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
+      Data: 60|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
         mscorlib
     - Name: 
       Entry: 12
@@ -966,14 +1410,14 @@ MonoBehaviour:
       Data: 0
     - Name: Children
       Entry: 7
-      Data: 48|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
+      Data: 61|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
         GameToolKit.Dialog]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 49|MemberOptionNode, Assembly-CSharp
+      Data: 62|MemberOptionNode, Assembly-CSharp
     - Name: Guid
       Entry: 1
       Data: dcde5739-9a3b-48b7-9f7b-01494ab9d0cf
@@ -997,7 +1441,7 @@ MonoBehaviour:
       Data: 
     - Name: InputEdges
       Entry: 7
-      Data: 50|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
+      Data: 63|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
         mscorlib
     - Name: 
       Entry: 12
@@ -1010,7 +1454,7 @@ MonoBehaviour:
       Data: 
     - Name: OutputEdges
       Entry: 7
-      Data: 51|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
+      Data: 64|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
         mscorlib
     - Name: 
       Entry: 12
@@ -1026,14 +1470,14 @@ MonoBehaviour:
       Data: 0
     - Name: Children
       Entry: 7
-      Data: 52|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
+      Data: 65|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
         GameToolKit.Dialog]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 53|OpenCardPackNode, Assembly-CSharp
+      Data: 66|OpenCardPackNode, Assembly-CSharp
     - Name: Guid
       Entry: 1
       Data: ec75d7de-c1ad-4766-8a27-83ce93187ac4
@@ -1057,7 +1501,7 @@ MonoBehaviour:
       Data: 
     - Name: InputEdges
       Entry: 7
-      Data: 54|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
+      Data: 67|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
         mscorlib
     - Name: 
       Entry: 12
@@ -1067,10 +1511,10 @@ MonoBehaviour:
       Data: GameToolKit.SourceInfo, GameToolKit.BaseClass
     - Name: _sourceNode
       Entry: 9
-      Data: 49
+      Data: 62
     - Name: _targetNode
       Entry: 9
-      Data: 53
+      Data: 66
     - Name: _sourceField
       Entry: 1
       Data: SelectedOptionIndex
@@ -1088,7 +1532,7 @@ MonoBehaviour:
       Data: 
     - Name: OutputEdges
       Entry: 7
-      Data: 55|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
+      Data: 68|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
         mscorlib
     - Name: 
       Entry: 12
@@ -1104,14 +1548,14 @@ MonoBehaviour:
       Data: 0
     - Name: Children
       Entry: 7
-      Data: 56|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
+      Data: 69|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
         GameToolKit.Dialog]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 57|GameToolKit.Dialog.SingleDialogNode, GameToolKit.Dialog
+      Data: 70|GameToolKit.Dialog.SingleDialogNode, GameToolKit.Dialog
     - Name: Guid
       Entry: 1
       Data: 112c6691-975c-4300-9e68-abe215316ff6
@@ -1135,7 +1579,7 @@ MonoBehaviour:
       Data: 
     - Name: InputEdges
       Entry: 7
-      Data: 58|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
+      Data: 71|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
         mscorlib
     - Name: 
       Entry: 12
@@ -1148,7 +1592,7 @@ MonoBehaviour:
       Data: 
     - Name: OutputEdges
       Entry: 7
-      Data: 59|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
+      Data: 72|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
         mscorlib
     - Name: 
       Entry: 12
@@ -1164,14 +1608,14 @@ MonoBehaviour:
       Data: 0
     - Name: Children
       Entry: 7
-      Data: 60|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
+      Data: 73|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
         GameToolKit.Dialog]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 61|GameToolKit.Dialog.OptionSelectorNode, GameToolKit.Dialog
+      Data: 74|GameToolKit.Dialog.OptionSelectorNode, GameToolKit.Dialog
     - Name: Guid
       Entry: 1
       Data: d451aa70-20e5-4695-b379-ac6fd347031f
@@ -1195,7 +1639,7 @@ MonoBehaviour:
       Data: 
     - Name: InputEdges
       Entry: 7
-      Data: 62|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
+      Data: 75|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
         mscorlib
     - Name: 
       Entry: 12
@@ -1208,7 +1652,7 @@ MonoBehaviour:
       Data: 
     - Name: OutputEdges
       Entry: 7
-      Data: 63|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
+      Data: 76|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
         mscorlib
     - Name: 
       Entry: 12
@@ -1224,14 +1668,14 @@ MonoBehaviour:
       Data: 0
     - Name: Children
       Entry: 7
-      Data: 64|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
+      Data: 77|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
         GameToolKit.Dialog]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 65|GameToolKit.Dialog.SingleOptionNode, GameToolKit.Dialog
+      Data: 78|GameToolKit.Dialog.SingleOptionNode, GameToolKit.Dialog
     - Name: Guid
       Entry: 1
       Data: ed75ce10-0eaa-4750-9fe9-ac3327d25a18
@@ -1255,7 +1699,7 @@ MonoBehaviour:
       Data: 
     - Name: InputEdges
       Entry: 7
-      Data: 66|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
+      Data: 79|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
         mscorlib
     - Name: 
       Entry: 12
@@ -1268,7 +1712,7 @@ MonoBehaviour:
       Data: 
     - Name: OutputEdges
       Entry: 7
-      Data: 67|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
+      Data: 80|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
         mscorlib
     - Name: 
       Entry: 12
@@ -1284,7 +1728,7 @@ MonoBehaviour:
       Data: 0
     - Name: Children
       Entry: 7
-      Data: 68|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
+      Data: 81|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
         GameToolKit.Dialog]], mscorlib
     - Name: 
       Entry: 12
@@ -1300,14 +1744,14 @@ MonoBehaviour:
       Data: 
     - Name: Parents
       Entry: 7
-      Data: 69|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
+      Data: 82|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
         GameToolKit.Dialog]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 9
-      Data: 61
+      Data: 74
     - Name: 
       Entry: 13
       Data: 
@@ -1319,7 +1763,7 @@ MonoBehaviour:
       Data: -1
     - Name: Option
       Entry: 7
-      Data: 70|GameToolKit.Dialog.OptionArgument, GameToolKit.Dialog
+      Data: 83|GameToolKit.Dialog.OptionArgument, GameToolKit.Dialog
     - Name: Option
       Entry: 1
       Data: "\u786E\u8BA4"
@@ -1340,14 +1784,14 @@ MonoBehaviour:
       Data: 
     - Name: Parents
       Entry: 7
-      Data: 71|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
+      Data: 84|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
         GameToolKit.Dialog]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 9
-      Data: 57
+      Data: 70
     - Name: 
       Entry: 13
       Data: 
@@ -1356,7 +1800,7 @@ MonoBehaviour:
       Data: 
     - Name: ViewType
       Entry: 7
-      Data: 72|System.RuntimeType, mscorlib
+      Data: 85|System.RuntimeType, mscorlib
     - Name: 
       Entry: 1
       Data: EventPanel, Assembly-CSharp
@@ -1380,14 +1824,14 @@ MonoBehaviour:
       Data: 
     - Name: Parents
       Entry: 7
-      Data: 73|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
+      Data: 86|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
         GameToolKit.Dialog]], mscorlib
     - Name: 
       Entry: 12
       Data: 4
     - Name: 
       Entry: 7
-      Data: 74|RecoverMemberNode, Assembly-CSharp
+      Data: 87|RecoverMemberNode, Assembly-CSharp
     - Name: Guid
       Entry: 1
       Data: 144fcf08-f61a-4ea9-9a8e-1d06d08ea17f
@@ -1411,7 +1855,7 @@ MonoBehaviour:
       Data: 
     - Name: InputEdges
       Entry: 7
-      Data: 75|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
+      Data: 88|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
         mscorlib
     - Name: 
       Entry: 12
@@ -1421,7 +1865,7 @@ MonoBehaviour:
       Data: GameToolKit.SourceInfo, GameToolKit.BaseClass
     - Name: _sourceNode
       Entry: 7
-      Data: 76|MemberOptionNode, Assembly-CSharp
+      Data: 89|MemberOptionNode, Assembly-CSharp
     - Name: Guid
       Entry: 1
       Data: cfc934e3-4820-4274-8cdf-6f490f9f0a86
@@ -1445,7 +1889,7 @@ MonoBehaviour:
       Data: 
     - Name: InputEdges
       Entry: 7
-      Data: 77|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
+      Data: 90|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
         mscorlib
     - Name: 
       Entry: 12
@@ -1458,7 +1902,7 @@ MonoBehaviour:
       Data: 
     - Name: OutputEdges
       Entry: 7
-      Data: 78|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
+      Data: 91|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
         mscorlib
     - Name: 
       Entry: 12
@@ -1474,14 +1918,14 @@ MonoBehaviour:
       Data: 0
     - Name: Children
       Entry: 7
-      Data: 79|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
+      Data: 92|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
         GameToolKit.Dialog]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 9
-      Data: 74
+      Data: 87
     - Name: 
       Entry: 13
       Data: 
@@ -1490,14 +1934,14 @@ MonoBehaviour:
       Data: 
     - Name: Parents
       Entry: 7
-      Data: 80|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
+      Data: 93|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
         GameToolKit.Dialog]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 81|GameToolKit.Dialog.OptionSelectorNode, GameToolKit.Dialog
+      Data: 94|GameToolKit.Dialog.OptionSelectorNode, GameToolKit.Dialog
     - Name: Guid
       Entry: 1
       Data: 94da1456-d760-456a-967b-e8c259e934c2
@@ -1521,240 +1965,11 @@ MonoBehaviour:
       Data: 
     - Name: InputEdges
       Entry: 7
-      Data: 82|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
-        mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: OutputEdges
-      Entry: 7
-      Data: 83|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
-        mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: DialogTree
-      Entry: 10
-      Data: 0
-    - Name: Children
-      Entry: 7
-      Data: 84|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
-        GameToolKit.Dialog]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 9
-      Data: 76
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Parents
-      Entry: 7
-      Data: 85|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
-        GameToolKit.Dialog]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 7
-      Data: 86|GameToolKit.Dialog.SingleDialogNode, GameToolKit.Dialog
-    - Name: Guid
-      Entry: 1
-      Data: 576a0e19-b0ec-4312-adb0-c2decf0248d4
-    - Name: LastDataUpdataTime
-      Entry: 4
-      Data: 0
-    - Name: Name
-      Entry: 1
-      Data: SingleDialogNode(2)
-    - Name: ViewPosition
-      Entry: 7
-      Data: UnityEngine.Vector2, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 1264.00024
-    - Name: 
-      Entry: 4
-      Data: 323.200073
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: InputEdges
-      Entry: 7
-      Data: 87|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
-        mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: OutputEdges
-      Entry: 7
-      Data: 88|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
-        mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: DialogTree
-      Entry: 10
-      Data: 0
-    - Name: Children
-      Entry: 7
-      Data: 89|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
-        GameToolKit.Dialog]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 9
-      Data: 81
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Parents
-      Entry: 7
-      Data: 90|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
-        GameToolKit.Dialog]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 7
-      Data: 91|ConsumeNode, Assembly-CSharp
-    - Name: Guid
-      Entry: 1
-      Data: 1b8c8a21-b133-4f92-bef6-137de5a9a7ff
-    - Name: LastDataUpdataTime
-      Entry: 4
-      Data: 0
-    - Name: Name
-      Entry: 1
-      Data: ConsumeNode(3)
-    - Name: ViewPosition
-      Entry: 7
-      Data: UnityEngine.Vector2, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 1089.59985
-    - Name: 
-      Entry: 4
-      Data: 323.2
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: InputEdges
-      Entry: 7
-      Data: 92|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
-        mscorlib
-    - Name: 
-      Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 7
-      Data: GameToolKit.SourceInfo, GameToolKit.BaseClass
-    - Name: _sourceNode
-      Entry: 7
-      Data: 93|GameToolKit.Dialog.InputNode`1[[System.Int32, mscorlib]], GameToolKit.Dialog
-    - Name: Guid
-      Entry: 1
-      Data: 416425cd-a1cb-47a6-8169-1218d8e1d501
-    - Name: LastDataUpdataTime
-      Entry: 4
-      Data: 3.37576747
-    - Name: Name
-      Entry: 1
-      Data: InputNode(3)
-    - Name: ViewPosition
-      Entry: 7
-      Data: UnityEngine.Vector2, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 36.79998
-    - Name: 
-      Entry: 4
-      Data: 339.999969
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: InputEdges
-      Entry: 7
-      Data: 94|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
-        mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: OutputEdges
-      Entry: 7
       Data: 95|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
         mscorlib
     - Name: 
       Entry: 12
       Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: DialogTree
-      Entry: 10
-      Data: 0
-    - Name: Value
-      Entry: 3
-      Data: 60
-    - Name: _value
-      Entry: 3
-      Data: 60
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: _targetNode
-      Entry: 9
-      Data: 91
-    - Name: _sourceField
-      Entry: 1
-      Data: _value
-    - Name: _targetField
-      Entry: 1
-      Data: Cost
-    - Name: 
-      Entry: 8
-      Data: 
     - Name: 
       Entry: 13
       Data: 
@@ -1786,7 +2001,7 @@ MonoBehaviour:
       Data: 1
     - Name: 
       Entry: 9
-      Data: 86
+      Data: 89
     - Name: 
       Entry: 13
       Data: 
@@ -1802,7 +2017,236 @@ MonoBehaviour:
       Data: 1
     - Name: 
       Entry: 7
-      Data: 99|GameToolKit.Dialog.SingleOptionNode, GameToolKit.Dialog
+      Data: 99|GameToolKit.Dialog.SingleDialogNode, GameToolKit.Dialog
+    - Name: Guid
+      Entry: 1
+      Data: 576a0e19-b0ec-4312-adb0-c2decf0248d4
+    - Name: LastDataUpdataTime
+      Entry: 4
+      Data: 0
+    - Name: Name
+      Entry: 1
+      Data: SingleDialogNode(2)
+    - Name: ViewPosition
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1264.00024
+    - Name: 
+      Entry: 4
+      Data: 323.200073
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: InputEdges
+      Entry: 7
+      Data: 100|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: OutputEdges
+      Entry: 7
+      Data: 101|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: DialogTree
+      Entry: 10
+      Data: 0
+    - Name: Children
+      Entry: 7
+      Data: 102|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
+        GameToolKit.Dialog]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 9
+      Data: 94
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Parents
+      Entry: 7
+      Data: 103|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
+        GameToolKit.Dialog]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 104|ConsumeNode, Assembly-CSharp
+    - Name: Guid
+      Entry: 1
+      Data: 1b8c8a21-b133-4f92-bef6-137de5a9a7ff
+    - Name: LastDataUpdataTime
+      Entry: 4
+      Data: 0
+    - Name: Name
+      Entry: 1
+      Data: ConsumeNode(3)
+    - Name: ViewPosition
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1089.59985
+    - Name: 
+      Entry: 4
+      Data: 323.2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: InputEdges
+      Entry: 7
+      Data: 105|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: GameToolKit.SourceInfo, GameToolKit.BaseClass
+    - Name: _sourceNode
+      Entry: 7
+      Data: 106|GameToolKit.Dialog.InputNode`1[[System.Int32, mscorlib]], GameToolKit.Dialog
+    - Name: Guid
+      Entry: 1
+      Data: 416425cd-a1cb-47a6-8169-1218d8e1d501
+    - Name: LastDataUpdataTime
+      Entry: 4
+      Data: 3.37576747
+    - Name: Name
+      Entry: 1
+      Data: InputNode(3)
+    - Name: ViewPosition
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 36.79998
+    - Name: 
+      Entry: 4
+      Data: 339.999969
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: InputEdges
+      Entry: 7
+      Data: 107|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: OutputEdges
+      Entry: 7
+      Data: 108|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: DialogTree
+      Entry: 10
+      Data: 0
+    - Name: Value
+      Entry: 3
+      Data: 60
+    - Name: _value
+      Entry: 3
+      Data: 60
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _targetNode
+      Entry: 9
+      Data: 104
+    - Name: _sourceField
+      Entry: 1
+      Data: _value
+    - Name: _targetField
+      Entry: 1
+      Data: Cost
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: OutputEdges
+      Entry: 7
+      Data: 109|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: DialogTree
+      Entry: 10
+      Data: 0
+    - Name: Children
+      Entry: 7
+      Data: 110|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
+        GameToolKit.Dialog]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 9
+      Data: 99
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Parents
+      Entry: 7
+      Data: 111|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
+        GameToolKit.Dialog]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 112|GameToolKit.Dialog.SingleOptionNode, GameToolKit.Dialog
     - Name: Guid
       Entry: 1
       Data: a20a40aa-7ce1-408a-9564-7f3c7b7b51ac
@@ -1826,7 +2270,7 @@ MonoBehaviour:
       Data: 
     - Name: InputEdges
       Entry: 7
-      Data: 100|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
+      Data: 113|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
         mscorlib
     - Name: 
       Entry: 12
@@ -1836,7 +2280,7 @@ MonoBehaviour:
       Data: GameToolKit.SourceInfo, GameToolKit.BaseClass
     - Name: _sourceNode
       Entry: 7
-      Data: 101|GameToolKit.Dialog.CombineNode`1[[GameToolKit.Dialog.OptionArgument,
+      Data: 114|GameToolKit.Dialog.CombineNode`1[[GameToolKit.Dialog.OptionArgument,
         GameToolKit.Dialog]], GameToolKit.Dialog
     - Name: Guid
       Entry: 1
@@ -1861,7 +2305,7 @@ MonoBehaviour:
       Data: 
     - Name: InputEdges
       Entry: 7
-      Data: 102|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
+      Data: 115|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
         mscorlib
     - Name: 
       Entry: 12
@@ -1871,7 +2315,7 @@ MonoBehaviour:
       Data: GameToolKit.SourceInfo, GameToolKit.BaseClass
     - Name: _sourceNode
       Entry: 7
-      Data: 103|GameToolKit.Dialog.CompareIntNode, GameToolKit.Dialog
+      Data: 116|GameToolKit.Dialog.CompareIntNode, GameToolKit.Dialog
     - Name: Guid
       Entry: 1
       Data: e6d0e8e8-997d-46c0-a879-5e05773cdfe2
@@ -1895,7 +2339,7 @@ MonoBehaviour:
       Data: 
     - Name: InputEdges
       Entry: 7
-      Data: 104|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
+      Data: 117|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
         mscorlib
     - Name: 
       Entry: 12
@@ -1908,10 +2352,10 @@ MonoBehaviour:
       Data: 22
     - Name: _targetNode
       Entry: 9
-      Data: 103
+      Data: 116
     - Name: _sourceField
       Entry: 1
-      Data: GameData.Gold
+      Data: GameData._gold
     - Name: _targetField
       Entry: 1
       Data: SourceB
@@ -1923,10 +2367,10 @@ MonoBehaviour:
       Data: GameToolKit.SourceInfo, GameToolKit.BaseClass
     - Name: _sourceNode
       Entry: 9
-      Data: 93
+      Data: 106
     - Name: _targetNode
       Entry: 9
-      Data: 103
+      Data: 116
     - Name: _sourceField
       Entry: 1
       Data: _value
@@ -1944,7 +2388,7 @@ MonoBehaviour:
       Data: 
     - Name: OutputEdges
       Entry: 7
-      Data: 105|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
+      Data: 118|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
         mscorlib
     - Name: 
       Entry: 12
@@ -1958,9 +2402,6 @@ MonoBehaviour:
     - Name: DialogTree
       Entry: 10
       Data: 0
-    - Name: Type
-      Entry: 3
-      Data: 0
     - Name: SourceA
       Entry: 3
       Data: 60
@@ -1970,12 +2411,15 @@ MonoBehaviour:
     - Name: Result
       Entry: 5
       Data: false
+    - Name: Type
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
     - Name: _targetNode
       Entry: 9
-      Data: 101
+      Data: 114
     - Name: _sourceField
       Entry: 1
       Data: Result
@@ -1990,7 +2434,7 @@ MonoBehaviour:
       Data: GameToolKit.SourceInfo, GameToolKit.BaseClass
     - Name: _sourceNode
       Entry: 7
-      Data: 106|ItemWrapper, Assembly-CSharp
+      Data: 119|ItemWrapper, Assembly-CSharp
     - Name: Guid
       Entry: 1
       Data: e14d0879-6f23-4ab9-8711-93f31f420259
@@ -2014,7 +2458,7 @@ MonoBehaviour:
       Data: 
     - Name: InputEdges
       Entry: 7
-      Data: 107|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
+      Data: 120|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
         mscorlib
     - Name: 
       Entry: 12
@@ -2024,10 +2468,10 @@ MonoBehaviour:
       Data: GameToolKit.SourceInfo, GameToolKit.BaseClass
     - Name: _sourceNode
       Entry: 9
-      Data: 93
+      Data: 106
     - Name: _targetNode
       Entry: 9
-      Data: 106
+      Data: 119
     - Name: _sourceField
       Entry: 1
       Data: _value
@@ -2045,7 +2489,7 @@ MonoBehaviour:
       Data: 
     - Name: OutputEdges
       Entry: 7
-      Data: 108|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
+      Data: 121|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
         mscorlib
     - Name: 
       Entry: 12
@@ -2074,7 +2518,7 @@ MonoBehaviour:
       Data: 
     - Name: _targetNode
       Entry: 9
-      Data: 101
+      Data: 114
     - Name: _sourceField
       Entry: 1
       Data: Result
@@ -2092,7 +2536,7 @@ MonoBehaviour:
       Data: 
     - Name: OutputEdges
       Entry: 7
-      Data: 109|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
+      Data: 122|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
         mscorlib
     - Name: 
       Entry: 12
@@ -2108,7 +2552,7 @@ MonoBehaviour:
       Data: 0
     - Name: Value
       Entry: 7
-      Data: 110|GameToolKit.Dialog.OptionArgument, GameToolKit.Dialog
+      Data: 123|GameToolKit.Dialog.OptionArgument, GameToolKit.Dialog
     - Name: Option
       Entry: 1
       Data: "\u56DE\u590D\u4E00\u4E2A\u9009\u5B9A\u89D2\u827250%\u6700\u5927\u8840\u91CF\u7684\u751F\u547D\u503C\uFF0860
@@ -2124,7 +2568,7 @@ MonoBehaviour:
       Data: 
     - Name: _targetNode
       Entry: 9
-      Data: 99
+      Data: 112
     - Name: _sourceField
       Entry: 1
       Data: Value
@@ -2142,7 +2586,7 @@ MonoBehaviour:
       Data: 
     - Name: OutputEdges
       Entry: 7
-      Data: 111|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
+      Data: 124|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
         mscorlib
     - Name: 
       Entry: 12
@@ -2158,14 +2602,14 @@ MonoBehaviour:
       Data: 0
     - Name: Children
       Entry: 7
-      Data: 112|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
+      Data: 125|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
         GameToolKit.Dialog]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 9
-      Data: 91
+      Data: 104
     - Name: 
       Entry: 13
       Data: 
@@ -2174,7 +2618,7 @@ MonoBehaviour:
       Data: 
     - Name: Parents
       Entry: 7
-      Data: 113|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
+      Data: 126|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
         GameToolKit.Dialog]], mscorlib
     - Name: 
       Entry: 12
@@ -2193,7 +2637,7 @@ MonoBehaviour:
       Data: -1
     - Name: Option
       Entry: 9
-      Data: 110
+      Data: 123
     - Name: 
       Entry: 8
       Data: 
@@ -2217,13 +2661,13 @@ MonoBehaviour:
       Data: 
     - Name: ViewType
       Entry: 9
-      Data: 72
+      Data: 85
     - Name: IsReleaseDialogOnEnd
       Entry: 5
       Data: false
     - Name: Dialog
       Entry: 7
-      Data: 114|EventPanel+EventTextArgument, Assembly-CSharp
+      Data: 127|EventPanel+EventTextArgument, Assembly-CSharp
     - Name: Text
       Entry: 1
       Data: "\u9009\u62E9\u4E00\u4E2A\u89D2\u8272"
@@ -2247,7 +2691,7 @@ MonoBehaviour:
       Data: 
     - Name: ViewType
       Entry: 9
-      Data: 72
+      Data: 85
     - Name: SelectedOptionIndex
       Entry: 3
       Data: -1
@@ -2271,7 +2715,7 @@ MonoBehaviour:
       Data: 
     - Name: _targetNode
       Entry: 9
-      Data: 74
+      Data: 87
     - Name: _sourceField
       Entry: 1
       Data: SelectedOptionIndex
@@ -2289,7 +2733,7 @@ MonoBehaviour:
       Data: 
     - Name: OutputEdges
       Entry: 7
-      Data: 115|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
+      Data: 128|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
         mscorlib
     - Name: 
       Entry: 12
@@ -2305,14 +2749,14 @@ MonoBehaviour:
       Data: 0
     - Name: Children
       Entry: 7
-      Data: 116|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
+      Data: 129|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
         GameToolKit.Dialog]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 9
-      Data: 57
+      Data: 70
     - Name: 
       Entry: 13
       Data: 
@@ -2321,14 +2765,14 @@ MonoBehaviour:
       Data: 
     - Name: Parents
       Entry: 7
-      Data: 117|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
+      Data: 130|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
         GameToolKit.Dialog]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 9
-      Data: 76
+      Data: 89
     - Name: 
       Entry: 13
       Data: 
@@ -2346,7 +2790,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 118|OpenCardPackNode, Assembly-CSharp
+      Data: 131|OpenCardPackNode, Assembly-CSharp
     - Name: Guid
       Entry: 1
       Data: 68faad08-e6f0-471c-af11-ce44f855fc90
@@ -2370,7 +2814,7 @@ MonoBehaviour:
       Data: 
     - Name: InputEdges
       Entry: 7
-      Data: 119|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
+      Data: 132|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
         mscorlib
     - Name: 
       Entry: 12
@@ -2380,7 +2824,7 @@ MonoBehaviour:
       Data: GameToolKit.SourceInfo, GameToolKit.BaseClass
     - Name: _sourceNode
       Entry: 7
-      Data: 120|MemberOptionNode, Assembly-CSharp
+      Data: 133|MemberOptionNode, Assembly-CSharp
     - Name: Guid
       Entry: 1
       Data: a43e8c8a-bcc2-4568-b72a-3b62f1ed40ce
@@ -2404,7 +2848,7 @@ MonoBehaviour:
       Data: 
     - Name: InputEdges
       Entry: 7
-      Data: 121|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
+      Data: 134|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
         mscorlib
     - Name: 
       Entry: 12
@@ -2417,7 +2861,7 @@ MonoBehaviour:
       Data: 
     - Name: OutputEdges
       Entry: 7
-      Data: 122|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
+      Data: 135|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
         mscorlib
     - Name: 
       Entry: 12
@@ -2433,14 +2877,14 @@ MonoBehaviour:
       Data: 0
     - Name: Children
       Entry: 7
-      Data: 123|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
+      Data: 136|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
         GameToolKit.Dialog]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 9
-      Data: 118
+      Data: 131
     - Name: 
       Entry: 13
       Data: 
@@ -2449,14 +2893,14 @@ MonoBehaviour:
       Data: 
     - Name: Parents
       Entry: 7
-      Data: 124|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
+      Data: 137|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
         GameToolKit.Dialog]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 125|GameToolKit.Dialog.OptionSelectorNode, GameToolKit.Dialog
+      Data: 138|GameToolKit.Dialog.OptionSelectorNode, GameToolKit.Dialog
     - Name: Guid
       Entry: 1
       Data: badfd1dc-f206-4795-aac9-02d874ab0c6c
@@ -2480,240 +2924,11 @@ MonoBehaviour:
       Data: 
     - Name: InputEdges
       Entry: 7
-      Data: 126|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
-        mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: OutputEdges
-      Entry: 7
-      Data: 127|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
-        mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: DialogTree
-      Entry: 10
-      Data: 0
-    - Name: Children
-      Entry: 7
-      Data: 128|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
-        GameToolKit.Dialog]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 9
-      Data: 120
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Parents
-      Entry: 7
-      Data: 129|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
-        GameToolKit.Dialog]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 7
-      Data: 130|GameToolKit.Dialog.SingleDialogNode, GameToolKit.Dialog
-    - Name: Guid
-      Entry: 1
-      Data: 1f0b1c47-d919-483c-99d7-0ab407706605
-    - Name: LastDataUpdataTime
-      Entry: 4
-      Data: 0
-    - Name: Name
-      Entry: 1
-      Data: SingleDialogNode(3)
-    - Name: ViewPosition
-      Entry: 7
-      Data: UnityEngine.Vector2, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 1264
-    - Name: 
-      Entry: 4
-      Data: 162.400055
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: InputEdges
-      Entry: 7
-      Data: 131|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
-        mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: OutputEdges
-      Entry: 7
-      Data: 132|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
-        mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: DialogTree
-      Entry: 10
-      Data: 0
-    - Name: Children
-      Entry: 7
-      Data: 133|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
-        GameToolKit.Dialog]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 9
-      Data: 125
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Parents
-      Entry: 7
-      Data: 134|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
-        GameToolKit.Dialog]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 7
-      Data: 135|ConsumeNode, Assembly-CSharp
-    - Name: Guid
-      Entry: 1
-      Data: e14c9c58-98ef-4cd5-977f-a88ec2df3685
-    - Name: LastDataUpdataTime
-      Entry: 4
-      Data: 0
-    - Name: Name
-      Entry: 1
-      Data: ConsumeNode(2)
-    - Name: ViewPosition
-      Entry: 7
-      Data: UnityEngine.Vector2, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 1089.6
-    - Name: 
-      Entry: 4
-      Data: 162.400024
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: InputEdges
-      Entry: 7
-      Data: 136|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
-        mscorlib
-    - Name: 
-      Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 7
-      Data: GameToolKit.SourceInfo, GameToolKit.BaseClass
-    - Name: _sourceNode
-      Entry: 7
-      Data: 137|GameToolKit.Dialog.InputNode`1[[System.Int32, mscorlib]], GameToolKit.Dialog
-    - Name: Guid
-      Entry: 1
-      Data: 7c969447-3dea-4dcc-9e5a-fa66f4413b2c
-    - Name: LastDataUpdataTime
-      Entry: 4
-      Data: 3.37576747
-    - Name: Name
-      Entry: 1
-      Data: InputNode
-    - Name: ViewPosition
-      Entry: 7
-      Data: UnityEngine.Vector2, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 36.7999954
-    - Name: 
-      Entry: 4
-      Data: 186.400009
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: InputEdges
-      Entry: 7
-      Data: 138|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
-        mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: OutputEdges
-      Entry: 7
       Data: 139|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
         mscorlib
     - Name: 
       Entry: 12
       Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: DialogTree
-      Entry: 10
-      Data: 0
-    - Name: Value
-      Entry: 3
-      Data: 90
-    - Name: _value
-      Entry: 3
-      Data: 90
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: _targetNode
-      Entry: 9
-      Data: 135
-    - Name: _sourceField
-      Entry: 1
-      Data: _value
-    - Name: _targetField
-      Entry: 1
-      Data: Cost
-    - Name: 
-      Entry: 8
-      Data: 
     - Name: 
       Entry: 13
       Data: 
@@ -2745,7 +2960,7 @@ MonoBehaviour:
       Data: 1
     - Name: 
       Entry: 9
-      Data: 130
+      Data: 133
     - Name: 
       Entry: 13
       Data: 
@@ -2761,7 +2976,236 @@ MonoBehaviour:
       Data: 1
     - Name: 
       Entry: 7
-      Data: 143|GameToolKit.Dialog.SingleOptionNode, GameToolKit.Dialog
+      Data: 143|GameToolKit.Dialog.SingleDialogNode, GameToolKit.Dialog
+    - Name: Guid
+      Entry: 1
+      Data: 1f0b1c47-d919-483c-99d7-0ab407706605
+    - Name: LastDataUpdataTime
+      Entry: 4
+      Data: 0
+    - Name: Name
+      Entry: 1
+      Data: SingleDialogNode(3)
+    - Name: ViewPosition
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1264
+    - Name: 
+      Entry: 4
+      Data: 162.400055
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: InputEdges
+      Entry: 7
+      Data: 144|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: OutputEdges
+      Entry: 7
+      Data: 145|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: DialogTree
+      Entry: 10
+      Data: 0
+    - Name: Children
+      Entry: 7
+      Data: 146|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
+        GameToolKit.Dialog]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 9
+      Data: 138
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Parents
+      Entry: 7
+      Data: 147|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
+        GameToolKit.Dialog]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 148|ConsumeNode, Assembly-CSharp
+    - Name: Guid
+      Entry: 1
+      Data: e14c9c58-98ef-4cd5-977f-a88ec2df3685
+    - Name: LastDataUpdataTime
+      Entry: 4
+      Data: 0
+    - Name: Name
+      Entry: 1
+      Data: ConsumeNode(2)
+    - Name: ViewPosition
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1089.6
+    - Name: 
+      Entry: 4
+      Data: 162.400024
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: InputEdges
+      Entry: 7
+      Data: 149|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: GameToolKit.SourceInfo, GameToolKit.BaseClass
+    - Name: _sourceNode
+      Entry: 7
+      Data: 150|GameToolKit.Dialog.InputNode`1[[System.Int32, mscorlib]], GameToolKit.Dialog
+    - Name: Guid
+      Entry: 1
+      Data: 7c969447-3dea-4dcc-9e5a-fa66f4413b2c
+    - Name: LastDataUpdataTime
+      Entry: 4
+      Data: 3.37576747
+    - Name: Name
+      Entry: 1
+      Data: InputNode
+    - Name: ViewPosition
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 36.7999954
+    - Name: 
+      Entry: 4
+      Data: 186.400009
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: InputEdges
+      Entry: 7
+      Data: 151|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: OutputEdges
+      Entry: 7
+      Data: 152|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: DialogTree
+      Entry: 10
+      Data: 0
+    - Name: Value
+      Entry: 3
+      Data: 90
+    - Name: _value
+      Entry: 3
+      Data: 90
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _targetNode
+      Entry: 9
+      Data: 148
+    - Name: _sourceField
+      Entry: 1
+      Data: _value
+    - Name: _targetField
+      Entry: 1
+      Data: Cost
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: OutputEdges
+      Entry: 7
+      Data: 153|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: DialogTree
+      Entry: 10
+      Data: 0
+    - Name: Children
+      Entry: 7
+      Data: 154|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
+        GameToolKit.Dialog]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 9
+      Data: 143
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Parents
+      Entry: 7
+      Data: 155|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
+        GameToolKit.Dialog]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 156|GameToolKit.Dialog.SingleOptionNode, GameToolKit.Dialog
     - Name: Guid
       Entry: 1
       Data: bf791373-0edd-4664-871a-f790f868ef43
@@ -2785,7 +3229,7 @@ MonoBehaviour:
       Data: 
     - Name: InputEdges
       Entry: 7
-      Data: 144|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
+      Data: 157|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
         mscorlib
     - Name: 
       Entry: 12
@@ -2795,7 +3239,7 @@ MonoBehaviour:
       Data: GameToolKit.SourceInfo, GameToolKit.BaseClass
     - Name: _sourceNode
       Entry: 7
-      Data: 145|GameToolKit.Dialog.CombineNode`1[[GameToolKit.Dialog.OptionArgument,
+      Data: 158|GameToolKit.Dialog.CombineNode`1[[GameToolKit.Dialog.OptionArgument,
         GameToolKit.Dialog]], GameToolKit.Dialog
     - Name: Guid
       Entry: 1
@@ -2820,7 +3264,7 @@ MonoBehaviour:
       Data: 
     - Name: InputEdges
       Entry: 7
-      Data: 146|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
+      Data: 159|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
         mscorlib
     - Name: 
       Entry: 12
@@ -2830,7 +3274,7 @@ MonoBehaviour:
       Data: GameToolKit.SourceInfo, GameToolKit.BaseClass
     - Name: _sourceNode
       Entry: 7
-      Data: 147|GameToolKit.Dialog.CompareIntNode, GameToolKit.Dialog
+      Data: 160|GameToolKit.Dialog.CompareIntNode, GameToolKit.Dialog
     - Name: Guid
       Entry: 1
       Data: 88adce12-fcad-495d-983a-860f9a333444
@@ -2854,7 +3298,7 @@ MonoBehaviour:
       Data: 
     - Name: InputEdges
       Entry: 7
-      Data: 148|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
+      Data: 161|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
         mscorlib
     - Name: 
       Entry: 12
@@ -2864,10 +3308,10 @@ MonoBehaviour:
       Data: GameToolKit.SourceInfo, GameToolKit.BaseClass
     - Name: _sourceNode
       Entry: 9
-      Data: 137
+      Data: 150
     - Name: _targetNode
       Entry: 9
-      Data: 147
+      Data: 160
     - Name: _sourceField
       Entry: 1
       Data: _value
@@ -2885,10 +3329,10 @@ MonoBehaviour:
       Data: 22
     - Name: _targetNode
       Entry: 9
-      Data: 147
+      Data: 160
     - Name: _sourceField
       Entry: 1
-      Data: GameData.Gold
+      Data: GameData._gold
     - Name: _targetField
       Entry: 1
       Data: SourceA
@@ -2903,7 +3347,7 @@ MonoBehaviour:
       Data: 
     - Name: OutputEdges
       Entry: 7
-      Data: 149|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
+      Data: 162|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
         mscorlib
     - Name: 
       Entry: 12
@@ -2917,9 +3361,6 @@ MonoBehaviour:
     - Name: DialogTree
       Entry: 10
       Data: 0
-    - Name: Type
-      Entry: 3
-      Data: 3
     - Name: SourceA
       Entry: 3
       Data: 0
@@ -2929,12 +3370,15 @@ MonoBehaviour:
     - Name: Result
       Entry: 5
       Data: true
+    - Name: Type
+      Entry: 3
+      Data: 3
     - Name: 
       Entry: 8
       Data: 
     - Name: _targetNode
       Entry: 9
-      Data: 145
+      Data: 158
     - Name: _sourceField
       Entry: 1
       Data: Result
@@ -2949,7 +3393,7 @@ MonoBehaviour:
       Data: GameToolKit.SourceInfo, GameToolKit.BaseClass
     - Name: _sourceNode
       Entry: 7
-      Data: 150|ItemWrapper, Assembly-CSharp
+      Data: 163|ItemWrapper, Assembly-CSharp
     - Name: Guid
       Entry: 1
       Data: 803a0b9c-b4de-4dee-83d7-7d7a1e3f5153
@@ -2973,7 +3417,7 @@ MonoBehaviour:
       Data: 
     - Name: InputEdges
       Entry: 7
-      Data: 151|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
+      Data: 164|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
         mscorlib
     - Name: 
       Entry: 12
@@ -2983,10 +3427,10 @@ MonoBehaviour:
       Data: GameToolKit.SourceInfo, GameToolKit.BaseClass
     - Name: _sourceNode
       Entry: 9
-      Data: 137
+      Data: 150
     - Name: _targetNode
       Entry: 9
-      Data: 150
+      Data: 163
     - Name: _sourceField
       Entry: 1
       Data: _value
@@ -3004,7 +3448,7 @@ MonoBehaviour:
       Data: 
     - Name: OutputEdges
       Entry: 7
-      Data: 152|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
+      Data: 165|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
         mscorlib
     - Name: 
       Entry: 12
@@ -3032,7 +3476,7 @@ MonoBehaviour:
       Data: 
     - Name: _targetNode
       Entry: 9
-      Data: 145
+      Data: 158
     - Name: _sourceField
       Entry: 1
       Data: Result
@@ -3050,7 +3494,7 @@ MonoBehaviour:
       Data: 
     - Name: OutputEdges
       Entry: 7
-      Data: 153|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
+      Data: 166|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
         mscorlib
     - Name: 
       Entry: 12
@@ -3066,7 +3510,7 @@ MonoBehaviour:
       Data: 0
     - Name: Value
       Entry: 7
-      Data: 154|GameToolKit.Dialog.OptionArgument, GameToolKit.Dialog
+      Data: 167|GameToolKit.Dialog.OptionArgument, GameToolKit.Dialog
     - Name: Option
       Entry: 1
       Data: "\u6838\u5FC3\u5361\u5305\uFF0890 Gold\uFF09"
@@ -3081,7 +3525,7 @@ MonoBehaviour:
       Data: 
     - Name: _targetNode
       Entry: 9
-      Data: 143
+      Data: 156
     - Name: _sourceField
       Entry: 1
       Data: Value
@@ -3099,7 +3543,7 @@ MonoBehaviour:
       Data: 
     - Name: OutputEdges
       Entry: 7
-      Data: 155|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
+      Data: 168|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
         mscorlib
     - Name: 
       Entry: 12
@@ -3115,14 +3559,14 @@ MonoBehaviour:
       Data: 0
     - Name: Children
       Entry: 7
-      Data: 156|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
+      Data: 169|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
         GameToolKit.Dialog]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 9
-      Data: 135
+      Data: 148
     - Name: 
       Entry: 13
       Data: 
@@ -3131,7 +3575,7 @@ MonoBehaviour:
       Data: 
     - Name: Parents
       Entry: 7
-      Data: 157|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
+      Data: 170|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
         GameToolKit.Dialog]], mscorlib
     - Name: 
       Entry: 12
@@ -3150,7 +3594,7 @@ MonoBehaviour:
       Data: -1
     - Name: Option
       Entry: 9
-      Data: 154
+      Data: 167
     - Name: 
       Entry: 8
       Data: 
@@ -3174,13 +3618,13 @@ MonoBehaviour:
       Data: 
     - Name: ViewType
       Entry: 9
-      Data: 72
+      Data: 85
     - Name: IsReleaseDialogOnEnd
       Entry: 5
       Data: false
     - Name: Dialog
       Entry: 7
-      Data: 158|EventPanel+EventTextArgument, Assembly-CSharp
+      Data: 171|EventPanel+EventTextArgument, Assembly-CSharp
     - Name: Text
       Entry: 1
       Data: "\u9009\u62E9\u4E00\u4E2A\u89D2\u8272"
@@ -3204,7 +3648,7 @@ MonoBehaviour:
       Data: 
     - Name: ViewType
       Entry: 9
-      Data: 72
+      Data: 85
     - Name: SelectedOptionIndex
       Entry: 3
       Data: -1
@@ -3228,7 +3672,7 @@ MonoBehaviour:
       Data: 
     - Name: _targetNode
       Entry: 9
-      Data: 118
+      Data: 131
     - Name: _sourceField
       Entry: 1
       Data: SelectedOptionIndex
@@ -3246,7 +3690,7 @@ MonoBehaviour:
       Data: 
     - Name: OutputEdges
       Entry: 7
-      Data: 159|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
+      Data: 172|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
         mscorlib
     - Name: 
       Entry: 12
@@ -3262,14 +3706,14 @@ MonoBehaviour:
       Data: 0
     - Name: Children
       Entry: 7
-      Data: 160|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
+      Data: 173|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
         GameToolKit.Dialog]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 9
-      Data: 57
+      Data: 70
     - Name: 
       Entry: 13
       Data: 
@@ -3278,14 +3722,14 @@ MonoBehaviour:
       Data: 
     - Name: Parents
       Entry: 7
-      Data: 161|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
+      Data: 174|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
         GameToolKit.Dialog]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 9
-      Data: 120
+      Data: 133
     - Name: 
       Entry: 13
       Data: 
@@ -3306,7 +3750,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 162|OpenCardPackNode, Assembly-CSharp
+      Data: 175|OpenCardPackNode, Assembly-CSharp
     - Name: Guid
       Entry: 1
       Data: f7d8988f-0ae5-4e3e-b1ec-f4455f1e2fc3
@@ -3330,7 +3774,7 @@ MonoBehaviour:
       Data: 
     - Name: InputEdges
       Entry: 7
-      Data: 163|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
+      Data: 176|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
         mscorlib
     - Name: 
       Entry: 12
@@ -3340,7 +3784,7 @@ MonoBehaviour:
       Data: GameToolKit.SourceInfo, GameToolKit.BaseClass
     - Name: _sourceNode
       Entry: 7
-      Data: 164|MemberOptionNode, Assembly-CSharp
+      Data: 177|MemberOptionNode, Assembly-CSharp
     - Name: Guid
       Entry: 1
       Data: 36d227f3-a86c-4a53-90cf-865004217980
@@ -3364,7 +3808,7 @@ MonoBehaviour:
       Data: 
     - Name: InputEdges
       Entry: 7
-      Data: 165|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
+      Data: 178|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
         mscorlib
     - Name: 
       Entry: 12
@@ -3377,7 +3821,7 @@ MonoBehaviour:
       Data: 
     - Name: OutputEdges
       Entry: 7
-      Data: 166|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
+      Data: 179|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
         mscorlib
     - Name: 
       Entry: 12
@@ -3393,14 +3837,14 @@ MonoBehaviour:
       Data: 0
     - Name: Children
       Entry: 7
-      Data: 167|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
+      Data: 180|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
         GameToolKit.Dialog]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 9
-      Data: 162
+      Data: 175
     - Name: 
       Entry: 13
       Data: 
@@ -3409,14 +3853,14 @@ MonoBehaviour:
       Data: 
     - Name: Parents
       Entry: 7
-      Data: 168|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
+      Data: 181|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
         GameToolKit.Dialog]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 169|GameToolKit.Dialog.OptionSelectorNode, GameToolKit.Dialog
+      Data: 182|GameToolKit.Dialog.OptionSelectorNode, GameToolKit.Dialog
     - Name: Guid
       Entry: 1
       Data: 17dcbe64-005a-4f9c-a760-0275998d4433
@@ -3440,240 +3884,11 @@ MonoBehaviour:
       Data: 
     - Name: InputEdges
       Entry: 7
-      Data: 170|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
-        mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: OutputEdges
-      Entry: 7
-      Data: 171|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
-        mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: DialogTree
-      Entry: 10
-      Data: 0
-    - Name: Children
-      Entry: 7
-      Data: 172|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
-        GameToolKit.Dialog]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 9
-      Data: 164
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Parents
-      Entry: 7
-      Data: 173|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
-        GameToolKit.Dialog]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 7
-      Data: 174|GameToolKit.Dialog.SingleDialogNode, GameToolKit.Dialog
-    - Name: Guid
-      Entry: 1
-      Data: 9423d975-9771-4b8f-b6a5-077d5238c0f7
-    - Name: LastDataUpdataTime
-      Entry: 4
-      Data: 0
-    - Name: Name
-      Entry: 1
-      Data: SingleDialogNode(4)
-    - Name: ViewPosition
-      Entry: 7
-      Data: UnityEngine.Vector2, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 1261.60022
-    - Name: 
-      Entry: 4
-      Data: 2.39999628
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: InputEdges
-      Entry: 7
-      Data: 175|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
-        mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: OutputEdges
-      Entry: 7
-      Data: 176|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
-        mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: DialogTree
-      Entry: 10
-      Data: 0
-    - Name: Children
-      Entry: 7
-      Data: 177|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
-        GameToolKit.Dialog]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 9
-      Data: 169
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Parents
-      Entry: 7
-      Data: 178|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
-        GameToolKit.Dialog]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 7
-      Data: 179|ConsumeNode, Assembly-CSharp
-    - Name: Guid
-      Entry: 1
-      Data: 1bd92db8-b1db-48d8-90d9-9537b648286c
-    - Name: LastDataUpdataTime
-      Entry: 4
-      Data: 0
-    - Name: Name
-      Entry: 1
-      Data: ConsumeNode(1)
-    - Name: ViewPosition
-      Entry: 7
-      Data: UnityEngine.Vector2, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 1091.2
-    - Name: 
-      Entry: 4
-      Data: 2.399994
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: InputEdges
-      Entry: 7
-      Data: 180|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
-        mscorlib
-    - Name: 
-      Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 7
-      Data: GameToolKit.SourceInfo, GameToolKit.BaseClass
-    - Name: _sourceNode
-      Entry: 7
-      Data: 181|GameToolKit.Dialog.InputNode`1[[System.Int32, mscorlib]], GameToolKit.Dialog
-    - Name: Guid
-      Entry: 1
-      Data: b3dd66bf-dd83-48c9-9ce1-0fc1f17159bb
-    - Name: LastDataUpdataTime
-      Entry: 4
-      Data: 3.37576747
-    - Name: Name
-      Entry: 1
-      Data: InputNode(1)
-    - Name: ViewPosition
-      Entry: 7
-      Data: UnityEngine.Vector2, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 22.39996
-    - Name: 
-      Entry: 4
-      Data: 14.3999891
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: InputEdges
-      Entry: 7
-      Data: 182|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
-        mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: OutputEdges
-      Entry: 7
       Data: 183|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
         mscorlib
     - Name: 
       Entry: 12
       Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: DialogTree
-      Entry: 10
-      Data: 0
-    - Name: Value
-      Entry: 3
-      Data: 60
-    - Name: _value
-      Entry: 3
-      Data: 60
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: _targetNode
-      Entry: 9
-      Data: 179
-    - Name: _sourceField
-      Entry: 1
-      Data: _value
-    - Name: _targetField
-      Entry: 1
-      Data: Cost
-    - Name: 
-      Entry: 8
-      Data: 
     - Name: 
       Entry: 13
       Data: 
@@ -3705,7 +3920,7 @@ MonoBehaviour:
       Data: 1
     - Name: 
       Entry: 9
-      Data: 174
+      Data: 177
     - Name: 
       Entry: 13
       Data: 
@@ -3721,7 +3936,236 @@ MonoBehaviour:
       Data: 1
     - Name: 
       Entry: 7
-      Data: 187|GameToolKit.Dialog.SingleOptionNode, GameToolKit.Dialog
+      Data: 187|GameToolKit.Dialog.SingleDialogNode, GameToolKit.Dialog
+    - Name: Guid
+      Entry: 1
+      Data: 9423d975-9771-4b8f-b6a5-077d5238c0f7
+    - Name: LastDataUpdataTime
+      Entry: 4
+      Data: 0
+    - Name: Name
+      Entry: 1
+      Data: SingleDialogNode(4)
+    - Name: ViewPosition
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1261.60022
+    - Name: 
+      Entry: 4
+      Data: 2.39999628
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: InputEdges
+      Entry: 7
+      Data: 188|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: OutputEdges
+      Entry: 7
+      Data: 189|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: DialogTree
+      Entry: 10
+      Data: 0
+    - Name: Children
+      Entry: 7
+      Data: 190|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
+        GameToolKit.Dialog]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 9
+      Data: 182
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Parents
+      Entry: 7
+      Data: 191|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
+        GameToolKit.Dialog]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 192|ConsumeNode, Assembly-CSharp
+    - Name: Guid
+      Entry: 1
+      Data: 1bd92db8-b1db-48d8-90d9-9537b648286c
+    - Name: LastDataUpdataTime
+      Entry: 4
+      Data: 0
+    - Name: Name
+      Entry: 1
+      Data: ConsumeNode(1)
+    - Name: ViewPosition
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1091.2
+    - Name: 
+      Entry: 4
+      Data: 2.399994
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: InputEdges
+      Entry: 7
+      Data: 193|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: GameToolKit.SourceInfo, GameToolKit.BaseClass
+    - Name: _sourceNode
+      Entry: 7
+      Data: 194|GameToolKit.Dialog.InputNode`1[[System.Int32, mscorlib]], GameToolKit.Dialog
+    - Name: Guid
+      Entry: 1
+      Data: b3dd66bf-dd83-48c9-9ce1-0fc1f17159bb
+    - Name: LastDataUpdataTime
+      Entry: 4
+      Data: 3.37576747
+    - Name: Name
+      Entry: 1
+      Data: InputNode(1)
+    - Name: ViewPosition
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 22.39996
+    - Name: 
+      Entry: 4
+      Data: 14.3999891
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: InputEdges
+      Entry: 7
+      Data: 195|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: OutputEdges
+      Entry: 7
+      Data: 196|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: DialogTree
+      Entry: 10
+      Data: 0
+    - Name: Value
+      Entry: 3
+      Data: 60
+    - Name: _value
+      Entry: 3
+      Data: 60
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _targetNode
+      Entry: 9
+      Data: 192
+    - Name: _sourceField
+      Entry: 1
+      Data: _value
+    - Name: _targetField
+      Entry: 1
+      Data: Cost
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: OutputEdges
+      Entry: 7
+      Data: 197|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: DialogTree
+      Entry: 10
+      Data: 0
+    - Name: Children
+      Entry: 7
+      Data: 198|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
+        GameToolKit.Dialog]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 9
+      Data: 187
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Parents
+      Entry: 7
+      Data: 199|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
+        GameToolKit.Dialog]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 200|GameToolKit.Dialog.SingleOptionNode, GameToolKit.Dialog
     - Name: Guid
       Entry: 1
       Data: 6ef15b9f-faaa-4a6c-8ffa-000ba4cf4ded
@@ -3745,7 +4189,7 @@ MonoBehaviour:
       Data: 
     - Name: InputEdges
       Entry: 7
-      Data: 188|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
+      Data: 201|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
         mscorlib
     - Name: 
       Entry: 12
@@ -3755,7 +4199,7 @@ MonoBehaviour:
       Data: GameToolKit.SourceInfo, GameToolKit.BaseClass
     - Name: _sourceNode
       Entry: 7
-      Data: 189|GameToolKit.Dialog.CombineNode`1[[GameToolKit.Dialog.OptionArgument,
+      Data: 202|GameToolKit.Dialog.CombineNode`1[[GameToolKit.Dialog.OptionArgument,
         GameToolKit.Dialog]], GameToolKit.Dialog
     - Name: Guid
       Entry: 1
@@ -3780,7 +4224,7 @@ MonoBehaviour:
       Data: 
     - Name: InputEdges
       Entry: 7
-      Data: 190|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
+      Data: 203|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
         mscorlib
     - Name: 
       Entry: 12
@@ -3790,7 +4234,7 @@ MonoBehaviour:
       Data: GameToolKit.SourceInfo, GameToolKit.BaseClass
     - Name: _sourceNode
       Entry: 7
-      Data: 191|GameToolKit.Dialog.CompareIntNode, GameToolKit.Dialog
+      Data: 204|GameToolKit.Dialog.CompareIntNode, GameToolKit.Dialog
     - Name: Guid
       Entry: 1
       Data: a61c988b-0669-49d2-8e9b-65aaa4fd4d51
@@ -3814,7 +4258,7 @@ MonoBehaviour:
       Data: 
     - Name: InputEdges
       Entry: 7
-      Data: 192|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
+      Data: 205|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
         mscorlib
     - Name: 
       Entry: 12
@@ -3824,10 +4268,10 @@ MonoBehaviour:
       Data: GameToolKit.SourceInfo, GameToolKit.BaseClass
     - Name: _sourceNode
       Entry: 9
-      Data: 181
+      Data: 194
     - Name: _targetNode
       Entry: 9
-      Data: 191
+      Data: 204
     - Name: _sourceField
       Entry: 1
       Data: _value
@@ -3845,10 +4289,10 @@ MonoBehaviour:
       Data: 22
     - Name: _targetNode
       Entry: 9
-      Data: 191
+      Data: 204
     - Name: _sourceField
       Entry: 1
-      Data: GameData.Gold
+      Data: GameData._gold
     - Name: _targetField
       Entry: 1
       Data: SourceA
@@ -3863,7 +4307,7 @@ MonoBehaviour:
       Data: 
     - Name: OutputEdges
       Entry: 7
-      Data: 193|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
+      Data: 206|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
         mscorlib
     - Name: 
       Entry: 12
@@ -3877,9 +4321,6 @@ MonoBehaviour:
     - Name: DialogTree
       Entry: 10
       Data: 0
-    - Name: Type
-      Entry: 3
-      Data: 3
     - Name: SourceA
       Entry: 3
       Data: 0
@@ -3889,12 +4330,15 @@ MonoBehaviour:
     - Name: Result
       Entry: 5
       Data: true
+    - Name: Type
+      Entry: 3
+      Data: 3
     - Name: 
       Entry: 8
       Data: 
     - Name: _targetNode
       Entry: 9
-      Data: 189
+      Data: 202
     - Name: _sourceField
       Entry: 1
       Data: Result
@@ -3909,7 +4353,7 @@ MonoBehaviour:
       Data: GameToolKit.SourceInfo, GameToolKit.BaseClass
     - Name: _sourceNode
       Entry: 7
-      Data: 194|ItemWrapper, Assembly-CSharp
+      Data: 207|ItemWrapper, Assembly-CSharp
     - Name: Guid
       Entry: 1
       Data: 37be479b-a61e-4395-a713-813ec891440f
@@ -3933,7 +4377,7 @@ MonoBehaviour:
       Data: 
     - Name: InputEdges
       Entry: 7
-      Data: 195|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
+      Data: 208|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
         mscorlib
     - Name: 
       Entry: 12
@@ -3943,10 +4387,10 @@ MonoBehaviour:
       Data: GameToolKit.SourceInfo, GameToolKit.BaseClass
     - Name: _sourceNode
       Entry: 9
-      Data: 181
+      Data: 194
     - Name: _targetNode
       Entry: 9
-      Data: 194
+      Data: 207
     - Name: _sourceField
       Entry: 1
       Data: _value
@@ -3964,7 +4408,7 @@ MonoBehaviour:
       Data: 
     - Name: OutputEdges
       Entry: 7
-      Data: 196|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
+      Data: 209|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
         mscorlib
     - Name: 
       Entry: 12
@@ -3992,7 +4436,7 @@ MonoBehaviour:
       Data: 
     - Name: _targetNode
       Entry: 9
-      Data: 189
+      Data: 202
     - Name: _sourceField
       Entry: 1
       Data: Result
@@ -4010,7 +4454,7 @@ MonoBehaviour:
       Data: 
     - Name: OutputEdges
       Entry: 7
-      Data: 197|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
+      Data: 210|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
         mscorlib
     - Name: 
       Entry: 12
@@ -4026,7 +4470,7 @@ MonoBehaviour:
       Data: 0
     - Name: Value
       Entry: 7
-      Data: 198|GameToolKit.Dialog.OptionArgument, GameToolKit.Dialog
+      Data: 211|GameToolKit.Dialog.OptionArgument, GameToolKit.Dialog
     - Name: Option
       Entry: 1
       Data: "\u4E13\u5C5E\u5361\u5305\uFF0860 Gold\uFF09"
@@ -4041,7 +4485,7 @@ MonoBehaviour:
       Data: 
     - Name: _targetNode
       Entry: 9
-      Data: 187
+      Data: 200
     - Name: _sourceField
       Entry: 1
       Data: Value
@@ -4059,7 +4503,7 @@ MonoBehaviour:
       Data: 
     - Name: OutputEdges
       Entry: 7
-      Data: 199|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
+      Data: 212|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
         mscorlib
     - Name: 
       Entry: 12
@@ -4075,14 +4519,14 @@ MonoBehaviour:
       Data: 0
     - Name: Children
       Entry: 7
-      Data: 200|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
+      Data: 213|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
         GameToolKit.Dialog]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 9
-      Data: 179
+      Data: 192
     - Name: 
       Entry: 13
       Data: 
@@ -4091,7 +4535,7 @@ MonoBehaviour:
       Data: 
     - Name: Parents
       Entry: 7
-      Data: 201|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
+      Data: 214|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
         GameToolKit.Dialog]], mscorlib
     - Name: 
       Entry: 12
@@ -4110,7 +4554,7 @@ MonoBehaviour:
       Data: -1
     - Name: Option
       Entry: 9
-      Data: 198
+      Data: 211
     - Name: 
       Entry: 8
       Data: 
@@ -4134,13 +4578,13 @@ MonoBehaviour:
       Data: 
     - Name: ViewType
       Entry: 9
-      Data: 72
+      Data: 85
     - Name: IsReleaseDialogOnEnd
       Entry: 5
       Data: false
     - Name: Dialog
       Entry: 7
-      Data: 202|EventPanel+EventTextArgument, Assembly-CSharp
+      Data: 215|EventPanel+EventTextArgument, Assembly-CSharp
     - Name: Text
       Entry: 1
       Data: "\u9009\u62E9\u4E00\u4E2A\u89D2\u8272"
@@ -4164,7 +4608,7 @@ MonoBehaviour:
       Data: 
     - Name: ViewType
       Entry: 9
-      Data: 72
+      Data: 85
     - Name: SelectedOptionIndex
       Entry: 3
       Data: -1
@@ -4188,7 +4632,7 @@ MonoBehaviour:
       Data: 
     - Name: _targetNode
       Entry: 9
-      Data: 162
+      Data: 175
     - Name: _sourceField
       Entry: 1
       Data: SelectedOptionIndex
@@ -4198,346 +4642,6 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: OutputEdges
-      Entry: 7
-      Data: 203|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
-        mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: DialogTree
-      Entry: 10
-      Data: 0
-    - Name: Children
-      Entry: 7
-      Data: 204|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
-        GameToolKit.Dialog]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 9
-      Data: 57
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Parents
-      Entry: 7
-      Data: 205|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
-        GameToolKit.Dialog]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 9
-      Data: 164
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Type
-      Entry: 3
-      Data: 2
-    - Name: Index
-      Entry: 3
-      Data: 0
-    - Name: Num
-      Entry: 3
-      Data: 3
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 9
-      Data: 53
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: ViewType
-      Entry: 9
-      Data: 72
-    - Name: IsReleaseDialogOnEnd
-      Entry: 5
-      Data: false
-    - Name: Dialog
-      Entry: 7
-      Data: 206|EventPanel+EventTextArgument, Assembly-CSharp
-    - Name: Text
-      Entry: 1
-      Data: "\u4ED6\u7728\u5DF4\u4E86\u4E0B\u773C\u775B\n\u201C\u518D\u77A7\u77A7\u5427\u201D"
-    - Name: EventImage
-      Entry: 6
-      Data: 
-    - Name: EventName
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Parents
-      Entry: 7
-      Data: 207|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
-        GameToolKit.Dialog]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 9
-      Data: 49
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Type
-      Entry: 3
-      Data: 1
-    - Name: Index
-      Entry: 3
-      Data: 0
-    - Name: Num
-      Entry: 3
-      Data: 3
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Parents
-      Entry: 7
-      Data: 208|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
-        GameToolKit.Dialog]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 9
-      Data: 45
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: SelectedOptionIndex
-      Entry: 3
-      Data: -1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Parents
-      Entry: 7
-      Data: 209|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
-        GameToolKit.Dialog]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 9
-      Data: 41
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: ViewType
-      Entry: 9
-      Data: 72
-    - Name: SelectedOptionIndex
-      Entry: 3
-      Data: -1
-    - Name: SelectedOptionNode
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Parents
-      Entry: 7
-      Data: 210|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
-        GameToolKit.Dialog]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 9
-      Data: 37
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: ViewType
-      Entry: 9
-      Data: 72
-    - Name: IsReleaseDialogOnEnd
-      Entry: 5
-      Data: false
-    - Name: Dialog
-      Entry: 7
-      Data: 211|EventPanel+EventTextArgument, Assembly-CSharp
-    - Name: Text
-      Entry: 1
-      Data: "\u9009\u62E9\u4E00\u4E2A\u89D2\u8272"
-    - Name: EventImage
-      Entry: 6
-      Data: 
-    - Name: EventName
-      Entry: 1
-      Data: "\u65C5\u884C\u5546\u4EBA"
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Parents
-      Entry: 7
-      Data: 212|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
-        GameToolKit.Dialog]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 9
-      Data: 13
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Cost
-      Entry: 3
-      Data: 30
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Parents
-      Entry: 7
-      Data: 213|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
-        GameToolKit.Dialog]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 9
-      Data: 9
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: SelectedOptionIndex
-      Entry: 3
-      Data: 0
-    - Name: Option
-      Entry: 9
-      Data: 34
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 9
-      Data: 187
-    - Name: 
-      Entry: 9
-      Data: 143
-    - Name: 
-      Entry: 9
-      Data: 99
-    - Name: 
-      Entry: 7
-      Data: 214|GameToolKit.Dialog.SingleOptionNode, GameToolKit.Dialog
-    - Name: Guid
-      Entry: 1
-      Data: 5de37ef0-0e0d-4463-a0c4-cf0d8a2ce3e8
-    - Name: LastDataUpdataTime
-      Entry: 4
-      Data: 0
-    - Name: Name
-      Entry: 1
-      Data: SingleOptionNode(4)
-    - Name: ViewPosition
-      Entry: 7
-      Data: UnityEngine.Vector2, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 756.800049
-    - Name: 
-      Entry: 4
-      Data: 474.399963
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: InputEdges
-      Entry: 7
-      Data: 215|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
-        mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
     - Name: 
       Entry: 13
       Data: 
@@ -4568,8 +4672,348 @@ MonoBehaviour:
       Entry: 12
       Data: 1
     - Name: 
+      Entry: 9
+      Data: 70
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Parents
       Entry: 7
-      Data: 218|GameToolKit.Dialog.SingleDialogNode, GameToolKit.Dialog
+      Data: 218|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
+        GameToolKit.Dialog]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 9
+      Data: 177
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Type
+      Entry: 3
+      Data: 2
+    - Name: Index
+      Entry: 3
+      Data: 0
+    - Name: Num
+      Entry: 3
+      Data: 3
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 9
+      Data: 66
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: ViewType
+      Entry: 9
+      Data: 85
+    - Name: IsReleaseDialogOnEnd
+      Entry: 5
+      Data: false
+    - Name: Dialog
+      Entry: 7
+      Data: 219|EventPanel+EventTextArgument, Assembly-CSharp
+    - Name: Text
+      Entry: 1
+      Data: "\u4ED6\u7728\u5DF4\u4E86\u4E0B\u773C\u775B\n\u201C\u518D\u77A7\u77A7\u5427\u201D"
+    - Name: EventImage
+      Entry: 6
+      Data: 
+    - Name: EventName
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Parents
+      Entry: 7
+      Data: 220|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
+        GameToolKit.Dialog]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 9
+      Data: 62
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Type
+      Entry: 3
+      Data: 1
+    - Name: Index
+      Entry: 3
+      Data: 0
+    - Name: Num
+      Entry: 3
+      Data: 3
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Parents
+      Entry: 7
+      Data: 221|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
+        GameToolKit.Dialog]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 9
+      Data: 58
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: SelectedOptionIndex
+      Entry: 3
+      Data: -1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Parents
+      Entry: 7
+      Data: 222|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
+        GameToolKit.Dialog]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 9
+      Data: 54
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: ViewType
+      Entry: 9
+      Data: 85
+    - Name: SelectedOptionIndex
+      Entry: 3
+      Data: -1
+    - Name: SelectedOptionNode
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Parents
+      Entry: 7
+      Data: 223|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
+        GameToolKit.Dialog]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 9
+      Data: 50
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: ViewType
+      Entry: 9
+      Data: 85
+    - Name: IsReleaseDialogOnEnd
+      Entry: 5
+      Data: false
+    - Name: Dialog
+      Entry: 7
+      Data: 224|EventPanel+EventTextArgument, Assembly-CSharp
+    - Name: Text
+      Entry: 1
+      Data: "\u9009\u62E9\u4E00\u4E2A\u89D2\u8272"
+    - Name: EventImage
+      Entry: 6
+      Data: 
+    - Name: EventName
+      Entry: 1
+      Data: "\u65C5\u884C\u5546\u4EBA"
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Parents
+      Entry: 7
+      Data: 225|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
+        GameToolKit.Dialog]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 9
+      Data: 13
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Cost
+      Entry: 3
+      Data: 30
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Parents
+      Entry: 7
+      Data: 226|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
+        GameToolKit.Dialog]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 9
+      Data: 9
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: SelectedOptionIndex
+      Entry: 3
+      Data: -1
+    - Name: Option
+      Entry: 9
+      Data: 47
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 9
+      Data: 200
+    - Name: 
+      Entry: 9
+      Data: 156
+    - Name: 
+      Entry: 9
+      Data: 112
+    - Name: 
+      Entry: 7
+      Data: 227|GameToolKit.Dialog.SingleOptionNode, GameToolKit.Dialog
+    - Name: Guid
+      Entry: 1
+      Data: 5de37ef0-0e0d-4463-a0c4-cf0d8a2ce3e8
+    - Name: LastDataUpdataTime
+      Entry: 4
+      Data: 0
+    - Name: Name
+      Entry: 1
+      Data: SingleOptionNode(4)
+    - Name: ViewPosition
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 756.800049
+    - Name: 
+      Entry: 4
+      Data: 474.399963
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: InputEdges
+      Entry: 7
+      Data: 228|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: OutputEdges
+      Entry: 7
+      Data: 229|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: DialogTree
+      Entry: 10
+      Data: 0
+    - Name: Children
+      Entry: 7
+      Data: 230|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
+        GameToolKit.Dialog]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 231|GameToolKit.Dialog.SingleDialogNode, GameToolKit.Dialog
     - Name: Guid
       Entry: 1
       Data: 4a09654c-42da-48bf-b21e-6c00bc93c80e
@@ -4593,7 +5037,7 @@ MonoBehaviour:
       Data: 
     - Name: InputEdges
       Entry: 7
-      Data: 219|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
+      Data: 232|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
         mscorlib
     - Name: 
       Entry: 12
@@ -4606,7 +5050,7 @@ MonoBehaviour:
       Data: 
     - Name: OutputEdges
       Entry: 7
-      Data: 220|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
+      Data: 233|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
         mscorlib
     - Name: 
       Entry: 12
@@ -4622,14 +5066,14 @@ MonoBehaviour:
       Data: 0
     - Name: Children
       Entry: 7
-      Data: 221|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
+      Data: 234|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
         GameToolKit.Dialog]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 222|GameToolKit.Dialog.OptionSelectorNode, GameToolKit.Dialog
+      Data: 235|GameToolKit.Dialog.OptionSelectorNode, GameToolKit.Dialog
     - Name: Guid
       Entry: 1
       Data: 0518bf4f-788e-4ffc-ac60-95517b19590e
@@ -4653,7 +5097,7 @@ MonoBehaviour:
       Data: 
     - Name: InputEdges
       Entry: 7
-      Data: 223|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
+      Data: 236|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
         mscorlib
     - Name: 
       Entry: 12
@@ -4666,7 +5110,7 @@ MonoBehaviour:
       Data: 
     - Name: OutputEdges
       Entry: 7
-      Data: 224|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
+      Data: 237|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
         mscorlib
     - Name: 
       Entry: 12
@@ -4682,14 +5126,14 @@ MonoBehaviour:
       Data: 0
     - Name: Children
       Entry: 7
-      Data: 225|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
+      Data: 238|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
         GameToolKit.Dialog]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 226|GameToolKit.Dialog.SingleOptionNode, GameToolKit.Dialog
+      Data: 239|GameToolKit.Dialog.SingleOptionNode, GameToolKit.Dialog
     - Name: Guid
       Entry: 1
       Data: da94ff2d-7b74-4b4b-a786-137724536121
@@ -4713,7 +5157,7 @@ MonoBehaviour:
       Data: 
     - Name: InputEdges
       Entry: 7
-      Data: 227|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
+      Data: 240|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
         mscorlib
     - Name: 
       Entry: 12
@@ -4726,7 +5170,7 @@ MonoBehaviour:
       Data: 
     - Name: OutputEdges
       Entry: 7
-      Data: 228|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
+      Data: 241|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
         mscorlib
     - Name: 
       Entry: 12
@@ -4742,14 +5186,14 @@ MonoBehaviour:
       Data: 0
     - Name: Children
       Entry: 7
-      Data: 229|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
+      Data: 242|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
         GameToolKit.Dialog]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 7
-      Data: 230|GameToolKit.Dialog.ExitNode, GameToolKit.Dialog
+      Data: 243|GameToolKit.Dialog.ExitNode, GameToolKit.Dialog
     - Name: Guid
       Entry: 1
       Data: ede9d11a-414f-4ec5-afd7-cc43cec3e959
@@ -4773,7 +5217,7 @@ MonoBehaviour:
       Data: 
     - Name: InputEdges
       Entry: 7
-      Data: 231|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
+      Data: 244|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
         mscorlib
     - Name: 
       Entry: 12
@@ -4786,7 +5230,7 @@ MonoBehaviour:
       Data: 
     - Name: OutputEdges
       Entry: 7
-      Data: 232|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
+      Data: 245|System.Collections.Generic.List`1[[GameToolKit.SourceInfo, GameToolKit.BaseClass]],
         mscorlib
     - Name: 
       Entry: 12
@@ -4802,7 +5246,7 @@ MonoBehaviour:
       Data: 0
     - Name: Children
       Entry: 7
-      Data: 233|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
+      Data: 246|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
         GameToolKit.Dialog]], mscorlib
     - Name: 
       Entry: 12
@@ -4815,14 +5259,14 @@ MonoBehaviour:
       Data: 
     - Name: Parents
       Entry: 7
-      Data: 234|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
+      Data: 247|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
         GameToolKit.Dialog]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 9
-      Data: 226
+      Data: 239
     - Name: 
       Entry: 13
       Data: 
@@ -4840,14 +5284,14 @@ MonoBehaviour:
       Data: 
     - Name: Parents
       Entry: 7
-      Data: 235|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
+      Data: 248|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
         GameToolKit.Dialog]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 9
-      Data: 222
+      Data: 235
     - Name: 
       Entry: 13
       Data: 
@@ -4859,7 +5303,7 @@ MonoBehaviour:
       Data: -1
     - Name: Option
       Entry: 7
-      Data: 236|GameToolKit.Dialog.OptionArgument, GameToolKit.Dialog
+      Data: 249|GameToolKit.Dialog.OptionArgument, GameToolKit.Dialog
     - Name: Option
       Entry: 1
       Data: "\u786E\u8BA4"
@@ -4880,14 +5324,14 @@ MonoBehaviour:
       Data: 
     - Name: Parents
       Entry: 7
-      Data: 237|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
+      Data: 250|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
         GameToolKit.Dialog]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 9
-      Data: 218
+      Data: 231
     - Name: 
       Entry: 13
       Data: 
@@ -4896,7 +5340,7 @@ MonoBehaviour:
       Data: 
     - Name: ViewType
       Entry: 9
-      Data: 72
+      Data: 85
     - Name: SelectedOptionIndex
       Entry: 3
       Data: -1
@@ -4914,14 +5358,14 @@ MonoBehaviour:
       Data: 
     - Name: Parents
       Entry: 7
-      Data: 238|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
+      Data: 251|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
         GameToolKit.Dialog]], mscorlib
     - Name: 
       Entry: 12
       Data: 1
     - Name: 
       Entry: 9
-      Data: 214
+      Data: 227
     - Name: 
       Entry: 13
       Data: 
@@ -4930,13 +5374,13 @@ MonoBehaviour:
       Data: 
     - Name: ViewType
       Entry: 9
-      Data: 72
+      Data: 85
     - Name: IsReleaseDialogOnEnd
       Entry: 5
       Data: false
     - Name: Dialog
       Entry: 7
-      Data: 239|EventPanel+EventTextArgument, Assembly-CSharp
+      Data: 252|EventPanel+EventTextArgument, Assembly-CSharp
     - Name: Text
       Entry: 1
       Data: "\u5546\u4EBA\u768E\u6D01\u5730\u5411\u4F60\u7B11\u4E86\u7B11\n\u201C\u591A\u8C22\u5149\u987E~\u201D"
@@ -4960,7 +5404,7 @@ MonoBehaviour:
       Data: 
     - Name: Parents
       Entry: 7
-      Data: 240|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
+      Data: 253|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
         GameToolKit.Dialog]], mscorlib
     - Name: 
       Entry: 12
@@ -4979,7 +5423,7 @@ MonoBehaviour:
       Data: -1
     - Name: Option
       Entry: 7
-      Data: 241|GameToolKit.Dialog.OptionArgument, GameToolKit.Dialog
+      Data: 254|GameToolKit.Dialog.OptionArgument, GameToolKit.Dialog
     - Name: Option
       Entry: 1
       Data: "\u79BB\u5F00"
@@ -5000,7 +5444,7 @@ MonoBehaviour:
       Data: 
     - Name: Parents
       Entry: 7
-      Data: 242|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
+      Data: 255|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
         GameToolKit.Dialog]], mscorlib
     - Name: 
       Entry: 12
@@ -5010,7 +5454,7 @@ MonoBehaviour:
       Data: 5
     - Name: 
       Entry: 9
-      Data: 65
+      Data: 78
     - Name: 
       Entry: 13
       Data: 
@@ -5019,13 +5463,13 @@ MonoBehaviour:
       Data: 
     - Name: ViewType
       Entry: 9
-      Data: 72
+      Data: 85
     - Name: SelectedOptionIndex
       Entry: 3
-      Data: 0
+      Data: -1
     - Name: SelectedOptionNode
-      Entry: 9
-      Data: 13
+      Entry: 6
+      Data: 
     - Name: 
       Entry: 8
       Data: 
@@ -5037,7 +5481,7 @@ MonoBehaviour:
       Data: 
     - Name: Parents
       Entry: 7
-      Data: 243|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
+      Data: 256|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
         GameToolKit.Dialog]], mscorlib
     - Name: 
       Entry: 12
@@ -5053,13 +5497,13 @@ MonoBehaviour:
       Data: 
     - Name: ViewType
       Entry: 9
-      Data: 72
+      Data: 85
     - Name: IsReleaseDialogOnEnd
       Entry: 5
       Data: false
     - Name: Dialog
       Entry: 7
-      Data: 244|EventPanel+EventTextArgument, Assembly-CSharp
+      Data: 257|EventPanel+EventTextArgument, Assembly-CSharp
     - Name: Text
       Entry: 1
       Data: "\u6709\u4E2A\u65C5\u884C\u5546\u4EBA\u963B\u6321\u5728\u4F60\u4EEC\u9762\u524D\uFF0C\u9A6C\u8F66\u7684\u8F66\u53A2\u91CC\u6446\u6EE1\u4E86\u5947\u73CD\u5F02\u5B9D\n\u201C\u6765\u770B\u770B\u5427\uFF0C\u8FD9\u4E9B\u90FD\u662F\u4E0A\u7B49\u8D27~\u201D"
@@ -5083,7 +5527,7 @@ MonoBehaviour:
       Data: 
     - Name: Parents
       Entry: 7
-      Data: 245|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
+      Data: 258|System.Collections.Generic.List`1[[GameToolKit.Dialog.ProcessNode,
         GameToolKit.Dialog]], mscorlib
     - Name: 
       Entry: 12
@@ -5099,7 +5543,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 9
-      Data: 230
+      Data: 243
     - Name: 
       Entry: 9
       Data: 5
@@ -5111,145 +5555,145 @@ MonoBehaviour:
       Data: 13
     - Name: 
       Entry: 9
-      Data: 187
+      Data: 200
     - Name: 
       Entry: 9
-      Data: 143
+      Data: 156
     - Name: 
       Entry: 9
-      Data: 145
+      Data: 158
     - Name: 
       Entry: 9
-      Data: 99
+      Data: 112
     - Name: 
       Entry: 9
       Data: 22
     - Name: 
       Entry: 9
-      Data: 147
-    - Name: 
-      Entry: 9
-      Data: 137
+      Data: 160
     - Name: 
       Entry: 9
       Data: 150
     - Name: 
       Entry: 9
-      Data: 181
-    - Name: 
-      Entry: 9
-      Data: 19
-    - Name: 
-      Entry: 9
-      Data: 191
-    - Name: 
-      Entry: 9
-      Data: 17
-    - Name: 
-      Entry: 9
-      Data: 30
-    - Name: 
-      Entry: 9
-      Data: 189
-    - Name: 
-      Entry: 9
-      Data: 15
-    - Name: 
-      Entry: 9
-      Data: 101
+      Data: 163
     - Name: 
       Entry: 9
       Data: 194
     - Name: 
       Entry: 9
-      Data: 103
+      Data: 19
     - Name: 
       Entry: 9
-      Data: 93
+      Data: 204
+    - Name: 
+      Entry: 9
+      Data: 17
+    - Name: 
+      Entry: 9
+      Data: 43
+    - Name: 
+      Entry: 9
+      Data: 202
+    - Name: 
+      Entry: 9
+      Data: 15
+    - Name: 
+      Entry: 9
+      Data: 114
+    - Name: 
+      Entry: 9
+      Data: 207
+    - Name: 
+      Entry: 9
+      Data: 116
     - Name: 
       Entry: 9
       Data: 106
     - Name: 
       Entry: 9
-      Data: 214
+      Data: 119
     - Name: 
       Entry: 9
-      Data: 218
+      Data: 227
     - Name: 
       Entry: 9
-      Data: 37
+      Data: 231
     - Name: 
       Entry: 9
-      Data: 179
+      Data: 50
     - Name: 
       Entry: 9
-      Data: 135
+      Data: 192
     - Name: 
       Entry: 9
-      Data: 91
+      Data: 148
     - Name: 
       Entry: 9
-      Data: 45
+      Data: 104
     - Name: 
       Entry: 9
-      Data: 169
+      Data: 58
     - Name: 
       Entry: 9
-      Data: 125
+      Data: 182
     - Name: 
       Entry: 9
-      Data: 81
+      Data: 138
     - Name: 
       Entry: 9
-      Data: 49
+      Data: 94
     - Name: 
       Entry: 9
-      Data: 164
+      Data: 62
     - Name: 
       Entry: 9
-      Data: 120
+      Data: 177
     - Name: 
       Entry: 9
-      Data: 76
+      Data: 133
     - Name: 
       Entry: 9
-      Data: 86
+      Data: 89
     - Name: 
       Entry: 9
-      Data: 130
+      Data: 99
     - Name: 
       Entry: 9
-      Data: 174
+      Data: 143
     - Name: 
       Entry: 9
-      Data: 41
+      Data: 187
+    - Name: 
+      Entry: 9
+      Data: 54
+    - Name: 
+      Entry: 9
+      Data: 87
+    - Name: 
+      Entry: 9
+      Data: 70
+    - Name: 
+      Entry: 9
+      Data: 131
+    - Name: 
+      Entry: 9
+      Data: 175
+    - Name: 
+      Entry: 9
+      Data: 66
     - Name: 
       Entry: 9
       Data: 74
     - Name: 
       Entry: 9
-      Data: 57
+      Data: 78
     - Name: 
       Entry: 9
-      Data: 118
+      Data: 235
     - Name: 
       Entry: 9
-      Data: 162
-    - Name: 
-      Entry: 9
-      Data: 53
-    - Name: 
-      Entry: 9
-      Data: 61
-    - Name: 
-      Entry: 9
-      Data: 65
-    - Name: 
-      Entry: 9
-      Data: 222
-    - Name: 
-      Entry: 9
-      Data: 226
+      Data: 239
     - Name: 
       Entry: 13
       Data: 
@@ -5261,5 +5705,5 @@ MonoBehaviour:
       Data: 1
     - Name: ExitNode
       Entry: 9
-      Data: 230
+      Data: 243
   Mode: 1
