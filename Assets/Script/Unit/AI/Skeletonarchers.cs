@@ -12,34 +12,38 @@ using UnityEngine;
 /// </summary>
 public class Skeletonarchers : Unit
 { 
-    public Skeletonarchers(Vector2Int pos) : base(new UnitModel()
+    public Skeletonarchers(Vector2Int pos) : base(new UnitData()
     {
-        DefaultName = "骷髅弓手",//骷髅弓手
+        Name = "Skeletonarchers",//骷髅弓手
+        BloodMax = 100,
         Blood = 100,
         Attack = 20,
         Defence = 4,
         Speed = 4,
-    }, pos)
+        //移动和技能的使用会消耗技能点,但怪物无行动点约束，设为最大值
+        ActionPointMax = int.MaxValue,
+        ActionPoint = int.MaxValue,
+    }
+, pos)
     {
 
     }
 
     protected override void Decide()
     {
-        //获得玩家对象
-        List<Player> players = GameManager.Instance.GetState<BattleState>().PlayerList.ToList();
         //得到要攻击的对象
-        Player player = getAttackPlayer(players);
+        Player player = getAttackPlayer();
         //攻击对象
         attackPlayer(player);
     }
     /// <summary>
     /// 根据玩家距离骷髅弓手的距离，选择合适的攻击对象
     /// </summary>
-    /// <param name="players">所有玩家</param>
     /// <returns></returns>
-    public Player getAttackPlayer(List<Player> players)
+    public Player getAttackPlayer()
     {
+        //获得玩家对象
+        List<Player> players = GameManager.Instance.GetState<BattleState>().PlayerList.ToList();
         int num = -1;//记录距离最短的玩家的号码
         int i = 0;
         double minDis = int.MaxValue;//设初值为最大值
@@ -62,7 +66,7 @@ public class Skeletonarchers : Unit
     /// <param name="player"></param>
     public void attackPlayer(Player player)
     {
-        //攻击
-        (player as IHurtable).Hurt(this.UnitData.Attack, HurtType.FromUnit, this);
+        //远程伤害
+        (player as IHurtable).Hurt(this.UnitData.Attack, HurtType.Ranged, this);
     }
 }
