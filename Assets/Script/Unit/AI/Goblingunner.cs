@@ -4,22 +4,20 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 /// <summary>
-/// ¸ç²¼ÁÖÇÀÊÖ
-/// ¶ÔÒ»¸ö½ÇÉ«Ôì³ÉÈı´Î50%Á¦Á¿ÖµµÄÉËº¦£¬¹¥»÷Ê±ËÑË÷×î½ü¾àÀëµÄµĞÈË£¬
-/// ÒÆ¶¯ÖÁµĞÈËÉíÇ°½øĞĞ¹¥»÷£¬¹¥»÷ºóÍ£ÁôÔÚ½ÇÉ«ÖÜÎ§£¨5x5µÄ¸ñ×ÓÄÚËæ»ú)¡£
+/// å“¥å¸ƒæ—æŠ¢æ‰‹
+/// å¯¹ä¸€ä¸ªè§’è‰²é€ æˆä¸‰æ¬¡50%åŠ›é‡å€¼çš„ä¼¤å®³ï¼Œæ”»å‡»æ—¶æœç´¢æœ€è¿‘è·ç¦»çš„æ•Œäººï¼Œ
+/// ç§»åŠ¨è‡³æ•Œäººèº«å‰è¿›è¡Œæ”»å‡»ï¼Œæ”»å‡»ååœç•™åœ¨è§’è‰²å‘¨å›´ï¼ˆ5x5çš„æ ¼å­å†…éšæœº)ã€‚
 /// </summary>
 public class Goblingunner : Unit
 {
-    public Goblingunner(Vector2Int pos) : base(new UnitData()
+    public Goblingunner(Vector2Int pos) : base(new UnitModel()
     {
-        Name = "Goblingunner",//¸çÁÖ²¼Ç¹ÊÖ
-        BloodMax = 100,//×î´óÑªÁ¿
-        Blood = 100,//³õÊ¼ÑªÁ¿Îª×î´óÑªÁ¿
-        Attack = 20,//¹¥»÷Á¦
-        Defence = 4,//·ÀÓùÁ¦
-        Speed = 4,//ÏÈ¹¥È¨ÖØ
-        //ÒÆ¶¯ºÍ¼¼ÄÜµÄÊ¹ÓÃ»áÏûºÄ¼¼ÄÜµã,µ«¹ÖÎïÎŞĞĞ¶¯µãÔ¼Êø£¬ÉèÎª×î´óÖµ
-        ActionPointMax = int.MaxValue,
+        DefaultName = "å“¥æ—å¸ƒæªæ‰‹",
+        Blood = 100,//åˆå§‹è¡€é‡ä¸ºæœ€å¤§è¡€é‡
+        Attack = 20,//æ”»å‡»åŠ›
+        Defence = 4,//é˜²å¾¡åŠ›
+        Speed = 4,//å…ˆæ”»æƒé‡
+        //ç§»åŠ¨å’ŒæŠ€èƒ½çš„ä½¿ç”¨ä¼šæ¶ˆè€—æŠ€èƒ½ç‚¹,ä½†æ€ªç‰©æ— è¡ŒåŠ¨ç‚¹çº¦æŸï¼Œè®¾ä¸ºæœ€å¤§å€¼
         ActionPoint = int.MaxValue,
     }
 , pos)
@@ -27,29 +25,29 @@ public class Goblingunner : Unit
     }
 
     /// <summary>
-    /// ĞĞ¶¯
+    /// è¡ŒåŠ¨
     /// </summary>
     protected override void Decide()
     {
-        //µÃµ½Òª¹¥»÷µÄ¶ÔÏó
+        //å¾—åˆ°è¦æ”»å‡»çš„å¯¹è±¡
         Player player = getAttackPlayer();
-        //¹¥»÷¶ÔÏó
+        //æ”»å‡»å¯¹è±¡
         attackPlayer(player);
-        //³·ÍË
+        //æ’¤é€€
         retreat(player.Position);
     }
 
     /// <summary>
-    /// ¸ù¾İÍæ¼Ò¾àÀë¸ç²¼ÁÖÇÀÊÖµÄ¾àÀë£¬Ñ¡ÔñºÏÊÊµÄ¹¥»÷¶ÔÏó
+    /// æ ¹æ®ç©å®¶è·ç¦»å“¥å¸ƒæ—æŠ¢æ‰‹çš„è·ç¦»ï¼Œé€‰æ‹©åˆé€‚çš„æ”»å‡»å¯¹è±¡
     /// </summary>
     /// <returns></returns>
     public Player getAttackPlayer()
     {
-        //»ñµÃÍæ¼Ò¶ÔÏó
+        //è·å¾—ç©å®¶å¯¹è±¡
         List<Player> players = GameManager.Instance.GetState<BattleState>().PlayerList.ToList();
-        int num = -1;//¼ÇÂ¼¾àÀë×î¶ÌµÄÍæ¼ÒµÄºÅÂë
+        int num = -1;//è®°å½•è·ç¦»æœ€çŸ­çš„ç©å®¶çš„å·ç 
         int i = 0;
-        double minDis = int.MaxValue;//Éè³õÖµÎª×î´óÖµ
+        double minDis = int.MaxValue;//è®¾åˆå€¼ä¸ºæœ€å¤§å€¼
 
         foreach (Player p in players)
         {
@@ -64,33 +62,33 @@ public class Goblingunner : Unit
         return players[num];
     }
     /// <summary>
-    /// ÒÆ¶¯µ½Òª¹¥»÷Íæ¼Ò¸½½ü
-    /// ¶ÔÒ»¸ö½ÇÉ«Ôì³É3´Î50%µÄÁ¦Á¿ÖµÉËº¦
+    /// ç§»åŠ¨åˆ°è¦æ”»å‡»ç©å®¶é™„è¿‘
+    /// å¯¹ä¸€ä¸ªè§’è‰²é€ æˆ3æ¬¡50%çš„åŠ›é‡å€¼ä¼¤å®³
     /// </summary>
-    /// <param name="player">Òª¹¥»÷µÄÍæ¼Ò</param>
+    /// <param name="player">è¦æ”»å‡»çš„ç©å®¶</param>
     public void attackPlayer(Player player)
     {
-        //ÒÆ¶¯
+        //ç§»åŠ¨
         MoveclosePlayerPos(player.Position);
-        //½üÉí¹¥»÷
+        //è¿‘èº«æ”»å‡»
         for (int i = 0; i < 3; i++)
         {
-            (player as IHurtable).Hurt((int)(this.UnitData.Attack * 0.5), HurtType.Melee, this);
+            (player as IHurtable).Hurt((int)(this.UnitData.Attack * 0.5), HurtType.FromUnit | HurtType.Melee | HurtType.AD, this);
         }
     }
 
     /// <summary>
-    /// ¿¿½üÍæ¼Ò
+    /// é è¿‘ç©å®¶
     /// </summary>
-    /// <param name="playerPos">Íæ¼ÒÎ»ÖÃ</param>
+    /// <param name="playerPos">ç©å®¶ä½ç½®</param>
     /// <returns></returns>
     public void MoveclosePlayerPos(Vector2Int playerPos)
     {
-        //»ñÈ¡¿ÉÒÔÒÆ¶¯µÄÎ»ÖÃ
+        //è·å–å¯ä»¥ç§»åŠ¨çš„ä½ç½®
         List<Vector2Int> moveablePos = GetMoveArea().ToList();
         Vector2Int pos = playerPos;
-        bool flag = false;//ÊÇ·ñÕÒµ½¿É¿¿½üµÄÎ»ÖÃ
-        //Íæ¼Ò¸½½üÓĞ°Ë¸öÎ»ÖÃ£¬ÕÒµ½Ò»¸ö¿É½µÂäµÄÎ»ÖÃ
+        bool flag = false;//æ˜¯å¦æ‰¾åˆ°å¯é è¿‘çš„ä½ç½®
+        //ç©å®¶é™„è¿‘æœ‰å…«ä¸ªä½ç½®ï¼Œæ‰¾åˆ°ä¸€ä¸ªå¯é™è½çš„ä½ç½®
         for (int i = -1; i <= 1 && !flag; ++i)
         {
             for (int j = -1; j <= 1 && !flag; ++j)
@@ -107,21 +105,21 @@ public class Goblingunner : Unit
                 }
             }
         }
-        //ÒÆ¶¯µ½Íæ¼Ò¸½½ü
+        //ç§»åŠ¨åˆ°ç©å®¶é™„è¿‘
         Move(pos);
     }
 
     /// <summary>
-    /// ³·ÍËµ½Íæ¼Ò¸½½ü5*5¸ñ×ÓÄÚ
+    /// æ’¤é€€åˆ°ç©å®¶é™„è¿‘5*5æ ¼å­å†…
     /// </summary>
-    /// <param name="playerPos">±»¹¥»÷µÄÍæ¼ÒµÄÎ»ÖÃ</param>
+    /// <param name="playerPos">è¢«æ”»å‡»çš„ç©å®¶çš„ä½ç½®</param>
     public void retreat(Vector2Int playerPos)
     {
-        //»ñÈ¡¿ÉÒÔÒÆ¶¯µÄÎ»ÖÃ
+        //è·å–å¯ä»¥ç§»åŠ¨çš„ä½ç½®
         List<Vector2Int> moveablePos = GetMoveArea().ToList();
         Vector2Int pos = playerPos;
-        bool flag = false;//ÊÇ·ñÕÒµ½¿É¿¿½üµÄÎ»ÖÃ
-        //Íæ¼Ò¸½½üÓĞ°Ë¸öÎ»ÖÃ£¬ÕÒµ½Ò»¸ö¿É½µÂäµÄÎ»ÖÃ
+        bool flag = false;//æ˜¯å¦æ‰¾åˆ°å¯é è¿‘çš„ä½ç½®
+        //ç©å®¶é™„è¿‘æœ‰å…«ä¸ªä½ç½®ï¼Œæ‰¾åˆ°ä¸€ä¸ªå¯é™è½çš„ä½ç½®
         for (int i = -2; i <= 2 && !flag; ++i)
         {
             for (int j = -2; j <= 2 && !flag; ++j)
@@ -130,7 +128,7 @@ public class Goblingunner : Unit
 
                 foreach (Vector2Int ps in moveablePos)
                 {
-                    //ÅĞ¶Ï¸ÃÎ»ÖÃÊÇ·ñ¿É³·ÍË
+                    //åˆ¤æ–­è¯¥ä½ç½®æ˜¯å¦å¯æ’¤é€€
                     if (pos.x == ps.x && pos.y == ps.y)
                     {
                         flag = true;

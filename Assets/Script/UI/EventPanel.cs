@@ -62,6 +62,9 @@ public class EventPanel : DialogPanelBase, IOptionalView
 
     protected override void OnWaitingListEmpty()
     {
-        GameManager.Instance.SetStatus<SelectLevelState>();
+        if (GameManager.Instance.GetState() is EventState)
+        {
+            GameManager.Instance.SetStatus<SelectLevelState>();
+        }
     }
 }

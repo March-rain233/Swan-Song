@@ -10,13 +10,6 @@ internal class BattleNode : ProcessNode
 {
     protected override void OnPlay()
     {
-        DialogTree.OnDialogEnd += DialogTree_OnDialogEnd;
-        Finish();
-    }
-
-    private void DialogTree_OnDialogEnd()
-    {
-        DialogTree.OnDialogEnd -= DialogTree_OnDialogEnd;
         var gm = GameManager.Instance;
         gm.SetStatus<BattleState>()
             .InitSystem(gm.GameData.Chapter, 2);

@@ -3,23 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 /// <summary>
-/// Ê·À³Ä·
-/// ¶ÔÒ»¸ö½ÇÉ«Ôì³É100%Á¦Á¿ÖµµÄÉËº¦
-/// ¹¥»÷Ê±ËÑË÷×î½ü¾àÀë(¼ÆËã¹æÔò¾Í°´Ö±Ïß¾àÀëËã)µÄµĞÈË,
-/// ÒÆ¶¯ÖÁµĞÈËÉíÇ°½øĞĞ¹¥»÷,¹¥»÷ºóÍ£ÁôÔÚ½ÇÉ«ÖÜÎ§(5x5µÄ¸ñ×ÓÄÚËæ»ú)¡£
+/// å²è±å§†
+/// å¯¹ä¸€ä¸ªè§’è‰²é€ æˆ100%åŠ›é‡å€¼çš„ä¼¤å®³
+/// æ”»å‡»æ—¶æœç´¢æœ€è¿‘è·ç¦»(è®¡ç®—è§„åˆ™å°±æŒ‰ç›´çº¿è·ç¦»ç®—)çš„æ•Œäºº,
+/// ç§»åŠ¨è‡³æ•Œäººèº«å‰è¿›è¡Œæ”»å‡»,æ”»å‡»ååœç•™åœ¨è§’è‰²å‘¨å›´(5x5çš„æ ¼å­å†…éšæœº)ã€‚
 /// </summary>
 public class Slime : Unit
 {
-    public Slime(Vector2Int pos) : base(new UnitData()
+    public Slime(Vector2Int pos) : base(new UnitModel()
     {
-        Name = "Slime",//Ê·À³Ä·
-        BloodMax = 80,//×î´óÑªÁ¿
-        Blood = 80,//³õÊ¼ÑªÁ¿Îª×î´óÑªÁ¿
-        Attack = 10,//¹¥»÷Á¦
-        Defence = 4,//·ÀÓùÁ¦
-        Speed = 2,//ÏÈ¹¥È¨ÖØ
-        //ÒÆ¶¯ºÍ¼¼ÄÜµÄÊ¹ÓÃ»áÏûºÄ¼¼ÄÜµã,µ«¹ÖÎïÎŞĞĞ¶¯µãÔ¼Êø£¬ÉèÎª×î´óÖµ
-        ActionPointMax = int.MaxValue,
+        DefaultName = "å²è±å§†",
+        Blood = 80,//åˆå§‹è¡€é‡ä¸ºæœ€å¤§è¡€é‡
+        Attack = 10,//æ”»å‡»åŠ›
+        Defence = 4,//é˜²å¾¡åŠ›
+        Speed = 2,//å…ˆæ”»æƒé‡
         ActionPoint = int.MaxValue,
     }
 , pos)
@@ -27,30 +24,30 @@ public class Slime : Unit
     }
 
     /// <summary>
-    /// ĞĞ¶¯
+    /// è¡ŒåŠ¨
     /// </summary>
     protected override void Decide()
     {  
-        //µÃµ½Òª¹¥»÷µÄ¶ÔÏó
+        //å¾—åˆ°è¦æ”»å‡»çš„å¯¹è±¡
         Player player = getAttackPlayer();
-        //¹¥»÷¶ÔÏó
+        //æ”»å‡»å¯¹è±¡
         attackPlayer(player);
-        //³·ÍË
+        //æ’¤é€€
         retreat(player.Position);
     }
 
     /// <summary>
-    /// ¸ù¾İÍæ¼Ò¾àÀëÊ·À³Ä·µÄ¾àÀë£¬Ñ¡ÔñºÏÊÊµÄ»¹»î×ÅµÄ¹¥»÷¶ÔÏó
+    /// æ ¹æ®ç©å®¶è·ç¦»å²è±å§†çš„è·ç¦»ï¼Œé€‰æ‹©åˆé€‚çš„è¿˜æ´»ç€çš„æ”»å‡»å¯¹è±¡
     /// </summary>
-    /// <param name="players">ËùÓĞÍæ¼Ò</param>
+    /// <param name="players">æ‰€æœ‰ç©å®¶</param>
     /// <returns></returns>
     public Player getAttackPlayer()
     {
-        //»ñµÃÍæ¼Ò¶ÔÏó
+        //è·å¾—ç©å®¶å¯¹è±¡
         List<Player> players = GameManager.Instance.GetState<BattleState>().PlayerList.ToList();
-        int num = -1;//¼ÇÂ¼¾àÀë×î¶ÌµÄÍæ¼ÒµÄºÅÂë
+        int num = -1;//è®°å½•è·ç¦»æœ€çŸ­çš„ç©å®¶çš„å·ç 
         int i = 0;
-        double minDis = int.MaxValue;//Éè³õÖµÎª×î´óÖµ
+        double minDis = int.MaxValue;//è®¾åˆå€¼ä¸ºæœ€å¤§å€¼
         
         foreach (Player p in players)
         {
@@ -65,30 +62,30 @@ public class Slime : Unit
         return players[num];
     }
     /// <summary>
-    /// ÒÆ¶¯µ½Òª¹¥»÷Íæ¼Ò¸½½ü
-    /// ¶ÔÒ»¸ö½ÇÉ«Ôì³É100µÄÁ¦Á¿ÖµÉËº¦
+    /// ç§»åŠ¨åˆ°è¦æ”»å‡»ç©å®¶é™„è¿‘
+    /// å¯¹ä¸€ä¸ªè§’è‰²é€ æˆ100çš„åŠ›é‡å€¼ä¼¤å®³
     /// </summary>
-    /// <param name="player">Òª¹¥»÷µÄÍæ¼Ò</param>
+    /// <param name="player">è¦æ”»å‡»çš„ç©å®¶</param>
     public void attackPlayer(Player player)
     {
-        //ÒÆ¶¯
+        //ç§»åŠ¨
         MoveclosePlayerPos(player.Position);
-        //½üÉí¹¥»÷
-        (player as IHurtable).Hurt(this.UnitData.Attack, HurtType.Melee, this);
+        //è¿‘èº«æ”»å‡»
+        (player as IHurtable).Hurt(this.UnitData.Attack, HurtType.FromUnit | HurtType.Melee | HurtType.AD, this);
     }
 
     /// <summary>
-    /// ¿¿½üÍæ¼Ò
+    /// é è¿‘ç©å®¶
     /// </summary>
-    /// <param name="playerPos">Íæ¼ÒÎ»ÖÃ</param>
+    /// <param name="playerPos">ç©å®¶ä½ç½®</param>
     /// <returns></returns>
     public void MoveclosePlayerPos(Vector2Int playerPos)
     { 
-        //»ñÈ¡¿ÉÒÔÒÆ¶¯µÄÎ»ÖÃ
+        //è·å–å¯ä»¥ç§»åŠ¨çš„ä½ç½®
         List<Vector2Int> moveablePos = GetMoveArea().ToList();
         Vector2Int pos = playerPos;
-        bool flag = false;//ÊÇ·ñÕÒµ½¿É¿¿½üµÄÎ»ÖÃ
-        //Íæ¼Ò¸½½üÓĞ°Ë¸öÎ»ÖÃ£¬ÕÒµ½Ò»¸ö¿É½µÂäµÄÎ»ÖÃ
+        bool flag = false;//æ˜¯å¦æ‰¾åˆ°å¯é è¿‘çš„ä½ç½®
+        //ç©å®¶é™„è¿‘æœ‰å…«ä¸ªä½ç½®ï¼Œæ‰¾åˆ°ä¸€ä¸ªå¯é™è½çš„ä½ç½®
         for (int i = -1; i <= 1 && !flag; ++i)
         {
             for (int j = -1; j <= 1 && !flag; ++j)
@@ -105,21 +102,21 @@ public class Slime : Unit
                 }
             }
         }
-        //ÒÆ¶¯µ½Íæ¼Ò¸½½ü
+        //ç§»åŠ¨åˆ°ç©å®¶é™„è¿‘
         Move(pos);
     }
 
     /// <summary>
-    /// ³·ÍËµ½Íæ¼Ò¸½½ü5*5¸ñ×ÓÄÚ
+    /// æ’¤é€€åˆ°ç©å®¶é™„è¿‘5*5æ ¼å­å†…
     /// </summary>
-    /// <param name="playerPos">±»¹¥»÷µÄÍæ¼ÒµÄÎ»ÖÃ</param>
+    /// <param name="playerPos">è¢«æ”»å‡»çš„ç©å®¶çš„ä½ç½®</param>
     public void retreat(Vector2Int playerPos)
     {
-        //»ñÈ¡¿ÉÒÔÒÆ¶¯µÄÎ»ÖÃ
+        //è·å–å¯ä»¥ç§»åŠ¨çš„ä½ç½®
         List<Vector2Int> moveablePos = GetMoveArea().ToList();
         Vector2Int pos = playerPos;
-        bool flag = false;//ÊÇ·ñÕÒµ½¿É¿¿½üµÄÎ»ÖÃ
-        //Íæ¼Ò¸½½üÓĞ°Ë¸öÎ»ÖÃ£¬ÕÒµ½Ò»¸ö¿É½µÂäµÄÎ»ÖÃ
+        bool flag = false;//æ˜¯å¦æ‰¾åˆ°å¯é è¿‘çš„ä½ç½®
+        //ç©å®¶é™„è¿‘æœ‰å…«ä¸ªä½ç½®ï¼Œæ‰¾åˆ°ä¸€ä¸ªå¯é™è½çš„ä½ç½®
         for (int i = -2; i <= 2 && !flag; ++i)
         {
             for (int j = -2; j <= 2 && !flag; ++j)
@@ -128,7 +125,7 @@ public class Slime : Unit
 
                 foreach (Vector2Int ps in moveablePos)
                 {
-                    //ÅĞ¶Ï¸ÃÎ»ÖÃÊÇ·ñ¿É³·ÍË
+                    //åˆ¤æ–­è¯¥ä½ç½®æ˜¯å¦å¯æ’¤é€€
                     if (pos == ps)
                     {
                         flag = true;

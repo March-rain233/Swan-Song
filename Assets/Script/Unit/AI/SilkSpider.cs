@@ -4,54 +4,52 @@ using System.Linq;
 using UnityEngine;
 using System.Collections;
 /// <summary>
-///¶ÔÒ»¸ö½ÇÉ«ÅçÍÂÖëË¿£¬Ôì³É20%Á¦Á¿ÖµµÄÉËº¦£¬Ê¹Æä±¾»ØºÏÎŞ·¨ÒÆ¶¯£¬
-///Èç¹ûÒ»¸ö½ÇÉ«±¾¾Ö¶ÔÕ½±»Í¬Ò»Ë¿ÖëÅçÍÂÈı´Î£¬ĞÎ³ÉÖëÍøÊø¸¿£¬
-///±¾¾Ö¶ÔÕ½Ê£ÓàÊ±¼äÎŞ·¨ÒÆ¶¯(´«ËÍÀà¼¼ÄÜ³ıÍâ)£¬ÓÅÏÈ¹¥»÷ÌåÁ¦ÉÏÏŞ×î¸ßµÄ½ÇÉ«£¬Ô¶³Ì¹¥»÷£¬²»ÒÆ¶¯¡£
+///å¯¹ä¸€ä¸ªè§’è‰²å–·åè››ä¸ï¼Œé€ æˆ20%åŠ›é‡å€¼çš„ä¼¤å®³ï¼Œä½¿å…¶æœ¬å›åˆæ— æ³•ç§»åŠ¨ï¼Œ
+///å¦‚æœä¸€ä¸ªè§’è‰²æœ¬å±€å¯¹æˆ˜è¢«åŒä¸€ä¸è››å–·åä¸‰æ¬¡ï¼Œå½¢æˆè››ç½‘æŸç¼šï¼Œ
+///æœ¬å±€å¯¹æˆ˜å‰©ä½™æ—¶é—´æ— æ³•ç§»åŠ¨(ä¼ é€ç±»æŠ€èƒ½é™¤å¤–)ï¼Œä¼˜å…ˆæ”»å‡»ä½“åŠ›ä¸Šé™æœ€é«˜çš„è§’è‰²ï¼Œè¿œç¨‹æ”»å‡»ï¼Œä¸ç§»åŠ¨ã€‚
 /// </summary>
 public class SilkSpider : Unit
 {
 
-    public SilkSpider(Vector2Int pos) : base(new UnitData()
+    public SilkSpider(Vector2Int pos) : base(new UnitModel()
     {
-        Name = "SilkSpider",//Ë¿Öë
-        BloodMax = 80,//×î´óÑªÁ¿
-        Blood = 80,//³õÊ¼ÑªÁ¿Îª×î´óÑªÁ¿
-        Attack = 10,//¹¥»÷Á¦
-        Defence = 4,//·ÀÓùÁ¦
-        Speed = 2,//ÏÈ¹¥È¨ÖØ
-        //ÒÆ¶¯ºÍ¼¼ÄÜµÄÊ¹ÓÃ»áÏûºÄ¼¼ÄÜµã,µ«¹ÖÎïÎŞĞĞ¶¯µãÔ¼Êø£¬ÉèÎª×î´óÖµ
-        ActionPointMax = int.MaxValue,
+        DefaultName = "ä¸è››",
+        Blood = 80,//åˆå§‹è¡€é‡ä¸ºæœ€å¤§è¡€é‡
+        Attack = 10,//æ”»å‡»åŠ›
+        Defence = 4,//é˜²å¾¡åŠ›
+        Speed = 2,//å…ˆæ”»æƒé‡
+        //ç§»åŠ¨å’ŒæŠ€èƒ½çš„ä½¿ç”¨ä¼šæ¶ˆè€—æŠ€èƒ½ç‚¹,ä½†æ€ªç‰©æ— è¡ŒåŠ¨ç‚¹çº¦æŸï¼Œè®¾ä¸ºæœ€å¤§å€¼
         ActionPoint = int.MaxValue,
     }
 , pos)
     {
     }
     /// <summary>
-    ///     ±»Ë¿Öë¹¥»÷¹ıµÄÍæ¼Ò
+    ///  è¢«ä¸è››æ”»å‡»è¿‡çš„ç©å®¶
     /// </summary>
     public Dictionary<Unit,int> attackedPlayers = new Dictionary<Unit, int>();
     /// <summary>
-    /// ĞĞ¶¯
+    /// è¡ŒåŠ¨
     /// </summary>
     protected override void Decide()
     {
-        //µÃµ½Òª¹¥»÷µÄ¶ÔÏó
+        //å¾—åˆ°è¦æ”»å‡»çš„å¯¹è±¡
         Player player = getAttackPlayer();
-        //¹¥»÷¶ÔÏó
+        //æ”»å‡»å¯¹è±¡
         attackPlayer(player);
     }
 
     /// <summary>
-    /// ÓÅÏÈ¹¥»÷ÌåÁ¦ÉÏÏŞ×î¸ßµÄ½ÇÉ«
+    /// ä¼˜å…ˆæ”»å‡»ä½“åŠ›ä¸Šé™æœ€é«˜çš„è§’è‰²
     /// </summary>
     /// <returns></returns>
     public Player getAttackPlayer()
     {
-        //»ñµÃÍæ¼Ò¶ÔÏó
+        //è·å¾—ç©å®¶å¯¹è±¡
         List<Player> players = GameManager.Instance.GetState<BattleState>().PlayerList.ToList();
         int num = -1;
         int i = 0;
-        double maxAction = int.MinValue;//Éè³õÖµÎª×îĞ¡Öµ
+        double maxAction = int.MinValue;//è®¾åˆå€¼ä¸ºæœ€å°å€¼
 
         foreach (Player p in players)
         {
@@ -65,20 +63,20 @@ public class SilkSpider : Unit
         return players[num];
     }
     /// <summary>
-    /// ¶ÔÒ»¸ö½ÇÉ«Ôì³É20%µÄÁ¦Á¿ÖµÉËº¦
-    /// Ê¹Æä±¾»ØºÏÎŞ·¨ÒÆ¶¯
-    /// Èç¹ûÒ»¸ö½ÇÉ«±¾¾Ö¶ÔÕ½±»Í¬Ò»Ë¿ÖëÅçÍÂÈı´Î£¬ĞÎ³ÉÖëÍøÊø¸¿
+    /// å¯¹ä¸€ä¸ªè§’è‰²é€ æˆ20%çš„åŠ›é‡å€¼ä¼¤å®³
+    /// ä½¿å…¶æœ¬å›åˆæ— æ³•ç§»åŠ¨
+    /// å¦‚æœä¸€ä¸ªè§’è‰²æœ¬å±€å¯¹æˆ˜è¢«åŒä¸€ä¸è››å–·åä¸‰æ¬¡ï¼Œå½¢æˆè››ç½‘æŸç¼š
     /// </summary>
-    /// <param name="player">Òª¹¥»÷µÄÍæ¼Ò</param>
+    /// <param name="player">è¦æ”»å‡»çš„ç©å®¶</param>
     public void attackPlayer(Player player)
     {
-        //¹¥»÷
-        (player as IHurtable).Hurt(this.UnitData.Attack * 0.2f, HurtType.Ranged, this);
+        //æ”»å‡»
+        (player as IHurtable).Hurt(this.UnitData.Attack * 0.2f, HurtType.FromUnit | HurtType.Ranged | HurtType.AD, this);
         Restrain restrain = new Restrain();
-        restrain.Times = 1;
+        restrain.Time = 1;
         player.AddBuff(restrain);
 
-        bool attacked = false;//ÊÇ·ñ±»¹¥»÷¹ı
+        bool attacked = false;//æ˜¯å¦è¢«æ”»å‡»è¿‡
         foreach(var p in attackedPlayers.Keys)
         {
             if(p == player)
@@ -87,7 +85,7 @@ public class SilkSpider : Unit
                 attackedPlayers[p]++;
                 if(attackedPlayers[p] == 3)
                 {
-                    restrain.Times = int.MaxValue;//²»ÄÜÒÆ¶¯µÄbuffÊ©¼ÓÊ±¼äÎŞÏŞ³¤£¬¼´±¾¾Ö¶¼²»ÄÜ¶¯
+                    restrain.Time = int.MaxValue;//ä¸èƒ½ç§»åŠ¨çš„buffæ–½åŠ æ—¶é—´æ— é™é•¿ï¼Œå³æœ¬å±€éƒ½ä¸èƒ½åŠ¨
                 }
                 break;
             }

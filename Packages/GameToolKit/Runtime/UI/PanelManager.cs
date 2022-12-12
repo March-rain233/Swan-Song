@@ -131,6 +131,10 @@ namespace GameToolKit
         /// <param name="panel"></param>
         public void ClosePanel(PanelBase panel)
         {
+            if(panel == null)
+            {
+                return;
+            }
             _openPanelList.Remove(panel);
             panel.Close();
 

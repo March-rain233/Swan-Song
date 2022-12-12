@@ -4,32 +4,30 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 /// <summary>
-/// Ó°Ï®¹Ö
-/// ¶ÔÒ»¸ö½ÇÉ«Ôì³É100%Á¦Á¿ÖµµÄÉËº¦£¬Èç¹ûÁ¬Ğø¹¥»÷Í¬Ò»½ÇÉ«£¬
-/// ´ÓµÚ¶ş´Î¿ªÊ¼£¬Ã¿´ÎÔì³É150%Á¦Á¿ÖµµÄÉËº¦
-/// £¨±ÈÈçµÚÒ»»ØºÏ´òÁË½ÇÉ«A£¬µÚ¶ş»ØºÏ»¹´òµÄ½ÇÉ«A£¬ÄÇÉËº¦»áÌáÉı£¬ÖĞ¼ä×ªÒÆ¹ıÄ¿±êºóÒªÖØĞÂ¼ÆËã)£¬
-/// ÓÅÏÈ¹¥»÷ÑªÁ¿°Ù·Ö±È×îµÍµÄµĞÈË£¬ÒÆ¶¯ÖÁ½ÇÉ«ÉíÇ°½øĞĞ¹¥»÷£¬¹¥»÷ºó·µ»ØÔ­Î»ÖÃ¡£
+/// å½±è¢­æ€ª
+/// å¯¹ä¸€ä¸ªè§’è‰²é€ æˆ100%åŠ›é‡å€¼çš„ä¼¤å®³ï¼Œå¦‚æœè¿ç»­æ”»å‡»åŒä¸€è§’è‰²ï¼Œ
+/// ä»ç¬¬äºŒæ¬¡å¼€å§‹ï¼Œæ¯æ¬¡é€ æˆ150%åŠ›é‡å€¼çš„ä¼¤å®³
+/// ï¼ˆæ¯”å¦‚ç¬¬ä¸€å›åˆæ‰“äº†è§’è‰²Aï¼Œç¬¬äºŒå›åˆè¿˜æ‰“çš„è§’è‰²Aï¼Œé‚£ä¼¤å®³ä¼šæå‡ï¼Œä¸­é—´è½¬ç§»è¿‡ç›®æ ‡åè¦é‡æ–°è®¡ç®—)ï¼Œ
+/// ä¼˜å…ˆæ”»å‡»è¡€é‡ç™¾åˆ†æ¯”æœ€ä½çš„æ•Œäººï¼Œç§»åŠ¨è‡³è§’è‰²èº«å‰è¿›è¡Œæ”»å‡»ï¼Œæ”»å‡»åè¿”å›åŸä½ç½®ã€‚
 /// </summary>
 public class ShaAttkMonster : Unit
 {
     /// <summary>
-    /// ÉÏÒ»»ØºÏÉËº¦µÄ½ÇÉ«
+    /// ä¸Šä¸€å›åˆä¼¤å®³çš„è§’è‰²
     /// </summary>
     public Player hurtedPlayer
     {
         get;
         private set;
     }
-    public ShaAttkMonster(Vector2Int pos) : base(new UnitData()
+    public ShaAttkMonster(Vector2Int pos) : base(new UnitModel()
     {
-        Name = "ShaAttkMonster",//Ê·À³Ä·
-        BloodMax = 80,//×î´óÑªÁ¿
-        Blood = 80,//³õÊ¼ÑªÁ¿Îª×î´óÑªÁ¿
-        Attack = 10,//¹¥»÷Á¦
-        Defence = 4,//·ÀÓùÁ¦
-        Speed = 2,//ÏÈ¹¥È¨ÖØ
-        //ÒÆ¶¯ºÍ¼¼ÄÜµÄÊ¹ÓÃ»áÏûºÄ¼¼ÄÜµã,µ«¹ÖÎïÎŞĞĞ¶¯µãÔ¼Êø£¬ÉèÎª×î´óÖµ
-        ActionPointMax = int.MaxValue,
+        DefaultName = "å½±è¢­æ€ª", 
+        Blood = 80,//åˆå§‹è¡€é‡ä¸ºæœ€å¤§è¡€é‡
+        Attack = 10,//æ”»å‡»åŠ›
+        Defence = 4,//é˜²å¾¡åŠ›
+        Speed = 2,//å…ˆæ”»æƒé‡
+        //ç§»åŠ¨å’ŒæŠ€èƒ½çš„ä½¿ç”¨ä¼šæ¶ˆè€—æŠ€èƒ½ç‚¹,ä½†æ€ªç‰©æ— è¡ŒåŠ¨ç‚¹çº¦æŸï¼Œè®¾ä¸ºæœ€å¤§å€¼
         ActionPoint = int.MaxValue,
     }
 , pos)
@@ -37,29 +35,29 @@ public class ShaAttkMonster : Unit
     }
 
     /// <summary>
-    /// ĞĞ¶¯
+    /// è¡ŒåŠ¨
     /// </summary>
     protected override void Decide()
     {  
-        //µÃµ½Òª¹¥»÷µÄ¶ÔÏó
+        //å¾—åˆ°è¦æ”»å‡»çš„å¯¹è±¡
         Player player = getAttackPlayer();
-        //¹¥»÷¶ÔÏó
+        //æ”»å‡»å¯¹è±¡
         attackPlayer(player);
-        //³·ÍË
+        //æ’¤é€€
         retreat(player.Position);
     }
 
     /// <summary>
-    /// ¸ù¾İÑªÁ¿£¬Ñ¡ÔñºÏÊÊµÄ¹¥»÷¶ÔÏó
+    /// æ ¹æ®è¡€é‡ï¼Œé€‰æ‹©åˆé€‚çš„æ”»å‡»å¯¹è±¡
     /// </summary>
-    /// <returns>Òª¹¥»÷µÄÍæ¼Ò</returns>
+    /// <returns>è¦æ”»å‡»çš„ç©å®¶</returns>
     public Player getAttackPlayer()
     {
-        //»ñµÃÍæ¼Ò¶ÔÏó
+        //è·å¾—ç©å®¶å¯¹è±¡
         List<Player> players = GameManager.Instance.GetState<BattleState>().PlayerList.ToList();
-        int num = -1;//¼ÇÂ¼ÑªÁ¿±È×îÉÙµÄÍæ¼ÒµÄºÅÂë
+        int num = -1;//è®°å½•è¡€é‡æ¯”æœ€å°‘çš„ç©å®¶çš„å·ç 
         int i = 0;
-        double minbloodPercent = int.MaxValue;//Éè³õÖµÎª×î´óÖµ
+        double minbloodPercent = int.MaxValue;//è®¾åˆå€¼ä¸ºæœ€å¤§å€¼
 
         foreach (Player p in players)
         {
@@ -74,44 +72,44 @@ public class ShaAttkMonster : Unit
         return players[num];
     }
     /// <summary>
-    /// ÒÆ¶¯µ½Òª¹¥»÷Íæ¼Ò¸½½ü
-    /// ¶ÔÒ»¸ö½ÇÉ«Ôì³É100%Á¦Á¿ÖµµÄÉËº¦£¬Èç¹ûÁ¬Ğø¹¥»÷Í¬Ò»½ÇÉ«£¬
-    /// ´ÓµÚ¶ş´Î¿ªÊ¼£¬Ã¿´ÎÔì³É150%Á¦Á¿ÖµµÄÉËº¦
+    /// ç§»åŠ¨åˆ°è¦æ”»å‡»ç©å®¶é™„è¿‘
+    /// å¯¹ä¸€ä¸ªè§’è‰²é€ æˆ100%åŠ›é‡å€¼çš„ä¼¤å®³ï¼Œå¦‚æœè¿ç»­æ”»å‡»åŒä¸€è§’è‰²ï¼Œ
+    /// ä»ç¬¬äºŒæ¬¡å¼€å§‹ï¼Œæ¯æ¬¡é€ æˆ150%åŠ›é‡å€¼çš„ä¼¤å®³
     /// </summary>
-    /// <param name="player">Òª¹¥»÷µÄÍæ¼Ò</param>
+    /// <param name="player">è¦æ”»å‡»çš„ç©å®¶</param>
     public void attackPlayer(Player player)
     {
-        //ÒÆ¶¯
+        //ç§»åŠ¨
         MoveclosePlayerPos(player.Position);
-        //µÃµ½µ±Ç°»ØºÏÊı
+        //å¾—åˆ°å½“å‰å›åˆæ•°
         int roundNumber = GameManager.Instance.GetState<BattleState>().RoundNumber;
-        //²»ÊÇµÚÒ»»ØºÏ£¬Ó°Ï®¹ÖÒÑ¾­¹¥»÷¹ı£¬ÅĞ¶Ïµ±Ç°»ØºÏ¹¥»÷Íæ¼ÒÊÇ·ñÊÇÉÏÒ»ÂÖ¹¥»÷¹ıµÄ¶ÔÏó
+        //ä¸æ˜¯ç¬¬ä¸€å›åˆï¼Œå½±è¢­æ€ªå·²ç»æ”»å‡»è¿‡ï¼Œåˆ¤æ–­å½“å‰å›åˆæ”»å‡»ç©å®¶æ˜¯å¦æ˜¯ä¸Šä¸€è½®æ”»å‡»è¿‡çš„å¯¹è±¡
         if (roundNumber != 1 && this.hurtedPlayer == player)
         {
-            //150%½üÉíÉËº¦
-            (player as IHurtable).Hurt((int)(this.UnitData.Attack*1.5), HurtType.Melee, this);
+            //150%è¿‘èº«ä¼¤å®³
+            (player as IHurtable).Hurt((int)(this.UnitData.Attack*1.5), HurtType.FromUnit | HurtType.Melee | HurtType.AD, this);
         }
-        else//ÊÇµÚÒ»»ØºÏ»òÁ½´Î¹¥»÷¶ÔÏó²»Ò»Ñù
+        else//æ˜¯ç¬¬ä¸€å›åˆæˆ–ä¸¤æ¬¡æ”»å‡»å¯¹è±¡ä¸ä¸€æ ·
         {
-            //100%½üÉíÉËº¦
-            (player as IHurtable).Hurt(this.UnitData.Attack, HurtType.Melee, this);
+            //100%è¿‘èº«ä¼¤å®³
+            (player as IHurtable).Hurt(this.UnitData.Attack, HurtType.FromUnit | HurtType.Melee | HurtType.AD, this);
         }
         this.hurtedPlayer = player;
        
     }
 
     /// <summary>
-    /// ¿¿½üÍæ¼Ò
+    /// é è¿‘ç©å®¶
     /// </summary>
-    /// <param name="playerPos">Íæ¼ÒÎ»ÖÃ</param>
+    /// <param name="playerPos">ç©å®¶ä½ç½®</param>
     /// <returns></returns>
     public void MoveclosePlayerPos(Vector2Int playerPos)
     {
-        //»ñÈ¡¿ÉÒÔÒÆ¶¯µÄÎ»ÖÃ
+        //è·å–å¯ä»¥ç§»åŠ¨çš„ä½ç½®
         List<Vector2Int> moveablePos = GetMoveArea().ToList();
         Vector2Int pos = playerPos;
-        bool flag = false;//ÊÇ·ñÕÒµ½¿É¿¿½üµÄÎ»ÖÃ
-        //Íæ¼Ò¸½½üÓĞ°Ë¸öÎ»ÖÃ£¬ÕÒµ½Ò»¸ö¿É½µÂäµÄÎ»ÖÃ
+        bool flag = false;//æ˜¯å¦æ‰¾åˆ°å¯é è¿‘çš„ä½ç½®
+        //ç©å®¶é™„è¿‘æœ‰å…«ä¸ªä½ç½®ï¼Œæ‰¾åˆ°ä¸€ä¸ªå¯é™è½çš„ä½ç½®
         for (int i = -1; i <= 1 && !flag; ++i)
         {
             for (int j = -1; j <= 1 && !flag; ++j)
@@ -128,21 +126,21 @@ public class ShaAttkMonster : Unit
                 }
             }
         }
-        //ÒÆ¶¯µ½Íæ¼Ò¸½½ü
+        //ç§»åŠ¨åˆ°ç©å®¶é™„è¿‘
         Move(pos);
     }
 
     /// <summary>
-    /// ³·ÍËµ½Íæ¼Ò¸½½ü5*5¸ñ×ÓÄÚ
+    /// æ’¤é€€åˆ°ç©å®¶é™„è¿‘5*5æ ¼å­å†…
     /// </summary>
-    /// <param name="playerPos">±»¹¥»÷µÄÍæ¼ÒµÄÎ»ÖÃ</param>
+    /// <param name="playerPos">è¢«æ”»å‡»çš„ç©å®¶çš„ä½ç½®</param>
     public void retreat(Vector2Int playerPos)
     {
-        //»ñÈ¡¿ÉÒÔÒÆ¶¯µÄÎ»ÖÃ
+        //è·å–å¯ä»¥ç§»åŠ¨çš„ä½ç½®
         List<Vector2Int> moveablePos = GetMoveArea().ToList();
         Vector2Int pos = playerPos;
-        bool flag = false;//ÊÇ·ñÕÒµ½¿É¿¿½üµÄÎ»ÖÃ
-        //Íæ¼Ò¸½½üÓĞ°Ë¸öÎ»ÖÃ£¬ÕÒµ½Ò»¸ö¿É½µÂäµÄÎ»ÖÃ
+        bool flag = false;//æ˜¯å¦æ‰¾åˆ°å¯é è¿‘çš„ä½ç½®
+        //ç©å®¶é™„è¿‘æœ‰å…«ä¸ªä½ç½®ï¼Œæ‰¾åˆ°ä¸€ä¸ªå¯é™è½çš„ä½ç½®
         for (int i = -2; i <= 2 && !flag; ++i)
         {
             for (int j = -2; j <= 2 && !flag; ++j)
@@ -151,7 +149,7 @@ public class ShaAttkMonster : Unit
 
                 foreach (Vector2Int ps in moveablePos)
                 {
-                    //ÅĞ¶Ï¸ÃÎ»ÖÃÊÇ·ñ¿É³·ÍË
+                    //åˆ¤æ–­è¯¥ä½ç½®æ˜¯å¦å¯æ’¤é€€
                     if (pos == ps)
                     {
                         flag = true;

@@ -6,22 +6,19 @@ using UnityEngine;
 
 
 /// <summary>
-/// ÷¼÷Ã¹­ÊÖ
-/// ¶ÔÒ»¸ñÄÚµÄµ¥Î»·¢Éä¹­¼ı£¬Ôì³É100%Á¦Á¿ÖµµÄÉËº¦£¬
-/// ¹¥»÷¾àÀë×î½üµÄ½ÇÉ«£¬Ô­µØ½øĞĞÔ¶³Ì¹¥»÷£¬¹¥»÷ºó²»ÒÆ¶¯¡£
+/// éª·é«…å¼“æ‰‹
+/// å¯¹ä¸€æ ¼å†…çš„å•ä½å‘å°„å¼“ç®­ï¼Œé€ æˆ100%åŠ›é‡å€¼çš„ä¼¤å®³ï¼Œ
+/// æ”»å‡»è·ç¦»æœ€è¿‘çš„è§’è‰²ï¼ŒåŸåœ°è¿›è¡Œè¿œç¨‹æ”»å‡»ï¼Œæ”»å‡»åä¸ç§»åŠ¨ã€‚
 /// </summary>
 public class Skeletonarchers : Unit
 { 
-    public Skeletonarchers(Vector2Int pos) : base(new UnitData()
+    public Skeletonarchers(Vector2Int pos) : base(new UnitModel()
     {
-        Name = "Skeletonarchers",//÷¼÷Ã¹­ÊÖ
-        BloodMax = 100,
+        DefaultName = "éª·é«…å¼“æ‰‹",
         Blood = 100,
         Attack = 20,
         Defence = 4,
         Speed = 4,
-        //ÒÆ¶¯ºÍ¼¼ÄÜµÄÊ¹ÓÃ»áÏûºÄ¼¼ÄÜµã,µ«¹ÖÎïÎŞĞĞ¶¯µãÔ¼Êø£¬ÉèÎª×î´óÖµ
-        ActionPointMax = int.MaxValue,
         ActionPoint = int.MaxValue,
     }
 , pos)
@@ -31,22 +28,22 @@ public class Skeletonarchers : Unit
 
     protected override void Decide()
     {
-        //µÃµ½Òª¹¥»÷µÄ¶ÔÏó
+        //å¾—åˆ°è¦æ”»å‡»çš„å¯¹è±¡
         Player player = getAttackPlayer();
-        //¹¥»÷¶ÔÏó
+        //æ”»å‡»å¯¹è±¡
         attackPlayer(player);
     }
     /// <summary>
-    /// ¸ù¾İÍæ¼Ò¾àÀë÷¼÷Ã¹­ÊÖµÄ¾àÀë£¬Ñ¡ÔñºÏÊÊµÄ¹¥»÷¶ÔÏó
+    /// æ ¹æ®ç©å®¶è·ç¦»éª·é«…å¼“æ‰‹çš„è·ç¦»ï¼Œé€‰æ‹©åˆé€‚çš„æ”»å‡»å¯¹è±¡
     /// </summary>
     /// <returns></returns>
     public Player getAttackPlayer()
     {
-        //»ñµÃÍæ¼Ò¶ÔÏó
+        //è·å¾—ç©å®¶å¯¹è±¡
         List<Player> players = GameManager.Instance.GetState<BattleState>().PlayerList.ToList();
-        int num = -1;//¼ÇÂ¼¾àÀë×î¶ÌµÄÍæ¼ÒµÄºÅÂë
+        int num = -1;//è®°å½•è·ç¦»æœ€çŸ­çš„ç©å®¶çš„å·ç 
         int i = 0;
-        double minDis = int.MaxValue;//Éè³õÖµÎª×î´óÖµ
+        double minDis = int.MaxValue;//è®¾åˆå€¼ä¸ºæœ€å¤§å€¼
 
         foreach (Player p in players)
         {
@@ -61,12 +58,12 @@ public class Skeletonarchers : Unit
         return players[num];
     }
     /// <summary>
-    /// ¶ÔÒ»¸ñÄÚµÄµ¥Î»·¢Éä¹­¼ı£¬Ôì³É100%Á¦Á¿ÖµµÄÉËº¦
+    /// å¯¹ä¸€æ ¼å†…çš„å•ä½å‘å°„å¼“ç®­ï¼Œé€ æˆ100%åŠ›é‡å€¼çš„ä¼¤å®³
     /// </summary>
     /// <param name="player"></param>
     public void attackPlayer(Player player)
     {
-        //Ô¶³ÌÉËº¦
-        (player as IHurtable).Hurt(this.UnitData.Attack, HurtType.Ranged, this);
+        //è¿œç¨‹ä¼¤å®³
+        (player as IHurtable).Hurt(this.UnitData.Attack, HurtType.FromUnit | HurtType.Ranged | HurtType.AD, this);
     }
 }

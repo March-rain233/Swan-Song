@@ -15,6 +15,8 @@ public class GameManager : IService
     public string SavePath => Application.persistentDataPath + "/save.json";
     public bool HasSave => GameData != null;
 
+    public bool IsChangingState { get; private set; } = false;
+
     /// <summary>
     /// 当前运行的游戏数据
     /// </summary>
@@ -44,9 +46,15 @@ public class GameManager : IService
     }
     public TGameStatus SetStatus<TGameStatus>()where TGameStatus : GameState, new()
     {
+        if (IsChangingState)
+        {
+            return null;
+        }
+        IsChangingState = true;
         _gameStatus?.OnExit();
         _gameStatus = new TGameStatus() { _gameManager = this };
         _gameStatus.OnEnter();
+        IsChangingState = false;
         return _gameStatus as TGameStatus;
     }
 

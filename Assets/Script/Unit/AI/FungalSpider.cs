@@ -3,27 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 /// <summary>
-/// ¾ç¶¾Ö©Öë: 
-/// ¶ÔÒ»¸ö½ÇÉ«Ôì³É50%Á¦Á¿ÖµµÄÉËº¦£¬
-/// ÓÅÏÈ¹¥»÷ÑªÁ¿×îÉÙµÄµĞÈË£¬
-/// ²¢¸½´øÈı»ØºÏµÄÖĞ¶¾Ğ§¹û£¬
-/// Ã¿»ØºÏÔì³É10%Á¦Á¿ÖµµÄÉËº¦£¬¸ÃÉËº¦ÎŞÊÓ·ÀÓù£¬
-/// ËÀÍöºóÔ­µØ3x3µÄ·¶Î§Éú³É¶¾ÒºµØĞÎ£¬
-/// ´¥Åöµ½µÄµĞÈËÊ©¼ÓÉÏÊöÖĞ¶¾Ğ§¹û£¬¶¾ÒºµØĞÎ´æÔÚÁ½»ØºÏ£¬
-/// ÒÆ¶¯ÖÁµĞÈËÉíÇ°½øĞĞ¹¥»÷,¹¥»÷ºóÍ£ÁôÔÚ½ÇÉ«ÖÜÎ§(5x5µÄ¸ñ×ÓÄÚËæ»ú)¡£
+/// å‰§æ¯’èœ˜è››: 
+/// å¯¹ä¸€ä¸ªè§’è‰²é€ æˆ50%åŠ›é‡å€¼çš„ä¼¤å®³ï¼Œ
+/// ä¼˜å…ˆæ”»å‡»è¡€é‡æœ€å°‘çš„æ•Œäººï¼Œ
+/// å¹¶é™„å¸¦ä¸‰å›åˆçš„ä¸­æ¯’æ•ˆæœï¼Œ
+/// æ¯å›åˆé€ æˆ10%åŠ›é‡å€¼çš„ä¼¤å®³ï¼Œè¯¥ä¼¤å®³æ— è§†é˜²å¾¡ï¼Œ
+/// æ­»äº¡ååŸåœ°3x3çš„èŒƒå›´ç”Ÿæˆæ¯’æ¶²åœ°å½¢ï¼Œ
+/// è§¦ç¢°åˆ°çš„æ•Œäººæ–½åŠ ä¸Šè¿°ä¸­æ¯’æ•ˆæœï¼Œæ¯’æ¶²åœ°å½¢å­˜åœ¨ä¸¤å›åˆï¼Œ
+/// ç§»åŠ¨è‡³æ•Œäººèº«å‰è¿›è¡Œæ”»å‡»,æ”»å‡»ååœç•™åœ¨è§’è‰²å‘¨å›´(5x5çš„æ ¼å­å†…éšæœº)ã€‚
 /// </summary>
 public class FungalSpider : Unit
 {
-    public FungalSpider(Vector2Int pos) : base(new UnitData()
+    public FungalSpider(Vector2Int pos) : base(new UnitModel()
     {
-        Name = "FungalSpider",//¾ç¶¾Ö©Öë
-        BloodMax = 80,//×î´óÑªÁ¿
-        Blood = 80,//³õÊ¼ÑªÁ¿Îª×î´óÑªÁ¿
-        Attack = 10,//¹¥»÷Á¦
-        Defence = 4,//·ÀÓùÁ¦
-        Speed = 2,//ÏÈ¹¥È¨ÖØ
-        //ÒÆ¶¯ºÍ¼¼ÄÜµÄÊ¹ÓÃ»áÏûºÄ¼¼ÄÜµã,µ«¹ÖÎïÎŞĞĞ¶¯µãÔ¼Êø£¬ÉèÎª×î´óÖµ
-        ActionPointMax = int.MaxValue,
+        DefaultName = "å‰§æ¯’èœ˜è››",
+        Blood = 80,//åˆå§‹è¡€é‡ä¸ºæœ€å¤§è¡€é‡
+        Attack = 10,//æ”»å‡»åŠ›
+        Defence = 4,//é˜²å¾¡åŠ›
+        Speed = 2,//å…ˆæ”»æƒé‡
         ActionPoint = int.MaxValue,
     }
 , pos)
@@ -31,28 +28,28 @@ public class FungalSpider : Unit
     }
 
     /// <summary>
-    /// ĞĞ¶¯
+    /// è¡ŒåŠ¨
     /// </summary>
     protected override void Decide()
     {
-        //µÃµ½Òª¹¥»÷µÄ¶ÔÏó
+        //å¾—åˆ°è¦æ”»å‡»çš„å¯¹è±¡
         Player player = getAttackPlayer();
-        //¹¥»÷¶ÔÏó
+        //æ”»å‡»å¯¹è±¡
         attackPlayer(player);
-        //³·ÍË
+        //æ’¤é€€
         retreat(player.Position);
     }
 
     /// <summary>
-    /// ÓÅÏÈ¹¥»÷ÑªÁ¿×îÉÙµÄµĞÈË
+    /// ä¼˜å…ˆæ”»å‡»è¡€é‡æœ€å°‘çš„æ•Œäºº
     /// </summary>
     /// <returns></returns>
     public Player getAttackPlayer()
     {
-        //»ñµÃÍæ¼Ò¶ÔÏó
+        //è·å¾—ç©å®¶å¯¹è±¡
         List<Player> players = GameManager.Instance.GetState<BattleState>().PlayerList.ToList();
-        int num = -1,i = 0;//¼ÇÂ¼ÑªÁ¿×îÉÙµÄÍæ¼ÒË÷Òı
-        int lessBlood = int.MaxValue;//Éè³õÖµÎª×î´óÖµ
+        int num = -1,i = 0;//è®°å½•è¡€é‡æœ€å°‘çš„ç©å®¶ç´¢å¼•
+        int lessBlood = int.MaxValue;//è®¾åˆå€¼ä¸ºæœ€å¤§å€¼
 
         foreach (Player p in players)
         {
@@ -66,37 +63,37 @@ public class FungalSpider : Unit
         return players[num];
     }
     /// <summary>
-    /// ÒÆ¶¯µ½Òª¹¥»÷Íæ¼Ò¸½½ü
-    /// ¶ÔÒ»¸ö½ÇÉ«Ôì³É50%µÄÁ¦Á¿ÖµÉËº¦
-    /// ¸½´øÈı»ØºÏµÄÖĞ¶¾Ğ§¹û£¬
-    /// Ã¿»ØºÏÔì³É10%Á¦Á¿ÖµµÄÉËº¦£¬¸ÃÉËº¦ÎŞÊÓ·ÀÓù
+    /// ç§»åŠ¨åˆ°è¦æ”»å‡»ç©å®¶é™„è¿‘
+    /// å¯¹ä¸€ä¸ªè§’è‰²é€ æˆ50%çš„åŠ›é‡å€¼ä¼¤å®³
+    /// é™„å¸¦ä¸‰å›åˆçš„ä¸­æ¯’æ•ˆæœï¼Œ
+    /// æ¯å›åˆé€ æˆ10%åŠ›é‡å€¼çš„ä¼¤å®³ï¼Œè¯¥ä¼¤å®³æ— è§†é˜²å¾¡
     /// </summary>
-    /// <param name="player">Òª¹¥»÷µÄÍæ¼Ò</param>
+    /// <param name="player">è¦æ”»å‡»çš„ç©å®¶</param>
     public void attackPlayer(Player player)
     {
-        //ÒÆ¶¯
+        //ç§»åŠ¨
         MoveclosePlayerPos(player.Position);
-        //¹¥»÷
-        (player as IHurtable).Hurt(this.UnitData.Attack * 0.5f, HurtType.Melee, this);
-        //ÖĞ¶¾buff
+        //æ”»å‡»
+        (player as IHurtable).Hurt(this.UnitData.Attack * 0.5f, HurtType.FromUnit | HurtType.Melee | HurtType.AD, this);
+        //ä¸­æ¯’buff
         Poison poison = new Poison();
-        poison.Times = 3;
+        poison.Time = 3;
         poison.Damage = this.UnitData.Attack * 0.1f;
         player.AddBuff(poison);
     }
 
     /// <summary>
-    /// ¿¿½üÍæ¼Ò
+    /// é è¿‘ç©å®¶
     /// </summary>
-    /// <param name="playerPos">Íæ¼ÒÎ»ÖÃ</param>
+    /// <param name="playerPos">ç©å®¶ä½ç½®</param>
     /// <returns></returns>
     public void MoveclosePlayerPos(Vector2Int playerPos)
     {
-        //»ñÈ¡¿ÉÒÔÒÆ¶¯µÄÎ»ÖÃ
+        //è·å–å¯ä»¥ç§»åŠ¨çš„ä½ç½®
         List<Vector2Int> moveablePos = GetMoveArea().ToList();
         Vector2Int pos = playerPos;
-        bool flag = false;//ÊÇ·ñÕÒµ½¿É¿¿½üµÄÎ»ÖÃ
-        //Íæ¼Ò¸½½üÓĞ°Ë¸öÎ»ÖÃ£¬ÕÒµ½Ò»¸ö¿É½µÂäµÄÎ»ÖÃ
+        bool flag = false;//æ˜¯å¦æ‰¾åˆ°å¯é è¿‘çš„ä½ç½®
+        //ç©å®¶é™„è¿‘æœ‰å…«ä¸ªä½ç½®ï¼Œæ‰¾åˆ°ä¸€ä¸ªå¯é™è½çš„ä½ç½®
         for (int i = -1; i <= 1 && !flag; ++i)
         {
             for (int j = -1; j <= 1 && !flag; ++j)
@@ -113,21 +110,21 @@ public class FungalSpider : Unit
                 }
             }
         }
-        //ÒÆ¶¯µ½Íæ¼Ò¸½½ü
+        //ç§»åŠ¨åˆ°ç©å®¶é™„è¿‘
         Move(pos);
     }
 
     /// <summary>
-    /// ³·ÍËµ½Íæ¼Ò¸½½ü5*5¸ñ×ÓÄÚ
+    /// æ’¤é€€åˆ°ç©å®¶é™„è¿‘5*5æ ¼å­å†…
     /// </summary>
-    /// <param name="playerPos">±»¹¥»÷µÄÍæ¼ÒµÄÎ»ÖÃ</param>
+    /// <param name="playerPos">è¢«æ”»å‡»çš„ç©å®¶çš„ä½ç½®</param>
     public void retreat(Vector2Int playerPos)
     {
-        //»ñÈ¡¿ÉÒÔÒÆ¶¯µÄÎ»ÖÃ
+        //è·å–å¯ä»¥ç§»åŠ¨çš„ä½ç½®
         List<Vector2Int> moveablePos = GetMoveArea().ToList();
         Vector2Int pos = playerPos;
-        bool flag = false;//ÊÇ·ñÕÒµ½¿É¿¿½üµÄÎ»ÖÃ
-        //Íæ¼Ò¸½½üÓĞ°Ë¸öÎ»ÖÃ£¬ÕÒµ½Ò»¸ö¿É½µÂäµÄÎ»ÖÃ
+        bool flag = false;//æ˜¯å¦æ‰¾åˆ°å¯é è¿‘çš„ä½ç½®
+        //ç©å®¶é™„è¿‘æœ‰å…«ä¸ªä½ç½®ï¼Œæ‰¾åˆ°ä¸€ä¸ªå¯é™è½çš„ä½ç½®
         for (int i = -2; i <= 2 && !flag; ++i)
         {
             for (int j = -2; j <= 2 && !flag; ++j)
@@ -136,7 +133,7 @@ public class FungalSpider : Unit
 
                 foreach (Vector2Int ps in moveablePos)
                 {
-                    //ÅĞ¶Ï¸ÃÎ»ÖÃÊÇ·ñ¿É³·ÍË
+                    //åˆ¤æ–­è¯¥ä½ç½®æ˜¯å¦å¯æ’¤é€€
                     if (pos == ps)
                     {
                         flag = true;
@@ -149,15 +146,15 @@ public class FungalSpider : Unit
     }
 
     /// <summary>
-    /// ËÀÍöºóÔ­µØ3x3µÄ·¶Î§Éú³É¶¾ÒºµØĞÎ
-    /// ´¥Åöµ½µÄµĞÈËÊ©¼ÓÉÏÊöÖĞ¶¾Ğ§¹û£¬¶¾ÒºµØĞÎ´æÔÚÁ½»ØºÏ
+    /// æ­»äº¡ååŸåœ°3x3çš„èŒƒå›´ç”Ÿæˆæ¯’æ¶²åœ°å½¢
+    /// è§¦ç¢°åˆ°çš„æ•Œäººæ–½åŠ ä¸Šè¿°ä¸­æ¯’æ•ˆæœï¼Œæ¯’æ¶²åœ°å½¢å­˜åœ¨ä¸¤å›åˆ
     /// </summary>
     protected override void OnDied()
     {
-        //»ñµÃÍæ¼Ò¶ÔÏó
+        //è·å¾—ç©å®¶å¯¹è±¡
         List<Player> players = GameManager.Instance.GetState<BattleState>().PlayerList.ToList();
         Poison poison = new Poison();
-        poison.Times = 3;
+        poison.Time = 3;
         poison.Damage = this.UnitData.Attack * 0.1f;
         foreach (Player p in players)
         {
@@ -165,7 +162,7 @@ public class FungalSpider : Unit
              && p.Position.y <= this.Position.y + 1 && p.Position.y >= this.Position.y - 1
                 )
             {
-                //Ìí¼ÓÖĞ¶¾buff
+                //æ·»åŠ ä¸­æ¯’buff
                 p.AddBuff(poison);
             }
         }

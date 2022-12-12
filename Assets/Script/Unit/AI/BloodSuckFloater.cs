@@ -4,52 +4,49 @@ using System.Linq;
 using UnityEngine;
 
 /// <summary>
-/// ÎüÑª·ÉÎÃ
-/// ¶ÔÒ»¸ö½ÇÉ«Ôì³É80%Á¦Á¿ÖµµÄÉËº¦£¬²¢»Ö¸´×ÔÉíÔì³ÉÉËº¦µÄÎå·ÖÖ®Ò»µÄÑªÁ¿£¬
-/// ÓÅÏÈ¹¥»÷·ÀÓù×îµÍµÄ½ÇÉ«£¬ÒÆ¶¯ÖÁ½ÇÉ«ÉíÇ°½øĞĞ¹¥»÷£¬¹¥»÷ºóÍ£ÁôÔÚ½ÇÉ«ÖÜÎ§(5x5µÄ¸ñ×ÓÄÚËæ»ú)¡£
+/// å¸è¡€é£èšŠ
+/// å¯¹ä¸€ä¸ªè§’è‰²é€ æˆ80%åŠ›é‡å€¼çš„ä¼¤å®³ï¼Œå¹¶æ¢å¤è‡ªèº«é€ æˆä¼¤å®³çš„äº”åˆ†ä¹‹ä¸€çš„è¡€é‡ï¼Œ
+/// ä¼˜å…ˆæ”»å‡»é˜²å¾¡æœ€ä½çš„è§’è‰²ï¼Œç§»åŠ¨è‡³è§’è‰²èº«å‰è¿›è¡Œæ”»å‡»ï¼Œæ”»å‡»ååœç•™åœ¨è§’è‰²å‘¨å›´(5x5çš„æ ¼å­å†…éšæœº)ã€‚
 /// </summary>
 public class BloodSuckFloater :Unit
 {
-    public BloodSuckFloater(Vector2Int pos) : base(new UnitData()
+    public BloodSuckFloater(Vector2Int pos) : base(new UnitModel()
     {
-        Name = "BloodSuckFloater",//ÎüÑª·ÉÎÃ
-        BloodMax = 80,//×î´óÑªÁ¿
-        Blood = 80,//³õÊ¼ÑªÁ¿Îª×î´óÑªÁ¿
-        Attack = 10,//¹¥»÷Á¦
-        Defence = 4,//·ÀÓùÁ¦
-        Speed = 2,//ÏÈ¹¥È¨ÖØ
-        //ÒÆ¶¯ºÍ¼¼ÄÜµÄÊ¹ÓÃ»áÏûºÄ¼¼ÄÜµã,µ«¹ÖÎïÎŞĞĞ¶¯µãÔ¼Êø£¬ÉèÎª×î´óÖµ
-        ActionPointMax = int.MaxValue,
+        DefaultName = "å¸è¡€é£èšŠ",
+        Blood = 80,//åˆå§‹è¡€é‡ä¸ºæœ€å¤§è¡€é‡
+        Attack = 10,//æ”»å‡»åŠ›
+        Defence = 4,//é˜²å¾¡åŠ›
+        Speed = 2,//å…ˆæ”»æƒé‡
         ActionPoint = int.MaxValue,
     }
    , pos)
     {
     }
     /// <summary>
-    /// ĞĞ¶¯
+    /// è¡ŒåŠ¨
     /// </summary>
     protected override void Decide()
     {
         
-        //µÃµ½Òª¹¥»÷µÄ¶ÔÏó
+        //å¾—åˆ°è¦æ”»å‡»çš„å¯¹è±¡
         Player player = getAttackPlayer();
-        //¹¥»÷¶ÔÏó
+        //æ”»å‡»å¯¹è±¡
         attackPlayer(player);
-        //³·ÍË
+        //æ’¤é€€
         retreat(player.Position);
     }
 
     /// <summary>
-    /// ÓÅÏÈ¹¥»÷·ÀÓù×îµÍµÄ½ÇÉ«
+    /// ä¼˜å…ˆæ”»å‡»é˜²å¾¡æœ€ä½çš„è§’è‰²
     /// </summary>
-    /// <returns>Òª¹¥»÷µÄÍæ¼Ò</returns>
+    /// <returns>è¦æ”»å‡»çš„ç©å®¶</returns>
     public Player getAttackPlayer()
     {
-        //»ñµÃÍæ¼Ò¶ÔÏó
+        //è·å¾—ç©å®¶å¯¹è±¡
         List<Player> players = GameManager.Instance.GetState<BattleState>().PlayerList.ToList();
-        int num = -1;//¼ÇÂ¼·ÀÓù×îµÍµÄÍæ¼ÒµÄË÷Òı
+        int num = -1;//è®°å½•é˜²å¾¡æœ€ä½çš„ç©å®¶çš„ç´¢å¼•
         int i = 0;
-        double minDifence = int.MaxValue;//Éè³õÖµÎª×î´óÖµ
+        double minDifence = int.MaxValue;//è®¾åˆå€¼ä¸ºæœ€å¤§å€¼
 
         foreach (Player p in players)
         { 
@@ -63,32 +60,32 @@ public class BloodSuckFloater :Unit
         return players[num];
     }
     /// <summary>
-    /// ÒÆ¶¯µ½Òª¹¥»÷Íæ¼Ò¸½½ü
-    /// ¶ÔÒ»¸ö½ÇÉ«Ôì³É80µÄÁ¦Á¿ÖµÉËº¦
-    /// »Ö¸´×ÔÉíÔì³ÉÉËº¦µÄÎå·ÖÖ®Ò»µÄÑªÁ¿
+    /// ç§»åŠ¨åˆ°è¦æ”»å‡»ç©å®¶é™„è¿‘
+    /// å¯¹ä¸€ä¸ªè§’è‰²é€ æˆ80çš„åŠ›é‡å€¼ä¼¤å®³
+    /// æ¢å¤è‡ªèº«é€ æˆä¼¤å®³çš„äº”åˆ†ä¹‹ä¸€çš„è¡€é‡
     /// </summary>
-    /// <param name="player">Òª¹¥»÷µÄÍæ¼Ò</param>
+    /// <param name="player">è¦æ”»å‡»çš„ç©å®¶</param>
     public void attackPlayer(Player player)
     {
-        //ÒÆ¶¯
+        //ç§»åŠ¨
         MoveclosePlayerPos(player.Position);
-        //¹¥»÷
-        (player as IHurtable).Hurt((int)(this.UnitData.Attack*0.8), HurtType.FromUnit, this);
+        //æ”»å‡»
+        (player as IHurtable).Hurt((int)(this.UnitData.Attack*0.8), HurtType.FromUnit | HurtType.Melee | HurtType.AD, this);
         this.UnitData.Blood += (int)(this.UnitData.Attack * 0.8 / 0.5);
     }
 
     /// <summary>
-    /// ¿¿½üÍæ¼Ò
+    /// é è¿‘ç©å®¶
     /// </summary>
-    /// <param name="playerPos">Íæ¼ÒÎ»ÖÃ</param>
+    /// <param name="playerPos">ç©å®¶ä½ç½®</param>
     /// <returns></returns>
     public void MoveclosePlayerPos(Vector2Int playerPos)
     {
-        //»ñÈ¡¿ÉÒÔÒÆ¶¯µÄÎ»ÖÃ
+        //è·å–å¯ä»¥ç§»åŠ¨çš„ä½ç½®
         List<Vector2Int> moveablePos = GetMoveArea().ToList();
         Vector2Int pos = playerPos;
-        bool flag = false;//ÊÇ·ñÕÒµ½¿É¿¿½üµÄÎ»ÖÃ
-        //Íæ¼Ò¸½½üÓĞ°Ë¸öÎ»ÖÃ£¬ÕÒµ½Ò»¸ö¿É½µÂäµÄÎ»ÖÃ
+        bool flag = false;//æ˜¯å¦æ‰¾åˆ°å¯é è¿‘çš„ä½ç½®
+        //ç©å®¶é™„è¿‘æœ‰å…«ä¸ªä½ç½®ï¼Œæ‰¾åˆ°ä¸€ä¸ªå¯é™è½çš„ä½ç½®
         for (int i = -1; i <= 1 && !flag; ++i)
         {
             for (int j = -1; j <= 1 && !flag; ++j)
@@ -105,21 +102,21 @@ public class BloodSuckFloater :Unit
                 }
             }
         }
-        //ÒÆ¶¯µ½Íæ¼Ò¸½½ü
+        //ç§»åŠ¨åˆ°ç©å®¶é™„è¿‘
         Move(pos);
     }
 
     /// <summary>
-    /// ³·ÍËµ½Íæ¼Ò¸½½ü5*5¸ñ×ÓÄÚ
+    /// æ’¤é€€åˆ°ç©å®¶é™„è¿‘5*5æ ¼å­å†…
     /// </summary>
-    /// <param name="playerPos">±»¹¥»÷µÄÍæ¼ÒµÄÎ»ÖÃ</param>
+    /// <param name="playerPos">è¢«æ”»å‡»çš„ç©å®¶çš„ä½ç½®</param>
     public void retreat(Vector2Int playerPos)
     {
-        //»ñÈ¡¿ÉÒÔÒÆ¶¯µÄÎ»ÖÃ
+        //è·å–å¯ä»¥ç§»åŠ¨çš„ä½ç½®
         List<Vector2Int> moveablePos = GetMoveArea().ToList();
         Vector2Int pos = playerPos;
-        bool flag = false;//ÊÇ·ñÕÒµ½¿É¿¿½üµÄÎ»ÖÃ
-        //Íæ¼Ò¸½½üÓĞ°Ë¸öÎ»ÖÃ£¬ÕÒµ½Ò»¸ö¿É½µÂäµÄÎ»ÖÃ
+        bool flag = false;//æ˜¯å¦æ‰¾åˆ°å¯é è¿‘çš„ä½ç½®
+        //ç©å®¶é™„è¿‘æœ‰å…«ä¸ªä½ç½®ï¼Œæ‰¾åˆ°ä¸€ä¸ªå¯é™è½çš„ä½ç½®
         for (int i = -2; i <= 2 && !flag; ++i)
         {
             for (int j = -2; j <= 2 && !flag; ++j)
@@ -128,7 +125,7 @@ public class BloodSuckFloater :Unit
 
                 foreach (Vector2Int ps in moveablePos)
                 {
-                    //ÅĞ¶Ï¸ÃÎ»ÖÃÊÇ·ñ¿É³·ÍË
+                    //åˆ¤æ–­è¯¥ä½ç½®æ˜¯å¦å¯æ’¤é€€
                     if (pos == ps)
                     {
                         flag = true;
