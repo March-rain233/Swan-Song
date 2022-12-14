@@ -7,6 +7,7 @@ using System.Linq;
 using Sirenix.OdinInspector;
 using UnityEngine.UI;
 using Sirenix.Serialization;
+using DG.Tweening;
 
 public class TreeMapView : PanelBase
 {
@@ -81,6 +82,8 @@ public class TreeMapView : PanelBase
         {
             var nodeView = _nodes[id];
             nodeView.GetComponent<Button>().interactable = true;
+            //nodeView.DOScale(new Vector3(1.1f, 1.1f, 1), BattleAnimator.LongAnimationDuration)
+            //    .SetLoops(-1, LoopType.Yoyo);
         }
         //设定节点位置
         float actualWidth, actualHeight;

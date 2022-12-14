@@ -49,9 +49,14 @@ public class BattlePanel : PanelBase
 
     bool _enable = false;
 
+    ViewPoint _viewPoint;
+
     protected override void OnInit()
     {
         base.OnInit();
+
+        _viewPoint = FindObjectOfType<ViewPoint>();
+
         var sta = ServiceFactory.Instance.GetService<GameManager>().GetState() as BattleState;
         var mr = sta.MapRenderer;
         var ur = sta.UnitRenderer;
@@ -136,12 +141,14 @@ public class BattlePanel : PanelBase
                 _movePoint = sta.CurrentUnit.GetMoveArea();
                 mr.RenderMoveTile(_movePoint);
                 BtnFinish.interactable = false;
+                _viewPoint.enabled = false;
             }
             else
             {
                 Hands.Enable();
                 mr.RenderMoveTile();
                 BtnFinish.interactable = true;
+                _viewPoint.enabled = true;
             }
         });
         SwanSongRoundNumber.text = sta.SwanSongRoundNumber.ToString();

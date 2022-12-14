@@ -8,6 +8,7 @@ using GameToolKit;
 public class MenuBar : MonoBehaviour
 {
     public TextMeshProUGUI TxtCoin;
+    public TextMeshProUGUI TxtChapter;
     public Button BtnSetting;
     public Button BtnMembers;
 
@@ -24,6 +25,13 @@ public class MenuBar : MonoBehaviour
         {
             pm.OpenPanel(nameof(SettingPanel));
         });
+        TxtChapter.text = GameManager.Instance.GameData.Chapter switch
+        {
+            1 => "Prelude",
+            2 => "Climax",
+            3 => "Coda",
+            _ => "Unknow"
+        };
     }
 
     private void GameData_GoldChanged()

@@ -113,6 +113,14 @@ namespace GameToolKit
 
             _openPanelList.Add(panel);
             panel.Open();
+
+            ServiceFactory.Instance.GetService<EventManager>()
+                .Broadcast(new PanelOpenEvent()
+                {
+                    Panel = panel,
+                    Index = name
+                });
+
             return panel;
         }
 
@@ -204,5 +212,11 @@ namespace GameToolKit
         {
             panel.transform.SetParent(DeathRoot, false);
         }
+    }
+
+    public class PanelOpenEvent : EventBase
+    {
+        public string Index;
+        public PanelBase Panel;
     }
 }

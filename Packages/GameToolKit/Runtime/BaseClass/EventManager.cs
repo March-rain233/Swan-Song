@@ -69,7 +69,7 @@ namespace GameToolKit
             {
                 if (_listeners.TryGetValue(type, out var action))
                 {
-                    ((Action<TEventType>)action)(@event);
+                    ((Action<TEventType>)action)?.Invoke(@event);
                 }
             }
         }

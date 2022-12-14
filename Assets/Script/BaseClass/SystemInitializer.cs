@@ -12,5 +12,6 @@ public class SystemInitializer : GeneralInitializer
     {
         base.Initialize();
         ServiceFactory.Instance.Register<GameManager, GameManager>();
+        ServiceFactory.Instance.Register<GuiderManager, GuiderManager>();
     }
 }

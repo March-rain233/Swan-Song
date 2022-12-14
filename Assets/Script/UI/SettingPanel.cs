@@ -11,6 +11,7 @@ internal class SettingPanel : PanelBase
 {
     public Button BtnClose;
     public Button BtnToTitle;
+    public Button BtnResetGuide;
 
     protected override void OnInit()
     {
@@ -24,6 +25,11 @@ internal class SettingPanel : PanelBase
         {
             pm.ClosePanel(this);
             GameManager.Instance.SetStatus<MainMenuState>();
+        });
+        BtnResetGuide.onClick.AddListener(() =>
+        {
+            ServiceFactory.Instance.GetService<GuiderManager>()
+                .Reset();
         });
     }
 }

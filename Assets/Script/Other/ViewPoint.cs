@@ -22,8 +22,8 @@ public class ViewPoint : MonoBehaviour
     {
         if (Pointer.current.press.isPressed)
         {
-            var delta = Pointer.current.delta.ReadValue();
-            delta = -Vector2.ClampMagnitude(delta, MaxVelocity);
+            var delta = Pointer.current.delta.ReadValue().normalized;
+            delta = -delta * Mathf.Lerp(0, MaxVelocity, delta.magnitude);
 
             var position = transform.position + (Vector3)delta;
             position.x = Mathf.Clamp(position.x, Border.xMin, Border.xMax);

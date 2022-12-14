@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using GameToolKit;
+using TMPro;
 
 public class MainMenu : PanelBase
 {
@@ -15,6 +16,10 @@ public class MainMenu : PanelBase
     [SerializeField]
     Button _btnContinue;
 
+    public Button BtnSetting;
+
+    public TextMeshProUGUI TxtVersion;
+
     protected override void OnInit()
     {
         base.OnInit();
@@ -25,7 +30,12 @@ public class MainMenu : PanelBase
         _btnNewGame.onClick.AddListener(()=>state.NewGame());
         _btnQuit.onClick.AddListener(()=>state.Quit());
         _btnContinue.onClick.AddListener(()=>state.Continue());
-
+        BtnSetting.onClick.AddListener(() =>
+        {
+            ServiceFactory.Instance.GetService<PanelManager>().OpenPanel(nameof(SettingPanel));
+        });
         _btnContinue.interactable = GameManager.Instance.HasSave;
+
+        TxtVersion.text = $"Ver {Application.version}";
     }
 }
