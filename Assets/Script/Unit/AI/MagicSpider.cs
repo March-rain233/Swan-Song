@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -46,7 +46,8 @@ public class MagicSpider : Unit
             List<Player> players = getAttackPlayer();
             //攻击对象
             attackPlayer(players);
-        }    
+        }
+        EndTurn();
     }
 
     /// <summary>
