@@ -12,7 +12,6 @@ internal class OpenCardPackNode : ProcessNode
     {
         Universal = 1,
         Privilege = 1 << 1,
-        Core = 1 << 2
     }
 
     public PackType Type;
@@ -25,19 +24,15 @@ internal class OpenCardPackNode : ProcessNode
     {
         var member = GameManager.Instance.GameData.Members[Index];
         var model = member.UnitModel;
-        List<string> poolIndexs = new();
+        List<(string, Card.CardRarity, int)> poolIndexs = new();
         List<Card> cards = new();
         if (Type.HasFlag(PackType.Universal))
         {
-            poolIndexs.Add("Normal");
+            poolIndexs.Add((CardPoolManager.NormalPoolIndex, Card.CardRarity.Normal, 1));
         }
         if (Type.HasFlag(PackType.Privilege))
         {
-            poolIndexs.Add(model.PrivilegeDeckIndex);
-        }
-        if (Type.HasFlag(PackType.Core))
-        {
-            poolIndexs.Add(model.CoreDeckIndex);
+            poolIndexs.Add((member.UnitModel.PrivilegeDeckIndex, Card.CardRarity.Privilege, 1));
         }
 
         for(int i = 0; i < Num; i++)

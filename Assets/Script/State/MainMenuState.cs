@@ -40,6 +40,7 @@ public class MainMenuState : GameState
         data.Gold = 30;
         ServiceFactory.Instance.GetService<GameManager>()
             .GameData = data;
+
         ServiceFactory.Instance.GetService<GameManager>()
             .SetStatus<PlayerSelectState>();
     }

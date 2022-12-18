@@ -36,6 +36,8 @@ public class BattleAnimator
         vp.Border.max = _mapRenderer.Grid.CellToWorld(new Vector3Int(map.Width, map.Height));
         vp.ResetToCenter();
 
+        BindingMap(map);
+
         _battleState.CurrentUnitChanged += (unit) =>
         {
             List<Unit> orderList = _battleState.GetUnitOrderList().ToList();
@@ -82,13 +84,20 @@ public class BattleAnimator
             {
                 if(map[i, j] != null)
                 {
-                    var seq = DOTween.Sequence();
                     var tile = map[i, j];
                     int x= i, y = j;
-                    seq.AppendCallback(() =>
+                    tile.TileStatusAdded += (status) =>
                     {
-                        _battleState.MapRenderer.RenderTile(x, y, tile);
-                    });
+                        var seq = DOTween.Sequence();
+                        seq.AppendCallback(()=>_mapRenderer.AddTileStatus(x, y, status));
+                        EnqueueAnimation(seq);
+                    };
+                    tile.TileStatusRemoved += (status) =>
+                    {
+                        var seq = DOTween.Sequence();
+                        seq.AppendCallback(() => _mapRenderer.RemoveTileStatus(x, y, status));
+                        EnqueueAnimation(seq);
+                    };
                 }
             }
         }

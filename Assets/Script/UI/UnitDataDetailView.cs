@@ -26,8 +26,6 @@ public class UnitDataDetailView : MonoBehaviour
     public Image Face;
     public Button BtnSkill;
 
-    public Func<UnitData, IEnumerable<(string, IEnumerable<(Card, UnitData)>)>> OnConstructSkills;
-
     private void Awake()
     {
         BtnLevelDown.onClick.AddListener(() =>
@@ -49,12 +47,6 @@ public class UnitDataDetailView : MonoBehaviour
             }
             BtnLevelDown.interactable = true;
             Refresh();
-        });
-        BtnSkill.onClick.AddListener(() =>
-        {
-            var panel = ServiceFactory.Instance.GetService<PanelManager>()
-                .OpenPanel(nameof(DeckPanel)) as DeckPanel;
-            panel.ShowCardList(OnConstructSkills(UnitData));
         });
     }
 

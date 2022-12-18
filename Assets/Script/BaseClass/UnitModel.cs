@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 using Newtonsoft.Json;
+using Sirenix.OdinInspector;
 
 /// <remarks>单位数据模板</remarks>
 public class UnitModel
@@ -15,6 +16,7 @@ public class UnitModel
     /// <summary>
     /// 默认描述
     /// </summary>
+    [TextArea]
     public string DefaultDescription;
     /// <summary>
     /// 默认名
@@ -83,5 +85,4 @@ public class UnitModel
     /// </summary>
     public List<Card> DefaultDeck = new();
     public string PrivilegeDeckIndex = "Normal";
-    public string CoreDeckIndex = "Normal";
 }

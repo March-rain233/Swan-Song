@@ -48,7 +48,7 @@ public class Protect : Card
         foreach(var t in GetAffecrTarget(user, target)
             .Select(p=>_map[p]))
         {
-            t.AddStatus(new HealMatrixStatus() { Heal = 50 + user.UnitData.Heal * 0.5f, Count = 2 });
+            t.AddStatus(new HealMatrixStatus() { Heal = 50 + user.UnitData.Heal * 0.5f, Times = 2 });
         }
     }
 }

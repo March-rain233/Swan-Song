@@ -38,8 +38,8 @@ public abstract class RoundBuff : Buff
 
     public override bool CheckReplace(Buff buff)
     {
-        return base.CheckReplace(buff) 
-            || (buff.Level == Level && buff is RoundBuff && (buff as RoundBuff).Time > Time);
+        return Level > buff.Level
+            || (buff.Level == Level && buff is RoundBuff && (buff as RoundBuff).Time <= Time);
     }
 
     public override BuffData GetBuffData()

@@ -9,7 +9,7 @@ using GameToolKit;
 public class AngleBless : Card
 {
     public override CardType Type => CardType.Heal;
-
+    public override CardRarity Rarity => CardRarity.Privilege;
     public AngleBless()//天使庇佑_牧师专属
     {
         Name = "天使庇佑";
@@ -36,15 +36,7 @@ public class AngleBless : Card
 
     protected internal override void Release(Unit user, Vector2Int target)
     {
-        int times = 2;
-        var tar = (_map[target.x, target.y].Units.First() as ICurable);
-        GameManager.Instance.GetState<BattleState>()
-            .TurnBeginning += (_) =>
-            {
-                times -= 1;
-                if ((tar as Unit).UnitData.Blood < 1)
-                    (tar as Unit).UnitData.Blood = 1;
-            };
-        user.Scheduler.DrawCard();
+        _map[target].Units.First()
+            .AddBuff(new GuardianAngel() { Time = 2 });
     }
 }

@@ -49,7 +49,7 @@ public class BattleGuider : GuiderBase
             case 2:
                 GuiderManager.HighlightController(panel.transform.FindAll("Round") as RectTransform)
                     .SetText("这里将显示当前回合数和灭亡之歌的限制回合\n" +
-                    "当回合数大于等于限制回合时，在场所有单位会每回合扣除等于35%最大血量的血量")
+                    "当回合数大于等于限制回合时，在场所有单位会每回合扣除等于20%最大血量的血量")
                     .SetTextAlign(GuiderManager.AlignType.Middle)
                     .SetClickCallback(Process);
                 break;
@@ -105,7 +105,7 @@ public class BattleGuider : GuiderBase
             case 10:
                 GuiderManager.HighlightController(panel.transform.FindAll("TogMove").transform as RectTransform)
                     .SetText("点击该按钮将进入移动模式，地图上将用蓝色标记所有可移动到的图格\n" +
-                    "点击被标记的图格可以移动至该图格，每经过一格需要消耗一点行动点")
+                    "点击被标记的图格可以移动至该图格，每一次移动需要消耗一点行动点")
                     .SetTextAlign(GuiderManager.AlignType.Middle)
                     .SetClickCallback(Process);
                 break;

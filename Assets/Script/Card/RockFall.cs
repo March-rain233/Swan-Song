@@ -20,7 +20,7 @@ public class RockFall : Card
         }
     };
     public override CardType Type => CardType.Attack;
-
+    public override CardRarity Rarity => CardRarity.Privilege;
     public RockFall()//战士专属
     {
         Name = "岩崩斩";

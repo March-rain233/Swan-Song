@@ -5,6 +5,5 @@ using GameToolKit;
 
 public class UnitSetting : ScriptableSingleton<UnitSetting>
 {
-    public Dictionary<string, UnitModel> UnitDic = new();
     public List<UnitModel> PlayerList = new();
 }

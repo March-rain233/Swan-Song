@@ -61,7 +61,7 @@ public class FireBall : Card
             }
             if (tile.TileType != TileType.Lack)
             {
-                tile.AddStatus(new FireStatus() { Count = -1 });
+                tile.AddStatus(new FireStatus() { Times = 2 });
             }
         }
     }

@@ -102,6 +102,10 @@ public abstract class Unit : IHurtable, ICurable
 
     #region 事件组
     /// <summary>
+    /// 战斗开始时初始化
+    /// </summary>
+    public event Action Initing;
+    /// <summary>
     /// 当单位开始当前回合的行动
     /// </summary>
     public event Action TurnBeginning;
@@ -132,6 +136,10 @@ public abstract class Unit : IHurtable, ICurable
     public event Action UnitDied;
 
     /// <summary>
+    /// buff添加处理器
+    /// </summary>
+    public event Func<Buff, bool> AddBuffHandler;
+    /// <summary>
     /// Buff列表更改事件
     /// </summary>
     public event Action BuffListChanged;
@@ -140,12 +148,23 @@ public abstract class Unit : IHurtable, ICurable
     protected Unit(UnitData data, Vector2Int pos)
     {
         UnitData = data;
-        Scheduler = new CardScheduler(this, data.Deck);
+        Scheduler = new CardScheduler(this, data.Bag.Select(c=>c.Clone()));
         _position = pos;
         UnitData.ActionPoint = UnitData.ActionPointMax;
     }
 
     protected Unit(UnitModel model, Vector2Int pos) : this(new UnitData(model), pos) { }
+
+    /// <summary>
+    /// 战斗开始时初始化
+    /// </summary>
+    internal void Init()
+    {
+        ActionStatus = ActionStatus.Waitting;
+        UnitData.ActionPoint = UnitData.ActionPointMax;
+        Position = Position;
+        Initing?.Invoke();
+    }
 
     /// <summary>
     /// 回合开始初始化
@@ -203,6 +222,17 @@ public abstract class Unit : IHurtable, ICurable
         where TBuff : Buff
     {
         bool isReplace = true;
+        if (AddBuffHandler != null)
+        {
+            foreach (var func in AddBuffHandler.GetInvocationList().OfType<Func<Buff, bool>>())
+            {
+                isReplace &= func(buff);
+            }
+        }
+        if (!isReplace)
+        {
+            return;
+        }
         foreach (var ori in _buffList.Where(e => e is TBuff).ToList())
         {
             if (buff.CheckReplace(ori))
@@ -261,7 +291,7 @@ public abstract class Unit : IHurtable, ICurable
     public void Move(Vector2Int target)
     {
         var adapter = new GenericMapAdapter(this, GameManager.Instance.GetState<BattleState>().Map);
-        var rawPath = UnitUtility.FindShortestPath(adapter, adapter.Point2ID(Position), adapter.Point2ID(target), UnitData.ActionPoint);
+        var rawPath = UnitUtility.FindShortestPath(adapter, adapter.Point2ID(Position), adapter.Point2ID(target), 4);
         var path = rawPath.Select(e => adapter.ID2Point(e));
         var pre = path.First();
         foreach(var p in path.Skip(1))
@@ -269,9 +299,8 @@ public abstract class Unit : IHurtable, ICurable
             Position = p;
             Direction = (Position - pre).ToDirection();
             pre = p;
-            //todo 行动点计算
-            UnitData.ActionPoint -= 1;
         }
+        UnitData.ActionPoint -= 1;
         Moved(path);
     }
 
@@ -313,14 +342,14 @@ public abstract class Unit : IHurtable, ICurable
         {
             OriDamage = damage,
             DamageAdd = 0,
-            Rate = 1,
+            Rate = 1 - UnitData.Defence / (UnitData.Defence + 200),
             Source = source,
             Target = this,
             Type = type,
         };
         if (!type.HasFlag(HurtType.APDS))
         {
-            @event.DamageAdd = -UnitData.Defence;
+            @event.Rate = 1;
         }
         HurtCalculating?.Invoke(@event);
         ServiceFactory.Instance.GetService<EventManager>()
@@ -338,8 +367,12 @@ public abstract class Unit : IHurtable, ICurable
 
     void IHurtable.OnHurt(float damage, HurtType type, object source)
     {
-        UnitData.Blood -= Mathf.FloorToInt(damage);
-        Hurt?.Invoke(damage, type, source);
+        int actDamage = Mathf.FloorToInt(damage);
+        if (actDamage > 0)
+        {
+            UnitData.Blood -= actDamage;
+            Hurt?.Invoke(damage, type, source);
+        }
         if(UnitData.Blood <= 0)
         {
             if (ActionStatus == ActionStatus.Running)

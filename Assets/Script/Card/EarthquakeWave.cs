@@ -9,7 +9,7 @@ using GameToolKit;
 public class Earthquake : Card
 {
     public override CardType Type => CardType.Other;
-
+    public override CardRarity Rarity => CardRarity.Privilege;
     public Earthquake()
     {
         Name = "地震波";

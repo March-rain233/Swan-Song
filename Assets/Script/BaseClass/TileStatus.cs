@@ -13,7 +13,7 @@ public abstract class TileStatus
     /// <summary>
     /// 剩余计数
     /// </summary>
-    public int Count;
+    public int Times;
 
     /// <summary>
     /// 该效果是否生效
@@ -71,18 +71,18 @@ public abstract class RoundStatus : TileStatus
 {
     protected internal override void StatusProcessOnUpdata(IEnumerable<Unit> units)
     {
-        if(Count > 0)
+        if(Times > 0)
         {
-            Count -= 1;
+            Times -= 1;
         }
-        else if(Count == 0)
+        else if(Times == 0)
         {
             Tile.RemoveStatus(this);
         }
     }
 }
 
-public class FireStatus :RoundStatus
+public class FireStatus : RoundStatus
 {
     protected override void OnDisable()
     {
@@ -106,6 +106,7 @@ public class FireStatus :RoundStatus
 
     protected internal override void StatusProcessOnUpdata(IEnumerable<Unit> units)
     {
+        base.StatusProcessOnUpdata(units);
         foreach (var unit in units)
         {
             unit.AddBuff(new Burn() { Time = 2 });
@@ -201,5 +202,33 @@ public class HealMatrixStatus : RoundStatus
     protected internal override void StatusProcessOnExit(IEnumerable<Unit> units)
     {
 
+    }
+}
+
+public class SilkscreenStatus : TileStatus
+{
+    protected override void OnDisable()
+    {
+        
+    }
+
+    protected override void OnEnable()
+    {
+        
+    }
+
+    protected internal override void StatusProcessOnEnter(IEnumerable<Unit> units)
+    {
+        
+    }
+
+    protected internal override void StatusProcessOnExit(IEnumerable<Unit> units)
+    {
+        
+    }
+
+    protected internal override void StatusProcessOnUpdata(IEnumerable<Unit> units)
+    {
+        
     }
 }

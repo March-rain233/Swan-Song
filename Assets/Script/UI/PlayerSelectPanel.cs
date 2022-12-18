@@ -71,18 +71,20 @@ public class PlayerSelectPanel : PanelBase
             SelectList.Add((btn, ol, unitModel));
         }
 
-        UnitDataView.OnConstructSkills += (data) =>
+        UnitDataView.BtnSkill.onClick.AddListener(() =>
         {
+            var data = UnitDataView.UnitData;
             var res = new List<(string, IEnumerable<(Card, UnitData)>)>();
             System.Func<string, string, (string, IEnumerable<(Card, UnitData)>)> func = (index, name) =>
             {
-                return (name, from card in CardPoolManager.Instance.PoolDic[index]
-                                select (card, data));
+                return (name, from card in CardPoolManager.Instance.PoolDic[index].Where(c=>c.Rarity == Card.CardRarity.Privilege)
+                              select (card, data));
             };
             res.Add(func(data.UnitModel.PrivilegeDeckIndex, "×¨Êô"));
-            res.Add(func(data.UnitModel.CoreDeckIndex, "ºËÐÄ"));
-            return res;
-        };
+            var panel = ServiceFactory.Instance.GetService<PanelManager>()
+                .OpenPanel(nameof(DeckPanel)) as DeckPanel;
+            panel.ShowCardList(res);
+        });
 
         BtnComplete.interactable = false;
         BtnJoin.onClick.AddListener(() =>

@@ -15,7 +15,7 @@ D:/Program/unity/Swan Song
 -logFile
 Logs/AssetImportWorker1.log
 -srvPort
-54758
+53262
 Successfully changed project path to: D:/Program/unity/Swan Song
 D:/Program/unity/Swan Song
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -47,7 +47,7 @@ D:/Program/unity/Swan Song
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Refreshing native plugins compatible for Editor in 152.74 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 159.77 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2022.1.16f1c1 (c48b242658a2)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2022.1.16f1c1/Editor/Data/Resources/UnitySubsystems
@@ -63,48 +63,255 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2022.1.16f1c1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2022.1.16f1c1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2022.1.16f1c1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56356
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56936
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.1.16f1c1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.1.16f1c1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.009439 seconds.
+Registered in 0.010287 seconds.
 Native extension for WindowsStandalone target not found
 Native extension for Android target not found
-Refreshing native plugins compatible for Editor in 165.13 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 162.36 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.908 seconds
+- Completed reload, in  1.056 seconds
 Domain Reload Profiling:
-	ReloadAssembly (908ms)
-		BeginReloadAssembly (83ms)
+	ReloadAssembly (1057ms)
+		BeginReloadAssembly (102ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (1ms)
-		EndReloadAssembly (699ms)
-			LoadAssemblies (79ms)
+		EndReloadAssembly (812ms)
+			LoadAssemblies (98ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (141ms)
-				TypeCache.Initialize (140ms)
-					TypeCache.ScanAssembly (139ms)
+			SetupTypeCache (144ms)
+				TypeCache.Initialize (144ms)
+					TypeCache.ScanAssembly (141ms)
 				ResolveRequiredComponents (1ms)
 			ReleaseScriptCaches (0ms)
 			RebuildScriptCaches (33ms)
-			SetupLoadedEditorAssemblies (463ms)
+			SetupLoadedEditorAssemblies (567ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (94ms)
-				SetLoadedEditorAssemblies (10ms)
-				RefreshPlugins (165ms)
+				InitializePlatformSupportModulesInManaged (65ms)
+				SetLoadedEditorAssemblies (11ms)
+				RefreshPlugins (163ms)
 				BeforeProcessingInitializeOnLoad (2ms)
-				ProcessInitializeOnLoadAttributes (133ms)
-				ProcessInitializeOnLoadMethodAttributes (58ms)
+				ProcessInitializeOnLoadAttributes (270ms)
+				ProcessInitializeOnLoadMethodAttributes (56ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.020890 seconds.
-Android Extension - Scanning For ADB Devices 4728 ms
+Registered in 0.022913 seconds.
+Android Extension - Scanning For ADB Devices 5071 ms
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image D:\Program\unity\Swan Song\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Symbol file LoadedFromMemory doesn't match image D:\Program\unity\Swan Song\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Refreshing native plugins compatible for Editor in 189.70 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.14 seconds
+Mono: successfully reloaded assembly
+- Completed reload, in  3.103 seconds
+Domain Reload Profiling:
+	ReloadAssembly (3104ms)
+		BeginReloadAssembly (140ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (6ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (25ms)
+		EndReloadAssembly (2774ms)
+			LoadAssemblies (125ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (504ms)
+				TypeCache.Initialize (482ms)
+					TypeCache.ScanAssembly (472ms)
+				ResolveRequiredComponents (22ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (157ms)
+			SetupLoadedEditorAssemblies (1848ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (22ms)
+				SetLoadedEditorAssemblies (14ms)
+				RefreshPlugins (190ms)
+				BeforeProcessingInitializeOnLoad (194ms)
+				ProcessInitializeOnLoadAttributes (785ms)
+				ProcessInitializeOnLoadMethodAttributes (625ms)
+				AfterProcessingInitializeOnLoad (18ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (11ms)
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Refreshing native plugins compatible for Editor in 5.13 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 6491 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 73 unused Assets / (423.7 KB). Loaded Objects now: 7018.
+Memory consumption went from 1.00 GB to 1.00 GB.
+Total: 29.583500 ms (FindLiveObjects: 1.019100 ms CreateObjectMapping: 1.330900 ms MarkObjects: 26.667400 ms  DeleteObjects: 0.563600 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 1837456.842343 seconds.
+  path: Assets/Sprite/NPC3.png
+  artifactKey: Guid(7a0ee7697f2dc454b82f18d52e2c688e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprite/NPC3.png using Guid(7a0ee7697f2dc454b82f18d52e2c688e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7950008ad6eac686ffcd021ae16eac6f') in 0.472980 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000049 seconds.
+  path: Assets/Sprite/WalkingGrass-jump.png
+  artifactKey: Guid(5d1b5d519ec6a9a4981283c410e75503) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprite/WalkingGrass-jump.png using Guid(5d1b5d519ec6a9a4981283c410e75503) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cf258d4113d7870adec103a3c38ed7d2') in 0.084447 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000051 seconds.
+  path: Assets/Sprite/NPC1.png
+  artifactKey: Guid(1675e295808f52448997fd03f7082c8c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprite/NPC1.png using Guid(1675e295808f52448997fd03f7082c8c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '60b62f30e81ca42e6c51b6700c36c1ab') in 0.196198 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/Sprite/Boss1-2.png
+  artifactKey: Guid(5c875213bedf40543be5b6ea41dd96e4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprite/Boss1-2.png using Guid(5c875213bedf40543be5b6ea41dd96e4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a2154f35b095e31fa82626c3f94814e3') in 0.127640 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/Sprite/Grass.png
+  artifactKey: Guid(008808a393585184385fdf04bc5901c8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprite/Grass.png using Guid(008808a393585184385fdf04bc5901c8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c5e65ec96e5e66d874cf1614b08d1703') in 0.059474 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000051 seconds.
+  path: Assets/Sprite/Shury_roll.png
+  artifactKey: Guid(d75a5f903f7d44348bcdc910608956c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprite/Shury_roll.png using Guid(d75a5f903f7d44348bcdc910608956c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'db396b3adcaed7bbd251262cc07e5f30') in 0.177277 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.025699 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image D:\Program\unity\Swan Song\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Symbol file LoadedFromMemory doesn't match image D:\Program\unity\Swan Song\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Refreshing native plugins compatible for Editor in 1.93 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.739 seconds
+Domain Reload Profiling:
+	ReloadAssembly (2740ms)
+		BeginReloadAssembly (353ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (27ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (151ms)
+		EndReloadAssembly (2247ms)
+			LoadAssemblies (177ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (496ms)
+				TypeCache.Initialize (479ms)
+					TypeCache.ScanAssembly (463ms)
+				ResolveRequiredComponents (17ms)
+			ReleaseScriptCaches (3ms)
+			RebuildScriptCaches (82ms)
+			SetupLoadedEditorAssemblies (1389ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (31ms)
+				SetLoadedEditorAssemblies (12ms)
+				RefreshPlugins (2ms)
+				BeforeProcessingInitializeOnLoad (124ms)
+				ProcessInitializeOnLoadAttributes (766ms)
+				ProcessInitializeOnLoadMethodAttributes (442ms)
+				AfterProcessingInitializeOnLoad (12ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (10ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 5.32 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 6335 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 46 unused Assets / (384.1 KB). Loaded Objects now: 7045.
+Memory consumption went from 1.00 GB to 1.00 GB.
+Total: 24.645000 ms (FindLiveObjects: 0.855200 ms CreateObjectMapping: 0.803200 ms MarkObjects: 22.842200 ms  DeleteObjects: 0.142700 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 12067.930677 seconds.
+  path: Assets/Sprite/Tile/MeshTile.png
+  artifactKey: Guid(238c1531b313b5f4e889d938adb6daf6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprite/Tile/MeshTile.png using Guid(238c1531b313b5f4e889d938adb6daf6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2b1d2f8fccc6929357f132758f166f49') in 0.103010 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/Sprite/Tile/IronThornPlantTile.png
+  artifactKey: Guid(251a033246055154187a8ed5c8a9ed70) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprite/Tile/IronThornPlantTile.png using Guid(251a033246055154187a8ed5c8a9ed70) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e0f4954b5df27cc5d68033dcce6f99db') in 0.023356 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 59.842582 seconds.
+  path: Assets/Sprite/Tile/HealMatrixTile.png
+  artifactKey: Guid(6b3137e9421282c43b03ef62a4769d9f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprite/Tile/HealMatrixTile.png using Guid(6b3137e9421282c43b03ef62a4769d9f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dda87b312a78f0323d333924135cc4ec') in 0.019724 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.046613 seconds.
+  path: Assets/Sprite/Tile/IronThornPlantTile.png
+  artifactKey: Guid(251a033246055154187a8ed5c8a9ed70) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprite/Tile/IronThornPlantTile.png using Guid(251a033246055154187a8ed5c8a9ed70) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '969fd0983174c1b6bdccdbd335ed2fda') in 0.022199 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 10.396424 seconds.
+  path: Assets/Tile/DepolyTile.asset
+  artifactKey: Guid(189ae2921e306964bbe137cfcc5e8189) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tile/DepolyTile.asset using Guid(189ae2921e306964bbe137cfcc5e8189) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dbac918c3454eb240bf43e98c8220fa1') in 0.060601 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Tile/Grass.asset
+  artifactKey: Guid(8f9284bdda89a9e408cfc79b52aee7aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tile/Grass.asset using Guid(8f9284bdda89a9e408cfc79b52aee7aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6b04a95aeafa1f82c7664a6e28012c04') in 0.031163 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 181.625606 seconds.
+  path: Assets/Tile/Fire.asset
+  artifactKey: Guid(88ef24c366609ac40a8cc1bd8f3b2d53) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tile/Fire.asset using Guid(88ef24c366609ac40a8cc1bd8f3b2d53) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '56928c519f8b395246f25ed8a79b75da') in 0.019557 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Tile/MeshTile.asset
+  artifactKey: Guid(e431eec420261f1489b312890dbb2ba3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tile/MeshTile.asset using Guid(e431eec420261f1489b312890dbb2ba3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9be0d474547fff33b1b32668ed0e9c73') in 0.033428 seconds 
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0

@@ -29,8 +29,11 @@ public class BattlePanel : PanelBase
 
     public LayoutGroup PlayerListView;
     public ToggleGroup PlayerGroup;
+
+    public LayoutGroup ArtifactListView;
     #region 控件模板
     public GameObject UnitProfileModel;
+    public GameObject ArtifactViewModel;
     #endregion
     #endregion
 
@@ -60,6 +63,14 @@ public class BattlePanel : PanelBase
         var sta = ServiceFactory.Instance.GetService<GameManager>().GetState() as BattleState;
         var mr = sta.MapRenderer;
         var ur = sta.UnitRenderer;
+
+        //绑定遗物列表
+        foreach(var a in GameManager.Instance.GameData.Artifacts)
+        {
+            var obj = Instantiate(ArtifactViewModel, ArtifactListView.transform);
+            var view = obj.GetComponent<ArtifactView>();
+            view.Binding(a);
+        }
 
         //绑定单位选择详情功能
         UnitView currentSelect = null;

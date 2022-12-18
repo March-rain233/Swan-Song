@@ -64,13 +64,13 @@ public abstract class Buff
     {
         return new BuffData()
         {
-            Time = 0,
+            Time = -1,
             Level = Level,
         };
     }
 
     public virtual bool CheckReplace(Buff buff)
     {
-        return buff.Level > Level;
+        return Level >= buff.Level;
     }
 }

@@ -8,6 +8,7 @@ using GameToolKit;
 /// </summary>
 public class TileSetting : ScriptableSingleton<TileSetting>
 {
+    public Dictionary<string, (int level, TileBase tile)> Tiles = new();
     public Dictionary<TileType, TileBase> TileDic = new();
     public TileBase MoveMaskTile;
     public TileBase DepolyMaskTile;

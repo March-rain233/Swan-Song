@@ -57,7 +57,7 @@ public class PlayerSelectGuider : GuiderBase
                 GuiderManager.HighlightController(panel.transform.FindAll("DataViewGroup").transform as RectTransform)
                     .SetText("<size=14>体力：角色的最高血量\n" +
                     "腕力：角色奋力攻击的强度（攻击力）\n" +
-                    "坚韧：角色对伤害的忍受能力（防御力）\n" +
+                    "坚韧：角色对伤害的忍受能力（防御力） 注：伤害减免=[坚韧/（坚韧+200）]*100%\n" +
                     "虔诚：角色对进行治疗行为时的恢复力度\n" +
                     "先攻：角色在战场上的敏锐程度，该项数值越高，角色越早行动\n" +
                     "行动：角色的最大行动点数（角色在进行攻击、移动等行为时需要消耗行动点）</size>")
@@ -72,10 +72,9 @@ public class PlayerSelectGuider : GuiderBase
                 break;
             case 5:
                 GuiderManager.HighlightController(panel.transform.FindAll("BtnSkill").transform as RectTransform)
-                    .SetText("<size=14>点击此处的按钮可以查看角色可以学会的技能，技能分为三个种类\n" +
+                    .SetText("<size=14>点击此处的按钮可以查看角色可以学会的专属技能，技能分以下两种\n" +
                     "通用：所有角色都能学会的技能\n" +
-                    "专属：只有该角色能学会的技能\n" +
-                    "核心：该角色专属的一些强力技能</size>")
+                    "专属：只有该角色能学会的技能\n")
                     .SetTextAlign(GuiderManager.AlignType.Top)
                     .SetClickCallback(Process);
                 break;

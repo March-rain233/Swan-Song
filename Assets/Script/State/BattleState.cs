@@ -13,9 +13,10 @@ public class BattleState : GameState
     public enum ItemType
     {
         Money,
-        Card
+        Card,
+        Artifact,
     }
-    public struct Item
+    public class Item
     {
         public ItemType Type;
         public object Value;
@@ -26,32 +27,6 @@ public class BattleState : GameState
         Continue,
         Failure
     }
-    /// <summary>
-    /// 回合开始时
-    /// </summary>
-    /// <remarks>传入当前回合数</remarks>
-    public event Action<int> TurnBeginning;
-    /// <summary>
-    /// 回合结束时
-    /// </summary>
-    /// <remarks>传入当前回合数</remarks>
-    public event Action<int> TurnEnding;
-    /// <summary>
-    /// 当当前决策单位变化
-    /// </summary>
-    public event Action<Unit> CurrentUnitChanged;
-    /// <summary>
-    /// 开始摆放单位
-    /// </summary>
-    public event Action<List<Vector2Int>, List<UnitData>> DeployBeginning;
-    /// <summary>
-    /// 胜利
-    /// </summary>
-    public event Action Successed;
-    /// <summary>
-    /// 失败
-    /// </summary>
-    public event Action Failed;
     /// <summary>
     /// 当前地图
     /// </summary>
@@ -104,9 +79,56 @@ public class BattleState : GameState
     public UnitRenderer UnitRenderer;
 
     /// <summary>
+    /// 章节
+    /// </summary>
+    public int Chapter => GameManager.Instance.GameData.Chapter;
+    /// <summary>
+    /// 战斗难度等级
+    /// </summary>
+    public int BattleLevel { get; private set; }
+
+    /// <summary>
     /// 战利品
     /// </summary>
     public List<Item> ItemList = new();
+
+    #region 事件组
+    public event Action<List<Item>> BootyIniting;
+    /// <summary>
+    /// 战斗初始化时
+    /// </summary>
+    public event Action BattleIniting;
+    /// <summary>
+    /// 战斗开始时
+    /// </summary>
+    public event Action BattleBeginning;
+    /// <summary>
+    /// 回合开始时
+    /// </summary>
+    /// <remarks>传入当前回合数</remarks>
+    public event Action<int> TurnBeginning;
+    /// <summary>
+    /// 回合结束时
+    /// </summary>
+    /// <remarks>传入当前回合数</remarks>
+    public event Action<int> TurnEnding;
+    /// <summary>
+    /// 当当前决策单位变化
+    /// </summary>
+    public event Action<Unit> CurrentUnitChanged;
+    /// <summary>
+    /// 开始摆放单位
+    /// </summary>
+    public event Action<List<Vector2Int>, List<UnitData>> DeployBeginning;
+    /// <summary>
+    /// 胜利
+    /// </summary>
+    public event Action Successed;
+    /// <summary>
+    /// 失败
+    /// </summary>
+    public event Action Failed;
+    #endregion
 
     protected internal override void OnEnter()
     {
@@ -126,8 +148,10 @@ public class BattleState : GameState
 
     }
 
-    public void InitSystem(int chapter, int battleLevel)
+    public void InitSystem(int battleLevel)
     {
+        BattleLevel = battleLevel;
+
         //初始化系统
         var mapData = MapFactory.CreateMap("");
         Map = mapData.Map;
@@ -154,45 +178,6 @@ public class BattleState : GameState
         var gm = ServiceFactory.Instance.GetService<GameManager>();
         var unitDatas = gm.GameData.Members;
 
-        ItemList.Add(new Item()
-        {
-            Type = ItemType.Money,
-            Value = battleLevel * 30
-        });
-        List<(Card, UnitData)> cards = new();
-        switch (battleLevel)
-        {
-            case 1:
-                foreach(var member in gm.GameData.Members)
-                {
-                    cards.Add((CardPoolManager.Instance.DrawCard(
-                        member.UnitModel.PrivilegeDeckIndex, "Normal")
-                        , member));
-                }
-                break;
-            case 2:
-                foreach (var member in gm.GameData.Members)
-                {
-                    cards.Add((CardPoolManager.Instance.DrawCard(
-                        member.UnitModel.PrivilegeDeckIndex, member.UnitModel.CoreDeckIndex)
-                        , member));
-                }
-                break;
-            case 3:
-                foreach (var member in gm.GameData.Members)
-                {
-                    cards.Add((CardPoolManager.Instance.DrawCard(
-                        member.UnitModel.CoreDeckIndex)
-                        , member));
-                }
-                break;
-        }
-        ItemList.Add(new Item()
-        {
-            Type = ItemType.Card,
-            Value = cards
-        });
-
         DeployBeginning?.Invoke(depolyList, unitDatas);
     }
 
@@ -215,10 +200,16 @@ public class BattleState : GameState
     {
         var pm = ServiceFactory.Instance.GetService<PanelManager>();
         pm.ClosePanel("DepolyPanel");
+
+        BattleIniting?.Invoke();
+
         foreach (var unit in UnitList)
         {
-            unit.Position = unit.Position;
+            unit.Init();
         }
+
+        BattleBeginning?.Invoke();
+
         pm.OpenPanel("BattlePanel");
         NextTurn();
     }
@@ -268,31 +259,144 @@ public class BattleState : GameState
     {
         CurrentUnit = GetNextUnit(CurrentUnit);
         CurrentUnitChanged?.Invoke(CurrentUnit);
-        //当已无下一个单位执行时，当前回合结算
-        if (CurrentUnit == null)
+        var status = CheckGame();
+        switch (status)
         {
-            TurnEnding?.Invoke(RoundNumber);
-            var status = CheckGame();
-            switch (status)
-            {
-                case GameStatus.Victory:
-                    //todo
-                    Successed?.Invoke();
-                    break;
-                case GameStatus.Continue:
+            case GameStatus.Continue:
+                //当已无下一个单位执行时，当前回合结算
+                if (CurrentUnit == null)
+                {
+                    TurnEnding?.Invoke(RoundNumber);
                     NextTurn();
-                    break;
-                case GameStatus.Failure:
-                    //todo
-                    Failed?.Invoke();
-                    break;
-            }
-        }
-        else
-        {
-            CurrentUnit.BeginTurn(NextUnitTurn);
+                }
+                else
+                {
+                    CurrentUnit.BeginTurn(NextUnitTurn);
+                }
+                break;
+            case GameStatus.Victory:
+                OnVictory();
+                break;
+            case GameStatus.Failure:
+                OnFail();
+                break;
         }
     }
+
+    void OnInitBooty()
+    {
+        var gm = GameManager.Instance;
+        switch (BattleLevel)
+        {
+            case 1:
+                {
+                    for (int i = 0; i < 4; ++i)
+                    {
+                        List<(Card, UnitData)> cards = new();
+                        foreach (var member in gm.GameData.Members)
+                        {
+                            cards.Add((CardPoolManager.Instance.DrawCard(
+                                (CardPoolManager.NormalPoolIndex, Card.CardRarity.Normal, 9),
+                                (member.UnitModel.PrivilegeDeckIndex, Card.CardRarity.Privilege, 1))
+                                , member));
+                        }
+                        ItemList.Add(new Item()
+                        {
+                            Type = ItemType.Card,
+                            Value = cards
+                        });
+                    }
+                    ItemList.Add(new Item()
+                    {
+                        Type = ItemType.Money,
+                        Value = 30
+                    });
+                    break;
+                }
+            case 2:
+                {
+                    for (int i = 0; i < 8; ++i)
+                    {
+                        List<(Card, UnitData)> cards = new();
+                        foreach (var member in gm.GameData.Members)
+                        {
+                            cards.Add((CardPoolManager.Instance.DrawCard(
+                                (CardPoolManager.NormalPoolIndex, Card.CardRarity.Normal, 7),
+                                (member.UnitModel.PrivilegeDeckIndex, Card.CardRarity.Privilege, 3))
+                                , member));
+                        }
+                        ItemList.Add(new Item()
+                        {
+                            Type = ItemType.Card,
+                            Value = cards
+                        });
+                    }
+                    ItemList.Add(new Item()
+                    {
+                        Type = ItemType.Money,
+                        Value = 60
+                    });
+                    break;
+                }
+            case 3:
+                {
+                    foreach (var member in gm.GameData.Members)
+                    {
+                        for (int i = 0; i < 2; ++i)
+                        {
+                            List<(Card, UnitData)> cards = new();
+                            for (int j = 0; j < 3; ++j)
+                            {
+                                cards.Add((CardPoolManager.Instance.DrawCard(
+                                    (CardPoolManager.NormalPoolIndex, Card.CardRarity.Normal, 9),
+                                    (member.UnitModel.PrivilegeDeckIndex, Card.CardRarity.Privilege, 1))
+                                    , member));
+                            }
+                            ItemList.Add(new Item()
+                            {
+                                Type = ItemType.Card,
+                                Value = cards
+                            });
+                        }
+                    }
+                    ItemList.Add(new Item()
+                    {
+                        Type = ItemType.Money,
+                        Value = 120
+                    });
+                    var artifacts = ArtifactSetting.Instance.RemainArtifacts.ToList();
+                    if (artifacts.Count > 0)
+                    {
+                        List<Artifact> list = new List<Artifact>();
+                        for (int i = 0; i < 3 && artifacts.Count > 0; ++i)
+                        {
+                            var art = artifacts[UnityEngine.Random.Range(0, artifacts.Count)];
+                            list.Add(art);
+                        }
+                        ItemList.Add(new Item() { Type = ItemType.Artifact, Value = list });
+                    }
+                    foreach(var m in GameManager.Instance.GameData.Members)
+                    {
+                        m.LevelUp();
+                    }
+                    break;
+                }
+        }
+
+        BootyIniting?.Invoke(ItemList);
+    }
+
+    void OnVictory()
+    {
+        OnInitBooty();
+        Successed?.Invoke();
+    }
+
+    void OnFail()
+    {
+        Failed?.Invoke();
+    }
+
     /// <summary>
     /// 下一回合
     /// </summary>
@@ -305,7 +409,7 @@ public class BattleState : GameState
         {
             foreach (var unit in UnitList.Where(u => u.ActionStatus != ActionStatus.Dead))
             {
-                (unit as IHurtable).Hurt(unit.UnitData.BloodMax * 0.35f, HurtType.FromBuff, this);
+                (unit as IHurtable).Hurt(unit.UnitData.BloodMax * 0.2f, HurtType.FromBuff, this);
             }
         }
 

@@ -10,35 +10,35 @@ internal class PlatFormNode : ProcessNode
 {
     protected override void OnPlay()
     {
-        var cards = new List<(Card, UnitData)>();
-        for (int i = 0; i < GameManager.Instance.GameData.Members.Count; i++)
+        int count = 4;
+        int priCount = UnityEngine.Random.Range(1, count + 1);
+        List<BattleState.Item> items = new List<BattleState.Item>();
+        for(int j = 0; j < count; ++j, --priCount)
         {
-            var member = GameManager.Instance.GameData.Members[i];
-            var card = CardPoolManager.Instance.DrawCard(
-                member.UnitModel.PrivilegeDeckIndex,
-                member.UnitModel.CoreDeckIndex
-                );
-            cards.Add((card, member));
-        }
-        for (int i = 0; i < 1; ++i)
-        {
-            var member = GameManager.Instance.GameData.Members[UnityEngine.Random.Range(0, GameManager.Instance.GameData.Members.Count)];
-            var card = CardPoolManager.Instance.DrawCard(
-                member.UnitModel.CoreDeckIndex
-                );
-            cards.Add((card, member));
+            var cards = new List<(Card, UnitData)>();
+            for (int i = 0; i < GameManager.Instance.GameData.Members.Count; i++)
+            {
+                var member = GameManager.Instance.GameData.Members[i];
+                if (priCount > 0)
+                {
+                    var card = CardPoolManager.Instance.DrawCard(
+                        ((member.UnitModel.PrivilegeDeckIndex, Card.CardRarity.Privilege, 1)));
+                    cards.Add((card, member));
+                }
+                else
+                {
+                    var card = CardPoolManager.Instance.DrawCard(
+                        ((CardPoolManager.NormalPoolIndex, Card.CardRarity.Normal, 1)));
+                    cards.Add((card, member));
+                }
+            }
+            items.Add(new BattleState.Item() { Type = BattleState.ItemType.Card, Value = cards });
         }
 
         var pm = ServiceFactory.Instance.GetService<PanelManager>();
-        var panel = pm.OpenPanel(nameof(CardSelectPanel)) as CardSelectPanel;
-        panel.BtnBack.gameObject.SetActive(false);
-        panel.SetCards(cards);
-        panel.CardSelected += (card, user) =>
-        {
-            user.Deck.Add(card);
-            pm.ClosePanel(panel);
-            Finish();
-        };
+        var panel = pm.OpenPanel(nameof(BootyPanel)) as BootyPanel;
+        panel.ShowItems(items);
+        panel.Quitting += Finish;
     }
 }
 

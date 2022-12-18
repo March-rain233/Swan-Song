@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using GameToolKit;
 
-public class UnitDataManager : ScriptableSingleton<UnitDataManager>
+public class UnitViewSetting : ScriptableSingleton<UnitViewSetting>
 {
-    public Dictionary<int, UnitModel> Models = new();
     public Dictionary<int, GameObject> UnitViews = new();
 }

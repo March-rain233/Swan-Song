@@ -61,6 +61,7 @@ public class DepolyPanel : PanelBase
         }
 
         CurrentSelect.Toggle.onValueChanged.Invoke(true);
+        FindObjectOfType<ViewPoint>().enabled = true;
     }
 
     void CreateSelect(UnitData unit)
@@ -104,7 +105,7 @@ public class DepolyPanel : PanelBase
         GameObject unitView;
         if(!_views.TryGetValue(view.UnitData, out unitView))
         {
-            unitView = Instantiate(UnitDataManager.Instance.UnitViews[view.UnitData.ViewType]);
+            unitView = Instantiate(UnitViewSetting.Instance.UnitViews[view.UnitData.ViewType]);
             _views.Add(view.UnitData, unitView);
         }
         unitView.transform.position = GameManager.Instance.GetState<BattleState>().MapRenderer

@@ -17,14 +17,35 @@ public class GameManager : IService
 
     public bool IsChangingState { get; private set; } = false;
 
+    public event Action<GameState> GameStateChanged;
+    public event Action<Artifact> ArtifactAdded;
+
     /// <summary>
     /// 当前运行的游戏数据
     /// </summary>
     public GameData GameData
     {
-        get;
-        internal set;
+        get => _gameData;
+        internal set
+        {
+            if(_gameData != null)
+            {
+                foreach(var art in _gameData.Artifacts)
+                {
+                    art.Disable();
+                }
+            }
+            _gameData = value;
+            if (_gameData != null)
+            {
+                foreach (var art in _gameData.Artifacts)
+                {
+                    art.Enable();
+                }
+            }
+        }
     }
+    GameData _gameData;
 
     void IService.Init() 
     {
@@ -55,7 +76,16 @@ public class GameManager : IService
         _gameStatus = new TGameStatus() { _gameManager = this };
         _gameStatus.OnEnter();
         IsChangingState = false;
+        
+        GameStateChanged?.Invoke(_gameStatus);
         return _gameStatus as TGameStatus;
+    }
+
+    public void AddArtifact(Artifact artifact)
+    {
+        GameData.Artifacts.Add(artifact);
+        artifact.Enable();
+        ArtifactAdded?.Invoke(artifact);
     }
 
     public void SaveGame()

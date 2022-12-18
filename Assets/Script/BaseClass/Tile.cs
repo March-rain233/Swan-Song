@@ -26,6 +26,8 @@ public abstract class Tile
     List<Unit> _units = new();
 
     public event Action TileStatusChanged;
+    public event Action<TileStatus> TileStatusAdded;
+    public event Action<TileStatus> TileStatusRemoved;
 
     /// <summary>
     /// 添加图格状态
@@ -43,6 +45,7 @@ public abstract class Tile
         status.Enable();
         status.StatusProcessOnEnter(_units);
         status.StatusProcessOnUpdata(_units);
+        TileStatusAdded?.Invoke(status);
         TileStatusChanged?.Invoke();
     }
 
@@ -51,12 +54,13 @@ public abstract class Tile
         status.StatusProcessOnExit(_units);
         status.Disable();
         _statusList.Remove(status);
+        TileStatusRemoved?.Invoke(status);
+        TileStatusChanged?.Invoke();
     }
 
     public void RemoveStatus(TileStatus tileStatus)
     {
         OnRemoveStatus(tileStatus);
-        TileStatusChanged?.Invoke();
     }
     public void RemoveStatus<TStatus>()
         where TStatus : TileStatus
@@ -65,7 +69,6 @@ public abstract class Tile
         if (ori != null)
         {
             OnRemoveStatus(ori);
-            TileStatusChanged?.Invoke();
         }
     }
 
@@ -130,17 +133,14 @@ public abstract class Tile
     /// </summary>
     protected void StatusProcessOnUpdata()
     {
-        foreach (var status in _statusList)
+        for(int i = _statusList.Count -1; i>= 0; i--)
         {
-            status.StatusProcessOnUpdata(_units);
+            _statusList[i].StatusProcessOnUpdata(_units);
         }
     }
 
     internal void Updata()
     {
-        foreach(var unit in _units)
-        {
-            StatusProcessOnUpdata();
-        }
+        StatusProcessOnUpdata();
     }
 }

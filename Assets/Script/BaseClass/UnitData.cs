@@ -59,7 +59,7 @@ public class UnitData
         get => _actionPoint;
         set
         {
-            _actionPoint = value;
+            _actionPoint = Mathf.Max(0, value);
             DataChanged?.Invoke(this);
         }
     }
@@ -134,6 +134,16 @@ public class UnitData
     /// 持有的牌库
     /// </summary>
     public List<Card> Deck;
+    /// <summary>
+    /// 套牌索引
+    /// </summary>
+    public List<int> BagIndex = new List<int>();
+
+    /// <summary>
+    /// 套牌
+    /// </summary>
+    [JsonIgnore]
+    public IEnumerable<Card> Bag => BagIndex.Select(i => Deck[i]);
 
     public event Action<UnitData> DataChanged;
 
@@ -157,6 +167,7 @@ public class UnitData
         {
             Deck.Add(card.Clone());
         }
+        BagIndex = Enumerable.Range(0, Mathf.Min(20, Deck.Count)).ToList();
     }
 
     //public UnitData()

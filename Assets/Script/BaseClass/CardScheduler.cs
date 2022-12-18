@@ -64,10 +64,15 @@ public class CardScheduler
     /// </summary>
     public event Action<Card> HandsRemoved;
 
-    internal CardScheduler(Unit unit, List<Card> cards)
+    /// <summary>
+    /// 卡牌释放事件
+    /// </summary>
+    public event Action<int, Card> CardReleased;
+
+    internal CardScheduler(Unit unit, IEnumerable<Card> cards)
     {
         Unit = unit;
-        Deck = new List<Card>(cards);
+        Deck = cards.ToList();
     }
 
     /// <summary>
@@ -77,10 +82,13 @@ public class CardScheduler
     {
         var card = Hands[index];
         Hands[index].Release(Unit, target);
-        Unit.UnitData.ActionPoint -= card.Cost == -1 ? Unit.UnitData.ActionPoint : card.Cost;
+        var cost = card.Cost == -1 ? Unit.UnitData.ActionPoint : card.Cost;
+        Unit.UnitData.ActionPoint -= cost;
         DiscardPile.Add(card);
         Hands.RemoveAt(index);
         HandsRemoved?.Invoke(card);
+
+        CardReleased?.Invoke(cost, card);
     }
 
     /// <summary>

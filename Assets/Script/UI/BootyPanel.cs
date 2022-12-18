@@ -49,11 +49,26 @@ public class BootyPanel : PanelBase
                     button.onClick.AddListener(() =>
                     {
                         var pm = ServiceFactory.Instance.GetService<PanelManager>();
-                        var panel =  pm.OpenPanel("CardSelectPanel") as CardSelectPanel;
+                        var panel =  pm.OpenPanel(nameof(CardSelectPanel)) as CardSelectPanel;
                         panel.SetCards(item.Value as List<(Card, UnitData)>);
                         panel.CardSelected += (card, data) =>
                         {
                             data.Deck.Add(card);
+                            pm.ClosePanel(panel);
+                            DeleteItem(obj);
+                        };
+                    });
+                    break;
+                case ItemType.Artifact:
+                    body.text = "»ñÈ¡ÒÅÎï";
+                    button.onClick.AddListener(() =>
+                    {
+                        var pm = ServiceFactory.Instance.GetService<PanelManager>();
+                        var panel = pm.OpenPanel(nameof(ArtifactSelectPanel)) as ArtifactSelectPanel;
+                        panel.SetOption(item.Value as IEnumerable<Artifact>);
+                        panel.Selected += (a) =>
+                        {
+                            GameManager.Instance.AddArtifact(a);
                             pm.ClosePanel(panel);
                             DeleteItem(obj);
                         };

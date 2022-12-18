@@ -12,10 +12,18 @@ public class MenuBar : MonoBehaviour
     public Button BtnSetting;
     public Button BtnMembers;
 
+    public LayoutGroup ArtifactListView;
+    public GameObject ArtifactViewModel;
+
     private void Awake()
     {
         var pm = ServiceFactory.Instance.GetService<PanelManager>();
         GameManager.Instance.GameData.GoldChanged += GameData_GoldChanged;
+        GameManager.Instance.ArtifactAdded += Instance_ArtifactAdded;
+        foreach(var a in GameManager.Instance.GameData.Artifacts)
+        {
+            Instance_ArtifactAdded(a);
+        }
         GameData_GoldChanged();
         BtnMembers.onClick.AddListener(() =>
         {
@@ -34,6 +42,13 @@ public class MenuBar : MonoBehaviour
         };
     }
 
+    private void Instance_ArtifactAdded(Artifact a)
+    {
+        var obj = Instantiate(ArtifactViewModel, ArtifactListView.transform);
+        var view = obj.GetComponent<ArtifactView>();
+        view.Binding(a);
+    }
+
     private void GameData_GoldChanged()
     {
         TxtCoin.text = GameManager.Instance.GameData.Gold.ToString();
@@ -42,5 +57,6 @@ public class MenuBar : MonoBehaviour
     private void OnDestroy()
     {
         GameManager.Instance.GameData.GoldChanged -= GameData_GoldChanged;
+        GameManager.Instance.ArtifactAdded -= Instance_ArtifactAdded;
     }
 }

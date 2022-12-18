@@ -21,6 +21,12 @@ public class MemberPanel : PanelBase
     protected override void OnInit()
     {
         base.OnInit();
+        UnitDetailView.BtnSkill.onClick.AddListener(() =>
+        {
+            var pm = ServiceFactory.Instance.GetService<PanelManager>()
+                .OpenPanel(nameof(CardConstructPanel)) as CardConstructPanel;
+            pm.Binding(UnitDetailView.UnitData);
+        });
         foreach(var member in GameManager.Instance.GameData.Members)
         {
             var obj = Instantiate(UnitSelectModel, UnitListRoot);
@@ -56,20 +62,5 @@ public class MemberPanel : PanelBase
             ServiceFactory.Instance.GetService<PanelManager>()
                 .ClosePanel(this);
         });
-        UnitDetailView.OnConstructSkills += (data) =>
-        {
-            var res = new List<(string, IEnumerable<(Card, UnitData)>)>();
-            System.Func<Card.CardType, string, (string, IEnumerable<(Card, UnitData)>)> func = (type, name) =>
-            {
-                return (name, from card in data.Deck
-                              where card.Type == type
-                              select (card, data));
-            };
-            res.Add(func(Card.CardType.Attack, "¹¥»÷"));
-            res.Add(func(Card.CardType.Heal, "ÖÎÓú"));
-            res.Add(func(Card.CardType.Defence, "·ÀÓù"));
-            res.Add(func(Card.CardType.Other, "ÆäËû"));
-            return res;
-        };
     }
 }

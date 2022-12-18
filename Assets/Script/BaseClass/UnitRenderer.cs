@@ -33,7 +33,7 @@ public class UnitRenderer
     /// <returns></returns>
     public UnitView CreateUnitView(Unit unit)
     {
-        var model = Object.Instantiate(UnitDataManager.Instance.UnitViews[unit.UnitData.ViewType],
+        var model = Object.Instantiate(UnitViewSetting.Instance.UnitViews[unit.UnitData.ViewType],
             _unitRoot);
         var view = model.GetComponent<UnitView>();
         view.Unit = unit;

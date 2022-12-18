@@ -32,6 +32,8 @@ MonoBehaviour:
     - {fileID: 1482844582534569750, guid: 16d7d68906b8e2b4b86f04ca4214e2a5, type: 3}
     - {fileID: 1727957530902569921, guid: 8f4260514ac3b2a4380e9720d3267b28, type: 3}
     - {fileID: 7400466890030952790, guid: f8b7d49414d817e44803dca3f9186145, type: 3}
+    - {fileID: 635506322263162810, guid: 3069e9a7caa265e4198fae7ad9e130b2, type: 3}
+    - {fileID: 2769334399631765910, guid: bfd0951284dfdbb4f8a6405054c18b4e, type: 3}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -50,7 +52,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 12
-      Data: 16
+      Data: 18
     - Name: 
       Entry: 7
       Data: 
@@ -240,6 +242,30 @@ MonoBehaviour:
     - Name: $v
       Entry: 10
       Data: 15
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: ArtifactSelectPanel
+    - Name: $v
+      Entry: 10
+      Data: 16
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: CardConstructPanel
+    - Name: $v
+      Entry: 10
+      Data: 17
     - Name: 
       Entry: 8
       Data: 

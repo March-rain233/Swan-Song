@@ -8,7 +8,7 @@ using UnityEngine;
 public class LightHeal : Card
 {
     public override CardType Type => CardType.Heal;
-
+    public override CardRarity Rarity => CardRarity.Privilege;
     public LightHeal()//束光愈_牧师专属
     {
         Name = "束光愈";

@@ -9,7 +9,7 @@ using GameToolKit;
 public class FireRain : Card
 {
     public override CardType Type => CardType.Attack;
-
+    public override CardRarity Rarity => CardRarity.Privilege;
     public AreaHelper AoeArea = new AreaHelper()
     {
         Center = new Vector2Int(1, 1),

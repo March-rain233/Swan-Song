@@ -9,7 +9,7 @@ using GameToolKit;
 public class SnowStorm : Card
 {
     public override CardType Type => CardType.Attack;
-
+    public override CardRarity Rarity => CardRarity.Privilege;
     public SnowStorm()//法师专属
     {
         Name = "暴风雪";

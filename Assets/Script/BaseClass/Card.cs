@@ -27,6 +27,15 @@ public abstract class Card
     }
 
     /// <summary>
+    /// 卡牌稀有度
+    /// </summary>
+    public enum CardRarity
+    {
+        Normal = 0,
+        Privilege = 1,
+    }
+
+    /// <summary>
     /// 卡牌释放目标数据
     /// </summary>
     public struct TargetData
@@ -71,6 +80,8 @@ public abstract class Card
     /// </summary>
     [JsonIgnore]
     public virtual CardType Type => CardType.Other;
+
+    public virtual CardRarity Rarity => CardRarity.Normal;
 
     /// <summary>
     /// 词条

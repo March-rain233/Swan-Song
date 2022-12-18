@@ -118,16 +118,24 @@ public class MapRenderer
         {
             for(int j = 0;j < map.Height; ++j)
             {
-                if(map[i,j] != null)
+                var tile = map[i, j];
+                if(tile != null)
                 {
-                    RenderTile(i, j, map[i,j]);
+                    _tilemap.SetTile(new Vector3Int(i, j, 0), TileSetting.Instance.TileDic[tile.TileType]);
                 }
             }
         }
     }
 
-    public void RenderTile(int i, int j, Tile tile)
+    public void AddTileStatus(int x, int y, TileStatus status)
     {
-        _tilemap.SetTile(new Vector3Int(i, j, 0), TileSetting.Instance.TileDic[tile.TileType]);
+        var view = TileSetting.Instance.Tiles[status.GetType().Name];
+        _statusTileMap.SetTile(new Vector3Int(x, y, view.level), view.tile);
+    }
+
+    public void RemoveTileStatus(int x, int y, TileStatus status)
+    {
+        var view = TileSetting.Instance.Tiles[status.GetType().Name];
+        _statusTileMap.SetTile(new Vector3Int(x, y, view.level), null);
     }
 }

@@ -35,7 +35,7 @@ public class GameData
     /// <summary>
     /// 队伍成员数据
     /// </summary>
-    public List<UnitData> Members;
+    public List<UnitData> Members = new();
 
     /// <summary>
     /// 分支选择树
@@ -48,4 +48,9 @@ public class GameData
     public int Chapter;
 
     public event Action GoldChanged;
+
+    /// <summary>
+    /// 遗物列表
+    /// </summary>
+    public List<Artifact> Artifacts = new List<Artifact>();
 }

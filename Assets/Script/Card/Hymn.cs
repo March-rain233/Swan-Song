@@ -9,7 +9,7 @@ using GameToolKit;
 public class Hymn : Card
 {
     public override CardType Type => CardType.Heal;
-
+    public override CardRarity Rarity => CardRarity.Privilege;
     public Hymn()//赞美诗_牧师专属
     {
         Name = "赞美诗";

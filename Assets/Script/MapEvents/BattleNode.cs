@@ -12,7 +12,7 @@ internal class BattleNode : ProcessNode
     {
         var gm = GameManager.Instance;
         gm.SetStatus<BattleState>()
-            .InitSystem(gm.GameData.Chapter, 2);
+            .InitSystem(2);
     }
 }
 
