@@ -100,6 +100,8 @@ public abstract class Unit : IHurtable, ICurable
     }
     int _canMoveCount = 0;
 
+    public int MoveDistance = int.MaxValue;
+
     #region 事件组
     /// <summary>
     /// 战斗开始时初始化
@@ -291,7 +293,7 @@ public abstract class Unit : IHurtable, ICurable
     public void Move(Vector2Int target)
     {
         var adapter = new GenericMapAdapter(this, GameManager.Instance.GetState<BattleState>().Map);
-        var rawPath = UnitUtility.FindShortestPath(adapter, adapter.Point2ID(Position), adapter.Point2ID(target), 4);
+        var rawPath = UnitUtility.FindShortestPath(adapter, adapter.Point2ID(Position), adapter.Point2ID(target), MoveDistance);
         var path = rawPath.Select(e => adapter.ID2Point(e));
         var pre = path.First();
         foreach(var p in path.Skip(1))

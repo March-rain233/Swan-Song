@@ -59,27 +59,27 @@ public class UnitModel
     /// <summary>
     /// 攻击成长曲线
     /// </summary>
-    public AnimationCurve AttackCurve = AnimationCurve.Linear(1, 0, GameManager.MaxLevel, 10);
+    public AnimationCurve AttackCurve = AnimationCurve.Linear(1, 1, GameManager.MaxLevel, 3);
     /// <summary>
     /// 防御成长曲线
     /// </summary>
-    public AnimationCurve DefenceCurve = AnimationCurve.Linear(1, 0, GameManager.MaxLevel, 10);
+    public AnimationCurve DefenceCurve = AnimationCurve.Linear(1, 1, GameManager.MaxLevel, 3);
     /// <summary>
     /// 治愈力成长曲线
     /// </summary>
-    public AnimationCurve HealCurve = AnimationCurve.Linear(1, 0, GameManager.MaxLevel, 10);
+    public AnimationCurve HealCurve = AnimationCurve.Linear(1, 1, GameManager.MaxLevel, 3);
     /// <summary>
     /// 先手成长曲线
     /// </summary>
-    public AnimationCurve SpeedCurve = AnimationCurve.Linear(1, 0, GameManager.MaxLevel, 10);
+    public AnimationCurve SpeedCurve = AnimationCurve.Linear(1, 1, GameManager.MaxLevel, 3);
     /// <summary>
     /// 血量成长曲线
     /// </summary>
-    public AnimationCurve BloodCurve = AnimationCurve.Linear(1, 0, GameManager.MaxLevel, 10);
+    public AnimationCurve BloodCurve = AnimationCurve.Linear(1, 1, GameManager.MaxLevel, 3);
     /// <summary>
     /// 行动点等级成长曲线
     /// </summary>
-    public AnimationCurve ActionPointCurve = AnimationCurve.Linear(1, 0, GameManager.MaxLevel, 10);
+    public AnimationCurve ActionPointCurve = AnimationCurve.Linear(1, 1, GameManager.MaxLevel, 2);
     /// <summary>
     /// 初始卡组
     /// </summary>

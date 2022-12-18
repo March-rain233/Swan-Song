@@ -35,7 +35,7 @@ public class NormalAttack : Card
     {
         TargetData targetData = new TargetData();
         var list = AttackArea.GetPointList(user.Position);
-        targetData.ViewTiles = list;
+        targetData.ViewTiles = list.Where(p=>UniversalFilter(p));
         targetData.AvaliableTile = list.Where(p => EnemyFilter(p, user.Camp));
         return targetData;
     }

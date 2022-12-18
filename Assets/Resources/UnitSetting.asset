@@ -46,22 +46,22 @@ MonoBehaviour:
       Data: 0
     - Name: Attack
       Entry: 3
-      Data: 1
+      Data: 10
     - Name: Defence
       Entry: 3
-      Data: 1
+      Data: 8
     - Name: Heal
       Entry: 3
       Data: 1
     - Name: Speed
       Entry: 3
-      Data: 1
+      Data: 5
     - Name: Blood
       Entry: 3
-      Data: 1
+      Data: 100
     - Name: ActionPoint
       Entry: 3
-      Data: 0
+      Data: 3
     - Name: AttackCurve
       Entry: 7
       Data: 2|UnityEngine.AnimationCurve, UnityEngine.CoreModule
@@ -82,16 +82,16 @@ MonoBehaviour:
       Data: 1
     - Name: m_Value
       Entry: 4
-      Data: 0
+      Data: 1
     - Name: m_InTangent
       Entry: 4
-      Data: 0
+      Data: 0.5
     - Name: m_OutTangent
       Entry: 4
-      Data: 2.5
+      Data: 0.5
     - Name: m_TangentMode
       Entry: 3
-      Data: 0
+      Data: 34
     - Name: m_WeightedMode
       Entry: 3
       Data: 0
@@ -100,7 +100,7 @@ MonoBehaviour:
       Data: 0
     - Name: m_OutWeight
       Entry: 4
-      Data: 0
+      Data: 0.333333343
     - Name: 
       Entry: 8
       Data: 
@@ -115,22 +115,22 @@ MonoBehaviour:
       Data: 5
     - Name: m_Value
       Entry: 4
-      Data: 10
+      Data: 3
     - Name: m_InTangent
       Entry: 4
-      Data: 2.5
+      Data: 0.5
     - Name: m_OutTangent
       Entry: 4
-      Data: 0
+      Data: 0.5
     - Name: m_TangentMode
       Entry: 3
-      Data: 0
+      Data: 34
     - Name: m_WeightedMode
       Entry: 3
       Data: 0
     - Name: m_InWeight
       Entry: 4
-      Data: 0
+      Data: 0.333333343
     - Name: m_OutWeight
       Entry: 4
       Data: 0
@@ -172,16 +172,16 @@ MonoBehaviour:
       Data: 1
     - Name: m_Value
       Entry: 4
-      Data: 0
+      Data: 1
     - Name: m_InTangent
       Entry: 4
-      Data: 0
+      Data: 0.5
     - Name: m_OutTangent
       Entry: 4
-      Data: 2.5
+      Data: 0.5
     - Name: m_TangentMode
       Entry: 3
-      Data: 0
+      Data: 34
     - Name: m_WeightedMode
       Entry: 3
       Data: 0
@@ -190,7 +190,7 @@ MonoBehaviour:
       Data: 0
     - Name: m_OutWeight
       Entry: 4
-      Data: 0
+      Data: 0.333333343
     - Name: 
       Entry: 8
       Data: 
@@ -205,22 +205,22 @@ MonoBehaviour:
       Data: 5
     - Name: m_Value
       Entry: 4
-      Data: 10
+      Data: 3
     - Name: m_InTangent
       Entry: 4
-      Data: 2.5
+      Data: 0.5
     - Name: m_OutTangent
       Entry: 4
-      Data: 0
+      Data: 0.5
     - Name: m_TangentMode
       Entry: 3
-      Data: 0
+      Data: 34
     - Name: m_WeightedMode
       Entry: 3
       Data: 0
     - Name: m_InWeight
       Entry: 4
-      Data: 0
+      Data: 0.333333343
     - Name: m_OutWeight
       Entry: 4
       Data: 0
@@ -262,16 +262,16 @@ MonoBehaviour:
       Data: 1
     - Name: m_Value
       Entry: 4
-      Data: 0
+      Data: 1
     - Name: m_InTangent
       Entry: 4
-      Data: 0
+      Data: 0.5
     - Name: m_OutTangent
       Entry: 4
-      Data: 2.5
+      Data: 0.5
     - Name: m_TangentMode
       Entry: 3
-      Data: 0
+      Data: 34
     - Name: m_WeightedMode
       Entry: 3
       Data: 0
@@ -280,7 +280,7 @@ MonoBehaviour:
       Data: 0
     - Name: m_OutWeight
       Entry: 4
-      Data: 0
+      Data: 0.333333343
     - Name: 
       Entry: 8
       Data: 
@@ -295,22 +295,22 @@ MonoBehaviour:
       Data: 5
     - Name: m_Value
       Entry: 4
-      Data: 10
+      Data: 3
     - Name: m_InTangent
       Entry: 4
-      Data: 2.5
+      Data: 0.5
     - Name: m_OutTangent
       Entry: 4
-      Data: 0
+      Data: 0.5
     - Name: m_TangentMode
       Entry: 3
-      Data: 0
+      Data: 34
     - Name: m_WeightedMode
       Entry: 3
       Data: 0
     - Name: m_InWeight
       Entry: 4
-      Data: 0
+      Data: 0.333333343
     - Name: m_OutWeight
       Entry: 4
       Data: 0
@@ -352,16 +352,16 @@ MonoBehaviour:
       Data: 1
     - Name: m_Value
       Entry: 4
-      Data: 0
+      Data: 1
     - Name: m_InTangent
       Entry: 4
-      Data: 0
+      Data: 0.5
     - Name: m_OutTangent
       Entry: 4
-      Data: 2.5
+      Data: 0.5
     - Name: m_TangentMode
       Entry: 3
-      Data: 0
+      Data: 34
     - Name: m_WeightedMode
       Entry: 3
       Data: 0
@@ -370,7 +370,7 @@ MonoBehaviour:
       Data: 0
     - Name: m_OutWeight
       Entry: 4
-      Data: 0
+      Data: 0.333333343
     - Name: 
       Entry: 8
       Data: 
@@ -385,22 +385,22 @@ MonoBehaviour:
       Data: 5
     - Name: m_Value
       Entry: 4
-      Data: 10
+      Data: 3
     - Name: m_InTangent
       Entry: 4
-      Data: 2.5
+      Data: 0.5
     - Name: m_OutTangent
       Entry: 4
-      Data: 0
+      Data: 0.5
     - Name: m_TangentMode
       Entry: 3
-      Data: 0
+      Data: 34
     - Name: m_WeightedMode
       Entry: 3
       Data: 0
     - Name: m_InWeight
       Entry: 4
-      Data: 0
+      Data: 0.333333343
     - Name: m_OutWeight
       Entry: 4
       Data: 0
@@ -442,16 +442,16 @@ MonoBehaviour:
       Data: 1
     - Name: m_Value
       Entry: 4
-      Data: 0
+      Data: 1
     - Name: m_InTangent
       Entry: 4
-      Data: 0
+      Data: 0.5
     - Name: m_OutTangent
       Entry: 4
-      Data: 2.5
+      Data: 0.5
     - Name: m_TangentMode
       Entry: 3
-      Data: 0
+      Data: 34
     - Name: m_WeightedMode
       Entry: 3
       Data: 0
@@ -460,7 +460,7 @@ MonoBehaviour:
       Data: 0
     - Name: m_OutWeight
       Entry: 4
-      Data: 0
+      Data: 0.333333343
     - Name: 
       Entry: 8
       Data: 
@@ -475,22 +475,22 @@ MonoBehaviour:
       Data: 5
     - Name: m_Value
       Entry: 4
-      Data: 10
+      Data: 3
     - Name: m_InTangent
       Entry: 4
-      Data: 2.5
+      Data: 0.5
     - Name: m_OutTangent
       Entry: 4
-      Data: 0
+      Data: 0.5
     - Name: m_TangentMode
       Entry: 3
-      Data: 0
+      Data: 34
     - Name: m_WeightedMode
       Entry: 3
       Data: 0
     - Name: m_InWeight
       Entry: 4
-      Data: 0
+      Data: 0.333333343
     - Name: m_OutWeight
       Entry: 4
       Data: 0
@@ -532,16 +532,16 @@ MonoBehaviour:
       Data: 1
     - Name: m_Value
       Entry: 4
-      Data: 0
+      Data: 1
     - Name: m_InTangent
       Entry: 4
-      Data: 0
+      Data: 0.5
     - Name: m_OutTangent
       Entry: 4
-      Data: 2.5
+      Data: 0.5
     - Name: m_TangentMode
       Entry: 3
-      Data: 0
+      Data: 34
     - Name: m_WeightedMode
       Entry: 3
       Data: 0
@@ -550,7 +550,7 @@ MonoBehaviour:
       Data: 0
     - Name: m_OutWeight
       Entry: 4
-      Data: 0
+      Data: 0.333333343
     - Name: 
       Entry: 8
       Data: 
@@ -565,22 +565,22 @@ MonoBehaviour:
       Data: 5
     - Name: m_Value
       Entry: 4
-      Data: 10
+      Data: 3
     - Name: m_InTangent
       Entry: 4
-      Data: 2.5
+      Data: 0.5
     - Name: m_OutTangent
       Entry: 4
-      Data: 0
+      Data: 0.5
     - Name: m_TangentMode
       Entry: 3
-      Data: 0
+      Data: 34
     - Name: m_WeightedMode
       Entry: 3
       Data: 0
     - Name: m_InWeight
       Entry: 4
-      Data: 0
+      Data: 0.333333343
     - Name: m_OutWeight
       Entry: 4
       Data: 0
@@ -985,19 +985,19 @@ MonoBehaviour:
       Data: 1
     - Name: Defence
       Entry: 3
-      Data: 1
+      Data: 5
     - Name: Heal
       Entry: 3
-      Data: 1
+      Data: 10
     - Name: Speed
       Entry: 3
-      Data: 1
+      Data: 4
     - Name: Blood
       Entry: 3
-      Data: 1
+      Data: 100
     - Name: ActionPoint
       Entry: 3
-      Data: 0
+      Data: 3
     - Name: AttackCurve
       Entry: 7
       Data: 32|UnityEngine.AnimationCurve, UnityEngine.CoreModule
@@ -1018,16 +1018,16 @@ MonoBehaviour:
       Data: 1
     - Name: m_Value
       Entry: 4
-      Data: 0
+      Data: 1
     - Name: m_InTangent
       Entry: 4
-      Data: 0
+      Data: 0.5
     - Name: m_OutTangent
       Entry: 4
-      Data: 2.5
+      Data: 0.5
     - Name: m_TangentMode
       Entry: 3
-      Data: 0
+      Data: 34
     - Name: m_WeightedMode
       Entry: 3
       Data: 0
@@ -1036,7 +1036,7 @@ MonoBehaviour:
       Data: 0
     - Name: m_OutWeight
       Entry: 4
-      Data: 0
+      Data: 0.333333343
     - Name: 
       Entry: 8
       Data: 
@@ -1051,22 +1051,22 @@ MonoBehaviour:
       Data: 5
     - Name: m_Value
       Entry: 4
-      Data: 10
+      Data: 3
     - Name: m_InTangent
       Entry: 4
-      Data: 2.5
+      Data: 0.5
     - Name: m_OutTangent
       Entry: 4
-      Data: 0
+      Data: 0.5
     - Name: m_TangentMode
       Entry: 3
-      Data: 0
+      Data: 34
     - Name: m_WeightedMode
       Entry: 3
       Data: 0
     - Name: m_InWeight
       Entry: 4
-      Data: 0
+      Data: 0.333333343
     - Name: m_OutWeight
       Entry: 4
       Data: 0
@@ -1108,16 +1108,16 @@ MonoBehaviour:
       Data: 1
     - Name: m_Value
       Entry: 4
-      Data: 0
+      Data: 1
     - Name: m_InTangent
       Entry: 4
-      Data: 0
+      Data: 0.5
     - Name: m_OutTangent
       Entry: 4
-      Data: 2.5
+      Data: 0.5
     - Name: m_TangentMode
       Entry: 3
-      Data: 0
+      Data: 34
     - Name: m_WeightedMode
       Entry: 3
       Data: 0
@@ -1126,7 +1126,7 @@ MonoBehaviour:
       Data: 0
     - Name: m_OutWeight
       Entry: 4
-      Data: 0
+      Data: 0.333333343
     - Name: 
       Entry: 8
       Data: 
@@ -1141,22 +1141,22 @@ MonoBehaviour:
       Data: 5
     - Name: m_Value
       Entry: 4
-      Data: 10
+      Data: 3
     - Name: m_InTangent
       Entry: 4
-      Data: 2.5
+      Data: 0.5
     - Name: m_OutTangent
       Entry: 4
-      Data: 0
+      Data: 0.5
     - Name: m_TangentMode
       Entry: 3
-      Data: 0
+      Data: 34
     - Name: m_WeightedMode
       Entry: 3
       Data: 0
     - Name: m_InWeight
       Entry: 4
-      Data: 0
+      Data: 0.333333343
     - Name: m_OutWeight
       Entry: 4
       Data: 0
@@ -1198,16 +1198,16 @@ MonoBehaviour:
       Data: 1
     - Name: m_Value
       Entry: 4
-      Data: 0
+      Data: 1
     - Name: m_InTangent
       Entry: 4
-      Data: 0
+      Data: 0.5
     - Name: m_OutTangent
       Entry: 4
-      Data: 2.5
+      Data: 0.5
     - Name: m_TangentMode
       Entry: 3
-      Data: 0
+      Data: 34
     - Name: m_WeightedMode
       Entry: 3
       Data: 0
@@ -1216,7 +1216,7 @@ MonoBehaviour:
       Data: 0
     - Name: m_OutWeight
       Entry: 4
-      Data: 0
+      Data: 0.333333343
     - Name: 
       Entry: 8
       Data: 
@@ -1231,22 +1231,22 @@ MonoBehaviour:
       Data: 5
     - Name: m_Value
       Entry: 4
-      Data: 10
+      Data: 3
     - Name: m_InTangent
       Entry: 4
-      Data: 2.5
+      Data: 0.5
     - Name: m_OutTangent
       Entry: 4
-      Data: 0
+      Data: 0.5
     - Name: m_TangentMode
       Entry: 3
-      Data: 0
+      Data: 34
     - Name: m_WeightedMode
       Entry: 3
       Data: 0
     - Name: m_InWeight
       Entry: 4
-      Data: 0
+      Data: 0.333333343
     - Name: m_OutWeight
       Entry: 4
       Data: 0
@@ -1288,16 +1288,16 @@ MonoBehaviour:
       Data: 1
     - Name: m_Value
       Entry: 4
-      Data: 0
+      Data: 1
     - Name: m_InTangent
       Entry: 4
-      Data: 0
+      Data: 0.5
     - Name: m_OutTangent
       Entry: 4
-      Data: 2.5
+      Data: 0.5
     - Name: m_TangentMode
       Entry: 3
-      Data: 0
+      Data: 34
     - Name: m_WeightedMode
       Entry: 3
       Data: 0
@@ -1306,7 +1306,7 @@ MonoBehaviour:
       Data: 0
     - Name: m_OutWeight
       Entry: 4
-      Data: 0
+      Data: 0.333333343
     - Name: 
       Entry: 8
       Data: 
@@ -1321,22 +1321,22 @@ MonoBehaviour:
       Data: 5
     - Name: m_Value
       Entry: 4
-      Data: 10
+      Data: 3
     - Name: m_InTangent
       Entry: 4
-      Data: 2.5
+      Data: 0.5
     - Name: m_OutTangent
       Entry: 4
-      Data: 0
+      Data: 0.5
     - Name: m_TangentMode
       Entry: 3
-      Data: 0
+      Data: 34
     - Name: m_WeightedMode
       Entry: 3
       Data: 0
     - Name: m_InWeight
       Entry: 4
-      Data: 0
+      Data: 0.333333343
     - Name: m_OutWeight
       Entry: 4
       Data: 0
@@ -1378,16 +1378,16 @@ MonoBehaviour:
       Data: 1
     - Name: m_Value
       Entry: 4
-      Data: 0
+      Data: 1
     - Name: m_InTangent
       Entry: 4
-      Data: 0
+      Data: 0.5
     - Name: m_OutTangent
       Entry: 4
-      Data: 2.5
+      Data: 0.5
     - Name: m_TangentMode
       Entry: 3
-      Data: 0
+      Data: 34
     - Name: m_WeightedMode
       Entry: 3
       Data: 0
@@ -1396,7 +1396,7 @@ MonoBehaviour:
       Data: 0
     - Name: m_OutWeight
       Entry: 4
-      Data: 0
+      Data: 0.333333343
     - Name: 
       Entry: 8
       Data: 
@@ -1411,22 +1411,22 @@ MonoBehaviour:
       Data: 5
     - Name: m_Value
       Entry: 4
-      Data: 10
+      Data: 3
     - Name: m_InTangent
       Entry: 4
-      Data: 2.5
+      Data: 0.5
     - Name: m_OutTangent
       Entry: 4
-      Data: 0
+      Data: 0.5
     - Name: m_TangentMode
       Entry: 3
-      Data: 0
+      Data: 34
     - Name: m_WeightedMode
       Entry: 3
       Data: 0
     - Name: m_InWeight
       Entry: 4
-      Data: 0
+      Data: 0.333333343
     - Name: m_OutWeight
       Entry: 4
       Data: 0
@@ -1468,16 +1468,16 @@ MonoBehaviour:
       Data: 1
     - Name: m_Value
       Entry: 4
-      Data: 0
+      Data: 1
     - Name: m_InTangent
       Entry: 4
-      Data: 0
+      Data: 0.5
     - Name: m_OutTangent
       Entry: 4
-      Data: 2.5
+      Data: 0.5
     - Name: m_TangentMode
       Entry: 3
-      Data: 0
+      Data: 34
     - Name: m_WeightedMode
       Entry: 3
       Data: 0
@@ -1486,7 +1486,7 @@ MonoBehaviour:
       Data: 0
     - Name: m_OutWeight
       Entry: 4
-      Data: 0
+      Data: 0.333333343
     - Name: 
       Entry: 8
       Data: 
@@ -1501,22 +1501,22 @@ MonoBehaviour:
       Data: 5
     - Name: m_Value
       Entry: 4
-      Data: 10
+      Data: 3
     - Name: m_InTangent
       Entry: 4
-      Data: 2.5
+      Data: 0.5
     - Name: m_OutTangent
       Entry: 4
-      Data: 0
+      Data: 0.5
     - Name: m_TangentMode
       Entry: 3
-      Data: 0
+      Data: 34
     - Name: m_WeightedMode
       Entry: 3
       Data: 0
     - Name: m_InWeight
       Entry: 4
-      Data: 0
+      Data: 0.333333343
     - Name: m_OutWeight
       Entry: 4
       Data: 0
@@ -1918,22 +1918,22 @@ MonoBehaviour:
       Data: 
     - Name: Attack
       Entry: 3
-      Data: 1
+      Data: 10
     - Name: Defence
       Entry: 3
-      Data: 1
+      Data: 2
     - Name: Heal
       Entry: 3
-      Data: 1
+      Data: 5
     - Name: Speed
       Entry: 3
-      Data: 1
+      Data: 2
     - Name: Blood
       Entry: 3
-      Data: 1
+      Data: 100
     - Name: ActionPoint
       Entry: 3
-      Data: 0
+      Data: 3
     - Name: AttackCurve
       Entry: 7
       Data: 62|UnityEngine.AnimationCurve, UnityEngine.CoreModule
@@ -1954,16 +1954,16 @@ MonoBehaviour:
       Data: 1
     - Name: m_Value
       Entry: 4
-      Data: 0
+      Data: 1
     - Name: m_InTangent
       Entry: 4
-      Data: 0
+      Data: 0.5
     - Name: m_OutTangent
       Entry: 4
-      Data: 2.5
+      Data: 0.5
     - Name: m_TangentMode
       Entry: 3
-      Data: 0
+      Data: 34
     - Name: m_WeightedMode
       Entry: 3
       Data: 0
@@ -1972,7 +1972,7 @@ MonoBehaviour:
       Data: 0
     - Name: m_OutWeight
       Entry: 4
-      Data: 0
+      Data: 0.333333343
     - Name: 
       Entry: 8
       Data: 
@@ -1987,22 +1987,22 @@ MonoBehaviour:
       Data: 5
     - Name: m_Value
       Entry: 4
-      Data: 10
+      Data: 3
     - Name: m_InTangent
       Entry: 4
-      Data: 2.5
+      Data: 0.5
     - Name: m_OutTangent
       Entry: 4
-      Data: 0
+      Data: 0.5
     - Name: m_TangentMode
       Entry: 3
-      Data: 0
+      Data: 34
     - Name: m_WeightedMode
       Entry: 3
       Data: 0
     - Name: m_InWeight
       Entry: 4
-      Data: 0
+      Data: 0.333333343
     - Name: m_OutWeight
       Entry: 4
       Data: 0
@@ -2044,16 +2044,16 @@ MonoBehaviour:
       Data: 1
     - Name: m_Value
       Entry: 4
-      Data: 0
+      Data: 1
     - Name: m_InTangent
       Entry: 4
-      Data: 0
+      Data: 0.5
     - Name: m_OutTangent
       Entry: 4
-      Data: 2.5
+      Data: 0.5
     - Name: m_TangentMode
       Entry: 3
-      Data: 0
+      Data: 34
     - Name: m_WeightedMode
       Entry: 3
       Data: 0
@@ -2062,7 +2062,7 @@ MonoBehaviour:
       Data: 0
     - Name: m_OutWeight
       Entry: 4
-      Data: 0
+      Data: 0.333333343
     - Name: 
       Entry: 8
       Data: 
@@ -2077,22 +2077,22 @@ MonoBehaviour:
       Data: 5
     - Name: m_Value
       Entry: 4
-      Data: 10
+      Data: 3
     - Name: m_InTangent
       Entry: 4
-      Data: 2.5
+      Data: 0.5
     - Name: m_OutTangent
       Entry: 4
-      Data: 0
+      Data: 0.5
     - Name: m_TangentMode
       Entry: 3
-      Data: 0
+      Data: 34
     - Name: m_WeightedMode
       Entry: 3
       Data: 0
     - Name: m_InWeight
       Entry: 4
-      Data: 0
+      Data: 0.333333343
     - Name: m_OutWeight
       Entry: 4
       Data: 0
@@ -2134,16 +2134,16 @@ MonoBehaviour:
       Data: 1
     - Name: m_Value
       Entry: 4
-      Data: 0
+      Data: 1
     - Name: m_InTangent
       Entry: 4
-      Data: 0
+      Data: 0.5
     - Name: m_OutTangent
       Entry: 4
-      Data: 2.5
+      Data: 0.5
     - Name: m_TangentMode
       Entry: 3
-      Data: 0
+      Data: 34
     - Name: m_WeightedMode
       Entry: 3
       Data: 0
@@ -2152,7 +2152,7 @@ MonoBehaviour:
       Data: 0
     - Name: m_OutWeight
       Entry: 4
-      Data: 0
+      Data: 0.333333343
     - Name: 
       Entry: 8
       Data: 
@@ -2167,22 +2167,22 @@ MonoBehaviour:
       Data: 5
     - Name: m_Value
       Entry: 4
-      Data: 10
+      Data: 3
     - Name: m_InTangent
       Entry: 4
-      Data: 2.5
+      Data: 0.5
     - Name: m_OutTangent
       Entry: 4
-      Data: 0
+      Data: 0.5
     - Name: m_TangentMode
       Entry: 3
-      Data: 0
+      Data: 34
     - Name: m_WeightedMode
       Entry: 3
       Data: 0
     - Name: m_InWeight
       Entry: 4
-      Data: 0
+      Data: 0.333333343
     - Name: m_OutWeight
       Entry: 4
       Data: 0
@@ -2224,16 +2224,16 @@ MonoBehaviour:
       Data: 1
     - Name: m_Value
       Entry: 4
-      Data: 0
+      Data: 1
     - Name: m_InTangent
       Entry: 4
-      Data: 0
+      Data: 0.5
     - Name: m_OutTangent
       Entry: 4
-      Data: 2.5
+      Data: 0.5
     - Name: m_TangentMode
       Entry: 3
-      Data: 0
+      Data: 34
     - Name: m_WeightedMode
       Entry: 3
       Data: 0
@@ -2242,7 +2242,7 @@ MonoBehaviour:
       Data: 0
     - Name: m_OutWeight
       Entry: 4
-      Data: 0
+      Data: 0.333333343
     - Name: 
       Entry: 8
       Data: 
@@ -2257,22 +2257,22 @@ MonoBehaviour:
       Data: 5
     - Name: m_Value
       Entry: 4
-      Data: 10
+      Data: 3
     - Name: m_InTangent
       Entry: 4
-      Data: 2.5
+      Data: 0.5
     - Name: m_OutTangent
       Entry: 4
-      Data: 0
+      Data: 0.5
     - Name: m_TangentMode
       Entry: 3
-      Data: 0
+      Data: 34
     - Name: m_WeightedMode
       Entry: 3
       Data: 0
     - Name: m_InWeight
       Entry: 4
-      Data: 0
+      Data: 0.333333343
     - Name: m_OutWeight
       Entry: 4
       Data: 0
@@ -2314,16 +2314,16 @@ MonoBehaviour:
       Data: 1
     - Name: m_Value
       Entry: 4
-      Data: 0
+      Data: 1
     - Name: m_InTangent
       Entry: 4
-      Data: 0
+      Data: 0.5
     - Name: m_OutTangent
       Entry: 4
-      Data: 2.5
+      Data: 0.5
     - Name: m_TangentMode
       Entry: 3
-      Data: 0
+      Data: 34
     - Name: m_WeightedMode
       Entry: 3
       Data: 0
@@ -2332,7 +2332,7 @@ MonoBehaviour:
       Data: 0
     - Name: m_OutWeight
       Entry: 4
-      Data: 0
+      Data: 0.333333343
     - Name: 
       Entry: 8
       Data: 
@@ -2347,22 +2347,22 @@ MonoBehaviour:
       Data: 5
     - Name: m_Value
       Entry: 4
-      Data: 10
+      Data: 3
     - Name: m_InTangent
       Entry: 4
-      Data: 2.5
+      Data: 0.5
     - Name: m_OutTangent
       Entry: 4
-      Data: 0
+      Data: 0.5
     - Name: m_TangentMode
       Entry: 3
-      Data: 0
+      Data: 34
     - Name: m_WeightedMode
       Entry: 3
       Data: 0
     - Name: m_InWeight
       Entry: 4
-      Data: 0
+      Data: 0.333333343
     - Name: m_OutWeight
       Entry: 4
       Data: 0
@@ -2404,16 +2404,16 @@ MonoBehaviour:
       Data: 1
     - Name: m_Value
       Entry: 4
-      Data: 0
+      Data: 1
     - Name: m_InTangent
       Entry: 4
-      Data: 0
+      Data: 0.5
     - Name: m_OutTangent
       Entry: 4
-      Data: 2.5
+      Data: 0.5
     - Name: m_TangentMode
       Entry: 3
-      Data: 0
+      Data: 34
     - Name: m_WeightedMode
       Entry: 3
       Data: 0
@@ -2422,7 +2422,7 @@ MonoBehaviour:
       Data: 0
     - Name: m_OutWeight
       Entry: 4
-      Data: 0
+      Data: 0.333333343
     - Name: 
       Entry: 8
       Data: 
@@ -2437,22 +2437,22 @@ MonoBehaviour:
       Data: 5
     - Name: m_Value
       Entry: 4
-      Data: 10
+      Data: 3
     - Name: m_InTangent
       Entry: 4
-      Data: 2.5
+      Data: 0.5
     - Name: m_OutTangent
       Entry: 4
-      Data: 0
+      Data: 0.5
     - Name: m_TangentMode
       Entry: 3
-      Data: 0
+      Data: 34
     - Name: m_WeightedMode
       Entry: 3
       Data: 0
     - Name: m_InWeight
       Entry: 4
-      Data: 0
+      Data: 0.333333343
     - Name: m_OutWeight
       Entry: 4
       Data: 0

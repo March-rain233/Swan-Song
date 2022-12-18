@@ -7,6 +7,7 @@ public class Player : Unit
 {
     public Player(UnitData data, Vector2Int pos) : base(data, pos)
     {
+        MoveDistance = 4;
     }
 
     protected override void Decide()

@@ -38,6 +38,7 @@ public class FungalSpider : Unit
         attackPlayer(player);
         //撤退
         retreat(player.Position);
+        EndTurn();
     }
 
     /// <summary>

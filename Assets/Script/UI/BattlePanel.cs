@@ -119,10 +119,10 @@ public class BattlePanel : PanelBase
             face.sprite = player.UnitData.Face;
             name.text = player.UnitData.Name;
             hpBar.InitHpBar(player.UnitData.Blood, player.UnitData.BloodMax);
-            ur.UnitViews.First(v => v.Unit == player).ViewDataChanged += (_) =>
+            ur.UnitViews.First(v => v.Unit == player).ViewDataChanged += (data) =>
               {
-                  hpBar.MaxHp = player.UnitData.BloodMax;
-                  hpBar.Hp = player.UnitData.Blood;
+                  hpBar.MaxHp = data.BloodMax;
+                  hpBar.Hp = data.Blood;
               };
             toggle.group = PlayerGroup;
             toggle.onValueChanged.AddListener((v) =>

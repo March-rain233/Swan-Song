@@ -53,18 +53,28 @@ public class BattleAnimator
         };
         _battleState.Successed += () =>
         {
-            vp.enabled = false;
-            var panel = pm.OpenPanel(nameof(BootyPanel)) as BootyPanel;
-            panel.ShowItems(_battleState.ItemList);
-            panel.Quitting += () =>
+            var seq = DOTween.Sequence();
+            seq.AppendCallback(() =>
             {
-                GameManager.Instance.SetStatus<SelectLevelState>();
-            };
+                vp.enabled = false;
+                var panel = pm.OpenPanel(nameof(BootyPanel)) as BootyPanel;
+                panel.ShowItems(_battleState.ItemList);
+                panel.Quitting += () =>
+                {
+                    GameManager.Instance.SetStatus<SelectLevelState>();
+                };
+            });
+            EnqueueAnimation(seq);
         };
         _battleState.Failed += () =>
         {
-            vp.enabled = false;
-            pm.OpenPanel("FailurePanel");
+            var seq = DOTween.Sequence();
+            seq.AppendCallback(() =>
+            {
+                vp.enabled = false;
+                var panel = pm.OpenPanel(nameof(FailurePanel));
+            });
+            EnqueueAnimation(seq);
         };
     }
 
