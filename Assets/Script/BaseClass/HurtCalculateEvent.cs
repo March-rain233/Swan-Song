@@ -13,5 +13,5 @@ public class HurtCalculateEvent : EventBase
     public HurtType Type;
     public object Source;
     public IHurtable Target;
-    public int FinalDamage => UnityEngine.Mathf.FloorToInt((OriDamage + DamageAdd) * Rate);
+    public int FinalDamage => UnityEngine.Mathf.CeilToInt((OriDamage + DamageAdd) * Rate);
 }

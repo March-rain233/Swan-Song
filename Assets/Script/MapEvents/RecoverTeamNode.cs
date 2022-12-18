@@ -14,7 +14,7 @@ internal class RecoverTeamNode : ProcessNode
     {
         foreach(var m in GameManager.Instance.GameData.Members)
         {
-            m.Blood = Mathf.Min(m.Blood + Mathf.FloorToInt(m.BloodMax * Percent), m.BloodMax);
+            m.Blood = Mathf.Min(m.Blood + Mathf.CeilToInt(m.BloodMax * Percent), m.BloodMax);
         }
         Finish();
     }

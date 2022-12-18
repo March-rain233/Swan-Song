@@ -367,7 +367,7 @@ public abstract class Unit : IHurtable, ICurable
 
     void IHurtable.OnHurt(float damage, HurtType type, object source)
     {
-        int actDamage = Mathf.FloorToInt(damage);
+        int actDamage = Mathf.CeilToInt(damage);
         if (actDamage > 0)
         {
             UnitData.Blood -= actDamage;
@@ -394,6 +394,6 @@ public abstract class Unit : IHurtable, ICurable
 
     void ICurable.OnCure(float power)
     {
-        UnitData.Blood += Mathf.FloorToInt(power);
+        UnitData.Blood += Mathf.CeilToInt(power);
     }
 }

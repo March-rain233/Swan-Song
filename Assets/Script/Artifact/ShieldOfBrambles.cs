@@ -9,7 +9,7 @@ public class ShieldOfBrambles : Artifact
 {
     protected override void OnDisable()
     {
-        GameManager.Instance.GameStateChanged += Instance_GameStateChanged;
+        GameManager.Instance.GameStateChanged -= Instance_GameStateChanged;
     }
 
     private void Instance_GameStateChanged(GameState obj)
@@ -38,7 +38,7 @@ public class ShieldOfBrambles : Artifact
 
     protected override void OnEnable()
     {
-        GameManager.Instance.GameStateChanged -= Instance_GameStateChanged;
+        GameManager.Instance.GameStateChanged += Instance_GameStateChanged;
     }
 }
 

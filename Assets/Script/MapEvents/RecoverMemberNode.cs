@@ -15,7 +15,7 @@ internal class RecoverMemberNode : ProcessNode
     protected override void OnPlay()
     {
         var m = GameManager.Instance.GameData.Members[Index];
-        m.Blood = Mathf.Min(m.Blood + Mathf.FloorToInt(m.BloodMax * Percent), m.BloodMax);
+        m.Blood = Mathf.Min(m.Blood + Mathf.CeilToInt(m.BloodMax * Percent), m.BloodMax);
         Finish();
     }
 }

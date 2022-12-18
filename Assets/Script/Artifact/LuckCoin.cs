@@ -9,7 +9,7 @@ public class LuckCoin : Artifact
 {
     protected override void OnDisable()
     {
-        GameManager.Instance.GameStateChanged += Instance_GameStateChanged;
+        GameManager.Instance.GameStateChanged -= Instance_GameStateChanged;
     }
 
     private void Instance_GameStateChanged(GameState obj)
@@ -29,7 +29,7 @@ public class LuckCoin : Artifact
             if(sta.RoundNumber <= 10)
             {
                 var item = list.Find(p => p.Type == BattleState.ItemType.Money);
-                item.Value = Mathf.FloorToInt((float)item.Value * 1.2f);
+                item.Value = Mathf.CeilToInt((float)item.Value * 1.2f);
 
                 BattleState.Item cardItem = new BattleState.Item()
                 {
@@ -46,13 +46,13 @@ public class LuckCoin : Artifact
             else
             {
                 var item = list.Find(p => p.Type == BattleState.ItemType.Money);
-                item.Value = Mathf.FloorToInt((float)item.Value *0.8f);
+                item.Value = Mathf.CeilToInt((float)item.Value *0.8f);
             }
         };
     }
 
     protected override void OnEnable()
     {
-        GameManager.Instance.GameStateChanged -= Instance_GameStateChanged;
+        GameManager.Instance.GameStateChanged += Instance_GameStateChanged;
     }
 }

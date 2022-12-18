@@ -26,6 +26,7 @@ public class GuiderManager : IService
         { 2, new TreeMapGuider() },
         { 3, new DepolyGuider() },
         { 4, new BattleGuider() },
+        { 5, new CardConstructGuider() },
     };
     public string Path => Application.persistentDataPath + "/guider.data";
 

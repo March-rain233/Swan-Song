@@ -23,7 +23,7 @@ public class UnitData
         public int AddValue = 0;
         public float Rate = 1;
         [JsonIgnore]
-        public int Value => Mathf.FloorToInt((OriValue + AddValue) * Rate); 
+        public int Value => Mathf.CeilToInt((OriValue + AddValue) * Rate); 
     }
     /// <summary>
     /// 单位显示类型
@@ -197,8 +197,8 @@ public class UnitData
         //todo：升级公式
         Func<AnimationCurve, float, int> getDiff = (curve, baseValue) =>
          {
-             int ori = Mathf.FloorToInt(curve.Evaluate(Level - 1) * baseValue);
-             int next = Mathf.FloorToInt(curve.Evaluate(level - 1) * baseValue);
+             int ori = Mathf.CeilToInt(curve.Evaluate(Level) * baseValue);
+             int next = Mathf.CeilToInt(curve.Evaluate(level) * baseValue);
              return next - ori;
          };
         BloodMaxWrapper.OriValue += getDiff(UnitModel.BloodCurve, UnitModel.Blood);
@@ -211,12 +211,11 @@ public class UnitData
         if(level > Level)
         {
             Blood = BloodMax;
-            ActionPoint = ActionPointMax;
+            ActionPoint = Mathf.Max(ActionPoint, ActionPointMax);
         }
         else
         {
             Blood = Mathf.Min(BloodMax, Blood);
-            ActionPoint = Mathf.Min(ActionPointMax, ActionPoint);
         }
         Level = level;
 

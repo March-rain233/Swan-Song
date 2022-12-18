@@ -282,6 +282,48 @@ public class BattleState : GameState
                 break;
         }
     }
+    /// <summary>
+    /// 下一回合
+    /// </summary>
+    void NextTurn()
+    {
+        RoundNumber += 1;
+
+        //发动灭亡之歌
+        if (RoundNumber >= SwanSongRoundNumber)
+        {
+            foreach (var unit in UnitList.Where(u => u.ActionStatus != ActionStatus.Dead))
+            {
+                (unit as IHurtable).Hurt(unit.UnitData.BloodMax * 0.2f, HurtType.FromBuff, this);
+            }
+        }
+
+        Map.Updata();
+
+        foreach (var unit in UnitList.Where(u => u.ActionStatus != ActionStatus.Dead))
+        {
+            unit.Prepare();
+        }
+        CurrentUnit = null;
+        TurnBeginning?.Invoke(RoundNumber);
+        NextUnitTurn();
+    }
+
+    /// <summary>
+    /// 检测胜负
+    /// </summary>
+    GameStatus CheckGame()
+    {
+        if (UnitList.Where(u => u.Camp == Camp.Player && u.ActionStatus != ActionStatus.Dead).Count() <= 0)
+        {
+            return GameStatus.Failure;
+        }
+        else if (UnitList.Where(u => u.Camp == Camp.Enemy && u.ActionStatus != ActionStatus.Dead).Count() <= 0)
+        {
+            return GameStatus.Victory;
+        }
+        return GameStatus.Continue;
+    }
 
     void OnInitBooty()
     {
@@ -395,48 +437,5 @@ public class BattleState : GameState
     void OnFail()
     {
         Failed?.Invoke();
-    }
-
-    /// <summary>
-    /// 下一回合
-    /// </summary>
-    void NextTurn()
-    {
-        RoundNumber += 1;
-
-        //发动灭亡之歌
-        if (RoundNumber >= SwanSongRoundNumber)
-        {
-            foreach (var unit in UnitList.Where(u => u.ActionStatus != ActionStatus.Dead))
-            {
-                (unit as IHurtable).Hurt(unit.UnitData.BloodMax * 0.2f, HurtType.FromBuff, this);
-            }
-        }
-
-        Map.Updata();
-
-        foreach (var unit in UnitList.Where(u => u.ActionStatus != ActionStatus.Dead))
-        {
-            unit.Prepare();
-        }
-        CurrentUnit = null;
-        TurnBeginning?.Invoke(RoundNumber);
-        NextUnitTurn();
-    }
-
-    /// <summary>
-    /// 检测胜负
-    /// </summary>
-    GameStatus CheckGame()
-    {
-        if (UnitList.Where(u => u.Camp == Camp.Player && u.ActionStatus != ActionStatus.Dead).Count() <= 0)
-        {
-            return GameStatus.Failure;
-        }
-        else if (UnitList.Where(u => u.Camp == Camp.Enemy && u.ActionStatus != ActionStatus.Dead).Count() <= 0)
-        {
-            return GameStatus.Victory;
-        }
-        return GameStatus.Continue;
     }
 }
