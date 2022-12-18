@@ -124,7 +124,9 @@ public class BattlePanel : PanelBase
                   hpBar.MaxHp = data.BloodMax;
                   hpBar.Hp = data.Blood;
               };
+            toggle.isOn = true;
             toggle.group = PlayerGroup;
+            img.color = SelectColor;
             toggle.onValueChanged.AddListener((v) =>
             {
                 if (v)

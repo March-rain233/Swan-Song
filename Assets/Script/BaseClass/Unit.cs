@@ -292,6 +292,10 @@ public abstract class Unit : IHurtable, ICurable
     /// <param name="target">移动目标位置</param>
     public void Move(Vector2Int target)
     {
+        if (!CanMove)
+        {
+            return;
+        }
         var adapter = new GenericMapAdapter(this, GameManager.Instance.GetState<BattleState>().Map);
         var rawPath = UnitUtility.FindShortestPath(adapter, adapter.Point2ID(Position), adapter.Point2ID(target), MoveDistance);
         var path = rawPath.Select(e => adapter.ID2Point(e));
