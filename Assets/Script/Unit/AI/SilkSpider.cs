@@ -37,6 +37,7 @@ public class SilkSpider : Unit
         Player player = getAttackPlayer();
         //攻击对象
         attackPlayer(player);
+        EndTurn();
     }
 
     /// <summary>
@@ -47,13 +48,13 @@ public class SilkSpider : Unit
     {
         //获得玩家对象
         List<Player> players = GameManager.Instance.GetState<BattleState>().PlayerList.ToList();
-        int num = -1;
+        int num = 0;
         int i = 0;
         double maxAction = int.MinValue;//设初值为最小值
 
         foreach (Player p in players)
         {
-            if (p.UnitData.ActionPoint > maxAction && p.ActionStatus == ActionStatus.Running)
+            if (p.UnitData.ActionPoint > maxAction && p.ActionStatus != ActionStatus.Dead)
             {
                 maxAction = p.UnitData.ActionPoint;
                 num = i;
@@ -86,6 +87,7 @@ public class SilkSpider : Unit
                 if(attackedPlayers[p] == 3)
                 {
                     restrain.Time = int.MaxValue;//不能移动的buff施加时间无限长，即本局都不能动
+                    player.AddBuff(restrain);
                 }
                 break;
             }
@@ -94,7 +96,6 @@ public class SilkSpider : Unit
         {
             attackedPlayers.Add(player,1);
         }
-
     }
 
 

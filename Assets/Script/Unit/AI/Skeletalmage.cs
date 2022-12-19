@@ -32,6 +32,7 @@ public class Skeletalmage : Unit
         Player player = getAttackPlayer();
         //攻击对象
         attackPlayer(player);
+        EndTurn();
     }
 
     /// <summary>
@@ -42,14 +43,14 @@ public class Skeletalmage : Unit
     {
         //获得玩家对象
         List<Player> players = GameManager.Instance.GetState<BattleState>().PlayerList.ToList();
-        int num = -1;//记录距离最短的玩家的号码
+        int num = 0;//记录距离最短的玩家的号码
         int i = 0;
         double minDis = int.MaxValue;//设初值为最大值
 
         foreach (Player p in players)
         {
             double dis = Math.Pow(Math.Abs(p.Position.x - this.Position.x), 2.0) + Math.Pow(Math.Abs(p.Position.y - this.Position.y), 2.0);
-            if (dis < minDis && p.ActionStatus == ActionStatus.Running)
+            if (dis < minDis && p.ActionStatus != ActionStatus.Running)
             {
                 minDis = dis;
                 num = i;

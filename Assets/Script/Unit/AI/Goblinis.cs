@@ -34,6 +34,7 @@ public class Goblinis : Unit
         attackPlayer(player);
         //撤退
         retreat(player.Position);
+        EndTurn();
     }
 
     /// <summary>
@@ -44,14 +45,17 @@ public class Goblinis : Unit
     {
         //获得玩家对象
         List<Player> players = GameManager.Instance.GetState<BattleState>().PlayerList.ToList();
-        int num = -1;//记录距离最短的玩家的号码
+        int num = 0;//记录距离最短的玩家的号码
         int i = 0;
         double minDis = int.MaxValue;//设初值为最大值
+        //Debug.Log(players.Count.ToString());
 
         foreach (Player p in players)
         {
             double dis = Math.Pow(Math.Abs(p.Position.x - this.Position.x), 2.0) + Math.Pow(Math.Abs(p.Position.y - this.Position.y), 2.0);
-            if (dis < minDis && p.ActionStatus == ActionStatus.Running)
+            //Debug.Log(dis.ToString());
+            //Debug.Log(p.ActionStatus.ToString());
+            if (dis < minDis && p.ActionStatus != ActionStatus.Dead)
             {
                 minDis = dis;
                 num = i;
@@ -94,19 +98,56 @@ public class Goblinis : Unit
         //获取可以移动的位置
         List<Vector2Int> moveablePos = GetMoveArea().ToList();
         Vector2Int pos = playerPos;
-        bool flag = false;//是否找到可靠近的位置
-        //玩家附近有八个位置，找到一个可降落的位置
-        for (int i = -1; i <= 1 && !flag; ++i)
+        if (playerPos.y - this.Position.y != 0 && playerPos.x - this.Position.x != 0)
         {
-            for (int j = -1; j <= 1 && !flag; ++j)
+            int k = (playerPos.y - this.Position.y) / (playerPos.x - this.Position.x);
+            int signal = 0;
+            if (playerPos.x > this.Position.x) signal = -1;
+            else signal = 1;
+            bool find = false;
+            for (int i = 0; i < Math.Abs(playerPos.x - this.Position.x) && !find; i++)
             {
-                pos = new Vector2Int(playerPos.x + i, playerPos.y + j);
-
+                pos.x += signal*(i + 1);
+                pos.y += (i + 1) * signal * k;
                 foreach (Vector2Int ps in moveablePos)
                 {
                     if (pos == ps)
                     {
-                        flag = true;
+                        find = true;
+                        break;
+                    }
+                }
+            }
+        }
+        if (playerPos.y - this.Position.y == 0)
+        {
+            bool find = false;
+            for (int i = 0; i < Math.Abs(playerPos.x - this.Position.x) && !find; i++)
+            {
+                if (playerPos.x > this.Position.x) pos.x -= 1;
+                else pos.x += 1;
+                foreach (Vector2Int ps in moveablePos)
+                {
+                    if (pos == ps)
+                    {
+                        find = true;
+                        break;
+                    }
+                }
+            }
+        }
+        if (playerPos.x - this.Position.x == 0)
+        {
+            bool find = false;
+            for (int i = 0; i < Math.Abs(playerPos.y - this.Position.y) && !find; i++)
+            {
+                if (playerPos.y > this.Position.y) pos.y -= 1;
+                else pos.y += 1;
+                foreach (Vector2Int ps in moveablePos)
+                {
+                    if (pos == ps)
+                    {
+                        find = true;
                         break;
                     }
                 }

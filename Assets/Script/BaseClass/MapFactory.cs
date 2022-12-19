@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -61,7 +61,7 @@ public static class MapFactory
             }
         }
         //创建单位
-        data.Units = new() { new FungalSpider(new Vector2Int(5, 5)) { Camp = Camp.Enemy} };
+        data.Units = new() { new SilkSpider(new Vector2Int(5, 5)) { Camp = Camp.Enemy} };
 
         //设定可放置节点
         data.PlaceablePoints = new();
