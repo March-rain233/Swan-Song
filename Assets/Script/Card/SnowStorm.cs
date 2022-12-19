@@ -39,7 +39,8 @@ public class SnowStorm : Card
     protected internal override TargetData GetAvaliableTarget(Unit user)
     {
         TargetData targetData = new TargetData();
-        var list = AoeArea.GetPointList(user.Position);
+        var list = AoeArea.GetPointList(user.Position)
+            .Where(p=>UniversalFilter(p));
         targetData.ViewTiles = list;
         targetData.AvaliableTile = list;
         return targetData;
@@ -53,9 +54,9 @@ public class SnowStorm : Card
         {
             for(int i = 0; i < 5; ++i)
             {
-                (u as IHurtable).Hurt(user.UnitData.Attack * 0.5f, HurtType.AP | HurtType.FromUnit, user);
+                (u as IHurtable).Hurt(user.UnitData.Attack * 0.5f, HurtType.AP | HurtType.FromUnit | HurtType.Ranged, user);
             }
-            u.AddBuff(new Freeze());
+            u.AddBuff(new Freeze() { Time =1 });
         }
     }
 }

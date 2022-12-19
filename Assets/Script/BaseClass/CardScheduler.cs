@@ -73,6 +73,7 @@ public class CardScheduler
     {
         Unit = unit;
         Deck = cards.ToList();
+        Shuffle(Deck);
     }
 
     /// <summary>
@@ -109,7 +110,11 @@ public class CardScheduler
     {
         if(Deck.Count == 0)
         {
-            return null;
+            OnDeckEmpty();
+            if (Deck.Count == 0)
+            {
+                return null;
+            }
         }
         var i = UnityEngine.Random.Range(0, Deck.Count);
         var card = Deck[i];
@@ -124,9 +129,6 @@ public class CardScheduler
     /// </summary>
     internal void Prepare()
     {
-        Shuffle(DiscardPile);
-        Deck.AddRange(DiscardPile);
-        DiscardPile.Clear();
         DrawCard();
         DrawCard();
     }
@@ -144,5 +146,12 @@ public class CardScheduler
             cards[select] = cards[cards.Count - i - 1];
             cards[cards.Count - i - 1] = temp;
         }
+    }
+
+    void OnDeckEmpty()
+    {
+        Shuffle(DiscardPile);
+        Deck.AddRange(DiscardPile);
+        DiscardPile.Clear();
     }
 }

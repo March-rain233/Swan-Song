@@ -26,7 +26,7 @@ public class PackAPunch : Card
     public PackAPunch ()//蓄力猛击
     {
         Name = "蓄力猛击";
-        Description = "对范围内敌人造成<color=red>10%</color>力量值的伤害，每消耗1体力，提升<color=red>40%</color>力量值的伤害";
+        Description = "对范围内敌人造成<color=red>10%</color>力量值的伤害，每消耗1体力，就额外造成<color=red>40%</color>力量值的伤害";
         Cost = -1;
     }
 

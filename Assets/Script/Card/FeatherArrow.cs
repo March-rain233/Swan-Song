@@ -8,7 +8,7 @@ using UnityEngine;
 public class FeatherArrow : Card
 {
     public override CardType Type => CardType.Attack;
-
+    public override CardRarity Rarity => CardRarity.Privilege;
     public FeatherArrow()//穿羽箭_弓手专属
     {
         Name="穿羽箭";

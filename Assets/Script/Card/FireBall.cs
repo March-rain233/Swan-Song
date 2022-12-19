@@ -18,7 +18,7 @@ public class FireBall : Card
     };
     public AreaHelper AttackArea = new AreaHelper()
     {
-        Center = new Vector2Int(2, 2),
+        Center = new Vector2Int(1, 2),
         Flags = new bool[5, 5]
         {
             {true,true,true,true,true },
@@ -30,7 +30,7 @@ public class FireBall : Card
     };
     public FireBall()
     {
-        Name = "Fire Ball";
+        Name = "»ðÇò";
         Description = "AOE";
         Cost = 5;
     }

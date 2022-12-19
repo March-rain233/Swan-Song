@@ -62,7 +62,7 @@ public abstract class Card
     /// <summary>
     /// 卡面图片
     /// </summary>
-    [JsonConverter(typeof(ObjectConvert))]
+    [JsonConverter(typeof(SpriteConvert))]
     public Sprite Sprite;
 
     /// <summary>

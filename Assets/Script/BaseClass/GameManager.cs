@@ -53,7 +53,7 @@ public class GameManager : IService
             .Root.GetComponent<UnityEngine.UI.CanvasScaler>();
         cs.uiScaleMode = UnityEngine.UI.CanvasScaler.ScaleMode.ScaleWithScreenSize;
         cs.screenMatchMode = UnityEngine.UI.CanvasScaler.ScreenMatchMode.MatchWidthOrHeight;
-
+        var objs = Resources.LoadAll<Sprite>("");
         SetStatus<MainMenuState>();
     }
 

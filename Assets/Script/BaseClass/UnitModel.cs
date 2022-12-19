@@ -25,7 +25,7 @@ public class UnitModel
     /// <summary>
     /// 默认立绘
     /// </summary>
-    [JsonConverter(typeof(ObjectConvert))]
+    [JsonConverter(typeof(SpriteConvert))]
     public Sprite DefaultFace = null;
     /// <summary>
     /// 初始攻击力

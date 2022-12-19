@@ -9,15 +9,17 @@ using GameToolKit;
 public class EarthShock : Card
 {
     public override CardType Type => CardType.Attack;
+    public override CardRarity Rarity => CardRarity.Privilege;
 
     public AreaHelper AttackArea = new AreaHelper()
     {
-        Flags = new bool[4, 4]
+        Flags = new bool[5, 5]
         {
-            { true, true, true, true },
-            { true, true, true, true },
-            { true, true, true, true },
-            { true, true, true, true }
+            { true, true, true, true, true },
+            { true, true, true, true, true },
+            { true, true, true, true, true },
+            { true, true, true, true, true },
+            { true, true, true, true, true },
         },
         Center = new Vector2Int(2, 2)
     };
@@ -38,7 +40,8 @@ public class EarthShock : Card
     protected internal override TargetData GetAvaliableTarget(Unit user)
     {
         TargetData targetData = new TargetData();
-        var list = AttackArea.GetPointList(user.Position);
+        var list = AttackArea.GetPointList(user.Position)
+            .Where(p=>UniversalFilter(p));
         targetData.ViewTiles = list;
         targetData.AvaliableTile = list;
         return targetData;

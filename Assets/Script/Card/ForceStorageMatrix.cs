@@ -46,24 +46,10 @@ public class ForceStorageMatrix : Card
 
     protected internal override void Release(Unit user, Vector2Int target)
     {
-        var sta = GameManager.Instance.GetState<BattleState>();
-        int times = 2;
-        int attack = user.UnitData.Attack;
-        Action<int> callback = null;
-        callback = (_) =>
+        foreach(var t in GetAffecrTarget(user, target)
+            .Select(p => _map[p]))
         {
-            times -= 1;
-            if (times == 0)
-            {
-                foreach (var u in GetAffecrTarget(user, target)
-                    .Where(p => EnemyFilter(p, user.Camp))
-                    .Select(p => _map[p].Units.First() as IHurtable))
-                {
-                    u.Hurt(attack * 2, HurtType.AP | HurtType.Ranged | HurtType.FromUnit, user);
-                }
-                sta.TurnBeginning -= callback;
-            }
-        };
-        sta.TurnBeginning += callback;
+            t.AddStatus(new AttackMatrixStatus() { User = user, Times = 2 });
+        }
     }
 }

@@ -57,11 +57,8 @@ public abstract class Unit : IHurtable, ICurable
         get => _position;
         set
         {
-            var manager = GameToolKit.ServiceFactory.Instance.GetService<GameManager>()
-                .GetState() as BattleState;
-            manager.Map[_position.x, _position.y].Exit(this);
-            _position = value;
-            manager.Map[_position.x, _position.y].Enter(this);
+            SetPosition(value);
+            Transfered?.Invoke(_position);
         }
     }
     Vector2Int _position = Vector2Int.zero;
@@ -121,6 +118,10 @@ public abstract class Unit : IHurtable, ICurable
     public event Action Preparing;
 
     /// <summary>
+    /// 单位传送事件
+    /// </summary>
+    public event Action<Vector2Int> Transfered;
+    /// <summary>
     /// 单位移动事件
     /// </summary>
     public event Action<IEnumerable<Vector2Int>> Moved;
@@ -156,6 +157,15 @@ public abstract class Unit : IHurtable, ICurable
     }
 
     protected Unit(UnitModel model, Vector2Int pos) : this(new UnitData(model), pos) { }
+
+    void SetPosition(Vector2Int position)
+    {
+        var manager = GameToolKit.ServiceFactory.Instance.GetService<GameManager>()
+            .GetState() as BattleState;
+        manager.Map[_position].Exit(this);
+        _position = position;
+        manager.Map[_position].Enter(this);
+    }
 
     /// <summary>
     /// 战斗开始时初始化
@@ -203,6 +213,10 @@ public abstract class Unit : IHurtable, ICurable
         if (ActionStatus == ActionStatus.Running)
         {
             Decide();
+        }
+        else
+        {
+            EndTurn();
         }
     }
 
@@ -302,7 +316,7 @@ public abstract class Unit : IHurtable, ICurable
         var pre = path.First();
         foreach(var p in path.Skip(1))
         {
-            Position = p;
+            SetPosition(p);
             Direction = (Position - pre).ToDirection();
             pre = p;
         }
@@ -334,7 +348,7 @@ public abstract class Unit : IHurtable, ICurable
             return Enumerable.Empty<Vector2Int>();
         }
         var adapter = new GenericMapAdapter(this, GameManager.Instance.GetState<BattleState>().Map);
-        var list = UnitUtility.GetAllAvailableNode(adapter, adapter.Point2ID(Position), UnitData.ActionPoint);
+        var list = UnitUtility.GetAllAvailableNode(adapter, adapter.Point2ID(Position), MoveDistance);
         return list.Select(e => adapter.ID2Point(e)).Where(e =>
         {
             return TileUtility.TryGetTile(e, out var tile) && tile.Units.Count == 0;

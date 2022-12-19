@@ -43,7 +43,7 @@ public class UnitData
     /// <summary>
     /// 单位头像
     /// </summary>
-    [JsonConverter(typeof(ObjectConvert))]
+    [JsonConverter(typeof(SpriteConvert))]
     public Sprite Face;
 
     /// <summary>

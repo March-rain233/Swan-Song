@@ -148,10 +148,10 @@ MonoBehaviour:
       Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
     - Name: 
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 3
-      Data: 1
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -784,10 +784,37 @@ MonoBehaviour:
       Data: 42|System.Boolean[,], mscorlib
     - Name: 
       Entry: 12
-      Data: 16
+      Data: 25
     - Name: ranks
       Entry: 1
-      Data: 4|4
+      Data: 5|5
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
     - Name: 
       Entry: 5
       Data: true
@@ -847,10 +874,10 @@ MonoBehaviour:
       Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
     - Name: 
       Entry: 3
-      Data: 1
+      Data: 2
     - Name: 
       Entry: 3
-      Data: 1
+      Data: 2
     - Name: 
       Entry: 8
       Data: 
@@ -2127,53 +2154,62 @@ MonoBehaviour:
       Entry: 8
       Data: 
     - Name: AreaHelper
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
       Entry: 7
-      Data: 98|StoneAttack, Assembly-CSharp
-    - Name: Name
-      Entry: 1
-      Data: "\u6295\u77F3"
-    - Name: Description
-      Entry: 1
-      Data: "\u5BF9\u9009\u4E2D\u5355\u4F4D\u9020\u6210<color=red>40%</color>\u529B\u91CF\u503C\u7684\u4F24\u5BB3"
-    - Name: Sprite
-      Entry: 6
-      Data: 
-    - Name: Cost
-      Entry: 3
-      Data: 1
-    - Name: HasEnchanted
-      Entry: 5
-      Data: false
-    - Name: Entries
+      Data: 98|AreaHelper, Assembly-CSharp
+    - Name: Flags
       Entry: 7
-      Data: 99|System.Collections.Generic.HashSet`1[[Entry, Assembly-CSharp]], System.Core
+      Data: 99|System.Boolean[,], mscorlib
     - Name: 
       Entry: 12
-      Data: 0
+      Data: 4
+    - Name: ranks
+      Entry: 1
+      Data: 1|4
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
     - Name: 
       Entry: 13
       Data: 
     - Name: 
       Entry: 8
       Data: 
+    - Name: Center
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: 
       Entry: 8
       Data: 
     - Name: 
       Entry: 7
-      Data: 100|SwingAttack, Assembly-CSharp
+      Data: 100|StoneAttack, Assembly-CSharp
     - Name: Name
       Entry: 1
-      Data: "\u6325\u51FB"
+      Data: "\u6295\u77F3"
     - Name: Description
       Entry: 1
-      Data: "\u5BF9\u524D\u65B9\u6A2A\u6392\u4E09\u683C\u654C\u4EBA\u9020\u6210\u4E00\u6B21<color=red>50%</color>\u529B\u91CF\u503C\u7684\u4F24\u5BB3"
+      Data: "\u5BF9\u9009\u4E2D\u5355\u4F4D\u9020\u6210<color=red>40%</color>\u529B\u91CF\u503C\u7684\u4F24\u5BB3"
     - Name: Sprite
       Entry: 6
       Data: 
@@ -2195,21 +2231,18 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-    - Name: AreaHelper
-      Entry: 6
-      Data: 
     - Name: 
       Entry: 8
       Data: 
     - Name: 
       Entry: 7
-      Data: 102|WaterAttack, Assembly-CSharp
+      Data: 102|SwingAttack, Assembly-CSharp
     - Name: Name
       Entry: 1
-      Data: "\u6C34\u5F39\u672F"
+      Data: "\u6325\u51FB"
     - Name: Description
       Entry: 1
-      Data: "\u5BF9\u8303\u56F4\u5185\u7684\u654C\u4EBA\u9020\u6210<color=red>25%</color>\u529B\u91CF\u503C\u7684\u4F24\u5BB3"
+      Data: "\u5BF9\u524D\u65B9\u6A2A\u6392\u4E09\u683C\u654C\u4EBA\u9020\u6210\u4E00\u6B21<color=red>50%</color>\u529B\u91CF\u503C\u7684\u4F24\u5BB3"
     - Name: Sprite
       Entry: 6
       Data: 
@@ -2231,12 +2264,48 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+    - Name: AreaHelper
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 104|WaterAttack, Assembly-CSharp
+    - Name: Name
+      Entry: 1
+      Data: "\u6C34\u5F39\u672F"
+    - Name: Description
+      Entry: 1
+      Data: "\u5BF9\u8303\u56F4\u5185\u7684\u654C\u4EBA\u9020\u6210<color=red>25%</color>\u529B\u91CF\u503C\u7684\u4F24\u5BB3"
+    - Name: Sprite
+      Entry: 6
+      Data: 
+    - Name: Cost
+      Entry: 3
+      Data: 1
+    - Name: HasEnchanted
+      Entry: 5
+      Data: false
+    - Name: Entries
+      Entry: 7
+      Data: 105|System.Collections.Generic.HashSet`1[[Entry, Assembly-CSharp]], System.Core
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: AoeArea
       Entry: 7
-      Data: 104|AreaHelper, Assembly-CSharp
+      Data: 106|AreaHelper, Assembly-CSharp
     - Name: Flags
       Entry: 7
-      Data: 105|System.Boolean[,], mscorlib
+      Data: 107|System.Boolean[,], mscorlib
     - Name: 
       Entry: 12
       Data: 4
@@ -2296,16 +2365,16 @@ MonoBehaviour:
       Data: Warrior
     - Name: $v
       Entry: 7
-      Data: 106|System.Collections.Generic.List`1[[Card, Assembly-CSharp]], mscorlib
+      Data: 108|System.Collections.Generic.List`1[[Card, Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
-      Data: 2
+      Data: 3
     - Name: 
       Entry: 9
       Data: 25
     - Name: 
       Entry: 7
-      Data: 107|RockFall, Assembly-CSharp
+      Data: 109|RockFall, Assembly-CSharp
     - Name: Name
       Entry: 1
       Data: "\u5CA9\u5D29\u65A9"
@@ -2323,7 +2392,7 @@ MonoBehaviour:
       Data: false
     - Name: Entries
       Entry: 7
-      Data: 108|System.Collections.Generic.HashSet`1[[Entry, Assembly-CSharp]], System.Core
+      Data: 110|System.Collections.Generic.HashSet`1[[Entry, Assembly-CSharp]], System.Core
     - Name: 
       Entry: 12
       Data: 0
@@ -2335,10 +2404,10 @@ MonoBehaviour:
       Data: 
     - Name: AreaHelper
       Entry: 7
-      Data: 109|AreaHelper, Assembly-CSharp
+      Data: 111|AreaHelper, Assembly-CSharp
     - Name: Flags
       Entry: 7
-      Data: 110|System.Boolean[,], mscorlib
+      Data: 112|System.Boolean[,], mscorlib
     - Name: 
       Entry: 12
       Data: 4
@@ -2382,6 +2451,39 @@ MonoBehaviour:
       Entry: 8
       Data: 
     - Name: 
+      Entry: 7
+      Data: 113|AngryFire, Assembly-CSharp
+    - Name: Name
+      Entry: 1
+      Data: "\u6012\u706B"
+    - Name: Description
+      Entry: 1
+      Data: "\u672C\u56DE\u5408\u53D7\u5230\u7684\u4F24\u5BB3\u51CF\u5C11<color=blue>30%</color>\u589E\u52A0<color=red>50</color>\u70B9\u529B\u91CF\u503C\u82E5\u8840\u91CF\u4F4E\u4E8E70%\uFF0C\u989D\u5916\u62BD\u53D6\u4E00\u5F20\u5361\u724C"
+    - Name: Sprite
+      Entry: 6
+      Data: 
+    - Name: Cost
+      Entry: 3
+      Data: 2
+    - Name: HasEnchanted
+      Entry: 5
+      Data: false
+    - Name: Entries
+      Entry: 7
+      Data: 114|System.Collections.Generic.HashSet`1[[Entry, Assembly-CSharp]], System.Core
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
       Entry: 13
       Data: 
     - Name: 
@@ -2398,7 +2500,7 @@ MonoBehaviour:
       Data: Priest
     - Name: $v
       Entry: 7
-      Data: 111|System.Collections.Generic.List`1[[Card, Assembly-CSharp]], mscorlib
+      Data: 115|System.Collections.Generic.List`1[[Card, Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
       Data: 3
@@ -2428,7 +2530,7 @@ MonoBehaviour:
       Data: Mage
     - Name: $v
       Entry: 7
-      Data: 112|System.Collections.Generic.List`1[[Card, Assembly-CSharp]], mscorlib
+      Data: 116|System.Collections.Generic.List`1[[Card, Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
       Data: 2
@@ -2455,10 +2557,13 @@ MonoBehaviour:
       Data: 
     - Name: TotalPool
       Entry: 7
-      Data: 113|System.Collections.Generic.List`1[[Card, Assembly-CSharp]], mscorlib
+      Data: 117|System.Collections.Generic.List`1[[Card, Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
-      Data: 37
+      Data: 40
+    - Name: 
+      Entry: 9
+      Data: 113
     - Name: 
       Entry: 9
       Data: 3
@@ -2489,6 +2594,147 @@ MonoBehaviour:
     - Name: 
       Entry: 9
       Data: 29
+    - Name: 
+      Entry: 7
+      Data: 118|EarthShock, Assembly-CSharp
+    - Name: Name
+      Entry: 1
+      Data: "\u9707\u5730\u51FB"
+    - Name: Description
+      Entry: 1
+      Data: "\u5BF9\u8303\u56F4\u5185\u654C\u4EBA\u9020\u6210<color=red>150%</color>\u529B\u91CF\u503C\u7684\u4F24\u5BB3\uFF0C\u5E76\u4F7F\u5176\u4E2D\u7684\u654C\u4EBA\u6655\u7729\u4E00\u56DE\u5408"
+    - Name: Sprite
+      Entry: 6
+      Data: 
+    - Name: Cost
+      Entry: 3
+      Data: 2
+    - Name: HasEnchanted
+      Entry: 5
+      Data: false
+    - Name: Entries
+      Entry: 7
+      Data: 119|System.Collections.Generic.HashSet`1[[Entry, Assembly-CSharp]], System.Core
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: AttackArea
+      Entry: 7
+      Data: 120|AreaHelper, Assembly-CSharp
+    - Name: Flags
+      Entry: 7
+      Data: 121|System.Boolean[,], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 25
+    - Name: ranks
+      Entry: 1
+      Data: 5|5
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Center
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: 
       Entry: 9
       Data: 31
@@ -2526,50 +2772,14 @@ MonoBehaviour:
       Entry: 9
       Data: 61
     - Name: 
-      Entry: 9
-      Data: 65
-    - Name: 
-      Entry: 9
-      Data: 69
-    - Name: 
-      Entry: 9
-      Data: 71
-    - Name: 
-      Entry: 9
-      Data: 73
-    - Name: 
-      Entry: 9
-      Data: 75
-    - Name: 
-      Entry: 9
-      Data: 79
-    - Name: 
-      Entry: 9
-      Data: 107
-    - Name: 
-      Entry: 9
-      Data: 83
-    - Name: 
-      Entry: 9
-      Data: 88
-    - Name: 
-      Entry: 9
-      Data: 92
-    - Name: 
-      Entry: 9
-      Data: 96
-    - Name: 
-      Entry: 9
-      Data: 98
-    - Name: 
       Entry: 7
-      Data: 114|SwingAttack, Assembly-CSharp
+      Data: 122|NormalAttack, Assembly-CSharp
     - Name: Name
       Entry: 1
-      Data: "\u6325\u51FB"
+      Data: "\u666E\u901A\u653B\u51FB"
     - Name: Description
       Entry: 1
-      Data: "\u5BF9\u524D\u65B9\u6A2A\u6392\u4E09\u683C\u654C\u4EBA\u9020\u6210\u4E00\u6B21<color=red>50%</color>\u529B\u91CF\u503C\u7684\u4F24\u5BB3"
+      Data: "\u5BF9\u654C\u65B9\u9020\u6210<color=red>100%</color>\u529B\u91CF\u503C\u7684\u4F24\u5BB3"
     - Name: Sprite
       Entry: 6
       Data: 
@@ -2581,7 +2791,7 @@ MonoBehaviour:
       Data: false
     - Name: Entries
       Entry: 7
-      Data: 115|System.Collections.Generic.HashSet`1[[Entry, Assembly-CSharp]], System.Core
+      Data: 123|System.Collections.Generic.HashSet`1[[Entry, Assembly-CSharp]], System.Core
     - Name: 
       Entry: 12
       Data: 0
@@ -2591,99 +2801,12 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-    - Name: AreaHelper
+    - Name: AttackArea
       Entry: 7
-      Data: 116|AreaHelper, Assembly-CSharp
+      Data: 124|AreaHelper, Assembly-CSharp
     - Name: Flags
       Entry: 7
-      Data: 117|System.Boolean[,], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 6
-    - Name: ranks
-      Entry: 1
-      Data: 2|3
-    - Name: 
-      Entry: 5
-      Data: false
-    - Name: 
-      Entry: 5
-      Data: false
-    - Name: 
-      Entry: 5
-      Data: false
-    - Name: 
-      Entry: 5
-      Data: true
-    - Name: 
-      Entry: 5
-      Data: true
-    - Name: 
-      Entry: 5
-      Data: true
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Center
-      Entry: 7
-      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
-    - Name: 
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 3
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 9
-      Data: 102
-    - Name: 
-      Entry: 7
-      Data: 118|Slay, Assembly-CSharp
-    - Name: Name
-      Entry: 1
-      Data: "\u65A9\u6740"
-    - Name: Description
-      Entry: 1
-      Data: "\u5BF9\u8EAB\u524D\u4E00\u683C\u7684\u654C\u4EBA\u9020\u6210<color=red>200%</color>\u529B\u91CF\u503C\u7684\u4F24\u5BB3\uFF0C\u82E5\u654C\u4EBA\u8840\u91CF\u4F4E\u4E8E40%\uFF0C\u76F4\u63A5\u5C06\u5176\u6D88\u706D\uFF0C\u6D88\u706D\u6548\u679C\u5BF9boss\u65E0\u6548"
-    - Name: Sprite
-      Entry: 6
-      Data: 
-    - Name: Cost
-      Entry: 3
-      Data: 3
-    - Name: HasEnchanted
-      Entry: 5
-      Data: false
-    - Name: Entries
-      Entry: 7
-      Data: 119|System.Collections.Generic.HashSet`1[[Entry, Assembly-CSharp]], System.Core
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: AreaHelper
-      Entry: 7
-      Data: 120|AreaHelper, Assembly-CSharp
-    - Name: Flags
-      Entry: 7
-      Data: 121|System.Boolean[,], mscorlib
+      Data: 125|System.Boolean[,], mscorlib
     - Name: 
       Entry: 12
       Data: 9
@@ -2741,6 +2864,141 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+    - Name: 
+      Entry: 9
+      Data: 65
+    - Name: 
+      Entry: 9
+      Data: 69
+    - Name: 
+      Entry: 9
+      Data: 71
+    - Name: 
+      Entry: 9
+      Data: 73
+    - Name: 
+      Entry: 9
+      Data: 75
+    - Name: 
+      Entry: 9
+      Data: 79
+    - Name: 
+      Entry: 9
+      Data: 109
+    - Name: 
+      Entry: 9
+      Data: 83
+    - Name: 
+      Entry: 9
+      Data: 88
+    - Name: 
+      Entry: 9
+      Data: 92
+    - Name: 
+      Entry: 9
+      Data: 96
+    - Name: 
+      Entry: 9
+      Data: 100
+    - Name: 
+      Entry: 9
+      Data: 5
+    - Name: 
+      Entry: 7
+      Data: 126|Slay, Assembly-CSharp
+    - Name: Name
+      Entry: 1
+      Data: "\u65A9\u6740"
+    - Name: Description
+      Entry: 1
+      Data: "\u5BF9\u8EAB\u524D\u4E00\u683C\u7684\u654C\u4EBA\u9020\u6210<color=red>200%</color>\u529B\u91CF\u503C\u7684\u4F24\u5BB3\uFF0C\u82E5\u654C\u4EBA\u8840\u91CF\u4F4E\u4E8E40%\uFF0C\u76F4\u63A5\u5C06\u5176\u6D88\u706D\uFF0C\u6D88\u706D\u6548\u679C\u5BF9boss\u65E0\u6548"
+    - Name: Sprite
+      Entry: 6
+      Data: 
+    - Name: Cost
+      Entry: 3
+      Data: 3
+    - Name: HasEnchanted
+      Entry: 5
+      Data: false
+    - Name: Entries
+      Entry: 7
+      Data: 127|System.Collections.Generic.HashSet`1[[Entry, Assembly-CSharp]], System.Core
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: AreaHelper
+      Entry: 7
+      Data: 128|AreaHelper, Assembly-CSharp
+    - Name: Flags
+      Entry: 7
+      Data: 129|System.Boolean[,], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 9
+    - Name: ranks
+      Entry: 1
+      Data: 3|3
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Center
+      Entry: 7
+      Data: UnityEngine.Vector2Int, UnityEngine.CoreModule
+    - Name: 
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 9
+      Data: 104
     - Name: 
       Entry: 13
       Data: 

@@ -39,10 +39,10 @@ public class StabAttack : Card
     {
         TargetData data = new TargetData();
         data.ViewTiles = new List<Vector2Int>();
-        data.ViewTiles.Union(AreaHelper.GetPointList(user.Position, Direction.Up));
-        data.ViewTiles.Union(AreaHelper.GetPointList(user.Position, Direction.Down));
-        data.ViewTiles.Union(AreaHelper.GetPointList(user.Position, Direction.Left));
-        data.ViewTiles.Union(AreaHelper.GetPointList(user.Position, Direction.Right));
+        data.ViewTiles = data.ViewTiles.Union(AreaHelper.GetPointList(user.Position, Direction.Up));
+        data.ViewTiles = data.ViewTiles.Union(AreaHelper.GetPointList(user.Position, Direction.Down));
+        data.ViewTiles = data.ViewTiles.Union(AreaHelper.GetPointList(user.Position, Direction.Left));
+        data.ViewTiles = data.ViewTiles.Union(AreaHelper.GetPointList(user.Position, Direction.Right));
         data.ViewTiles = data.ViewTiles.Where(p =>UniversalFilter(p));
         data.AvaliableTile = data.ViewTiles;
         return data;

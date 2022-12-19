@@ -27,7 +27,7 @@ public class ComboAttack : Card
     {
         Name = "连击";
         Description = $"对敌人造成<color=red>{Percent * 100}%</color>力量值的伤害，" +
-            $"本局对战中每使用过一次，就增加<color=red>{AddPercent * 100}</color>力量值的伤害";
+            $"本局对战中每使用过一次，就增加<color=red>{AddPercent * 100}%</color>力量值的伤害";
         Cost = 1;
     }
 
@@ -41,7 +41,8 @@ public class ComboAttack : Card
     protected internal override TargetData GetAvaliableTarget(Unit user)
     {
         TargetData targetData = new TargetData();
-        var list = AttackArea.GetPointList(user.Position);
+        var list = AttackArea.GetPointList(user.Position)
+            .Where(p=>UniversalFilter(p));
         targetData.ViewTiles = list;
         targetData.AvaliableTile = list.Where(p => EnemyFilter(p, user.Camp));
         return targetData;

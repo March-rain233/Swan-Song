@@ -47,7 +47,7 @@ public class IronThornPlant : Card
         foreach(var tile in GetAffecrTarget(user, target)
             .Select(t => _map[t]))
         {
-            tile.AddStatus(new CaltropStatus() { Damage = user.UnitData.Attack * 0.3f });
+            tile.AddStatus(new CaltropStatus() { Damage = user.UnitData.Attack * 0.3f , Times = 2});
         }
     }
 }

@@ -205,6 +205,42 @@ public class HealMatrixStatus : RoundStatus
     }
 }
 
+public class AttackMatrixStatus : RoundStatus
+{
+    public Unit User;
+    protected override void OnDisable()
+    {
+        
+    }
+
+    protected override void OnEnable()
+    {
+        
+    }
+
+    protected internal override void StatusProcessOnEnter(IEnumerable<Unit> units)
+    {
+        
+    }
+
+    protected internal override void StatusProcessOnExit(IEnumerable<Unit> units)
+    {
+        
+    }
+
+    protected internal override void StatusProcessOnUpdata(IEnumerable<Unit> units)
+    {
+        base.StatusProcessOnUpdata(units);
+        if(Times == 0)
+        {
+            foreach(IHurtable unit in units)
+            {
+                unit.Hurt(User.UnitData.Attack * 2, HurtType.AP | HurtType.FromTile, this);
+            }
+        }
+    }
+}
+
 public class SilkscreenStatus : TileStatus
 {
     protected override void OnDisable()

@@ -889,13 +889,13 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 27|NormalHeal, Assembly-CSharp
+      Data: 27|LowerTreatment, Assembly-CSharp
     - Name: Name
       Entry: 1
-      Data: Normal Heal
+      Data: "\u4F4E\u7EA7\u6CBB\u7597\u672F"
     - Name: Description
       Entry: 1
-      Data: Heal all friendly unit
+      Data: "\u6062\u590D\u6307\u5B9A\u89D2\u8272<color=green>\uFF0860+40%\u8654\u8BDA\u503C\uFF09</color>\u70B9\u751F\u547D"
     - Name: Sprite
       Entry: 6
       Data: 
@@ -922,13 +922,13 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 29|NormalHeal, Assembly-CSharp
+      Data: 29|LowerTreatment, Assembly-CSharp
     - Name: Name
       Entry: 1
-      Data: Normal Heal
+      Data: "\u4F4E\u7EA7\u6CBB\u7597\u672F"
     - Name: Description
       Entry: 1
-      Data: Heal all friendly unit
+      Data: "\u6062\u590D\u6307\u5B9A\u89D2\u8272<color=green>\uFF0860+40%\u8654\u8BDA\u503C\uFF09</color>\u70B9\u751F\u547D"
     - Name: Sprite
       Entry: 6
       Data: 
@@ -1825,13 +1825,13 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 57|NormalHeal, Assembly-CSharp
+      Data: 57|LowerTreatment, Assembly-CSharp
     - Name: Name
       Entry: 1
-      Data: Normal Heal
+      Data: "\u4F4E\u7EA7\u6CBB\u7597\u672F"
     - Name: Description
       Entry: 1
-      Data: Heal all friendly unit
+      Data: "\u6062\u590D\u6307\u5B9A\u89D2\u8272<color=green>\uFF0860+40%\u8654\u8BDA\u503C\uFF09</color>\u70B9\u751F\u547D"
     - Name: Sprite
       Entry: 6
       Data: 
@@ -1858,13 +1858,13 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 59|NormalHeal, Assembly-CSharp
+      Data: 59|LowerTreatment, Assembly-CSharp
     - Name: Name
       Entry: 1
-      Data: Normal Heal
+      Data: "\u4F4E\u7EA7\u6CBB\u7597\u672F"
     - Name: Description
       Entry: 1
-      Data: Heal all friendly unit
+      Data: "\u6062\u590D\u6307\u5B9A\u89D2\u8272<color=green>\uFF0860+40%\u8654\u8BDA\u503C\uFF09</color>\u70B9\u751F\u547D"
     - Name: Sprite
       Entry: 6
       Data: 
@@ -2761,13 +2761,13 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 87|NormalHeal, Assembly-CSharp
+      Data: 87|LowerTreatment, Assembly-CSharp
     - Name: Name
       Entry: 1
-      Data: Normal Heal
+      Data: "\u4F4E\u7EA7\u6CBB\u7597\u672F"
     - Name: Description
       Entry: 1
-      Data: Heal all friendly unit
+      Data: "\u6062\u590D\u6307\u5B9A\u89D2\u8272<color=green>\uFF0860+40%\u8654\u8BDA\u503C\uFF09</color>\u70B9\u751F\u547D"
     - Name: Sprite
       Entry: 6
       Data: 
@@ -2794,13 +2794,13 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 89|NormalHeal, Assembly-CSharp
+      Data: 89|LowerTreatment, Assembly-CSharp
     - Name: Name
       Entry: 1
-      Data: Normal Heal
+      Data: "\u4F4E\u7EA7\u6CBB\u7597\u672F"
     - Name: Description
       Entry: 1
-      Data: Heal all friendly unit
+      Data: "\u6062\u590D\u6307\u5B9A\u89D2\u8272<color=green>\uFF0860+40%\u8654\u8BDA\u503C\uFF09</color>\u70B9\u751F\u547D"
     - Name: Sprite
       Entry: 6
       Data: 

@@ -10,7 +10,7 @@ public class SwingAttack : Card
 {
     public AreaHelper AreaHelper = new AreaHelper()
     {
-        Center = new Vector2Int(0, 1),
+        Center = new Vector2Int(1, 0),
         Flags = new bool[2, 3]
         {
             {false, false, false},
@@ -40,10 +40,10 @@ public class SwingAttack : Card
     {
         TargetData data = new TargetData();
         data.ViewTiles = new List<Vector2Int>();
-        data.ViewTiles.Union(AreaHelper.GetPointList(user.Position, Direction.Up));
-        data.ViewTiles.Union(AreaHelper.GetPointList(user.Position, Direction.Down));
-        data.ViewTiles.Union(AreaHelper.GetPointList(user.Position, Direction.Left));
-        data.ViewTiles.Union(AreaHelper.GetPointList(user.Position, Direction.Right));
+        data.ViewTiles = data.ViewTiles.Union(AreaHelper.GetPointList(user.Position, Direction.Up));
+        data.ViewTiles = data.ViewTiles.Union(AreaHelper.GetPointList(user.Position, Direction.Down));
+        data.ViewTiles = data.ViewTiles.Union(AreaHelper.GetPointList(user.Position, Direction.Left));
+        data.ViewTiles = data.ViewTiles.Union(AreaHelper.GetPointList(user.Position, Direction.Right));
         data.ViewTiles = data.ViewTiles.Where(p =>UniversalFilter(p));
         data.AvaliableTile = data.ViewTiles;
         return data;

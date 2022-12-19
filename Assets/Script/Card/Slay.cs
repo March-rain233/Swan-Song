@@ -55,7 +55,7 @@ public class Slay : Card
         }
         else
         {
-            tar.Hurt(user.UnitData.Attack * 2, HurtType.FromUnit, user);
+            tar.Hurt(user.UnitData.Attack * 2, HurtType.FromUnit | HurtType.AD | HurtType.Melee, user);
         }
 
     }

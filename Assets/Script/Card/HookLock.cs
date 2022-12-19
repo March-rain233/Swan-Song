@@ -28,6 +28,7 @@ public class HookLock : Card
     {
         TargetData targetData = new TargetData();
         var list = GetUnitList()
+            .Where(u=>u.Camp != user.Camp)
             .Select(p => p.Position)
             .Where(p => CheckPlaceable(user.Position + (p - user.Position).ToDirection().ToVector2Int(), user));
         targetData.ViewTiles = list;

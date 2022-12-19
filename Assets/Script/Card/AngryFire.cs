@@ -9,6 +9,7 @@ using GameToolKit;
 public class AngryFire : Card
 {
     public override CardType Type => CardType.Other;
+    public override CardRarity Rarity => CardRarity.Privilege;
     public AngryFire()
     {
         Name = "怒火";

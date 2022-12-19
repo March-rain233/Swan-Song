@@ -13,12 +13,13 @@ public class FireRain : Card
     public AreaHelper AoeArea = new AreaHelper()
     {
         Center = new Vector2Int(1, 1),
-        Flags = new bool[4, 4]
+        Flags = new bool[5, 5]
     {
-            { true, true, true, true},
-            { true, true, true, true},
-            { true, true, true, true},
-            { true, true, true, true},
+            { true, true, true, true, true},
+            { true, true, true, true, true},
+            { true, true, true, true, true},
+            { true, true, true, true, true},
+            { true, true, true, true, true},
     }
     };
 

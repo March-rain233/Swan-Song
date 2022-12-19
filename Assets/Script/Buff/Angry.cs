@@ -30,7 +30,7 @@ internal class Angry : RoundBuff
     {
         var data = base.GetBuffData();
         data.Name = "怒火";
-        data.Description = "受到的伤害减少<color=blue>30%</color>，力量值增加<color=red>{AttackAdd}</color>点";
+        data.Description = $"受到的伤害减少<color=blue>30%</color>，力量值增加<color=red>{AttackAdd}</color>点";
         return data;
     }
 }

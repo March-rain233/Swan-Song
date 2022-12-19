@@ -32,14 +32,11 @@ public class RockFall : Card
     {
         TargetData data = new TargetData();
         data.ViewTiles = new List<Vector2Int>();
-        data.ViewTiles.Union(AreaHelper.GetPointList(user.Position, Direction.Up));
-        data.ViewTiles.Union(AreaHelper.GetPointList(user.Position, Direction.Down));
-        data.ViewTiles.Union(AreaHelper.GetPointList(user.Position, Direction.Left));
-        data.ViewTiles.Union(AreaHelper.GetPointList(user.Position, Direction.Right));
-        data.ViewTiles = data.ViewTiles.Where(p =>
-            0 <= p.x && p.x < _map.Width
-            && 0 <= p.y && p.y < _map.Height
-            && _map[p.x, p.y] != null);
+        data.ViewTiles = data.ViewTiles.Union(AreaHelper.GetPointList(user.Position, Direction.Up));
+        data.ViewTiles = data.ViewTiles.Union(AreaHelper.GetPointList(user.Position, Direction.Down));
+        data.ViewTiles = data.ViewTiles.Union(AreaHelper.GetPointList(user.Position, Direction.Left));
+        data.ViewTiles = data.ViewTiles.Union(AreaHelper.GetPointList(user.Position, Direction.Right));
+        data.ViewTiles = data.ViewTiles.Where(p=>UniversalFilter(p));
         data.AvaliableTile = data.ViewTiles;
         return data;
     }
@@ -48,11 +45,7 @@ public class RockFall : Card
     {
         var dir = (target - user.Position).ToDirection();
         return AreaHelper.GetPointList(user.Position, dir)
-            .Where(p =>
-            0 <= p.x && p.x < _map.Width
-            && 0 <= p.y && p.y < _map.Height
-            && _map[p.x, p.y] != null
-            &&_map[p.x, p.y].Units.First().Camp != user.Camp);
+            .Where(p =>EnemyFilter(p, user.Camp));
     }
 
     protected internal override void Release(Unit user, Vector2Int target)

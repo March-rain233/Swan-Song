@@ -37,7 +37,8 @@ public class SpinAttack : Card
     protected internal override TargetData GetAvaliableTarget(Unit user)
     {
         TargetData targetData = new TargetData();
-        var list = AttackArea.GetPointList(user.Position);
+        var list = AttackArea.GetPointList(user.Position)
+            .Where(p=>UniversalFilter(p));
         targetData.ViewTiles = list;
         targetData.AvaliableTile = list;
         return targetData;

@@ -157,6 +157,15 @@ public class BattleAnimator
 
             EnqueueAnimation(anim);
         };
+        unit.Transfered += p =>
+        {
+            var seq = DOTween.Sequence();
+            seq.AppendCallback(() =>
+            {
+                unitView.transform.position = _mapRenderer.Grid.CellToWorld(p.ToVector3Int());
+            });
+            EnqueueAnimation(seq);
+        };
         unit.Hurt += (_, _, _) =>
         {
             var anim = unitView.HurtAnim();

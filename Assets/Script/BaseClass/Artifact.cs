@@ -11,7 +11,7 @@ using Newtonsoft.Json;
 /// </summary>
 public abstract class Artifact
 {
-    [JsonConverter(typeof(ObjectConvert))]
+    [JsonConverter(typeof(SpriteConvert))]
     public Sprite Sprite;
 
     public string Name;
