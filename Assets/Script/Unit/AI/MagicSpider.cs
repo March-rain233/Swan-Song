@@ -59,7 +59,10 @@ public class MagicSpider : Unit
         List<Player> players = GameManager.Instance.GetState<BattleState>().PlayerList.ToList();
         foreach(Player player in players)
         {
-            //对所有角色施加牢笼buff
+           
+           Cage cage = new Cage() ;//对所有角色施加牢笼buff
+            cage.Time = 5;
+            player.AddBuff(cage);//对所有角色施加牢笼buff
 
         }
 
@@ -100,7 +103,13 @@ public class MagicSpider : Unit
 
     protected override void OnDied()
     {
-        //死后解除所有角色的牢笼
+        List<Player> players = GameManager.Instance.GetState<BattleState>().PlayerList.ToList();
+        foreach (Player player in players)
+        {
+            
+            player.CanMove=true;
+
+        }//死后解除所有角色的牢笼
     }
 
 }
