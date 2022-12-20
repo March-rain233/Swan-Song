@@ -13,10 +13,14 @@ public class SilkSpider : Unit
 
     public SilkSpider(Vector2Int pos) : base(new UnitModel()
     {
+        DefaultViewType = 1,
         DefaultName = "丝蛛",
+        DefaultDescription = "普通怪物\n" +
+        "对一个角色喷吐蛛丝，造成20%力量值的伤害，使其本回合无法移动，" +
+        "如果一个角色本局对战被同一丝蛛喷吐三次，形成蛛网束缚",
         Blood = 80,//初始血量为最大血量
-        Attack = 10,//攻击力
-        Defence = 4,//防御力
+        Attack = 12,//攻击力
+        Defence = 10,//防御力
         Speed = 2,//先攻权重
         //移动和技能的使用会消耗技能点,但怪物无行动点约束，设为最大值
         ActionPoint = int.MaxValue,

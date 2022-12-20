@@ -165,7 +165,9 @@ namespace GameToolKit
         /// </remarks>
         public virtual string FixPortIndex(string oldIndex)
         {
+#if UNITY_EDITOR
             Debug.LogWarning($"½Úµã:{Name} ¶Ë¿Ú:{oldIndex} ¶ªÊ§");
+#endif
             return null;
         }
 

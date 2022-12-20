@@ -10,6 +10,7 @@ public class UnitDataView:MonoBehaviour
     #region UI控件
     public Image Face;
     public TextMeshProUGUI Name;
+    public TextMeshProUGUI Description;
     public HpBar HpBar;
     public LayoutGroup BuffListView;
 
@@ -42,6 +43,7 @@ public class UnitDataView:MonoBehaviour
     {
         Face.sprite = data.Face;
         Name.text = data.Name;
+        Description.text = string.IsNullOrEmpty(data.Description) ? "信息不明" : data?.Description;
         HpBar.MaxHp = data.BloodMax;
         HpBar.Hp = data.Blood;
     }
@@ -50,6 +52,7 @@ public class UnitDataView:MonoBehaviour
     {
         Face.sprite = data.Face;
         Name.text = data.Name;
+        Description.text = string.IsNullOrEmpty(data.Description) ? "信息不明" : data?.Description;
         HpBar.InitHpBar(data.Blood, data.BloodMax);
     }
 }

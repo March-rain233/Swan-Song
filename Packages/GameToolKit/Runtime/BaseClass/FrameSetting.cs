@@ -19,7 +19,7 @@ namespace GameToolKit
         {
             ((ServiceInitializer)System.Activator.CreateInstance(Instance.Initializer)).Initialize();
         }
-#if DEBUG
+#if UNITY_EDITOR
         IEnumerable<System.Type> GetInitializer()
         {
             return UnityEditor.TypeCache.GetTypesDerivedFrom<ServiceInitializer>();

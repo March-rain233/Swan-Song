@@ -18,6 +18,7 @@ MonoBehaviour:
     ReferencedUnityObjects:
     - {fileID: -8680797543115379092, guid: 8ec0dd8bb80b97949945b1d13388a84f, type: 3}
     - {fileID: 7425438597007568885, guid: 4b8d4d5451f739343b397e56a4d0a537, type: 3}
+    - {fileID: -5297186837956706085, guid: 8ec0dd8bb80b97949945b1d13388a84f, type: 3}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -49,16 +50,16 @@ MonoBehaviour:
       Data: 10
     - Name: Defence
       Entry: 3
-      Data: 8
+      Data: 20
     - Name: Heal
       Entry: 3
       Data: 1
     - Name: Speed
       Entry: 3
-      Data: 5
+      Data: 3
     - Name: Blood
       Entry: 3
-      Data: 100
+      Data: 120
     - Name: ActionPoint
       Entry: 3
       Data: 3
@@ -85,10 +86,10 @@ MonoBehaviour:
       Data: 1
     - Name: m_InTangent
       Entry: 4
-      Data: 0.5
+      Data: 0.75
     - Name: m_OutTangent
       Entry: 4
-      Data: 0.5
+      Data: 0.75
     - Name: m_TangentMode
       Entry: 3
       Data: 34
@@ -115,13 +116,13 @@ MonoBehaviour:
       Data: 5
     - Name: m_Value
       Entry: 4
-      Data: 3
+      Data: 4
     - Name: m_InTangent
       Entry: 4
-      Data: 0.5
+      Data: 0.75
     - Name: m_OutTangent
       Entry: 4
-      Data: 0.5
+      Data: 0.75
     - Name: m_TangentMode
       Entry: 3
       Data: 34
@@ -175,10 +176,10 @@ MonoBehaviour:
       Data: 1
     - Name: m_InTangent
       Entry: 4
-      Data: 0.5
+      Data: 0.75
     - Name: m_OutTangent
       Entry: 4
-      Data: 0.5
+      Data: 0.75
     - Name: m_TangentMode
       Entry: 3
       Data: 34
@@ -205,13 +206,13 @@ MonoBehaviour:
       Data: 5
     - Name: m_Value
       Entry: 4
-      Data: 3
+      Data: 4
     - Name: m_InTangent
       Entry: 4
-      Data: 0.5
+      Data: 0.75
     - Name: m_OutTangent
       Entry: 4
-      Data: 0.5
+      Data: 0.75
     - Name: m_TangentMode
       Entry: 3
       Data: 34
@@ -265,10 +266,10 @@ MonoBehaviour:
       Data: 1
     - Name: m_InTangent
       Entry: 4
-      Data: 0.5
+      Data: 0.25
     - Name: m_OutTangent
       Entry: 4
-      Data: 0.5
+      Data: 0.25
     - Name: m_TangentMode
       Entry: 3
       Data: 34
@@ -295,13 +296,13 @@ MonoBehaviour:
       Data: 5
     - Name: m_Value
       Entry: 4
-      Data: 3
+      Data: 2
     - Name: m_InTangent
       Entry: 4
-      Data: 0.5
+      Data: 0.25
     - Name: m_OutTangent
       Entry: 4
-      Data: 0.5
+      Data: 0.25
     - Name: m_TangentMode
       Entry: 3
       Data: 34
@@ -355,10 +356,10 @@ MonoBehaviour:
       Data: 1
     - Name: m_InTangent
       Entry: 4
-      Data: 0.5
+      Data: 0.375
     - Name: m_OutTangent
       Entry: 4
-      Data: 0.5
+      Data: 0.375
     - Name: m_TangentMode
       Entry: 3
       Data: 34
@@ -385,13 +386,13 @@ MonoBehaviour:
       Data: 5
     - Name: m_Value
       Entry: 4
-      Data: 3
+      Data: 2.5
     - Name: m_InTangent
       Entry: 4
-      Data: 0.5
+      Data: 0.375
     - Name: m_OutTangent
       Entry: 4
-      Data: 0.5
+      Data: 0.375
     - Name: m_TangentMode
       Entry: 3
       Data: 34
@@ -1030,7 +1031,7 @@ MonoBehaviour:
       Data: 33|UnitModel, Assembly-CSharp
     - Name: DefaultViewType
       Entry: 3
-      Data: 0
+      Data: 2
     - Name: DefaultDescription
       Entry: 1
       Data: "\u8FB9\u7F18\u5C0F\u9547\u7684\u7267\u5E08\uFF0C\u5728\u673A\u7F18\u5DE7\u5408\u4E0B\u52A0\u5165\u4E86\u961F\u4F0D"
@@ -1042,16 +1043,16 @@ MonoBehaviour:
       Data: 1
     - Name: Attack
       Entry: 3
-      Data: 1
+      Data: 5
     - Name: Defence
       Entry: 3
-      Data: 5
+      Data: 15
     - Name: Heal
       Entry: 3
       Data: 10
     - Name: Speed
       Entry: 3
-      Data: 4
+      Data: 2
     - Name: Blood
       Entry: 3
       Data: 100
@@ -1351,10 +1352,10 @@ MonoBehaviour:
       Data: 1
     - Name: m_InTangent
       Entry: 4
-      Data: 0.5
+      Data: 0.375
     - Name: m_OutTangent
       Entry: 4
-      Data: 0.5
+      Data: 0.375
     - Name: m_TangentMode
       Entry: 3
       Data: 34
@@ -1381,13 +1382,13 @@ MonoBehaviour:
       Data: 5
     - Name: m_Value
       Entry: 4
-      Data: 3
+      Data: 2.5
     - Name: m_InTangent
       Entry: 4
-      Data: 0.5
+      Data: 0.375
     - Name: m_OutTangent
       Entry: 4
-      Data: 0.5
+      Data: 0.375
     - Name: m_TangentMode
       Entry: 3
       Data: 34
@@ -1441,10 +1442,10 @@ MonoBehaviour:
       Data: 1
     - Name: m_InTangent
       Entry: 4
-      Data: 0.5
+      Data: 0.375
     - Name: m_OutTangent
       Entry: 4
-      Data: 0.5
+      Data: 0.375
     - Name: m_TangentMode
       Entry: 3
       Data: 34
@@ -1471,13 +1472,13 @@ MonoBehaviour:
       Data: 5
     - Name: m_Value
       Entry: 4
-      Data: 3
+      Data: 2.5
     - Name: m_InTangent
       Entry: 4
-      Data: 0.5
+      Data: 0.375
     - Name: m_OutTangent
       Entry: 4
-      Data: 0.5
+      Data: 0.375
     - Name: m_TangentMode
       Entry: 3
       Data: 34
@@ -1906,7 +1907,7 @@ MonoBehaviour:
       Data: 61|UnitModel, Assembly-CSharp
     - Name: DefaultViewType
       Entry: 3
-      Data: 0
+      Data: 3
     - Name: DefaultDescription
       Entry: 1
       Data: "\u66FE\u7ECF\u7684\u7687\u5BB6\u6CD5\u5E08\u987E\u95EE\uFF0C\u6BD4\u8D77\u5E73\u606F\u52A8\u4E71\uFF0C\u4ED6\u6216\u8BB8\u5BF9\u4E8E\u707E\u5384\u5E26\u6765\u7684\u80FD\u91CF\u66F4\u6709\u5174\u8DA3"
@@ -1914,23 +1915,23 @@ MonoBehaviour:
       Entry: 1
       Data: "\u5F6C\u5F6C"
     - Name: DefaultFace
-      Entry: 6
-      Data: 
+      Entry: 10
+      Data: 2
     - Name: Attack
       Entry: 3
-      Data: 10
+      Data: 16
     - Name: Defence
       Entry: 3
-      Data: 2
+      Data: 8
     - Name: Heal
       Entry: 3
-      Data: 5
+      Data: 6
     - Name: Speed
       Entry: 3
       Data: 2
     - Name: Blood
       Entry: 3
-      Data: 100
+      Data: 80
     - Name: ActionPoint
       Entry: 3
       Data: 3
@@ -1957,10 +1958,10 @@ MonoBehaviour:
       Data: 1
     - Name: m_InTangent
       Entry: 4
-      Data: 0.5
+      Data: 0.75
     - Name: m_OutTangent
       Entry: 4
-      Data: 0.5
+      Data: 0.75
     - Name: m_TangentMode
       Entry: 3
       Data: 34
@@ -1987,13 +1988,13 @@ MonoBehaviour:
       Data: 5
     - Name: m_Value
       Entry: 4
-      Data: 3
+      Data: 4
     - Name: m_InTangent
       Entry: 4
-      Data: 0.5
+      Data: 0.75
     - Name: m_OutTangent
       Entry: 4
-      Data: 0.5
+      Data: 0.75
     - Name: m_TangentMode
       Entry: 3
       Data: 34

@@ -16,11 +16,14 @@ public class GoblinThief : Unit
 {
     public GoblinThief(Vector2Int pos) : base(new UnitModel()
     {
+        DefaultViewType = 1,
         DefaultName = "哥布林盗贼",
-        Blood = 200,
-        Attack = 20,
-        Defence = 4,
-        Speed = 4,
+        DefaultDescription = "精英\n" +
+        "对防御力最低的玩家角色发动攻击，造成120%力量值的伤害并恢复在场所有怪物等于20%造成伤害的血量",
+        Blood = 160,
+        Attack = 15,
+        Defence = 1,
+        Speed = 3,
         ActionPoint = int.MaxValue,
     }
 , pos)
@@ -35,6 +38,7 @@ public class GoblinThief : Unit
         Player player = getAttackPlayer();
         //攻击对象
         attackPlayer(player);
+        EndTurn();
     }
 
     /// <summary>
@@ -44,14 +48,14 @@ public class GoblinThief : Unit
     public Player getAttackPlayer()
     {
         //获得玩家对象
-        List<Player> players = GameManager.Instance.GetState<BattleState>().PlayerList.ToList();
+        List<Player> players = GameManager.Instance.GetState<BattleState>().PlayerList.Where(p => p.ActionStatus != ActionStatus.Dead).ToList(); ;
         int num = -1;//记录防御最低的玩家的索引
         int i = 0;
         double minDifence = int.MaxValue;//设初值为最小值
 
         foreach (Player p in players)
         {
-            if (p.UnitData.Defence < minDifence && p.ActionStatus == ActionStatus.Running)
+            if (p.UnitData.Defence < minDifence && p.ActionStatus != ActionStatus.Dead)
             {
                 minDifence = p.UnitData.Defence;
                 num = i;
@@ -106,30 +110,11 @@ public class GoblinThief : Unit
         //移动
         MoveclosePlayerPos(player.Position);
 
-        //中毒buff
-        Poison poison = new Poison();
-        poison.Time = 3;
-        poison.Damage = this.UnitData.Attack * 0.05f;
-        player.AddBuff(poison);
-
-        List<Player> players = GameManager.Instance.GetState<BattleState>().PlayerList.ToList();
-        foreach (Player p in players)
+        var damage = (player as IHurtable).Hurt(UnitData.Attack * 1.2f, HurtType.FromUnit | HurtType.AD | HurtType.Melee, this);
+        foreach(ICurable unit in GameManager.Instance.GetState<BattleState>().UnitList
+            .Where(p=>p.ActionStatus != ActionStatus.Dead && p.Camp == Camp))
         {
-            if (p.Position.x <= player.Position.x + 1 && p.Position.x >= player.Position.x - 1
-             && p.Position.y <= player.Position.y + 1 && p.Position.y >= player.Position.y - 1
-                )
-            {
-                //近身伤害
-                (p as IHurtable).Hurt((int)(this.UnitData.Attack * 1.2), HurtType.FromUnit | HurtType.Melee | HurtType.AD, this);
-
-                //为其他怪物回血 
-                List<Unit> Units = GameManager.Instance.GetState<BattleState>().UnitList.ToList();
-                foreach (Unit unit in Units)
-                {
-                    (unit as ICurable).Cure(poison.Damage*0.2f,unit);
-                }
-
-            }
+            unit.Cure(damage * 0.2f, this);
         }
     }
 

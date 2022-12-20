@@ -242,39 +242,40 @@ public class BattlePanel : PanelBase
                 _orderListView[i].sprite = orderList[i].UnitData.Face;
             }
         });
+        seq.AppendInterval(BattleAnimator.MiddleAnimationDuration);
         return seq;
     }
 
     public Tween NextRound(int round)
     {
-        var anim = ExtensionDotween.GetEmptyTween(0.01f);
-        anim.OnStart(() =>
+        var seq = DOTween.Sequence();
+        seq.AppendCallback(() =>
         {
             RoundNumber.text = $"»ØºÏ {round}";
         });
-        return anim;
+        return seq;
     }
 
     public Tween AddCard(Card card, CardScheduler cardScheduler)
     {
-        var anim = ExtensionDotween.GetEmptyTween(0.01f);
-        anim.OnStart(() =>
+        var seq = DOTween.Sequence();
+        seq.AppendCallback(() =>
         {
             Hands.AddCard(card, cardScheduler);
             Hands.Refresh();
         });
-        return anim;
+        return seq;
     }
 
     public Tween RemoveCard(Card card, CardScheduler cardScheduler)
     {
-        var anim = ExtensionDotween.GetEmptyTween(0.01f);
-        anim.OnStart(() =>
+        var seq = DOTween.Sequence();
+        seq.AppendCallback(() =>
         {
             Hands.DiscardCard(card, cardScheduler);
             Hands.Refresh();
         });
-        return anim;
+        return seq;
     }
 
     public Tween SwitchPlayer(Player player)

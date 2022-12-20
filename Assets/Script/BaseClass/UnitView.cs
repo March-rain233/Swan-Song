@@ -118,8 +118,10 @@ public class UnitView : MonoBehaviour,IPointerClickHandler
 
     public Tween HurtAnim()
     {
-        return SpriteRenderer.DOColor(Color.red, 0.1f)
-            .SetLoops(2, LoopType.Yoyo);
+        var seq = DOTween.Sequence();
+        seq.Append(SpriteRenderer.DOColor(Color.red, 0.1f)
+            .SetLoops(2, LoopType.Yoyo));
+        return seq;
     }
 
     public Tween MoveAnim(IEnumerable<Vector2Int> rawPath)

@@ -14,10 +14,13 @@ public class GiantSkeleton : Unit
 {
     public GiantSkeleton(Vector2Int pos) : base(new UnitModel()
     {
+        DefaultViewType = 1,
         DefaultName = "巨型骷髅",
+        DefaultDescription = "普通怪物\n" +
+        "对距离最近的角色及周围八格角色造成100%力量值的伤害，死亡后在自身位置召唤一个骷髅弓手",
         Blood = 80,//初始血量为最大血量
-        Attack = 10,//攻击力
-        Defence = 4,//防御力
+        Attack = 12,//攻击力
+        Defence = 10,//防御力
         Speed = 2,//先攻权重
         ActionPoint = int.MaxValue,
     }
@@ -47,7 +50,8 @@ public class GiantSkeleton : Unit
     public Player getAttackPlayer()
     {
         //获得玩家对象
-        List<Player> players = GameManager.Instance.GetState<BattleState>().PlayerList.ToList();
+        List<Player> players = GameManager.Instance.GetState<BattleState>().PlayerList
+            .Where(p=>p.ActionStatus != ActionStatus.Dead).ToList();
         int num = 0;//记录距离最短的玩家的号码
         int i = 0;
         double minDis = int.MaxValue;//设初值为最大值
@@ -72,7 +76,8 @@ public class GiantSkeleton : Unit
     /// <param name="player"></param>
     public void attackPlayer(Player player)
     {
-        List<Player> players = GameManager.Instance.GetState<BattleState>().PlayerList.ToList();
+        List<Player> players = GameManager.Instance.GetState<BattleState>().PlayerList
+            .Where(p=>p.ActionStatus != ActionStatus.Dead).ToList();
         foreach (Player p in players)
         {
             if (p.Position.x <= player.Position.x + 1 && p.Position.x >= player.Position.x - 1

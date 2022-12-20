@@ -14,11 +14,14 @@ public class Skeletonarchers : Unit
 { 
     public Skeletonarchers(Vector2Int pos) : base(new UnitModel()
     {
+        DefaultViewType = 1,
         DefaultName = "骷髅弓手",
-        Blood = 100,
-        Attack = 20,
+        DefaultDescription = "普通怪物\n" +
+        "对距离最近的角色造成100%力量值的伤害",
+        Blood = 80,
+        Attack = 18,
         Defence = 4,
-        Speed = 4,
+        Speed = 5,
         ActionPoint = int.MaxValue,
     }
 , pos)
@@ -41,7 +44,7 @@ public class Skeletonarchers : Unit
     public Player getAttackPlayer()
     {
         //获得玩家对象
-        List<Player> players = GameManager.Instance.GetState<BattleState>().PlayerList.ToList();
+        List<Player> players = GameManager.Instance.GetState<BattleState>().PlayerList.Where(p => p.ActionStatus != ActionStatus.Dead).ToList();
         int num = 0;//记录距离最短的玩家的号码
         int i = 0;
         double minDis = int.MaxValue;//设初值为最大值

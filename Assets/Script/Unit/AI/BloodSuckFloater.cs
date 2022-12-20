@@ -12,11 +12,14 @@ public class BloodSuckFloater :Unit
 {
     public BloodSuckFloater(Vector2Int pos) : base(new UnitModel()
     {
+        DefaultViewType = 1,
         DefaultName = "吸血飞蚊",
-        Blood = 80,//初始血量为最大血量
+        DefaultDescription = "普通小怪\n" +
+        "对防御力最低的角色造成80%力量值的伤害，并恢复自身造成伤害的五分之一的血量",
+        Blood = 50,//初始血量为最大血量
         Attack = 10,//攻击力
-        Defence = 4,//防御力
-        Speed = 2,//先攻权重
+        Defence = 10,//防御力
+        Speed = 5,//先攻权重
         ActionPoint = int.MaxValue,
     }
    , pos)
@@ -44,7 +47,8 @@ public class BloodSuckFloater :Unit
     public Player getAttackPlayer()
     {
         //获得玩家对象
-        List<Player> players = GameManager.Instance.GetState<BattleState>().PlayerList.ToList();
+        List<Player> players = GameManager.Instance.GetState<BattleState>().PlayerList
+            .Where(p=>p.ActionStatus != ActionStatus.Dead).ToList();
         int num = 0;//记录防御最低的玩家的索引
         int i = 0;
         double minDifence = int.MaxValue;//设初值为最大值
@@ -71,8 +75,8 @@ public class BloodSuckFloater :Unit
         //移动
         MoveclosePlayerPos(player.Position);
         //攻击
-        (player as IHurtable).Hurt((int)(this.UnitData.Attack*0.8), HurtType.FromUnit | HurtType.Melee | HurtType.AD, this);
-        this.UnitData.Blood += (int)(this.UnitData.Attack * 0.8 / 0.5);
+        var data = (player as IHurtable).Hurt((int)(this.UnitData.Attack*0.8), HurtType.FromUnit | HurtType.Melee | HurtType.AD, this);
+        (this as ICurable).Cure(data * 0.2f, this);
     }
 
     /// <summary>

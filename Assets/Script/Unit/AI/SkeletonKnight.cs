@@ -14,11 +14,14 @@ public class SkeletonKnight : Unit
 {
     public SkeletonKnight(Vector2Int pos) : base(new UnitModel()
     {
+        DefaultViewType = 1,
         DefaultName = "骷髅骑士",
-        Blood = 200,
+        DefaultDescription = "精英\n" +
+        "优选攻击最远角色，攻击冲撞一个敌人对其造成100%力量值伤害，并使本回合剩余时间晕眩，骑士半血以下只进行穿刺，对一个角色造成200%的力量伤害",
+        Blood = 180,
         Attack = 20,
-        Defence = 4,
-        Speed = 4,
+        Defence = 10,
+        Speed = 6,
         ActionPoint = int.MaxValue,
     }
 , pos)
@@ -33,6 +36,7 @@ public class SkeletonKnight : Unit
         Player player = getAttackPlayer();
         //攻击对象
         attackPlayer(player);
+        EndTurn();
     }
 
     /// <summary>
@@ -42,7 +46,7 @@ public class SkeletonKnight : Unit
     public Player getAttackPlayer()
     {
         //获得玩家对象
-        List<Player> players = GameManager.Instance.GetState<BattleState>().PlayerList.ToList();
+        List<Player> players = GameManager.Instance.GetState<BattleState>().PlayerList.Where(p => p.ActionStatus != ActionStatus.Dead).ToList();
         int num = -1;//记录距离最远的玩家的号码
         int i = 0;
         double maxDis = int.MaxValue;//设初值为最大值
@@ -69,19 +73,18 @@ public class SkeletonKnight : Unit
     public void attackPlayer(Player player)
     {
         //获得玩家对象
-        List<Player> players = GameManager.Instance.GetState<BattleState>().PlayerList.ToList();
-        int standard = (int)(int.MaxValue * 0.5);
+        List<Player> players = GameManager.Instance.GetState<BattleState>().PlayerList.Where(p => p.ActionStatus != ActionStatus.Dead).ToList();
         foreach (Player p in players)
         {
 
             //如果怪物在半血以下
-            if (p.UnitData.Blood < standard )
+            if (UnitData.Blood < UnitData.BloodMax / 2)
             {
                 if (p.Position.x <= player.Position.x + 1 && p.Position.x >= player.Position.x - 1
                     && p.Position.y <= player.Position.y + 1 && p.Position.y >= player.Position.y - 1)
                 {
                     //近身冲刺伤害
-                    (p as IHurtable).Hurt((int)(this.UnitData.Attack * 2), HurtType.Melee, this);
+                    (p as IHurtable).Hurt((this.UnitData.Attack * 2), HurtType.Melee | HurtType.AD | HurtType.FromUnit, this);
                 }
                 else continue;
             }
@@ -91,7 +94,7 @@ public class SkeletonKnight : Unit
                 Stun stun = new Stun();
                 stun.Time = 1;
                 p.AddBuff(stun);
-                (p as IHurtable).Hurt((int)(this.UnitData.Attack * 1), HurtType.Melee, this);
+                (p as IHurtable).Hurt((this.UnitData.Attack * 1), HurtType.Melee | HurtType.AD | HurtType.FromUnit, this);
             }
         }
     }

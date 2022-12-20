@@ -27,9 +27,7 @@ internal class GhostlyVisage : Buff
     {
         if(buff is GhostlyVisage)
         {
-            Unit.UnitData.AttackWrapper.Rate /= 1 + 0.05f * Level;
-            Level += 1;
-            Unit.UnitData.AttackWrapper.Rate *= 1 + 0.05f * Level;
+            Level = buff.Level + 1;
             return true;
         }
         return false;

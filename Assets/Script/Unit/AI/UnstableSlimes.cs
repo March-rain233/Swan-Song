@@ -14,10 +14,13 @@ public class UnstableSlime : Unit
 {
     public UnstableSlime(Vector2Int pos) : base(new UnitModel()
     {
+        DefaultViewType = 1,
         DefaultName = "不稳定史莱姆",
-        Blood = 80,//初始血量为最大血量
-        Attack = 10,//攻击力
-        Defence = 4,//防御力
+        DefaultDescription = "普通怪物\n" +
+        "对距离最近的角色造成100%力量值的伤害，死亡后发生爆炸对周身5*5范围内所有角色造成200%力量值伤害",
+        Blood = 60,//初始血量为最大血量
+        Attack = 15,//攻击力
+        Defence = 10,//防御力
         Speed = 2,//先攻权重
         ActionPoint = int.MaxValue,
     }
@@ -47,7 +50,7 @@ public class UnstableSlime : Unit
     public Player getAttackPlayer()
     {
         //获得玩家对象
-        List<Player> players = GameManager.Instance.GetState<BattleState>().PlayerList.ToList();
+        List<Player> players = GameManager.Instance.GetState<BattleState>().PlayerList.Where(p => p.ActionStatus != ActionStatus.Dead).ToList(); ;
         int num = 0;//记录距离最短的玩家的号码
         int i = 0;
         double minDis = int.MaxValue;//设初值为最大值
@@ -182,14 +185,14 @@ public class UnstableSlime : Unit
     /// </summary>
     protected override void OnDied()
     {
-        List<Player> players = GameManager.Instance.GetState<BattleState>().PlayerList.ToList();
+        List<Unit> players = GameManager.Instance.GetState<BattleState>().UnitList.Where(p => p.ActionStatus != ActionStatus.Dead).ToList(); ;
         //一次判断玩家是否在不稳定史莱姆附近5*5格子内，是就造成200%力量伤害
-        foreach(Player p in players)
+        foreach(Unit p in players)
         {
             if(p.Position.x <= this.Position.x+2 && p.Position.x >= this.Position.x - 2
                 && p.Position.y <= this.Position.y + 2 && p.Position.y >= this.Position.y - 2)
             {
-                (p as IHurtable).Hurt(this.UnitData.Attack * 2, HurtType.Melee, this);
+                (p as IHurtable).Hurt(this.UnitData.Attack * 2, HurtType.FromUnit | HurtType.AD, this);
             }
         }
     }

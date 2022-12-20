@@ -11,13 +11,27 @@ using UnityEngine;
 /// </summary>
 public class FungalSpider : Unit
 {
+    public AreaHelper AreaHelper = new AreaHelper()
+    {
+        Center = new Vector2Int(1, 1),
+        Flags = new bool[3, 3]
+        {
+            {true, true, true },
+            {true, true, true },
+            {true, true, true }
+        }
+    };
     public FungalSpider(Vector2Int pos) : base(new UnitModel()
     {
+        DefaultViewType = 1,
         DefaultName = "剧毒蜘蛛",
-        Blood = 80,//初始血量为最大血量
-        Attack = 10,//攻击力
-        Defence = 4,//防御力
-        Speed = 2,//先攻权重
+        DefaultDescription = "普通怪物\n" +
+        "对血量最少的敌人造成50%力量值的伤害，并施加3回合中毒\n" +
+        "死后发生爆裂，将周围方格变为2回合的毒液地形",
+        Blood = 40,//初始血量为最大血量
+        Attack = 12,//攻击力
+        Defence = 1,//防御力
+        Speed = 3,//先攻权重
         ActionPoint = int.MaxValue,
     }
 , pos)
@@ -45,7 +59,8 @@ public class FungalSpider : Unit
     public Player getAttackPlayer()
     {
         //获得玩家对象
-        List<Player> players = GameManager.Instance.GetState<BattleState>().PlayerList.ToList();
+        List<Player> players = GameManager.Instance.GetState<BattleState>().PlayerList
+            .Where(p=>p.ActionStatus!= ActionStatus.Dead).ToList();
         int num = 0,i = 0;//记录血量最少的玩家索引
         int lessBlood = int.MaxValue;//设初值为最大值
 
@@ -186,20 +201,15 @@ public class FungalSpider : Unit
     /// </summary>
     protected override void OnDied()
     {
+        var map = GameManager.Instance.GetState<BattleState>()
+            .Map;
         //获得玩家对象
-        List<Player> players = GameManager.Instance.GetState<BattleState>().PlayerList.ToList();
-        Poison poison = new Poison();
-        poison.Time = 3;
-        poison.Damage = this.UnitData.Attack * 0.1f;
-        foreach (Player p in players)
+        foreach(var t in AreaHelper.GetPointList(Position)
+            .Where(p=>p.x >= 0 && p.x < map.Width 
+            && p.y >= 0 && p.y < map.Height)
+            .Select(p => map[p]))
         {
-            if (p.Position.x <= this.Position.x + 1 && p.Position.x >= this.Position.x - 1
-             && p.Position.y <= this.Position.y + 1 && p.Position.y >= this.Position.y - 1
-                )
-            {
-                //添加中毒buff
-                p.AddBuff(poison);
-            }
+            t.AddStatus(new PoisonStatus() { Times = 2 });
         }
     }
     

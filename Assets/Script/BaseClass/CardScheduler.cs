@@ -82,7 +82,11 @@ public class CardScheduler
     public void ReleaseCard(int index, Vector2Int target)
     {
         var card = Hands[index];
-        Hands[index].Release(Unit, target);
+        if (Unit.BuffList.FirstOrDefault(b => b is Confusion) == null
+            || UnityEngine.Random.Range(0, 2) != 0)
+        {
+            Hands[index].Release(Unit, target);
+        }
         var cost = card.Cost == -1 ? Unit.UnitData.ActionPoint : card.Cost;
         Unit.UnitData.ActionPoint -= cost;
         DiscardPile.Add(card);

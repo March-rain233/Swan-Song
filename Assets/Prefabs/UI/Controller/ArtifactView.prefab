@@ -304,26 +304,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
+    SerializedFormat: 0
+    SerializedBytes: 1f010500000041006e0067006c006500000000001f010b00000050007200650066006500720041006e0067006c006500000000001f010b0000004d0069006e006e0075006d0041006e0067006c006500000000001f010d00000046006c0065007800690062006c00650041006e0067006c0065000000803f
     ReferencedUnityObjects: []
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes:
-    - Name: Angle
-      Entry: 4
-      Data: 0
-    - Name: PreferAngle
-      Entry: 4
-      Data: 0
-    - Name: MinnumAngle
-      Entry: 4
-      Data: 0
-    - Name: FlexibleAngle
-      Entry: 4
-      Data: 0
+    SerializationNodes: []
   ImgArtifact: {fileID: 1945957807599179411}
   TxtName: {fileID: 8884685975618125876}
   TxtDescription: {fileID: 3563586155722823078}

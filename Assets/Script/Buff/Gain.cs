@@ -4,30 +4,33 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-internal class Gain: RoundBuff
+internal class Gain: Buff
 {
-
-    protected override void OnEnable()
+    public override BuffData GetBuffData()
     {
-        base.OnEnable();
-
-        Unit.UnitData.AttackWrapper.Rate = 1.1f;
+        var data = base.GetBuffData();
+        data.Name = "狂怒";
+        data.Description = $"力量值增加<color=red>{Level * 10}%</color>";
+        return data;
     }
     protected override void OnDisable()
     {
-        base.OnDisable();
-        Unit.UnitData.AttackWrapper.Rate = 1;
+        Unit.UnitData.AttackWrapper.Rate /= 1 + 0.1f * Level;
     }
 
-    
-    public override BuffData GetBuffData()
+    protected override void OnEnable()
     {
-        var res = base.GetBuffData();
-        res.Name = "增伤";
-        res.Description = "怪物增伤";
-        return res;
+        Unit.UnitData.AttackWrapper.Rate *= 1 + 0.1f * Level;
     }
-
+    public override bool CheckReplace(Buff buff)
+    {
+        if (buff is Gain)
+        {
+            Level = buff.Level + 1;
+            return true;
+        }
+        return false;
+    }
 }
     
 

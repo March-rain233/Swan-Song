@@ -107,7 +107,7 @@ public class FireStatus : RoundStatus
     protected internal override void StatusProcessOnUpdata(IEnumerable<Unit> units)
     {
         base.StatusProcessOnUpdata(units);
-        foreach (var unit in units)
+        foreach (var unit in units.ToList())
         {
             unit.AddBuff(new Burn() { Time = 2 });
         }
@@ -139,9 +139,9 @@ public class PoisonStatus : RoundStatus
     protected internal override void StatusProcessOnUpdata(IEnumerable<Unit> units)
     {
         base.StatusProcessOnUpdata(units);
-        foreach (var unit in units)
+        foreach (var unit in units.ToList())
         {
-            unit.AddBuff(new Poison() { Time = 2 });
+            unit.AddBuff(new Poison() { Time = 2, Damage = 10 });
         }
     }
 }
@@ -161,7 +161,7 @@ public class CaltropStatus : RoundStatus
 
     protected internal override void StatusProcessOnEnter(IEnumerable<Unit> units)
     {
-        foreach(IHurtable unit in units)
+        foreach(IHurtable unit in units.ToList())
         {
             unit.Hurt(Damage, HurtType.FromTile | HurtType.AD, this);
         }
@@ -233,7 +233,8 @@ public class AttackMatrixStatus : RoundStatus
         base.StatusProcessOnUpdata(units);
         if(Times == 0)
         {
-            foreach(IHurtable unit in units)
+            var list = units.Where(p=>p.Camp == Camp.Enemy).ToList();
+            foreach(IHurtable unit in list)
             {
                 unit.Hurt(User.UnitData.Attack * 2, HurtType.AP | HurtType.FromTile, this);
             }

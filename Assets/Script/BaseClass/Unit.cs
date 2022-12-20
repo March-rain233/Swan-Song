@@ -129,6 +129,7 @@ public abstract class Unit : IHurtable, ICurable
     /// 单位受伤事件
     /// </summary>
     public event Action<float, HurtType, object> Hurt;
+    public event Action<CureCalculateEvent> CureCalculating;
     /// <summary>
     /// 单位受伤计算事件
     /// </summary>
@@ -175,7 +176,12 @@ public abstract class Unit : IHurtable, ICurable
         ActionStatus = ActionStatus.Waitting;
         UnitData.ActionPoint = UnitData.ActionPointMax;
         Position = Position;
+        OnInit();
         Initing?.Invoke();
+    }
+    protected virtual void OnInit()
+    {
+
     }
 
     /// <summary>
@@ -306,7 +312,7 @@ public abstract class Unit : IHurtable, ICurable
     /// <param name="target">移动目标位置</param>
     public void Move(Vector2Int target)
     {
-        if (!CanMove)
+        if (!CanMove || UnitData.ActionPoint <= 0)
         {
             return;
         }
@@ -349,7 +355,7 @@ public abstract class Unit : IHurtable, ICurable
     /// </summary>
     public IEnumerable<Vector2Int> GetMoveArea()
     {
-        if (!CanMove)
+        if (!CanMove || UnitData.ActionPoint <= 0)
         {
             return Enumerable.Empty<Vector2Int>();
         }
@@ -415,7 +421,18 @@ public abstract class Unit : IHurtable, ICurable
 
     float ICurable.CureCalculate(float power, object source)
     {
-        return power;
+        CureCalculateEvent @event = new CureCalculateEvent()
+        {
+            OriCure = power,
+            CureAdd = 0,
+            Rate = 1,
+            Source = source,
+            Target = this,
+        };
+        CureCalculating?.Invoke(@event);
+        ServiceFactory.Instance.GetService<EventManager>()
+            .Broadcast(@event);
+        return @event.FinalCure;
     }
 
     void ICurable.OnCure(float power)

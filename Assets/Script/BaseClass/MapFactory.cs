@@ -85,15 +85,21 @@ public static class MapFactory
         //创建boss
         if (battleLevel == 3)
         {
-
+            var unit = new Boss(posList[0]);
+            posList.RemoveAt(0);
+            unit.Camp = Camp.Enemy;
+            data.Units.Add(unit);
         }
         //创建精英
-        if(battleLevel == 2)
+        if(battleLevel == 2 || (battleLevel == 3 && chapter == 3))
         {
-            int type = Random.Range(1, 2);
+            int type = Random.Range(1, 5);
             Unit unit = type switch
             {
                 1 => new MagicSpider(posList[0]),
+                2 => new GoblinThief(posList[0]),
+                3 => new SkeletonKnight(posList[0]),
+                4 => new EvilWarlock(posList[0]),
                 _ => throw new System.Exception("Over Monster Type"),
             };
             posList.RemoveAt(0);

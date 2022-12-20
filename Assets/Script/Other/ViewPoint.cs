@@ -12,18 +12,24 @@ using UnityEngine.InputSystem;
 /// </remarks>
 public class ViewPoint : MonoBehaviour
 {
-    public float MaxVelocity = 0.5f;
     public Rect Border;
+    Vector2 _lastPoint;
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
     }
     void Update()
     {
-        if (Pointer.current.press.isPressed)
+        if (Pointer.current.press.wasPressedThisFrame)
         {
-            var delta = Pointer.current.delta.ReadValue().normalized;
-            delta = -delta * Mathf.Lerp(0, MaxVelocity, delta.magnitude);
+            _lastPoint = Pointer.current.position.ReadValue();
+        }
+        else if(Pointer.current.press.isPressed)
+        {
+            var start = Camera.main.ScreenToWorldPoint(_lastPoint);
+            var end = Camera.main.ScreenToWorldPoint(Pointer.current.position.ReadValue());
+            _lastPoint = Pointer.current.position.ReadValue();
+            var delta = start - end;
 
             var position = transform.position + (Vector3)delta;
             position.x = Mathf.Clamp(position.x, Border.xMin, Border.xMax);

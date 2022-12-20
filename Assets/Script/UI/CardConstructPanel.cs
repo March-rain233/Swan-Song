@@ -25,6 +25,7 @@ internal class CardConstructPanel : PanelBase
         {
             ServiceFactory.Instance.GetService<PanelManager>()
                 .ClosePanel(this);
+            GameManager.Instance.SaveGame();
             Quitting?.Invoke();
         });
     }

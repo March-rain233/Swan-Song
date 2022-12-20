@@ -12,11 +12,14 @@ public class Slime : Unit
 {
     public Slime(Vector2Int pos) : base(new UnitModel()
     {
+        DefaultViewType = 1,
         DefaultName = "史莱姆",
+        DefaultDescription = "普通怪物\n" +
+        "对最近的角色造成100%力量值的伤害",
         Blood = 80,//初始血量为最大血量
         Attack = 10,//攻击力
-        Defence = 4,//防御力
-        Speed = 2,//先攻权重
+        Defence = 20,//防御力
+        Speed = 3,//先攻权重
         ActionPoint = int.MaxValue,
     }
 , pos)
@@ -45,7 +48,8 @@ public class Slime : Unit
     public Player getAttackPlayer()
     {
         //获得玩家对象
-        List<Player> players = GameManager.Instance.GetState<BattleState>().PlayerList.ToList();
+        List<Player> players = GameManager.Instance.GetState<BattleState>().PlayerList
+            .Where(p=>p.ActionStatus != ActionStatus.Dead).ToList();
         int num = 0;//记录距离最短的玩家的号码
         int i = 0;
         double minDis = int.MaxValue;//设初值为最大值

@@ -12,9 +12,12 @@ public class Goblingunner : Unit
 {
     public Goblingunner(Vector2Int pos) : base(new UnitModel()
     {
+        DefaultViewType = 1,
         DefaultName = "哥林布枪手",
-        Blood = 100,//初始血量为最大血量
-        Attack = 20,//攻击力
+        DefaultDescription = "普通怪物\n" +
+        "对距离最近的角色造成三次50%力量值的伤害",
+        Blood = 70,//初始血量为最大血量
+        Attack = 18,//攻击力
         Defence = 4,//防御力
         Speed = 4,//先攻权重
         //移动和技能的使用会消耗技能点,但怪物无行动点约束，设为最大值
@@ -45,7 +48,8 @@ public class Goblingunner : Unit
     public Player getAttackPlayer()
     {
         //获得玩家对象
-        List<Player> players = GameManager.Instance.GetState<BattleState>().PlayerList.ToList();
+        List<Player> players = GameManager.Instance.GetState<BattleState>().PlayerList
+            .Where(p=>p.ActionStatus != ActionStatus.Dead).ToList();
         int num = 0;//记录距离最短的玩家的号码
         int i = 0;
         double minDis = int.MaxValue;//设初值为最大值

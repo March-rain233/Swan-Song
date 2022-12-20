@@ -878,7 +878,7 @@ MonoBehaviour:
       Data: 52|GameToolKit.Dialog.OptionArgument, GameToolKit.Dialog
     - Name: Option
       Entry: 1
-      Data: "\u83B7\u53D6\u4E00\u5F20\u5361"
+      Data: "\u83B7\u53D64\u5F20\u5361"
     - Name: IsEnable
       Entry: 5
       Data: true

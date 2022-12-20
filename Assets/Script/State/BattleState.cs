@@ -292,6 +292,16 @@ public class BattleState : GameState
         //发动灭亡之歌
         if (RoundNumber >= SwanSongRoundNumber)
         {
+            if(RoundNumber == SwanSongRoundNumber)
+            {
+                foreach(var unit in UnitList.Where(u => u.ActionStatus != ActionStatus.Dead))
+                {
+                    unit.CureCalculating += (arg) =>
+                    {
+                        arg.Rate *= 0.2f;
+                    };
+                }
+            }
             foreach (var unit in UnitList.Where(u => u.ActionStatus != ActionStatus.Dead))
             {
                 (unit as IHurtable).Hurt(unit.UnitData.BloodMax * 0.2f, HurtType.FromBuff, this);
@@ -413,6 +423,7 @@ public class BattleState : GameState
                         for (int i = 0; i < 3 && artifacts.Count > 0; ++i)
                         {
                             var art = artifacts[UnityEngine.Random.Range(0, artifacts.Count)];
+                            artifacts.Remove(art);
                             list.Add(art);
                         }
                         ItemList.Add(new Item() { Type = ItemType.Artifact, Value = list });
