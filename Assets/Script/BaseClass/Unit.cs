@@ -151,7 +151,7 @@ public abstract class Unit : IHurtable, ICurable
     protected Unit(UnitData data, Vector2Int pos)
     {
         UnitData = data;
-        Scheduler = new CardScheduler(this, data.Bag.Select(c=>c.Clone()));
+        Scheduler = new CardScheduler(this, data.Bag.Select(c=>c.CloneCard()));
         _position = pos;
         UnitData.ActionPoint = UnitData.ActionPointMax;
     }
@@ -312,21 +312,27 @@ public abstract class Unit : IHurtable, ICurable
         }
         var adapter = new GenericMapAdapter(this, GameManager.Instance.GetState<BattleState>().Map);
         var rawPath = UnitUtility.FindShortestPath(adapter, adapter.Point2ID(Position), adapter.Point2ID(target), MoveDistance);
-        var path = rawPath.Select(e => adapter.ID2Point(e));
-        var pre = path.First();
-        foreach(var p in path.Skip(1))
+        if (rawPath.Count() > 0)
         {
-            SetPosition(p);
-            Direction = (Position - pre).ToDirection();
-            pre = p;
+            var path = rawPath.Select(e => adapter.ID2Point(e));
+            var pre = path.First();
+            foreach (var p in path.Skip(1))
+            {
+                SetPosition(p);
+                Direction = (Position - pre).ToDirection();
+                pre = p;
+            }
+            UnitData.ActionPoint -= 1;
+            Moved(path);
         }
-        UnitData.ActionPoint -= 1;
-        Moved(path);
     }
 
     void Died()
     {
         OnDied();
+        var manager = GameToolKit.ServiceFactory.Instance.GetService<GameManager>()
+            .GetState() as BattleState;
+        manager.Map[_position].Exit(this);
         UnitDied?.Invoke();
     }
 

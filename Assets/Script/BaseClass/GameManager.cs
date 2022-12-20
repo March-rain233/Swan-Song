@@ -118,4 +118,16 @@ public class GameManager : IService
             GameData = null;
         }
     }
+
+    public void DeleteSave()
+    {
+        try
+        {
+            File.Delete(SavePath);
+        }
+        catch (Exception ex)
+        {
+
+        }
+    }
 }

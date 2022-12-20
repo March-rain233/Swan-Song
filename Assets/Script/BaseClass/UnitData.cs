@@ -165,7 +165,7 @@ public class UnitData
         Deck = new();
         foreach(var card in unitModel.DefaultDeck)
         {
-            Deck.Add(card.Clone());
+            Deck.Add(card.CloneCard());
         }
         BagIndex = Enumerable.Range(0, Mathf.Min(20, Deck.Count)).ToList();
     }

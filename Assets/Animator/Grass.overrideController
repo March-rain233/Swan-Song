@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Grass
+  m_Controller: {fileID: 9100000, guid: bc2d55b645af06b499d9221ffa0418ec, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 38973d44f12059042bf6d6191af0b079, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: c2f1215da0ac0fa4ea49a1b794d7915a, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 6e13938d565eb8241b0047c2551260e0, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 099246a0f96785e4593daba0ad1d4214, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 30858abcb8fa10c4a963e576268f6f84, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: f89f2e044b0f574469f0c26666d3c447, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 2d4f1673bccf8654aa9d4af29af576fc, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: ad7444d33e3dcf849bd7134ecf06877d, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 4dfe0405afdafdb4f9ffccce08c7c0ea, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 690fcbecb3f316d4e85307c5be669894, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: a1a73d00a3eb67749b5c21bce60a722e, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: e3346159d0bc90147a3b687480a3bbf3, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: ed8559330ef9d8f4e8766f82c4a68464, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 7c55432376f974446a0cc3a2e39b5f1f, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 4f45aee48b86b93449ae1da8e43267a4, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 22d99e0499eee1a448567c2c4584bf83, type: 2}

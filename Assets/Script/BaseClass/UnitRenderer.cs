@@ -46,6 +46,11 @@ public class UnitRenderer
         return view;
     }
 
+    public void RemoveUnitView(UnitView view)
+    {
+        _unitViews.Remove(view);
+    }
+
     /// <summary>
     /// 选中单位
     /// </summary>

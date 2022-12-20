@@ -56,6 +56,7 @@ public class UnitView : MonoBehaviour,IPointerClickHandler
     public SpriteRenderer SpriteRenderer;
 
     public Transform AttackTargetFlag;
+    public GameObject DecideFlag;
 
     public event Action<UnitData> ViewDataChanged;
     public event Action BuffChanged;
@@ -73,6 +74,7 @@ public class UnitView : MonoBehaviour,IPointerClickHandler
     private void Awake()
     {
         AttackTargetFlag.gameObject.SetActive(false);
+        DecideFlag.gameObject.SetActive(false);
         IsFlagged = false;
         AttackTargetFlag.DOLocalMoveY(0.5f, 1f)
             .From(true)
@@ -102,6 +104,16 @@ public class UnitView : MonoBehaviour,IPointerClickHandler
     {
         IsFlagged = false;
         AttackTargetFlag.gameObject.SetActive(false);
+    }
+
+    public void Deciding()
+    {
+        DecideFlag.gameObject.SetActive(true);
+    }
+
+    public void Undeciding()
+    {
+        DecideFlag.gameObject.SetActive(false);
     }
 
     public Tween HurtAnim()

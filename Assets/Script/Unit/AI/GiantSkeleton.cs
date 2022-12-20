@@ -193,5 +193,6 @@ public class GiantSkeleton : Unit
     {
         Skeletonarchers newSkeArc = new Skeletonarchers(this.Position);
         GameManager.Instance.GetState<BattleState>().UnitList.Add(newSkeArc);
+        newSkeArc.Position = this.Position;
     }
 }

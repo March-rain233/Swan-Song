@@ -26,6 +26,15 @@ public class GenericMapAdapter : MapAdapter
             if(TileUtility.TryGetTile(pos, out var tile) && tile.CheckPlaceable(_unit))
             {
                 //todo
+                if(_unit.Camp == Camp.Player && _map[center].TileStatusList.FirstOrDefault(s => s is SilkscreenStatus) != null 
+                && tile.TileStatusList.FirstOrDefault(s=>s is SilkscreenStatus) == null)
+                {
+                    return;
+                }
+                else if(tile.Units.Count > 0 && tile.Units.First().Camp != _unit.Camp)
+                {
+                    return;
+                }
                 edges.Add(new EdgeData() { ID = Point2ID(pos), PrimaryCost = 1 });
             }
         };

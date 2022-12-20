@@ -10,7 +10,7 @@ internal class CurseBuff : RoundBuff
     public override BuffData GetBuffData()
     {
         var res = base.GetBuffData();
-        res.Name = "牌怨";
+        res.Name = "咒怨";
         res.Description = $"如果<color=purple>{Time}回合</color>内死亡，则<color=blue>{User.UnitData.Name}</color>抽一张卡牌";
         return res;
     }

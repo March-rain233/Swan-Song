@@ -30,7 +30,7 @@ internal class GhostlyVisage : Buff
             Unit.UnitData.AttackWrapper.Rate /= 1 + 0.05f * Level;
             Level += 1;
             Unit.UnitData.AttackWrapper.Rate *= 1 + 0.05f * Level;
-            Unit.NotifyBuffChange();
+            return true;
         }
         return false;
     }

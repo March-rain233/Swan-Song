@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -33,7 +32,7 @@ public static class MapFactory
     /// 根据描述创建地图
     /// </summary>
     /// <param name="description">地图生成描述</param>
-    public static MapData CreateMap(string description)
+    public static MapData CreateMap(int battleLevel, int chapter)
     {
         var data = new MapData();
 
@@ -60,8 +59,71 @@ public static class MapFactory
                 data.Map[i, j] = tile;
             }
         }
+        //获取敌方可放置点
+        List<Vector2Int> posList = new List<Vector2Int>();
+        for(int i = height / 3; i < height; i++)
+        {
+            for(int j = 0; j < width; j++)
+            {
+                var pos = new Vector2Int(j, i);
+                if(data.Map[pos] != null && data.Map[pos] is not BarrierTile)
+                {
+                    posList.Add(pos);
+                }
+            }
+        }
+        //打乱列表
+        for(int i = posList.Count - 1; i >= 0; i--)
+        {
+            var rand = Random.Range(0, i + 1);
+            var temp = posList[rand];
+            posList[rand] = posList[i];
+            posList[i] = temp;
+        }
         //创建单位
-        data.Units = new() { new SilkSpider(new Vector2Int(5, 5)) { Camp = Camp.Enemy} };
+        data.Units = new List<Unit>();
+        //创建boss
+        if (battleLevel == 3)
+        {
+
+        }
+        //创建精英
+        if(battleLevel == 2)
+        {
+            int type = Random.Range(1, 2);
+            Unit unit = type switch
+            {
+                1 => new MagicSpider(posList[0]),
+                _ => throw new System.Exception("Over Monster Type"),
+            };
+            posList.RemoveAt(0);
+            unit.Camp = Camp.Enemy;
+            data.Units.Add(unit);
+        }
+        //创建小怪
+        int num = Random.Range(chapter, chapter + 2);
+        for(int i = 0; i < num; ++i)
+        {
+            int type = Random.Range(1, 12);
+            Unit unit = type switch
+            {
+                1 => new Slime(posList[0]),
+                2 => new Goblingunner(posList[0]),
+                3 => new Goblinis(posList[0]),
+                4 => new Skeletonarchers(posList[0]),
+                5 => new Skeletalmage(posList[0]),
+                6 => new BloodSuckFloater(posList[0]),
+                7 => new ShaAttkMonster(posList[0]),
+                8 => new UnstableSlime(posList[0]),
+                9 => new GiantSkeleton(posList[0]),
+                10 => new FungalSpider(posList[0]),
+                11 => new SilkSpider(posList[0]),
+                _ => throw new System.Exception("Over Monster Type"),
+            };
+            posList.RemoveAt(0);
+            unit.Camp = Camp.Enemy;
+            data.Units.Add(unit);
+        }
 
         //设定可放置节点
         data.PlaceablePoints = new();

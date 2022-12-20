@@ -86,7 +86,7 @@ public class SilkSpider : Unit
                 attackedPlayers[p]++;
                 if(attackedPlayers[p] == 3)
                 {
-                    restrain.Time = int.MaxValue;//不能移动的buff施加时间无限长，即本局都不能动
+                    restrain.Time = -1;//不能移动的buff施加时间无限长，即本局都不能动
                     player.AddBuff(restrain);
                 }
                 break;

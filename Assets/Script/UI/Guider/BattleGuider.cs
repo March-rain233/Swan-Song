@@ -105,7 +105,9 @@ public class BattleGuider : GuiderBase
             case 10:
                 GuiderManager.HighlightController(panel.transform.FindAll("TogMove").transform as RectTransform)
                     .SetText("点击该按钮将进入移动模式，地图上将用蓝色标记所有可移动到的图格\n" +
-                    "点击被标记的图格可以移动至该图格，每一次移动需要消耗一点行动点")
+                    "点击被标记的图格可以移动至该图格，每一次移动需要消耗一点行动点" +
+                    "每个单位有自己的最大移动范围，单位的移动会被敌对单位阻挡但不会被队友阻挡" +
+                    "所以可以尝试通过围堵的方式限制住敌方单位的移动")
                     .SetTextAlign(GuiderManager.AlignType.Middle)
                     .SetClickCallback(Process);
                 break;

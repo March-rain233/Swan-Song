@@ -57,12 +57,21 @@ public class BattleAnimator
             seq.AppendCallback(() =>
             {
                 vp.enabled = false;
-                var panel = pm.OpenPanel(nameof(BootyPanel)) as BootyPanel;
-                panel.ShowItems(_battleState.ItemList);
-                panel.Quitting += () =>
+                if (_battleState.Chapter == 3 && _battleState.BattleLevel == 3)
                 {
-                    GameManager.Instance.SetStatus<SelectLevelState>();
-                };
+                    GameManager.Instance.DeleteSave();
+                    var panel = pm.OpenPanel(nameof(EndPanel)) as EndPanel;
+                    panel.Begin();
+                }
+                else
+                {
+                    var panel = pm.OpenPanel(nameof(BootyPanel)) as BootyPanel;
+                    panel.ShowItems(_battleState.ItemList);
+                    panel.Quitting += () =>
+                    {
+                        GameManager.Instance.SetStatus<SelectLevelState>();
+                    };
+                }
             });
             EnqueueAnimation(seq);
         };
@@ -124,16 +133,31 @@ public class BattleAnimator
         {
             unit.TurnBeginning += () =>
             {
+                var seq = DOTween.Sequence();
                 var anim = _battlePanel.BeginControl(unit as Player);
-                EnqueueAnimation(anim);
+                seq.Append(anim);
+                EnqueueAnimation(seq);
             };
             unit.TurnEnding += () =>
             {
+                var seq = DOTween.Sequence();
                 var anim = _battlePanel.EndControl(unit as Player);
-                EnqueueAnimation(anim);
+                seq.Append(anim);
+                EnqueueAnimation(seq);
             };
         }
-
+        unit.TurnBeginning += () =>
+        {
+            var seq = DOTween.Sequence();
+            seq.AppendCallback(unitView.Deciding);
+            EnqueueAnimation(seq);
+        };
+        unit.TurnEnding += () =>
+        {
+            var seq = DOTween.Sequence();
+            seq.AppendCallback(unitView.Undeciding);
+            EnqueueAnimation(seq);
+        };
         unit.Moved += (rawPath) =>
         {
             var panel = ServiceFactory.Instance.GetService<PanelManager>().GetOrOpenPanel("BattlePanel") as BattlePanel;
@@ -171,7 +195,16 @@ public class BattleAnimator
             var anim = unitView.HurtAnim();
             EnqueueAnimation(anim);
         };
-
+        unit.UnitDied += () =>
+        {
+            var seq = DOTween.Sequence();
+            seq.AppendCallback(() =>
+            {
+                _battleState.UnitRenderer.RemoveUnitView(unitView);
+                GameObject.Destroy(unitView.gameObject);
+            });
+            EnqueueAnimation(seq);
+        };
         unit.Scheduler.HandsAdded += (card) =>
         {
             var panel = ServiceFactory.Instance.GetService<PanelManager>().GetOrOpenPanel("BattlePanel") as BattlePanel;

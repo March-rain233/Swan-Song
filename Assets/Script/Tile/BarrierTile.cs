@@ -7,6 +7,11 @@ using UnityEngine;
 /// </summary>
 public class BarrierTile : Tile
 {
+    public override void AddStatus<TStatus>(TStatus status)
+    {
+        
+    }
+
     protected override void OnEnter(Unit unit)
     {
         throw new System.NotImplementedException();

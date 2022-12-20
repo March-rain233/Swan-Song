@@ -34,7 +34,7 @@ public class Ambush : Card
 
     protected internal override void Release(Unit user, Vector2Int target)
     {
-        user.Scheduler.AddToHand(CardPointer.Clone());
-        user.Scheduler.AddToHand(CardPointer.Clone());
+        user.Scheduler.AddToHand(CardPointer.CloneCard());
+        user.Scheduler.AddToHand(CardPointer.CloneCard());
     }
 }

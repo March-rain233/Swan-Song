@@ -30,6 +30,6 @@ public class CardPoolManager : GameToolKit.ScriptableSingleton<CardPoolManager>
             .Select((p, i)=>(new AdvanceRandom.Item() { Value = i, Weight = p.weight})));
         var pool = PoolDic[poolIndex[rand].poolIndex].Where(c=>poolIndex[rand].rarity == c.Rarity).ToList();
         rand = UnityEngine.Random.Range(0, pool.Count());
-        return pool.ElementAt(rand).Clone();
+        return pool.ElementAt(rand).CloneCard();
     }
 }

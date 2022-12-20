@@ -117,11 +117,15 @@ public abstract class Card
     /// <summary>
     /// 复制卡牌对象
     /// </summary>
-    public virtual Card Clone()
+    public virtual Card CloneCard()
     {
-        var card = MemberwiseClone() as Card;
-        card.Entries = new HashSet<Entry>(card.Entries);
-        return card;
+        JsonSerializerSettings settings = new JsonSerializerSettings();
+        settings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+        settings.NullValueHandling = NullValueHandling.Ignore;
+        settings.TypeNameHandling = TypeNameHandling.All;
+        var data = JsonConvert.SerializeObject(this, settings);
+        settings.ObjectCreationHandling = ObjectCreationHandling.Replace;
+        return JsonConvert.DeserializeObject<Card>(data, settings);
     }
 
     /// <summary>

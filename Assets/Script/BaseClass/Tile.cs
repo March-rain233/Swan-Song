@@ -33,7 +33,7 @@ public abstract class Tile
     /// 添加图格状态
     /// </summary>
     /// <param name="status"></param>
-    public void AddStatus<TStatus>(TStatus status)
+    public virtual void AddStatus<TStatus>(TStatus status)
         where TStatus : TileStatus
     {
         foreach(var ori in _statusList.Where(e=>e is TStatus).ToList())

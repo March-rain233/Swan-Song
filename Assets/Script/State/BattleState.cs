@@ -153,7 +153,7 @@ public class BattleState : GameState
         BattleLevel = battleLevel;
 
         //初始化系统
-        var mapData = MapFactory.CreateMap("");
+        var mapData = MapFactory.CreateMap(battleLevel, Chapter);
         Map = mapData.Map;
         UnitList = mapData.Units;
         //todo:设置灭歌开始回合
