@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 
 /// <summary>
-///第一回合丢垃圾，把所有角色拉到自己攻击范围内，并且不允许他们走出去
+///第一回合丢蛛丝，把所有角色拉到自己攻击范围内，并且不允许他们走出去
 ///如后续对攻击范围内所有角色造成伤害
 ///死亡后清除牢笼状态
 /// </summary>
@@ -62,7 +62,7 @@ public class MagicSpider : Unit
            
            Cage cage = new Cage() ;//对所有角色施加牢笼buff
             cage.Time = 5;
-            player.AddBuff(cage);//对所有角色施加牢笼buff
+            player.AddBuff(cage);
 
         }
 
