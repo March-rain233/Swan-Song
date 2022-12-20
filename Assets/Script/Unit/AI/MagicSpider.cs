@@ -6,24 +6,13 @@ using System.Threading.Tasks;
 using UnityEngine;
 
 /// <summary>
-///第一回合丢垃圾，把所有角色拉到自己攻击范围内，并且不允许他们走出去
+///第一回合丢蛛丝，把所有角色拉到自己攻击范围内，并且不允许他们走出去
 ///如后续对攻击范围内所有角色造成伤害
 ///死亡后清除牢笼状态
 /// </summary>
 public class MagicSpider : Unit
 {
-    AreaHelper AreaHelper = new AreaHelper()
-    {
-        Center = new Vector2Int(2, 2),
-        Flags = new bool[5, 5]
-        {
-            {true, true, true, true, true},
-            {true, true, true, true, true},
-            {true, true, true, true, true},
-            {true, true, true, true, true},
-            {true, true, true, true, true},
-        }
-    };
+
     public MagicSpider(Vector2Int pos) : base(new UnitModel()
     {
         DefaultName = "魔蛛",
@@ -67,31 +56,16 @@ public class MagicSpider : Unit
     /// <param name="player">要攻击的玩家</param>
     public void giveDebuff()
     {
-        var map = GameManager.Instance.GetState<BattleState>().Map;
         List<Player> players = GameManager.Instance.GetState<BattleState>().PlayerList.ToList();
         foreach(Player player in players)
         {
-            Vector2Int pos;
-            try
-            {
-                pos = AreaHelper.GetPointList(Position)
-                    .First(p => p.x >= 0 && p.x < map.Width
-                        && p.y >= 0 && p.y < map.Height &&
-                        map[p].Units.Count <= 0 && map[p].CheckPlaceable(player));
-            }
-            catch(Exception ex)
-            {
-                break;
-            }
-            player.Position = pos;
+           
+           Cage cage = new Cage() ;//对所有角色施加牢笼buff
+            cage.Time = 5;
+            player.AddBuff(cage);
+
         }
-        foreach(var t in AreaHelper.GetPointList(Position)
-                .Where(p => p.x >= 0 && p.x < map.Width
-                    && p.y >= 0 && p.y < map.Height)
-                .Select(p => map[p]))
-        {
-            t.AddStatus(new SilkscreenStatus());
-        }
+
     }
 
     /// <summary>
@@ -129,14 +103,13 @@ public class MagicSpider : Unit
 
     protected override void OnDied()
     {
-        var map = GameManager.Instance.GetState<BattleState>().Map;
-        foreach (var t in AreaHelper.GetPointList(Position)
-        .Where(p => p.x >= 0 && p.x < map.Width
-            && p.y >= 0 && p.y < map.Height)
-        .Select(p => map[p]))
+        List<Player> players = GameManager.Instance.GetState<BattleState>().PlayerList.ToList();
+        foreach (Player player in players)
         {
-            t.RemoveStatus<SilkscreenStatus>();
-        }
+            
+            player.CanMove=true;
+
+        }//死后解除所有角色的牢笼
     }
 
 }
